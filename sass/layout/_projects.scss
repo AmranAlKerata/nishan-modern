@@ -1,0 +1,95 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+
+
+
+.projects-.projects-section.horizontal {
+    overflow-x: hidden;
+}
+
+.projects-.projects-section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.projects-.projects-section.horizontal {
+    overflow-x: hidden;
+}
+
+.projects-section.horizontal .pin-wrap,
+.projects-section.horizontal .animation-wrap {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    height: 100vh;
+}
+
+.projects-section.horizontal .project {
+    position: relative;
+    flex: 0 0 auto;
+    height: 100%;
+    user-select: none;
+
+    &::before {
+        content: '';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(23, 21, 21, 0);
+        background: radial-gradient(circle, rgba(255, 255, 255, 0.672) 28%, #00000047 55%);
+        opacity: 0;
+        transition: all .3s ease-in-out;
+    }
+
+    &:hover::before {
+        opacity: 1;
+    }
+
+    &:hover .project-name {
+        opacity: 1;
+    }
+
+    .project-img {
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+
+    }
+
+    .project-name {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 50%);
+        cursor: pointer;
+        opacity: 0;
+        transition: all .3s ease-in-out;
+
+        &:hover {
+            .arrow-icon img {
+                transform: translate(20px, -20px);
+            }
+        }
+
+        h3 {
+            cursor: pointer;
+            color: $primary;
+        }
+
+        .arrow-icon {
+            text-align: center;
+
+            img {
+                width: 30px;
+                transition: all .3s ease-in-out;
+            }
+
+            margin-right: auto;
+        }
+    }
+}

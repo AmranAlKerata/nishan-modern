@@ -1,0 +1,40 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+section {
+  @include padding(150px 0 0 0);
+  position: relative;
+  z-index: 3;
+}
+
+.statistics {
+  @include padding(150px 0 150px 0);
+}
+
+.section-heading {
+  @include margin-bottom(60px);
+}
+
+section {
+
+  .section-heading h2 {
+    position: relative;
+    display: inline-block;
+  }
+
+
+}
+
+.section-heading p {
+  margin-bottom: 0;
+}
+
+
+.text-justify {
+  text-align: justify;
+}
+
+.nishan-icon {
+  font-family: "Nishan Icons";
+}

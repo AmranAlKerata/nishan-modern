@@ -1,0 +1,239 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+header {
+  background-color: #fff;
+
+  position: fixed;
+  min-width: 100%;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  transition: all 0.4s ease-in-out;
+
+  &.nav-up {
+    top: -200px;
+  }
+
+  .logo {
+    position: relative;
+    z-index: 99999;
+
+    img {
+      max-width: 180px;
+      width: 100%;
+
+      @include media ($lg) {
+        max-width: 110px;
+      }
+    }
+  }
+
+  .login-btn {
+    position: relative;
+    z-index: 999999;
+
+    a {
+      font-size: 22px;
+      color: $text;
+      font-weight: lighter;
+    }
+  }
+
+  .menu {
+    cursor: pointer;
+
+    .icon {
+      position: relative;
+      z-index: 999999;
+
+      span {
+        width: 25px;
+        height: 2px;
+        display: block;
+        background-color: $text;
+        transition: all .3s ease-in-out;
+      }
+
+      &.active span {
+        &:first-of-type {
+          transform: rotate(60deg) translate(9px, 5px);
+        }
+
+        &:last-of-type {
+          transform: rotate(-60deg);
+        }
+      }
+    }
+  }
+
+  .menu-links {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: #{$start_dir};
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease-in-out;
+    transition-delay: 2000ms;
+
+    &:not(.active) .container {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    li {
+      position: relative;
+      overflow: hidden;
+      padding-top: 20px;
+      padding-bottom: 20px;
+
+      &:hover a {
+        color: #fff;
+      }
+    }
+
+    li::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      background-color: $primary;
+      position: absolute;
+      top: 0;
+      #{$start_dir}: 0;
+      z-index: -1;
+      transition: all .5s ease-in-out;
+      transform: scaleX(0);
+      transform-origin: top #{$start_dir};
+    }
+
+    li:hover::after {
+      transform: scaleX(1);
+    }
+
+    li::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 3px;
+      border-radius: 13px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $text;
+      z-index: -1;
+      transform: translateX(-100%);
+    }
+
+    li[class*="delay"]::before {
+      transform: translateX(0%);
+      transition: all 1s ease-in-out;
+    }
+
+    li.finish::before {
+      transform: translateX(100%);
+      transition: all 1s ease-in-out;
+    }
+
+    li.delay-1::before {
+      transition-delay: 200ms;
+    }
+
+    li.delay-2::before {
+      transition-delay: 300ms;
+    }
+
+    li.delay-3::before {
+      transition-delay: 400ms;
+    }
+
+    li.delay-4::before {
+      transition-delay: 500ms;
+    }
+
+    li.delay-5::before {
+      transition-delay: 600ms;
+    }
+
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 9999;
+      transition-delay: 0ms !important;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      @include font-size(50px);
+      font-weight: 900;
+      color: $text;
+    }
+
+    .container a {
+      position: relative;
+      display: block;
+      // padding-#{$start_dir}: 35px;
+
+      &::before {
+        content: "n";
+        font-family: "Nishan Icons";
+        font-size: 60px;
+        color: $secondary;
+        position: relative;
+        padding-#{$end_dir}: 15px;
+        line-height: 0;
+        font-weight: normal;
+
+        @include media($lg) {
+          font-size: 50px;
+        }
+
+        // top: 50%;
+        // left: -15px;
+        // transform: translateY(-50%);
+      }
+    }
+  }
+
+  .delay-1 {
+    animation-delay: 500ms;
+  }
+
+  .delay-2 {
+    animation-delay: 600ms;
+  }
+
+  .delay-3 {
+    animation-delay: 700ms;
+  }
+
+  .delay-4 {
+    animation-delay: 800ms;
+  }
+
+  .delay-5 {
+    animation-delay: 900ms;
+  }
+
+  .delay-6 {
+    animation-delay: 1000ms;
+  }
+}

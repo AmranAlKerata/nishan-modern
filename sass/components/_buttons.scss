@@ -1,0 +1,30 @@
+@use "../helpers/vars" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.button {
+  cursor: pointer;
+  border: none;
+  display: inline-block;
+  text-align: center;
+  padding: 12px 30px;
+  box-sizing: border-box;
+  text-decoration: none;
+  color: #fff;
+  background: $primary;
+  border-radius: 10px;
+  font-weight: normal;
+
+  &:hover {
+    color: #fff !important;
+    background: $secondary;
+  }
+}
+
+.btn-close {
+  background-color: transparent;
+  border: none;
+
+  img {
+    width: 30px;
+  }
+}

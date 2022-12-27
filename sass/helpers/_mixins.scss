@@ -1,0 +1,7 @@
+@use "../helpers/vars" as *;
+
+@mixin media($screen) {
+  @media ($screen) {
+    @content;
+  }
+}

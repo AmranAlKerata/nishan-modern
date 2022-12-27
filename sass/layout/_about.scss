@@ -1,0 +1,53 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.about {
+    %box {
+        @include padding(50px);
+
+    }
+
+    .service-box {
+        .nishan-icon {
+            font-size: 70px;
+        }
+
+        &.snickers {
+            margin-top: 31px;
+        }
+    }
+
+    .top-box {
+        background-color: $gray;
+
+        @extend %box;
+
+        h3 {
+            margin-bottom: 20px
+        }
+
+        margin-top: 40px;
+        margin-bottom: 40px;
+    }
+
+    .bottom-box {
+        @extend %box;
+        border: 1px solid $border;
+
+        .nishan-icon {
+            font-size: 70px;
+            line-height: 0;
+            color: $secondary
+        }
+
+        .name {
+            margin-top: 20px;
+        }
+
+        .company {
+            margin-top: -10px;
+        }
+    }
+
+}

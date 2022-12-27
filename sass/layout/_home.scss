@@ -1,0 +1,62 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.home {
+  margin-top: 90px;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  h1 {
+    @include padding-bottom(50px);
+  }
+
+  h1,
+  p {
+    transition: all .3s ease-in-out;
+  }
+
+  .home-circle-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+
+    // &:hover {
+    //     .home-circle {
+    //         background-color: $primary;
+    //     }
+    // }
+
+    .home-circle {
+      width: 35rem;
+      height: 35rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid $primary;
+      border-radius: 50%;
+
+      &.active {
+        background-color: $primary;
+      }
+
+      @include media ($lg) {
+        width: 25rem;
+        height: 25rem;
+      }
+
+      @include media ($md) {
+        width: 15rem;
+        height: 15rem;
+      }
+    }
+  }
+}
