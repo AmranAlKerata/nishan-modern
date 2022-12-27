@@ -69,6 +69,7 @@ $(function() {
             "class",
             `container animate animate__fadeInUp delay-${index + 1}`
           );
+        $(this).css("pointer-events", "auto");
       } else {
         $(this).attr("class", `finish delay-${index + 1}`);
         $(this)
