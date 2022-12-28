@@ -5,6 +5,7 @@ $(function() {
   let lastScrollTop = 0;
   let delta = 5;
   let navbarHeight = $("header").outerHeight();
+  const progressLine = $("#progress-line span");
 
   // Remove Preloader after 500 ms, you can change the period by editing the number below, NOTE: 1000 means 1 Second
 
@@ -16,6 +17,15 @@ $(function() {
   // }, 500);
 
   // Menu
+
+  // Progress Line
+  // $(window).scroll(() => {
+  //   let offset = $(window).scrollTop(),
+  //     windowHeight = $(window).height(),
+  //     height = $(document).height();
+  //   let progress = offset / (height - windowHeight) * 100;
+  //   progressLine.css("width", `${progress + "%"}`);
+  // });
 
   $(".menu .icon").on("click", () => {
     $(".menu .icon").toggleClass("active");

@@ -145,11 +145,20 @@ hr {
 }
 
 @include media($md) {
-  .wow {
-    transition-property: none !important;
-    transform: none !important;
-    animation: none !important;
+  // .wow {
+  //   transition-property: none !important;
+  //   transform: none !important;
+  //   animation: none !important;
+  // }
+}
+$delay: 100;
+
+@for $el from 1 through 20 {
+  .animation-delay-#{$el} {
+    animation-delay: #{$delay}ms;
   }
+
+  $delay: 100 + $delay;
 }
 
 input,
@@ -224,4 +233,18 @@ body:hover .custom-cursor {
   .custom-cursor {
     display: none !important;
   }
+}
+
+.progress-line {
+  z-index: 99999;
+  width: 100vw;
+  bottom: -11px;
+}
+
+.progress-line span {
+  display: inline-block;
+  width: 0;
+  height: 5px;
+  background: $primary;
+  z-index: 99999999;
 }
