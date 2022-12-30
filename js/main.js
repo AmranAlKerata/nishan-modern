@@ -17,13 +17,13 @@ $(function() {
   }).init();
 
   // Progress Line
-  // $(window).scroll(() => {
-  //   let offset = $(window).scrollTop(),
-  //     windowHeight = $(window).height(),
-  //     height = $(document).height();
-  //   let progress = offset / (height - windowHeight) * 100;
-  //   progressLine.css("width", `${progress + "%"}`);
-  // });
+  $(window).scroll(() => {
+    let offset = $(window).scrollTop(),
+      windowHeight = $(window).height(),
+      height = $(document).height();
+    let progress = offset / (height - windowHeight) * 100;
+    progressLine.css("width", `${progress + "%"}`);
+  });
 
   // Hide Header on scroll down
   $(window).scroll(() => {

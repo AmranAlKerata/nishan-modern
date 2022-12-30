@@ -227,13 +227,14 @@ textarea {
 .progress-line {
   z-index: 99999;
   width: 100vw;
-  bottom: -11px;
+  top: -4px;
+  line-height: 0;
 }
 
 .progress-line span {
   display: inline-block;
   width: 0;
-  height: 5px;
+  height: 3px;
   background: $primary;
   z-index: 99999999;
 }
