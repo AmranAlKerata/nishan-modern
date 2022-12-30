@@ -3,13 +3,12 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .home {
-  margin-top: 90px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   @include media($lg) {
-    margin-top: 0px;
+    margin-top: 0px !important;
   }
   h1 {
     @include padding-bottom(50px);
