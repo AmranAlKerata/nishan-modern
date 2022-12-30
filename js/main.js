@@ -100,14 +100,14 @@ $(function() {
   // enable the plugin
   anm.on();
 
-  // $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
-  //   $(".home h1, .home p").addClass("text-white");
-  //   $(".home-circle").addClass("active");
-  // });
-  // $(".home .col-12.col-lg-10").on("mouseleave", () => {
-  //   $(".home h1, .home p").removeClass("text-white");
-  //   $(".home-circle").removeClass("active");
-  // });
+  $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
+    $(".home h1, .home p").addClass("text-white");
+    $(".home-circle").addClass("active");
+  });
+  $(".home .col-12.col-lg-10").on("mouseleave", () => {
+    $(".home h1, .home p").removeClass("text-white");
+    $(".home-circle").removeClass("active");
+  });
 
   // must be an array, could have only one element
   let visibilityIds = [ "#counters_1", "#counters_2", "#counters_3" ];
@@ -203,22 +203,65 @@ $(function() {
   });
   wow.init();
 
+  // Type Writer Effect
+  if ($("#typeWriterEn").length > 0) {
+    new TypeIt("#typeWriterEn", {
+      strings: [ "Professional", "Great", "Interesting", "Attractive" ],
+      cursor: true,
+      cursorChar: "|",
+      cursorSpeed: 1000,
+      deleteSpeed: null,
+      breakLines: false,
+      breakDelay: 550,
+      speed: 200,
+      startDelay: 250,
+      startDelete: false,
+      nextStringDelay: 3000,
+      loop: true,
+      loopDelay: 500,
+      lifeLike: true,
+      waitUntilVisible: true
+    }).go();
+    // Testimonial
+    new TypeIt("#testimonialContent", {
+      strings: [
+        "We are happy to work with Nishan ® and greatfull for good result.",
+        "it's incredible. I would like to personally thank you for your outstanding product. I will let my mum know about this, she could really make use of Branding!"
+      ],
+      cursor: true,
+      cursorChar: "|",
+      // cursorSpeed: 000,
+      deleteSpeed: null,
+      breakLines: false,
+      breakDelay: 550,
+      speed: 100,
+      startDelay: 250,
+      startDelete: false,
+      nextStringDelay: 3000,
+      loop: true,
+      loopDelay: 500,
+      lifeLike: true,
+      waitUntilVisible: true,
+      beforeString: () => {
+        console.log("Start A single String");
+        $("#testimonialAuthor span").removeClass("hidden");
+        $("#testimonialPosition span").removeClass("hidden");
+        // Will fire before each string in the queue.
+      },
+      afterString: () => {
+        console.log("Finish A single String");
+        $("#testimonialAuthor span").addClass("hidden");
+        $("#testimonialPosition span").addClass("hidden");
+        // Will fire after each string in the queue,
+        // including those added by the `.type()` instance method.
+      }
+    }).go();
+  }
+
   //jQuery for page scrolling feature - requires jQuery Easing plugin
-  $(function() {
-    $(".go-up").on("click", function(e) {
-      $("html, body").stop().animate(
-        {
-          scrollTop: 0
-        },
-        100
-      );
-      e.preventDefault();
-    });
-  });
 });
 const $c = $("[data-custom-cursor]");
-const $h = $("a, button, h1, h2, h3,h4, .nishan-icon");
-const $i = $("img");
+const $h = $(" .nishan-icon");
 
 $(window).on("mousemove", function(e) {
   x = e.clientX;
@@ -232,11 +275,4 @@ $h.on("mouseenter", function(e) {
 
 $h.on("mouseleave", function(e) {
   $c.removeClass("custom-cursor-active");
-});
-
-$i.on("mouseenter", function(e) {
-  $c.addClass("custom-cursor-active-img");
-});
-$i.on("mouseleave", function(e) {
-  $c.removeClass("custom-cursor-active-img");
 });

@@ -119,6 +119,7 @@ textarea {
 
 hr {
   color: $border;
+  opacity: 1 !important;
 }
 
 ::-webkit-scrollbar {
@@ -209,23 +210,12 @@ textarea {
   margin-left: -20px;
   background: #fff;
 }
-
-.custom-cursor.custom-cursor-active .cursor {
-  transform: scale(1.5);
+.custom-cursor.custom-cursor-active {
   opacity: 1;
 }
 
-.custom-cursor.custom-cursor-active-img {
-  z-index: 1010;
-
-  .cursor {
-    transform: scale(1);
-    opacity: 1;
-    background: $primary;
-  }
-}
-
-body:hover .custom-cursor {
+.custom-cursor.custom-cursor-active .cursor {
+  transform: scale(1);
   opacity: 1;
 }
 

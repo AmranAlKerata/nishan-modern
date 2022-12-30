@@ -58,11 +58,11 @@ header {
 
       &.active span {
         &:first-of-type {
-          transform: rotate(60deg) translate(9px, 5px);
+          transform: translateX(-7px);
         }
 
         &:last-of-type {
-          transform: rotate(-60deg);
+          transform: translateX(7px);
         }
       }
     }

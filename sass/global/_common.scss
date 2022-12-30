@@ -17,19 +17,15 @@ section {
 }
 
 section {
-
   .section-heading h2 {
     position: relative;
     display: inline-block;
   }
-
-
 }
 
 .section-heading p {
   margin-bottom: 0;
 }
-
 
 .text-justify {
   text-align: justify;
@@ -37,4 +33,5 @@ section {
 
 .nishan-icon {
   font-family: "Nishan Icons";
+  cursor: none;
 }

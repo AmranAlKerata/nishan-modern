@@ -64,12 +64,10 @@ footer {
     }
     .nishan-icon.hidden {
       font-size: 40px;
-      color: $secondary;
     }
     .footer-box {
       .nishan-icon {
         font-size: 40px;
-        color: $secondary;
         @include media ($lg) {
           font-size: 30px;
         }

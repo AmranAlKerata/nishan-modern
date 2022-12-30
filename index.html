@@ -41,6 +41,8 @@
     <script defer src="js/ScrollTrigger.min.js"></script>
     <!-- Count Up -->
     <script defer src="js/multi-animated-counter.js"></script>
+    <!-- Type Writter -->
+    <script defer src="js/typed.umd.js"></script>
     <!-- Main Script -->
     <script defer src="js/main.js"></script>
     <script defer src="js/horizontal-scroll.js"></script>
@@ -64,7 +66,10 @@
                     <img src="images/logo.svg" alt="Logo">
                 </div>
                 <div class="menu d-flex justify-content-end
-                        align-items-center gap-3">
+                        align-items-center gap-3" style="gap: 30px !important">
+                    <span class="text-capitalize
+                                login-btn">
+                        <a href="#">AR</a></span>
                     <span class="text-capitalize
                             login-btn">
                         <a href="#">Login</a></span>
@@ -115,7 +120,7 @@
                         <div class="overflow-hidden">
                             <h1 class="wow animate animate__slideInUp animation-delay-1">Hello, <br>
                                 We are a design & branding
-                                studio.</h1>
+                                studio</h1>
                         </div>
                         <div>
                             <p class="wow animate animate__slideInUp animation-delay-2">We are looking forward to a
@@ -127,7 +132,7 @@
                         </div>
                     </div>
                     <div class="home-circle-container">
-                        <div class="home-circle anm" data-speed-x="20" data-speed-y="20"></div>
+                        <div class="home-circle anm" data-speed-x="80" data-speed-y="80"></div>
 
                     </div>
                 </div>
@@ -143,9 +148,11 @@
         <section class="about" id="about">
             <div class="container">
                 <div class="section-heading overflow-hidden">
-                    <h2 class="wow animate animate__fadeInUp">Let us make your story to be <br
-                            class="d-none d-md-inline">
-                        Professional</h2>
+                    <h2 class="wow animate animate__fadeInUp">Let us make your story to be
+                        <br class="d-none d-lg-block">
+                        <span id="typeWriterEn" class="wow animate animate__fadeInUp d-inline d-lg-block"></span>
+                    </h2>
+
                 </div>
 
                 <div class="row">
@@ -223,16 +230,17 @@
                             <span class="nishan-icon">n</span>
                             <h4 class="fw-bold wow overflow-hidden wow animate animate__fadeInDown animation-delay-1">
                                 Testimonial</h4>
-                            <q class="small wow overflow-hidden wow animate animate__fadeInDown animation-delay-2">We
-                                are happy to work
-                                with Nishan ® and great full for good result.</q>
+                            <q class="small wow overflow-hidden wow animate animate__fadeInDown animation-delay-2"><span
+                                    id="testimonialContent"></span></q>
                             <div class="wow overflow-hidden wow animate animate__fadeInDown name fw-bold">
-                                <span class="wow overflow-hidden wow animate animate__fadeInDown animation-delay-3">Ali
-                                    Saeed</span>
+                                <span class="wow overflow-hidden wow animate animate__fadeInDown animation-delay-3"
+                                    id="testimonialAuthor"> <span>Ali Saeed</span></span>
                             </div>
                             <div class="company">
-                                <span class="wow overflow-hidden wow animate animate__fadeInDown animation-delay-4">Al
-                                    Ward Company</span>
+                                <span class="wow overflow-hidden wow animate animate__fadeInDown animation-delay-4"
+                                    id="testimonialPosition">
+                                    <span>Al Ward Company</span>
+                                </span>
                             </div>
                         </div>
 
