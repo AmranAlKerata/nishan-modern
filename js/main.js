@@ -96,15 +96,41 @@ $(function() {
     });
   });
 
+  function is_touch_enabled() {
+    return (
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0
+    );
+  }
   // Hero Section Circle Animation
-  $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
-    $(".home h1, .home p").addClass("text-white");
-    $(".home-circle").addClass("active");
-  });
-  $(".home .col-12.col-lg-10").on("mouseleave", () => {
-    $(".home h1, .home p").removeClass("text-white");
-    $(".home-circle").removeClass("active");
-  });
+  if (!is_touch_enabled()) {
+    $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
+      $(".home h1, .home p").addClass("text-white");
+      $(".home-circle").addClass("active");
+    });
+    $(".home .col-12.col-lg-10").on("mouseleave", () => {
+      $(".home h1, .home p").removeClass("text-white");
+      $(".home-circle").removeClass("active");
+    });
+  } else {
+    document.addEventListener(
+      "touchmove touchstart",
+      function() {
+        $(".home h1, .home p").addClass("text-white");
+        $(".home-circle").addClass("active");
+      },
+      false
+    );
+    document.addEventListener(
+      "touchend touchcancel",
+      function() {
+        $(".home h1, .home p").removeClass("text-white");
+        $(".home-circle").removeClass("active");
+      },
+      false
+    );
+  }
 
   // Accordion Animation For Footer
   if (window.innerWidth <= 992) {
