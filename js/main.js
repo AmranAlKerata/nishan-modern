@@ -7,7 +7,6 @@ $(function() {
   let navbarHeight = $("header").outerHeight();
   const progressLine = $("#progress-line span");
   const header = $("header");
-  const footer = $("footer");
 
   // enable ANM Plugin
   anm.on();
@@ -63,7 +62,6 @@ $(function() {
 
   // Add Space to hero Section for Fixed Header
   $("#home").css("margin-top", `${header.innerHeight()}px`);
-  console.log(footer.innerHeight());
 
   // Menu Icon Animation
   $(".menu .icon").on("click", () => {
@@ -193,9 +191,6 @@ $(function() {
       }
     }).go();
   }
-
-  // Fixed Footer Feature
-  $("main.page-content").css("margin-bottom", `${footer.innerHeight()}px`);
 });
 
 // Custom Cursor

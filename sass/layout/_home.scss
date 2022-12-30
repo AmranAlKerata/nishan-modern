@@ -17,6 +17,9 @@
   h1,
   p {
     transition: all .3s ease-in-out;
+    &:active {
+      color: #fff;
+    }
   }
 
   .home-circle-container {
@@ -45,7 +48,8 @@
       border: 2px solid $primary;
       border-radius: 50%;
 
-      &.active {
+      &.active,
+      &:active {
         background-color: $primary;
       }
 
