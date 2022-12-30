@@ -115,7 +115,7 @@ $(function() {
     });
   } else {
     document.addEventListener(
-      "touchmove touchstart",
+      "touchmove",
       function() {
         $(".home h1, .home p").addClass("text-white");
         $(".home-circle").addClass("active");
@@ -123,7 +123,7 @@ $(function() {
       false
     );
     document.addEventListener(
-      "touchend touchcancel",
+      "touchend",
       function() {
         $(".home h1, .home p").removeClass("text-white");
         $(".home-circle").removeClass("active");
