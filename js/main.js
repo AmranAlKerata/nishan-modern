@@ -178,14 +178,14 @@ $(function() {
       waitUntilVisible: true,
       beforeString: () => {
         console.log("Start A single String");
-        $("#testimonialAuthor span").removeClass("hidden");
-        $("#testimonialPosition span").removeClass("hidden");
+        $("#testimonialAuthor span").addClass("hidden");
+        $("#testimonialPosition span").addClass("hidden");
         // Will fire before each string in the queue.
       },
       afterString: () => {
         console.log("Finish A single String");
-        $("#testimonialAuthor span").addClass("hidden");
-        $("#testimonialPosition span").addClass("hidden");
+        $("#testimonialAuthor span").removeClass("hidden");
+        $("#testimonialPosition span").removeClass("hidden");
         // Will fire after each string in the queue,
         // including those added by the `.type()` instance method.
       }
