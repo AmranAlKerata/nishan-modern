@@ -73,7 +73,8 @@
     transition: all .3s ease-in-out;
 
     &:hover {
-      .arrow-icon img {
+      .arrow-icon .nishan-icon {
+        display: inline-block;
         transform: translate(20px, -20px);
       }
     }
@@ -86,12 +87,10 @@
     .arrow-icon {
       text-align: center;
 
-      img {
-        width: 30px;
+      .nishan-icon {
+        @include font-size(60px);
+        line-height: 30px;
         transition: all .3s ease-in-out;
-        @include media ($md) {
-          width: 20px;
-        }
       }
 
       margin-right: auto;
