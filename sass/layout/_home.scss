@@ -7,6 +7,35 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  .hover-links {
+    display: inline-block;
+    margin-bottom: -13px;
+
+    .hover-link {
+      transition: all .3s ease-in-out !important;
+      @include font-size(72px);
+      transform: translateY(0);
+      &.hidden {
+        position: absolute;
+        opacity: .7;
+        width: 100%;
+        left: 0;
+        a {
+          @include font-size(72px);
+          &.text-white:hover {
+            color: #fff !important;
+          }
+          &:hover {
+            color: $primary !important;
+          }
+        }
+      }
+    }
+
+    &:hover .hover-link {
+      transform: translateY(-100%);
+    }
+  }
   @include media($lg) {
     margin-top: 0px !important;
   }
@@ -15,7 +44,8 @@
   }
 
   h1,
-  p {
+  p,
+  h2 {
     transition: all .3s ease-in-out;
   }
 

@@ -104,18 +104,18 @@ $(function() {
   // Hero Section Circle Animation
   if (!is_touch_enabled()) {
     $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
-      $(".home h1, .home p").addClass("text-white");
+      $(".home h1, .home p, .home a, .home h2").addClass("text-white");
       $(".home-circle").addClass("active");
     });
     $(".home .col-12.col-lg-10").on("mouseleave", () => {
-      $(".home h1, .home p").removeClass("text-white");
+      $(".home h1, .home p, .home a, .home h2").removeClass("text-white");
       $(".home-circle").removeClass("active");
     });
   } else {
     document.addEventListener(
       "touchmove",
       function() {
-        $(".home h1, .home p").addClass("text-white");
+        $(".home h1, .home p, .home a, .home h2").addClass("text-white");
         $(".home-circle").addClass("active");
       },
       false
@@ -123,7 +123,7 @@ $(function() {
     document.addEventListener(
       "touchend",
       function() {
-        $(".home h1, .home p").removeClass("text-white");
+        $(".home h1, .home p, .home a, .home h2").removeClass("text-white");
         $(".home-circle").removeClass("active");
       },
       false
