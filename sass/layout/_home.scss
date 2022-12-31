@@ -17,9 +17,6 @@
   h1,
   p {
     transition: all .3s ease-in-out;
-    &:active {
-      color: #fff;
-    }
   }
 
   .home-circle-container {
@@ -33,12 +30,6 @@
     transform: translate(-50%, -50%);
     z-index: -1;
 
-    // &:hover {
-    //     .home-circle {
-    //         background-color: $primary;
-    //     }
-    // }
-
     .home-circle {
       width: 35rem;
       height: 35rem;
@@ -48,8 +39,7 @@
       border: 2px solid $primary;
       border-radius: 50%;
 
-      &.active,
-      &:active {
+      &.active {
         background-color: $primary;
       }
 

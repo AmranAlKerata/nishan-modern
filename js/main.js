@@ -11,9 +11,7 @@ $(function() {
   // enable ANM Plugin
   anm.on();
   // WOW JS
-  wow = new WOW({
-    mobile: false
-  }).init();
+  wow = new WOW().init();
 
   // Progress Line
   $(window).scroll(() => {
