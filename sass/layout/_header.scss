@@ -4,21 +4,22 @@
 
 header {
   background-color: #fff;
-
   position: fixed;
   min-width: 100%;
   left: 0;
   top: 0;
   z-index: 999;
   transition: all 0.4s ease-in-out;
-
+  .logo-button-container {
+    background-color: #fff;
+    position: relative;
+  }
   &.nav-up {
     top: -200px;
   }
 
   .logo {
     position: relative;
-    z-index: 99999;
 
     img {
       max-width: 180px;
@@ -35,7 +36,7 @@ header {
     z-index: 999999;
 
     a {
-      font-size: 22px;
+      @include font-size(22px);
       color: $text;
       font-weight: lighter;
     }
@@ -43,27 +44,55 @@ header {
 
   .menu {
     cursor: pointer;
-
+    position: relative;
+    z-index: 999999;
     .icon {
       position: relative;
-      z-index: 999999;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
 
-      span {
-        width: 25px;
-        height: 2px;
-        display: block;
-        background-color: $text;
-        transition: all .3s ease-in-out;
+      div {
+        margin: auto;
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        width: 22px;
+        height: 12px;
       }
-
-      &.active span {
+      span {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: $primary;
+        border-radius: 1px;
+        transition: all 0.5s cubic-bezier(0.1, 0.82, 0.76, 0.965);
         &:first-of-type {
-          transform: translateX(-7px);
+          top: 0;
         }
-
         &:last-of-type {
-          transform: translateX(7px);
+          bottom: 0;
         }
+      }
+      &.active {
+        span {
+          background-color: $gray;
+          &:first-of-type {
+            transform: rotate(45deg);
+            top: 5px;
+          }
+          &:last-of-type {
+            transform: rotate(-45deg);
+            bottom: 5px;
+          }
+        }
+      }
+      &.active:hover span:first-of-type,
+      &.active:hover span:last-of-type {
+        width: 22px;
       }
     }
   }
@@ -71,106 +100,52 @@ header {
   .menu-links {
     position: fixed;
     width: 100%;
-    height: 100vh;
-    top: 0;
-    left: 0;
+    max-height: 100vh;
+    overflow: scroll;
+    top: -100%;
+    left: 0%;
     z-index: -1;
     background-color: #fff;
     display: flex;
     align-items: center;
     justify-content: flex-start;
     text-align: #{$start_dir};
-    opacity: 0;
-    visibility: hidden;
-    transition: all .3s ease-in-out;
-    transition-delay: 2000ms;
-
-    &:not(.active) .container {
-      opacity: 0;
-      visibility: hidden;
+    transition: all .8s ease-in-out;
+    &.active {
+      z-index: 99;
+      top: 0%;
     }
-
-    li {
-      position: relative;
-      overflow: hidden;
-      padding-top: 20px;
-      padding-bottom: 20px;
-
-      &:hover a {
-        color: #fff;
+    .container {
+      height: 100%;
+      @include media ($lg) {
+        .row {
+          height: 100%;
+          .links {
+            row-gap: 20px;
+          }
+        }
       }
     }
-
-    li::after {
-      content: "";
-      width: 100%;
-      height: 100%;
-      background-color: $primary;
-      position: absolute;
-      top: 0;
-      #{$start_dir}: 0;
-      z-index: -1;
-      transition: all .5s ease-in-out;
-      transform: scaleX(0);
-      transform-origin: top #{$start_dir};
+    li {
+      position: relative;
+      a {
+        @include font-size(72px);
+        @include media($lg) {
+          @include font-size(32px);
+        }
+        &.active {
+          color: $secondary;
+        }
+      }
     }
-
-    li:hover::after {
-      transform: scaleX(1);
+    .links {
+      li:last-child {
+        display: none;
+        @include media($lg) {
+          display: block;
+        }
+      }
     }
-
-    li::before {
-      content: "";
-      position: absolute;
-      display: block;
-      width: 100%;
-      height: 3px;
-      border-radius: 13px;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background-color: $text;
-      z-index: -1;
-      transform: translateX(-100%);
-    }
-
-    li[class*="delay"]::before {
-      transform: translateX(0%);
-      transition: all 1s ease-in-out;
-    }
-
-    li.finish::before {
-      transform: translateX(100%);
-      transition: all 1s ease-in-out;
-    }
-
-    li.delay-1::before {
-      transition-delay: 200ms;
-    }
-
-    li.delay-2::before {
-      transition-delay: 300ms;
-    }
-
-    li.delay-3::before {
-      transition-delay: 400ms;
-    }
-
-    li.delay-4::before {
-      transition-delay: 500ms;
-    }
-
-    li.delay-5::before {
-      transition-delay: 600ms;
-    }
-
-    &.active {
-      opacity: 1;
-      visibility: visible;
-      z-index: 9999;
-      transition-delay: 0ms !important;
-    }
-
     ul,
     li {
       list-style: none;
@@ -180,60 +155,69 @@ header {
       display: flex;
       flex-direction: column;
     }
-
-    a {
-      @include font-size(50px);
-      font-weight: 900;
-      color: $text;
-    }
-
-    .container a {
-      position: relative;
-      display: block;
-      // padding-#{$start_dir}: 35px;
-
-      &::before {
-        content: "n";
-        font-family: "Nishan Icons";
-        font-size: 60px;
-        color: $secondary;
-        position: relative;
-        padding-#{$end_dir}: 15px;
-        line-height: 0;
-        font-weight: normal;
-
+    .contact-col {
+      @include media($lg) {
+        margin-bottom: 20px;
+        .lang {
+          margin-top: 25px;
+          a {
+            @include font-size(22px);
+          }
+        }
+      }
+      h5 {
+        color: #d6d6d6;
+        margin-bottom: -20px;
         @include media($lg) {
-          font-size: 50px;
+          margin-bottom: 0;
+        }
+      }
+
+      h2 {
+        position: relative;
+        display: inline-block;
+        color: $primary;
+        cursor: pointer;
+        line-height: 1.5;
+        @include media($lg) {
+          @include font-size(45px);
+        }
+        &::before {
+          content: "";
+          width: 100%;
+          height: 2px;
+          background-color: $primary;
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          transform: scaleX(.5);
+          transform-origin: bottom left;
+          transition: all .3s ease-in-out;
         }
 
-        // top: 50%;
-        // left: -15px;
-        // transform: translateY(-50%);
+        &:hover::before {
+          transform: scaleX(1);
+        }
       }
     }
   }
 
-  .delay-1 {
-    animation-delay: 500ms;
+  li[class*="delay"]::before {
+    transform: translateX(0%);
+    transition: all 1s ease-in-out;
   }
 
-  .delay-2 {
-    animation-delay: 600ms;
+  li.finish::before {
+    transform: translateX(100%);
+    transition: all 1s ease-in-out;
+  }
+}
+$delay: 600;
+
+@for $el from 1 through 20 {
+  .delay-#{$el} {
+    animation-delay: #{$delay}ms;
   }
 
-  .delay-3 {
-    animation-delay: 700ms;
-  }
-
-  .delay-4 {
-    animation-delay: 800ms;
-  }
-
-  .delay-5 {
-    animation-delay: 900ms;
-  }
-
-  .delay-6 {
-    animation-delay: 1000ms;
-  }
+  $delay: 100 + $delay;
 }

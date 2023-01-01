@@ -65,22 +65,16 @@ $(function() {
   $(".menu .icon").on("click", () => {
     $(".menu .icon").toggleClass("active");
     $(".menu-links").toggleClass("active");
+    $(".menu-address").toggleClass("active");
 
     navItems.each(function(index) {
       if ($(".menu-links").hasClass("active")) {
         $(this).attr("class", `delay-${index + 1}`);
-        $(this)
-          .find(".container")
-          .attr(
-            "class",
-            `container animate animate__fadeInUp delay-${index + 1}`
-          );
+        $(this).attr("class", `animate animate__fadeInUp delay-${index + 1}`);
         $(this).css("pointer-events", "auto");
       } else {
-        $(this).attr("class", `finish delay-${index + 1}`);
-        $(this)
-          .find(".container")
-          .attr("class", `container animate animate__fadeOutDown`);
+        $(this).attr("class", `finish`);
+        $(this).attr("class", `animate animate__fadeOutUp`);
 
         $(this).css("pointer-events", "none");
 
@@ -89,7 +83,7 @@ $(function() {
           $(this).find(".container").attr("class", "container");
           clearTimeout(timeout);
           return;
-        }, 1500);
+        }, 1000);
       }
     });
   });
@@ -131,12 +125,19 @@ $(function() {
   }
 
   // Accordion Animation For Footer
-  if (window.innerWidth <= 992) {
+  if (window.innerWidth <= 991) {
     $("footer ul:not(.first-list)").slideUp();
     $("footer .footer-accordion").on("click", function() {
       $(this).parent().find("ul").slideToggle();
     });
   }
+  // Fix Header Layout on Mobile
+  // if (window.innerWidth <= 991) {
+  $(".menu-links .container").css({
+    height: `calc(100vh - ${header.innerHeight()}px)`,
+    marginTop: `${header.innerHeight()}px`
+  });
+  // }
 
   // Prevent Scroll when menu Is active on mobile
   menuIcon.on("click", () => {

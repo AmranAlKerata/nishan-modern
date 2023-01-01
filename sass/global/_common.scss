@@ -35,3 +35,32 @@ section {
   font-family: "Nishan Icons";
   cursor: none;
 }
+.hover-links {
+  display: inline-block;
+  margin-bottom: -13px;
+
+  .hover-link {
+    transition: all .5s ease-in-out !important;
+    @include font-size(72px);
+    transform: translateY(0);
+    &.hidden {
+      position: absolute;
+      opacity: .7;
+      width: 100%;
+      left: 0;
+      a {
+        @include font-size(72px);
+        &.text-white:hover {
+          color: #fff !important;
+        }
+        &:hover {
+          color: $primary !important;
+        }
+      }
+    }
+  }
+
+  &:hover .hover-link {
+    transform: translateY(-100%);
+  }
+}
