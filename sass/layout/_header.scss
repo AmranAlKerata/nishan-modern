@@ -119,7 +119,6 @@ header {
       height: 100%;
       @include media ($lg) {
         .row {
-          height: 100%;
           .links {
             row-gap: 20px;
           }
@@ -157,9 +156,9 @@ header {
     }
     .contact-col {
       @include media($lg) {
-        margin-bottom: 20px;
+        padding-bottom: 20px;
         .lang {
-          margin-top: 25px;
+          padding-top: 25px;
           a {
             @include font-size(22px);
           }

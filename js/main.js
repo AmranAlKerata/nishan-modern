@@ -132,12 +132,17 @@ $(function() {
     });
   }
   // Fix Header Layout on Mobile
-  // if (window.innerWidth <= 991) {
+
   $(".menu-links .container").css({
     height: `calc(100vh - ${header.innerHeight()}px)`,
     marginTop: `${header.innerHeight()}px`
   });
-  // }
+
+  if (window.innerWidth <= 991) {
+    $(".menu-links .container .row").css({
+      height: `calc(100vh - ${header.innerHeight()}px)`
+    });
+  }
 
   // Prevent Scroll when menu Is active on mobile
   menuIcon.on("click", () => {
