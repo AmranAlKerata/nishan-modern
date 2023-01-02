@@ -87,3 +87,47 @@ section {
     }
   }
 }
+.circle-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+
+  .circle {
+    width: 35rem;
+    height: 35rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid $primary;
+    border-radius: 50%;
+
+    &.active {
+      background-color: $primary;
+    }
+
+    @include media ($lg) {
+      width: 25rem;
+      height: 25rem;
+    }
+
+    @include media ($md) {
+      width: 15rem;
+      height: 15rem;
+    }
+  }
+}
+.first-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.mass-heading {
+  @include font-size(164px);
+}

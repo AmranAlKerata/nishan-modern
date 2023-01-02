@@ -67,8 +67,8 @@ $(function() {
     $(".client-list").fadeOut();
     $("main").css("margin-top", 0);
   });
-  // Add Space to hero Section for Fixed Header
-  $("#home").css("margin-top", `${header.innerHeight()}px`);
+  // // Add Space to hero Section for Fixed Header
+  // $(".first-section").css("margin-top", `${header.innerHeight()}px`);
 
   // Menu Icon Animation
   $(".menu .icon").on("click", () => {
@@ -112,28 +112,28 @@ $(function() {
   }
   // Hero Section Circle Animation
   if (!is_touch_enabled()) {
-    $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
-      $(".home *").addClass("text-white");
-      $(".home-circle").addClass("active");
+    $(".first-section .col-12 * ").on("mouseenter", () => {
+      $(".has-circle *").addClass("text-white");
+      $(".circle").addClass("active");
     });
-    $(".home .col-12.col-lg-10").on("mouseleave", () => {
-      $(".home *").removeClass("text-white");
-      $(".home-circle").removeClass("active");
+    $(".first-section .col-12").on("mouseleave", () => {
+      $(".has-circle *").removeClass("text-white");
+      $(".circle").removeClass("active");
     });
   } else {
     document.addEventListener(
       "touchmove",
       function() {
-        $(".home h1, .home p, .home a, .home h2").addClass("text-white");
-        $(".home-circle").addClass("active");
+        $(".has-circle * ").addClass("text-white");
+        $(".circle").addClass("active");
       },
       false
     );
     document.addEventListener(
       "touchend",
       function() {
-        $(".home h1, .home p, .home a, .home h2").removeClass("text-white");
-        $(".home-circle").removeClass("active");
+        $(".has-circle *").removeClass("text-white");
+        $(".circle").removeClass("active");
       },
       false
     );
@@ -230,6 +230,17 @@ $(function() {
       }
     }).go();
   }
+
+  // Fancy Box
+  $(".play-button").fancybox({
+    animationEffect: "zoom-in-out",
+    transitionEffect: "circular",
+    maxWidth: 1000,
+    maxHeight: 800,
+    youtube: {
+      controls: 1
+    }
+  });
 });
 
 // Custom Cursor

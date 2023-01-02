@@ -20,6 +20,9 @@
     <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Fancy Box -->
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    </link>
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -43,12 +46,14 @@
     <script defer src="js/multi-animated-counter.js"></script>
     <!-- Type Writter -->
     <script defer src="js/typed.umd.js"></script>
+    <!-- Fancy Box -->
+    <script defer src="js/jquery.fancybox.min.js"></script>
     <!-- Main Script -->
     <script defer src="js/main.js"></script>
     <script defer src="js/horizontal-scroll.js"></script>
 </head>
 
-<body data-anm=".anm">
+<body data-anm=".anm" class="about-page">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -80,10 +85,12 @@
 
         <!-- Start Header -->
         <header>
-            <div class="client-list-active container-fluid d-flex justify-content-between
+            <div class=" container-fluid d-flex justify-content-between
                     align-items-center py-4 logo-button-container px-2 px-lg-5">
                 <div class="logo">
-                    <img src="images/logo.svg" alt="Logo">
+                    <a href="/">
+                        <img src="images/logo.svg" alt="Logo">
+                    </a>
                 </div>
                 <div class="menu d-flex justify-content-end
                         align-items-center gap-3" style="gap: 30px !important">
@@ -144,42 +151,58 @@
         </header>
         <!-- End Header -->
 
-        <!-- Start Home -->
-        <section id=" home" class="home d-flex align-items-center pt-0">
+        <!-- Start Hero -->
+        <section id="about" class=" first-section about d-flex align-items-center pt-0 has-circle">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-12 col-lg-10">
-                        <div class="">
-                            <h1 class="wow animate animate__slideInUp animation-delay-1">Hello, <br>
-                                We are a design & branding
-                                <div class="line-wrapper d-inline-block position-relative">
-                                    <div class="hover-links position-relative overflow-hidden">
-                                        <h2 class="hover-link mb-0">studio</h2>
-                                        <h2 class="hover-link hidden mb-0"><a href="#">About</a></h2>
-                                    </div>
-                                </div>
-                            </h1>
-                        </div>
-                        <div>
-                            <p class="wow animate animate__slideInUp animation-delay-2">We are looking
-                                forward to a
-                                different experience
-                                <br class="d-none d-lg-inline-block"> to
-                                build a great story for
-                                you..
-                            </p>
-                        </div>
+                    <div class="col-12">
+                        <h1 class="mass-heading text-center">About Us</h1>
                     </div>
-                    <div class="home-circle-container">
-                        <div class="home-circle anm" data-speed-x="80" data-speed-y="80"></div>
+                    <div class="circle-container">
+                        <div class="circle anm" data-speed-x="80" data-speed-y="80"></div>
                     </div>
                 </div>
             </div>
         </section>
-        <div class="container">
-            <hr>
+
+        <!-- End Hero -->
+
+        <!-- Start About Content -->
+        <div class="about-content" id="about-content">
+            <div class="container">
+                <div class="row gap-5 gap-lg-0">
+                    <div class="col-lg">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">Naming</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-2">Aspirational an original Arabic
+                            name, as a familiar musical bell between East and West.</p>
+                        <p class="mt-4 wow animate animate__fadeInUp animation-delay-3">It is inspired of communication
+                            secret that help us to do something proud with
+                            it.</p>
+                    </div>
+                    <div class="col-lg">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-4">Inside</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-5">Creative visual arts have always
+                            captivated us from the first moment. They shape most of our
+                            impressions and desires.
+                            They invite us to take a step forward.</p>
+                        <p class="mt-4 wow animate animate__fadeInUp animation-delay-6">Here at Nishan®, we are looking
+                            forward to a different experience to build a
+                            simple and more professional story.</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- End Home -->
+        <!-- End About Content -->
+
+        <!-- Start Video Section -->
+        <section class="video-section" id="video-section">
+            <div class="video-img-placeholder">
+                <a data-fancybox href="https://www.youtube.com/watch?v=Z2MyXuHstIs" class="play-button">
+                    <img src="images/play.svg" alt="Play Icon">
+                </a>
+            </div>
+        </section>
+        <!-- End Video Section -->
 
         <!-- Start Footer -->
         <footer>
