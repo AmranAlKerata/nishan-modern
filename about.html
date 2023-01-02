@@ -60,11 +60,27 @@
         <div class="cursor"></div>
     </div>
 
-    <main>
+    <!-- Start Client List Notification -->
+    <div class="client-list px-2 px-lg-5">
+        <div class="container-fluid">
+            <div class="row ">
+                <div class="col-md p-0 text-center text-md-end">
+                    <p>Join our client list now and get an hour of free branding consultation</p>
+                </div>
+                <div class="col-md text-center text-md-end mt-4 mt-md-0 p-0">
+                    <button id="gotIt">Got it</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Client List Notification -->
+
+    <main class="position-relative">
+
 
         <!-- Start Header -->
         <header>
-            <div class="container-fluid d-flex justify-content-between
+            <div class="client-list-active container-fluid d-flex justify-content-between
                     align-items-center py-4 logo-button-container px-2 px-lg-5">
                 <div class="logo">
                     <img src="images/logo.svg" alt="Logo">
@@ -92,10 +108,10 @@
                     <div class="row">
                         <ul class="w-100 links col-lg links">
                             <li>
-                                <a href="index.html" class="active">Home</a>
+                                <a href="index.html" class="">Home</a>
                             </li>
                             <li>
-                                <a href="about.html">About us</a>
+                                <a href="about.html" class="active">About us</a>
 
                             </li>
                             <li>
@@ -139,7 +155,7 @@
                                 <div class="line-wrapper d-inline-block position-relative">
                                     <div class="hover-links position-relative overflow-hidden">
                                         <h2 class="hover-link mb-0">studio</h2>
-                                        <h2 class="hover-link hidden mb-0"><a href="about.html">About</a></h2>
+                                        <h2 class="hover-link hidden mb-0"><a href="#">About</a></h2>
                                     </div>
                                 </div>
                             </h1>
@@ -164,222 +180,6 @@
             <hr>
         </div>
         <!-- End Home -->
-
-
-        <!-- Start About Section -->
-        <section class="about" id="about">
-            <div class="container">
-                <div class="section-heading overflow-hidden">
-                    <h2 class="wow animate animate__fadeInUp">Let us make your story to be
-                        <br class="d-none d-lg-block">
-                        <span id="typeWriterEn" class="wow animate animate__fadeInUp d-inline d-lg-block"></span>
-                    </h2>
-
-                </div>
-
-                <div class="row">
-                    <div class="col-lg">
-                        <div class="service-box branding">
-                            <span class="nishan-icon">b</span>
-                            <h4 class="fw-bold wow overflow-hidden wow animate animate__fadeInUp animation-delay-1">
-                                Branding</h4>
-                            <hr>
-                            <ul class="list-unstyled">
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-2">
-                                    Naming
-                                </li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-3">
-                                    Brand
-                                    Story</li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-4">
-                                    Brand
-                                    Strategy</li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-5">
-                                    Logo &
-                                    Trademark Design
-                                </li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-6">
-                                    Signage
-                                    System Design</li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-7">
-                                    Communications Guidelines
-                                </li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-8">
-                                    Marketing Materials Design
-                                </li>
-                            </ul>
-                        </div>
-
-                    </div>
-                    <div class="col-lg">
-                        <div class="service-box marketing">
-                            <span class="nishan-icon">k</span>
-                            <h4 class="fw-bold wow overflow-hidden wow animate animate__fadeInUp animation-delay-1">
-                                Marketing</h4>
-                            <hr>
-                            <ul class="list-unstyled">
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-2">
-                                    Digital
-                                    Marketing Plan
-                                </li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-3">
-                                    Management Accounts</li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-4">
-                                    Marketing Content</li>
-
-                            </ul>
-                        </div>
-                        <div class="service-box snickers">
-                            <span class="nishan-icon">s</span>
-                            <h4 class="fw-bold wow overflow-hidden wow animate animate__fadeInUp animation-delay-1">
-                                Snickers</h4>
-                            <hr>
-                            <ul class="list-unstyled">
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-2">
-                                    Creative
-                                    Content</li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-3">
-                                    Trademark Registration
-                                </li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-4">
-                                    Trademark Translation</li>
-                                <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-5">
-                                    Art
-                                    Criticism</li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg">
-                        <!-- Packages -->
-                        <div class="top-box overflow-hidden">
-                            <h3 class="wow overflow-hidden animate animate__fadeInDownBig">Looking for
-                                Packages ?</h3>
-                            <a href="#" class="button">Explorer</a>
-                        </div>
-                        <!-- Testimonial  -->
-                        <div class="bottom-box">
-                            <span class="nishan-icon">n</span>
-                            <h4 class="fw-bold wow overflow-hidden wow animate animate__fadeInDown animation-delay-1">
-                                Testimonial</h4>
-                            <q
-                                class="small wow overflow-hidden wow animate animate__fadeInDown animation-delay-2 testimonial-content-container d-inline-block">
-                                <span id="testimonialContent"></span></q>
-                            <div class="wow overflow-hidden wow animate animate__fadeInDown name fw-bold">
-                                <span class="wow overflow-hidden wow animate animate__fadeInDown animation-delay-3"
-                                    id="testimonialAuthor"> <span class="hidden">Ali Saeed</span></span>
-                            </div>
-                            <div class="company">
-                                <span class="wow overflow-hidden wow animate animate__fadeInDown animation-delay-4"
-                                    id="testimonialPosition">
-                                    <span class="hidden">Al Ward Company</span>
-                                </span>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End About Section -->
-
-        <!-- Start Project Section -->
-        <section class="projects">
-            <div class="horizontal projects-section">
-                <div class="pin-wrap">
-                    <div class="animation-wrap to-right">
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/projects/02.jpg" alt="" class="project-img">
-                            </a>
-                        </div>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/projects/02.jpg" alt="" class="project-img">
-                            </a>
-                        </div>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/projects/02.jpg" alt="" class="project-img">
-                            </a>
-                        </div>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/projects/02.jpg" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Projects Section -->
-
-        <!-- Start Statistics Section -->
-        <section class="statistics" id="statistics">
-            <div class="container">
-                <div class="row gap-3 gap-md-0">
-                    <div class="col-md" id="counters_1">
-                        <div
-                            class="d-flex justify-content-center justify-content-md-start align-items-center wow overflow-hidden animate animate__fadeInDown animation-delay-1">
-                            <h2 class="fw-bold">+</h2>
-                            <h2 class="counter fw-bold" data-TargetNum="3" data-Speed="1000"></h2>
-                            <h2 class="fw-bold">k</h2>
-                        </div>
-                        <h5
-                            class="fw-bold text-start wow overflow-hidden  animate animate__fadeInUp animation-delay-2 text-center text-md-start">
-                            Deliverable
-                            Files</h5>
-                    </div>
-                    <hr class="d-block d-md-none">
-                    <div class="col-md" id="counters_2">
-                        <div
-                            class="d-flex justify-content-center justify-content-md-start align-items-center wow overflow-hidden  animate animate__fadeInDown animation-delay-3">
-                            <h2 class="fw-bold">+</h2>
-                            <h2 class="counter fw-bold" data-TargetNum="100" data-Speed="3000"></h2>
-                        </div>
-                        <h5
-                            class="fw-bold text-start wow overflow-hidden animate animate__fadeInUp animation-delay-4 text-center text-md-start">
-                            Clients</h5>
-                    </div>
-                    <hr class="d-block d-md-none">
-                    <div class="col-md" id="counters_3">
-                        <div
-                            class="d-flex justify-content-center justify-content-md-start align-items-center wow overflow-hidden animate animate__fadeInDown animation-delay-5">
-                            <h2 class="fw-bold">+</h2>
-                            <h2 class="counter fw-bold" data-TargetNum="12" data-Speed="4000"></h2>
-                        </div>
-                        <h5
-                            class="fw-bold text-center text-md-start wow overflow-hidden wow animate animate__fadeInUp animation-delay-6">
-                            Years of
-                            expiriance</h5>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Statistics Section -->
 
         <!-- Start Footer -->
         <footer>
@@ -503,10 +303,6 @@
         </footer>
         <!-- End Footer -->
     </main>
-
-
-
-
 
 </body>
 

@@ -2,6 +2,11 @@
 @use "../helpers/mixins" as *;
 @use "../bootstrap/vendor/rfs" as *;
 
+main {
+  transition: all .5s ease-in-out;
+  transition-delay: 500ms;
+}
+
 section {
   @include padding(150px 0 0 0);
   position: relative;
@@ -62,5 +67,23 @@ section {
 
   &:hover .hover-link {
     transform: translateY(-100%);
+  }
+}
+.client-list {
+  position: fixed;
+  width: 100%;
+  z-index: 999999;
+  background-color: #cdf7fa;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  top: 0;
+
+  button {
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    &:hover {
+      color: $secondary;
+    }
   }
 }

@@ -48,7 +48,7 @@ $(function() {
     } else {
       // Scroll Up
       if (
-        st + $(window).height() + $("#home").outerHeight() <
+        st + $(window).height() + $(".home").outerHeight() <
         $(document).height()
       ) {
         $("header").removeClass("nav-up").addClass("nav-down");
@@ -58,6 +58,15 @@ $(function() {
     lastScrollTop = st;
   };
 
+  // Check if we have Client List Notification
+  if ($(".client-list").length > 0) {
+    $("main").css("margin-top", `${$(".client-list").innerHeight()}px`);
+  }
+  // Remove client list after click on the button
+  $("#gotIt").on("click", function() {
+    $(".client-list").fadeOut();
+    $("main").css("margin-top", 0);
+  });
   // Add Space to hero Section for Fixed Header
   $("#home").css("margin-top", `${header.innerHeight()}px`);
 
