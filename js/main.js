@@ -65,7 +65,13 @@ $(function() {
   $(".menu .icon").on("click", () => {
     $(".menu .icon").toggleClass("active");
     $(".menu-links").toggleClass("active");
-    $(".menu-address").toggleClass("active");
+    if (window.innerWidth > 991) {
+      if ($(".menu .icon").hasClass("active")) {
+        $(".lang-btn").fadeIn();
+      } else {
+        $(".lang-btn").fadeOut();
+      }
+    }
 
     navItems.each(function(index) {
       if ($(".menu-links").hasClass("active")) {
@@ -98,11 +104,11 @@ $(function() {
   // Hero Section Circle Animation
   if (!is_touch_enabled()) {
     $(".home .col-12.col-lg-10 * ").on("mouseenter", () => {
-      $(".home h1, .home p, .home a, .home h2").addClass("text-white");
+      $(".home *").addClass("text-white");
       $(".home-circle").addClass("active");
     });
     $(".home .col-12.col-lg-10").on("mouseleave", () => {
-      $(".home h1, .home p, .home a, .home h2").removeClass("text-white");
+      $(".home *").removeClass("text-white");
       $(".home-circle").removeClass("active");
     });
   } else {

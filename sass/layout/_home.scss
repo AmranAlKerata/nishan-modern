@@ -55,4 +55,26 @@
       }
     }
   }
+  .line-wrapper {
+    &::before {
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: $primary;
+      background-color: $primary;
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      transform: scaleX(.5);
+      transform-origin: bottom left;
+      transition: all .3s ease-in-out;
+    }
+
+    &:hover::before {
+      transform: scaleX(1);
+    }
+    &.text-white::before {
+      background-color: #fff;
+    }
+  }
 }
