@@ -60,6 +60,16 @@
       }
     }
   }
+  .features {
+    h2 {
+      color: #efefef;
+    }
+    .box {
+      .nishan-icon {
+        font-size: 70px;
+      }
+    }
+  }
 }
 
 @keyframes ripple-white {
