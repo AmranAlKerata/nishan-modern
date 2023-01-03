@@ -51,8 +51,8 @@ insight.forEach(function(sec, i) {
         pin: thisPinWrap,
         invalidateOnRefresh: true,
         //anticipatePin: 1,
-        scrub: true,
-        markers: true
+        scrub: true
+        // markers: true
       }
     }
   );
