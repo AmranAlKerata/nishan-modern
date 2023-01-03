@@ -46,7 +46,7 @@ insight.forEach(function(sec, i) {
       ease: "none",
       scrollTrigger: {
         trigger: sec,
-        start: "top 50%",
+        start: "top 45%",
         end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
         pin: thisPinWrap,
         invalidateOnRefresh: true,

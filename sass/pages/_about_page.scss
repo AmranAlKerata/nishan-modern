@@ -140,6 +140,12 @@
             line-height: 0;
           }
         }
+        &.note {
+          background-color: #fff1b4;
+          width: 600px;
+          height: 300px;
+          @include padding(45px);
+        }
       }
     }
   }
