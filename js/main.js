@@ -7,11 +7,20 @@ $(function() {
   let navbarHeight = $("header").outerHeight();
   const progressLine = $("#progress-line span");
   const header = $("header");
+  let url;
+  $("html").attr("lang") == "en"
+    ? (url = "https://demo2.bynishan.com/api/testimonialsEn")
+    : (url = "https://demo2.bynishan.com/api/testimonialsAr");
 
   // enable ANM Plugin
-  anm.on();
-  // WOW JS
-  wow = new WOW().init();
+  if ($(".anm").length > 0) {
+    anm.on();
+  }
+
+  if ($(".wow").length > 0) {
+    // WOW JS
+    wow = new WOW().init();
+  }
 
   // Progress Line
   $(window).scroll(() => {
@@ -67,8 +76,6 @@ $(function() {
     $(".client-list").fadeOut();
     $("main").css("margin-top", 0);
   });
-  // // Add Space to hero Section for Fixed Header
-  // $(".first-section").css("margin-top", `${header.innerHeight()}px`);
 
   // Menu Icon Animation
   $(".menu .icon").on("click", () => {
@@ -103,13 +110,14 @@ $(function() {
     });
   });
 
-  function is_touch_enabled() {
+  const is_touch_enabled = () => {
     return (
       "ontouchstart" in window ||
       navigator.maxTouchPoints > 0 ||
       navigator.msMaxTouchPoints > 0
     );
-  }
+  };
+
   // Hero Section Circle Animation
   if (!is_touch_enabled()) {
     $(".first-section .col-12 * ").on("mouseenter", () => {
@@ -195,52 +203,77 @@ $(function() {
   }
 
   if ($("#testimonialContent").length > 0) {
-    // Testimonial
-    new TypeIt("#testimonialContent", {
-      strings: [
-        "We are happy to work with Nishan ® and greatfull for good result.",
-        "it's incredible. I would like to personally thank you for your outstanding product. I will let my mum know about this, she could really make use of Branding!"
-      ],
-      cursor: true,
-      cursorChar: "|",
-      // cursorSpeed: 000,
-      deleteSpeed: null,
-      breakLines: false,
-      breakDelay: 550,
-      speed: 100,
-      startDelay: 250,
-      startDelete: false,
-      nextStringDelay: 3000,
-      loop: true,
-      loopDelay: 500,
-      lifeLike: true,
-      waitUntilVisible: true,
-      beforeString: () => {
-        console.log("Start A single String");
-        $("#testimonialAuthor span").addClass("hidden");
-        $("#testimonialPosition span").addClass("hidden");
-        // Will fire before each string in the queue.
-      },
-      afterString: () => {
-        console.log("Finish A single String");
-        $("#testimonialAuthor span").removeClass("hidden");
-        $("#testimonialPosition span").removeClass("hidden");
-        // Will fire after each string in the queue,
-        // including those added by the `.type()` instance method.
-      }
-    }).go();
+    const fetchData = async () => {
+      const resp = await fetch(url);
+      const data = await resp.json();
+      let strings = [];
+
+      let names = [];
+      let companies = [];
+      let current = 0;
+      const response = data.data;
+      response.map((t) => {
+        strings.push(t.description);
+        names.push(t.name);
+        companies.push(t.company);
+        return response;
+      });
+      // Testimonial
+      new TypeIt("#testimonialContent", {
+        strings: strings,
+        cursor: true,
+        cursorChar: "|",
+        deleteSpeed: null,
+        breakLines: false,
+        breakDelay: 550,
+        speed: 100,
+        startDelay: 250,
+        startDelete: false,
+        nextStringDelay: 3000,
+        loop: true,
+        loopDelay: 500,
+        lifeLike: true,
+        waitUntilVisible: true,
+        beforeString: () => {
+          $("#testimonialAuthor span").addClass("hidden");
+          $("#testimonialPosition span").addClass("hidden");
+          console.log("Before String");
+        },
+        afterString: () => {
+          $("#testimonialAuthor span")
+            .removeClass("hidden")
+            .text(names[current]);
+          $("#testimonialPosition span")
+            .removeClass("hidden")
+            .text(companies[current]);
+
+          console.log("After String");
+          if (current < strings.length) {
+            current = current + 1;
+            console.log(current);
+          }
+          if (current === strings.length) {
+            current = 0;
+          }
+        }
+      }).go();
+      return;
+    };
+    fetchData();
   }
 
-  // Fancy Box
-  $(".play-button").fancybox({
-    animationEffect: "zoom-in-out",
-    transitionEffect: "circular",
-    maxWidth: 1000,
-    maxHeight: 800,
-    youtube: {
-      controls: 1
-    }
-  });
+  if ($(".play-button").length > 0) {
+    // Fancy Box
+    $(".play-button").fancybox({
+      animationEffect: "zoom-in-out",
+      transitionEffect: "circular",
+      maxWidth: 1000,
+      maxHeight: 800,
+      youtube: {
+        controls: 1
+      }
+    });
+  }
 });
 
 // Custom Cursor

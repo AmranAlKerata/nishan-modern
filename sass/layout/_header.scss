@@ -124,7 +124,6 @@ header {
       height: 100%;
       @include media ($lg) {
         .row {
-          height: 100%;
           gap: 30px;
           .links {
             row-gap: 20px;

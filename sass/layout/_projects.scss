@@ -74,8 +74,7 @@
 
     &:hover {
       .arrow-icon .nishan-icon {
-        display: inline-block;
-        transform: translate(20px, -20px);
+        transform: translate(10px, -10px);
       }
     }
 
@@ -88,6 +87,7 @@
       text-align: center;
 
       .nishan-icon {
+        display: inline-block;
         @include font-size(60px);
         line-height: 30px;
         transition: all .3s ease-in-out;

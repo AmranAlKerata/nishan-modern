@@ -49,6 +49,9 @@ footer {
     @include margin(80px 0);
   }
   .footer-bottom {
+    .footer-about {
+      line-height: normal;
+    }
     .footer-heading {
       @include media($lg) {
         @include margin-bottom(30px);
