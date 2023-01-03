@@ -3,6 +3,7 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .about-page {
+  // Video
   .video-img-placeholder {
     background-image: url("../images/projects/01.jpg");
     height: 100vh;
@@ -71,6 +72,7 @@
       }
     }
   }
+  // Features
   .features {
     h2 {
       color: #efefef;
@@ -81,6 +83,7 @@
       }
     }
   }
+  // Our Team
   .our-team {
     .member {
       img {
@@ -93,6 +96,49 @@
           max-width: unset;
           max-height: unset;
           height: auto;
+        }
+      }
+    }
+  }
+  .insight {
+    background-color: $gray;
+
+    .insight-section {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .insight-section.horizontal .pin-wrap,
+    .insight-section.horizontal .animation-wrap {
+      display: flex;
+      position: relative;
+      z-index: 1;
+      height: 100vh;
+      gap: 50px;
+    }
+
+    .insight-section.horizontal {
+      position: relative;
+      flex: 0 0 auto;
+      height: 100%;
+      user-select: none;
+
+      .insight-card {
+        * {
+          cursor: pointer;
+        }
+        .img {
+          width: 600px;
+          height: 300px;
+          object-fit: cover;
+        }
+        .title {
+          margin-top: 25px;
+          .nishan-icon {
+            font-size: 50px;
+            line-height: 0;
+          }
         }
       }
     }
