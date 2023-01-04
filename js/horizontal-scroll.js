@@ -34,7 +34,7 @@ insight.forEach(function(sec, i) {
   var thisPinWrap = sec.querySelector(".pin-wrap");
   var thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
 
-  var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth);
+  var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth + 200);
 
   gsap.fromTo(
     thisAnimWrap,
@@ -43,10 +43,10 @@ insight.forEach(function(sec, i) {
     },
     {
       x: () => (thisAnimWrap.classList.contains("to-right") ? getToValue() : 0),
-      ease: "none",
+      ease: "power1.inOut",
       scrollTrigger: {
         trigger: sec,
-        start: "top 45%",
+        start: "top 30%",
         end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
         pin: thisPinWrap,
         invalidateOnRefresh: true,

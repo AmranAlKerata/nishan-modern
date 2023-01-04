@@ -85,6 +85,7 @@
   }
   // Our Team
   .our-team {
+    @include padding-bottom(150px);
     .member {
       img {
         max-width: 240px;
@@ -114,7 +115,7 @@
       display: flex;
       position: relative;
       z-index: 1;
-      height: 100vh;
+      // height: 70vh;
       gap: 50px;
     }
 
@@ -123,6 +124,9 @@
       flex: 0 0 auto;
       height: 100%;
       user-select: none;
+      @include media ($lg) {
+        overflow-x: hidden;
+      }
 
       .insight-card {
         * {
