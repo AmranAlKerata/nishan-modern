@@ -8,6 +8,9 @@
   }
   h1 {
     @include padding-bottom(50px);
+    @include media ($lg) {
+      @include font-size(80px);
+    }
   }
 
   h1,

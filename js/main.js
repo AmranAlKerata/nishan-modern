@@ -51,13 +51,13 @@ $(function() {
 
     // If they scrolled down and are past the navbar, add class .nav-up.
     // This is necessary so you never see what is "behind" the navbar.
-    if (st > lastScrollTop && st > navbarHeight + $("#home").outerHeight()) {
+    if (st > lastScrollTop && st > navbarHeight + $("header").outerHeight()) {
       // Scroll Down
       $("header").removeClass("nav-down").addClass("nav-up");
     } else {
       // Scroll Up
       if (
-        st + $(window).height() + $(".home").outerHeight() <
+        st + $(window).height() + $("header").outerHeight() <
         $(document).height()
       ) {
         $("header").removeClass("nav-up").addClass("nav-down");
@@ -70,11 +70,13 @@ $(function() {
   // Check if we have Client List Notification
   if ($(".client-list").length > 0) {
     $("main").css("margin-top", `${$(".client-list").innerHeight()}px`);
+    $("header").css("top", `${$(".client-list").innerHeight()}px`);
   }
   // Remove client list after click on the button
   $("#gotIt").on("click", function() {
     $(".client-list").fadeOut();
     $("main").css("margin-top", 0);
+    $("header").css("top", 0);
   });
 
   // Menu Icon Animation
@@ -237,7 +239,6 @@ $(function() {
         beforeString: () => {
           $("#testimonialAuthor span").addClass("hidden");
           $("#testimonialPosition span").addClass("hidden");
-          console.log("Before String");
         },
         afterString: () => {
           $("#testimonialAuthor span")
@@ -247,10 +248,8 @@ $(function() {
             .removeClass("hidden")
             .text(companies[current]);
 
-          console.log("After String");
           if (current < strings.length) {
             current = current + 1;
-            console.log(current);
           }
           if (current === strings.length) {
             current = 0;
@@ -275,6 +274,25 @@ $(function() {
     });
   }
 });
+if ($(".swiper-slide").length > 0) {
+  const projects = new Swiper("#porjectsSlider", {
+    slidesPerView: 1,
+    slidesPerView: "auto",
+    speed: 1000,
+    disableOnInteraction: true,
+    breakpoints: {
+      766: {
+        slidesPerView: 1
+      },
+      767: {
+        slidesPerView: 2
+      },
+      992: {
+        slidesPerView: 2
+      }
+    }
+  });
+}
 
 // Custom Cursor
 const $c = $("[data-custom-cursor]");

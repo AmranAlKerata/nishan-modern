@@ -9,6 +9,7 @@ footer {
   .footer-top {
     h5 {
       color: #d6d6d6;
+      text-transform: unset;
     }
 
     h2 {
@@ -36,7 +37,10 @@ footer {
     }
 
     .submit-query {
-      color: $primary;
+      color: $secondary;
+      &:hover {
+        color: $primary !important;
+      }
 
       span {
         font-size: 30px;
@@ -58,9 +62,7 @@ footer {
       }
     }
     ul {
-      @include media ($lg) {
-        @include padding(0  0 0 calc(30px  + 1rem));
-      }
+      @include padding-top(15px);
     }
     h4 {
       margin-bottom: 0;
@@ -82,10 +84,17 @@ footer {
       }
     }
   }
+  .footer-accordion h4 {
+    @include font-size(16px);
+  }
   .copyright p {
     text-align: center;
     @include font-size(16px);
-    @include padding-top(60px);
+    @include padding-top(30px);
     @include padding-bottom(30px);
+
+    @include media ($lg) {
+      font-size: 12px;
+    }
   }
 }

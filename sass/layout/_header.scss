@@ -7,6 +7,7 @@ header {
   position: fixed;
   min-width: 100%;
   left: 0;
+  top: 0;
   z-index: 999;
   transition: all 0.4s ease-in-out;
   .logo-button-container {
@@ -14,7 +15,7 @@ header {
     position: relative;
   }
   &.nav-up {
-    top: -200px;
+    top: -200px !important;
   }
 
   .logo {
@@ -59,6 +60,7 @@ header {
 
       div {
         margin: auto;
+        margin-right: 0;
         position: absolute;
         top: 0;
         right: 0;
@@ -84,7 +86,7 @@ header {
       }
       &.active {
         span {
-          background-color: $gray;
+          background-color: $primary;
           &:first-of-type {
             transform: rotate(45deg);
             top: 5px;

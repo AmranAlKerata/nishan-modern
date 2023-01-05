@@ -14,7 +14,7 @@ section {
 }
 
 .statistics {
-  @include padding(150px 0 150px 0);
+  @include padding(200px 0 200px 0);
 }
 
 .section-heading {
@@ -77,7 +77,10 @@ section {
   padding-top: 30px;
   padding-bottom: 30px;
   top: 0;
-
+  @include font-size(16px);
+  p {
+    @include font-size(16px);
+  }
   button {
     background-color: transparent;
     border: none;
