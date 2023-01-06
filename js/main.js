@@ -1,4 +1,4 @@
-$(function() {
+$(function () {
   const navItems = $(".menu-links li");
   const menuIcon = $(".menu .icon");
   let didScroll;
@@ -8,6 +8,7 @@ $(function() {
   const progressLine = $("#progress-line span");
   const header = $("header");
   let url;
+
   $("html").attr("lang") == "en"
     ? (url = "https://demo2.bynishan.com/api/testimonialsEn")
     : (url = "https://demo2.bynishan.com/api/testimonialsAr");
@@ -73,7 +74,7 @@ $(function() {
     $("header").css("top", `${$(".client-list").innerHeight()}px`);
   }
   // Remove client list after click on the button
-  $("#gotIt").on("click", function() {
+  $("#gotIt").on("click", function () {
     $(".client-list").fadeOut();
     $("main").css("margin-top", 0);
     $("header").css("top", 0);
@@ -91,7 +92,7 @@ $(function() {
       }
     }
 
-    navItems.each(function(index) {
+    navItems.each(function (index) {
       if ($(".menu-links").hasClass("active")) {
         $(this).attr("class", `delay-${index + 1}`);
         $(this).attr("class", `animate animate__fadeInUp delay-${index + 1}`);
@@ -120,6 +121,7 @@ $(function() {
     );
   };
 
+
   // Hero Section Circle Animation
   if (!is_touch_enabled()) {
     $(".first-section .col-12 * ").on("mouseenter", () => {
@@ -133,7 +135,7 @@ $(function() {
   } else {
     document.addEventListener(
       "touchmove",
-      function() {
+      function () {
         $(".has-circle * ").addClass("text-white");
         $(".circle").addClass("active");
       },
@@ -141,7 +143,24 @@ $(function() {
     );
     document.addEventListener(
       "touchend",
-      function() {
+      function () {
+        $(".has-circle *").removeClass("text-white");
+        $(".circle").removeClass("active");
+      },
+      false
+    );
+  }
+
+  // Remove Circle Animation From Mobile
+
+  if (window.innerWidth <= 991) {
+    $(".first-section .col-12 * ").on("mouseenter mouseleave", () => {
+      $(".has-circle *").removeClass("text-white");
+      $(".circle").removeClass("active");
+    });
+    document.addEventListener(
+      "touchmove",
+      function () {
         $(".has-circle *").removeClass("text-white");
         $(".circle").removeClass("active");
       },
@@ -152,7 +171,7 @@ $(function() {
   // Accordion Animation For Footer
   if (window.innerWidth <= 991) {
     $("footer ul:not(.first-list)").slideUp();
-    $("footer .footer-accordion").on("click", function() {
+    $("footer .footer-accordion").on("click", function () {
       $(this).parent().find("ul").slideToggle();
     });
   }
@@ -186,7 +205,7 @@ $(function() {
   // Type Writer Effect
   if ($("#typeWriterEn").length > 0) {
     new TypeIt("#typeWriterEn", {
-      strings: [ "Professional", "Great", "Interesting", "Attractive" ],
+      strings: ["Professional", "Great", "Interesting", "Attractive"],
       cursor: true,
       cursorChar: "|",
       cursorSpeed: 1000,
@@ -206,57 +225,61 @@ $(function() {
 
   if ($("#testimonialContent").length > 0) {
     const fetchData = async () => {
-      const resp = await fetch(url);
-      const data = await resp.json();
-      let strings = [];
+      try {
+        const resp = await fetch(url);
+        const data = await resp.json();
+        let strings = [];
 
-      let names = [];
-      let companies = [];
-      let current = 0;
-      const response = data.data;
-      response.map((t) => {
-        strings.push(t.description);
-        names.push(t.name);
-        companies.push(t.company);
-        return response;
-      });
-      // Testimonial
-      new TypeIt("#testimonialContent", {
-        strings: strings,
-        cursor: true,
-        cursorChar: "|",
-        deleteSpeed: null,
-        breakLines: false,
-        breakDelay: 550,
-        speed: 100,
-        startDelay: 250,
-        startDelete: false,
-        nextStringDelay: 3000,
-        loop: true,
-        loopDelay: 500,
-        lifeLike: true,
-        waitUntilVisible: true,
-        beforeString: () => {
-          $("#testimonialAuthor span").addClass("hidden");
-          $("#testimonialPosition span").addClass("hidden");
-        },
-        afterString: () => {
-          $("#testimonialAuthor span")
-            .removeClass("hidden")
-            .text(names[current]);
-          $("#testimonialPosition span")
-            .removeClass("hidden")
-            .text(companies[current]);
+        let names = [];
+        let companies = [];
+        let current = 0;
+        const response = data.data;
+        response.map((t) => {
+          strings.push(t.description);
+          names.push(t.name);
+          companies.push(t.company);
+          return response;
+        });
+        // Testimonial
+        new TypeIt("#testimonialContent", {
+          strings: strings,
+          cursor: true,
+          cursorChar: "|",
+          deleteSpeed: null,
+          breakLines: false,
+          breakDelay: 550,
+          speed: 100,
+          startDelay: 250,
+          startDelete: false,
+          nextStringDelay: 3000,
+          loop: true,
+          loopDelay: 500,
+          lifeLike: true,
+          waitUntilVisible: true,
+          beforeString: () => {
+            $("#testimonialAuthor span").addClass("hidden");
+            $("#testimonialPosition span").addClass("hidden");
+          },
+          afterString: () => {
+            $("#testimonialAuthor span")
+              .removeClass("hidden")
+              .text(names[current]);
+            $("#testimonialPosition span")
+              .removeClass("hidden")
+              .text(companies[current]);
 
-          if (current < strings.length) {
-            current = current + 1;
+            if (current < strings.length) {
+              current = current + 1;
+            }
+            if (current === strings.length) {
+              current = 0;
+            }
           }
-          if (current === strings.length) {
-            current = 0;
-          }
-        }
-      }).go();
-      return;
+        }).go();
+        return;
+      } catch (error) {
+        console.log(error);
+      }
     };
     fetchData();
   }
@@ -273,41 +296,80 @@ $(function() {
       }
     });
   }
-});
-if ($(".swiper-slide").length > 0) {
-  const projects = new Swiper("#porjectsSlider", {
-    slidesPerView: 1,
-    slidesPerView: "auto",
-    speed: 1000,
-    disableOnInteraction: true,
-    breakpoints: {
-      766: {
-        slidesPerView: 1
-      },
-      767: {
-        slidesPerView: 2
-      },
-      992: {
-        slidesPerView: 2
+  if ($(".swiper-slide").length > 0) {
+    const projects = new Swiper("#porjectsSlider", {
+      slidesPerView: 1,
+      slidesPerView: "auto",
+      speed: 1000,
+      disableOnInteraction: true,
+      breakpoints: {
+        766: {
+          slidesPerView: 1
+        },
+        767: {
+          slidesPerView: 2
+        },
+        992: {
+          slidesPerView: 2
+        }
       }
+    });
+    const insight = new Swiper("#insightSwiper", {
+      slidesPerView: 1,
+      slidesPerView: "auto",
+      speed: 1000,
+      disableOnInteraction: true,
+      spaceBetween: 20,
+      breakpoints: {
+        766: {
+          slidesPerView: 1
+        },
+        767: {
+          slidesPerView: 2
+        },
+        992: {
+          slidesPerView: 2
+        }
+      }
+    });
+
+  }
+
+  // Change Background Color on Scroll
+
+  $(window).on("scroll", () => {
+    if ($(window).scrollTop() >= $("#features").offset().top) {
+      $("body").addClass("black-bg")
     }
-  });
-}
+    if ($(window).scrollTop() <= $("#features").offset().top) {
+      $("body").removeClass("black-bg")
+    }
+    if ($(window).scrollTop() >= $("#insight").offset().top) {
+      $("body").removeClass("black-bg")
+    }
+    // if ($(window).scrollTop() >= $("footer").offset().top) {
+    //   $("footer").addClass("black-bg")
+    // }
+    // if ($(window).scrollTop() <= $("footer").offset().top) {
+    //   $("footer").removeClass("black-bg")
+    // }
+  })
+});
 
 // Custom Cursor
 const $c = $("[data-custom-cursor]");
 const $h = $(" .nishan-icon");
 
-$(window).on("mousemove", function(e) {
+$(window).on("mousemove", function (e) {
   x = e.clientX;
   y = e.clientY;
   $c.css("transform", "matrix(1, 0, 0, 1, " + x + "," + y + ")");
 });
 
-$h.on("mouseenter", function(e) {
+$h.on("mouseenter", function (e) {
   $c.addClass("custom-cursor-active");
 });
 
-$h.on("mouseleave", function(e) {
+$h.on("mouseleave", function (e) {
   $c.removeClass("custom-cursor-active");
 });

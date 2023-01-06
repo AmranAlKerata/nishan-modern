@@ -46,7 +46,6 @@ section {
 
   .hover-link {
     transition: all .5s ease-in-out !important;
-    @include font-size(72px);
     transform: translateY(0);
     &.hidden {
       position: absolute;
@@ -54,7 +53,6 @@ section {
       width: 100%;
       left: 0;
       a {
-        @include font-size(72px);
         &.text-white:hover {
           color: #fff !important;
         }
@@ -101,6 +99,9 @@ section {
   transform: translate(-50%, -50%);
   z-index: -1;
 
+  @include media ($lg) {
+    display: none;
+  }
   .circle {
     width: 35rem;
     height: 35rem;

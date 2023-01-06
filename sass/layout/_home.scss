@@ -8,8 +8,19 @@
   }
   h1 {
     @include padding-bottom(50px);
+  }
+  h1,
+  h2,
+  a {
+    @include font-size(72px);
     @include media ($lg) {
       @include font-size(80px);
+    }
+    @include media ($md) {
+      @include font-size(100px);
+    }
+    @include media ($sm) {
+      @include font-size(90px);
     }
   }
 
@@ -20,6 +31,7 @@
   }
 
   .line-wrapper {
+    transform: translateY(5px);
     &::before {
       content: "";
       width: 100%;

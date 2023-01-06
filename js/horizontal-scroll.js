@@ -1,6 +1,6 @@
 const projects = gsap.utils.toArray(".projects .horizontal");
 
-projects.forEach(function(sec, i) {
+projects.forEach(function (sec, i) {
   var thisPinWrap = sec.querySelector(".pin-wrap");
   var thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
 
@@ -30,7 +30,7 @@ projects.forEach(function(sec, i) {
 
 const insight = gsap.utils.toArray(".insight .horizontal");
 
-insight.forEach(function(sec, i) {
+insight.forEach(function (sec, i) {
   var thisPinWrap = sec.querySelector(".pin-wrap");
   var thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
 

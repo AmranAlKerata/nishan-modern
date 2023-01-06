@@ -15,6 +15,10 @@ body {
 }
 body {
   overflow-x: hidden;
+  transition: all .5s ease-in-out;
+  &.black-bg {
+    background-color: $primary;
+  }
 }
 
 .swiper {
