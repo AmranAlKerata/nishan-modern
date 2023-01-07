@@ -148,6 +148,8 @@
           .nishan-icon {
             font-size: 50px;
             line-height: 0;
+            opacity: 0;
+            transition: all .3s ease-in-out;
           }
         }
         &.note {
@@ -174,6 +176,11 @@
             .nishan-icon {
               font-size: 60px;
             }
+          }
+        }
+        &:hover {
+          .nishan-icon {
+            opacity: 1;
           }
         }
       }
