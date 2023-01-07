@@ -14,9 +14,14 @@
   border-radius: 10px;
   font-weight: normal;
 
-  &:hover {
+  &:hover,
+  &.alt {
     color: #fff !important;
     background: $secondary;
+  }
+  &.alt:hover {
+    background-color: $primary;
+    color: #fff;
   }
 }
 

@@ -3,7 +3,7 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 header {
-  background-color: #fff;
+  background-color: transparent;
   position: fixed;
   min-width: 100%;
   left: 0;
@@ -14,7 +14,7 @@ header {
     padding: 0 20px;
   }
   .logo-button-container {
-    background-color: #fff;
+    background-color: transparent;
     position: relative;
   }
   &.nav-up {
