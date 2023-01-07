@@ -336,24 +336,26 @@ $(function () {
   }
 
   // Change Background Color on Scroll
+  if ($(".has-changing-color").length > 0) {
+    $(window).on("scroll", () => {
+      if ($(window).scrollTop() >= $("#features").offset().top) {
+        $("body").addClass("black-bg")
+      }
+      if ($(window).scrollTop() <= $("#features").offset().top) {
+        $("body").removeClass("black-bg")
+      }
+      if ($(window).scrollTop() >= $("#insight").offset().top) {
+        $("body").removeClass("black-bg")
+      }
+      // if ($(window).scrollTop() >= $("footer").offset().top) {
+      //   $("footer").addClass("black-bg")
+      // }
+      // if ($(window).scrollTop() <= $("footer").offset().top) {
+      //   $("footer").removeClass("black-bg")
+      // }
+    })
 
-  $(window).on("scroll", () => {
-    if ($(window).scrollTop() >= $("#features").offset().top) {
-      $("body").addClass("black-bg")
-    }
-    if ($(window).scrollTop() <= $("#features").offset().top) {
-      $("body").removeClass("black-bg")
-    }
-    if ($(window).scrollTop() >= $("#insight").offset().top) {
-      $("body").removeClass("black-bg")
-    }
-    // if ($(window).scrollTop() >= $("footer").offset().top) {
-    //   $("footer").addClass("black-bg")
-    // }
-    // if ($(window).scrollTop() <= $("footer").offset().top) {
-    //   $("footer").removeClass("black-bg")
-    // }
-  })
+  }
 });
 
 // Custom Cursor

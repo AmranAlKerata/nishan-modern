@@ -155,6 +155,26 @@
           width: 600px;
           height: 300px;
           @include padding(45px);
+          &.more {
+            background-color: transparent;
+            border: 1px solid $primary;
+            transition: all .3s ease-in-out;
+            h4,
+            .nishan-icon {
+              transition: all .3s ease-in-out;
+            }
+            &:hover {
+              background-color: $secondary;
+              border-color: $secondary;
+              h4,
+              .nishan-icon {
+                color: #fff;
+              }
+            }
+            .nishan-icon {
+              font-size: 60px;
+            }
+          }
         }
       }
     }
@@ -171,7 +191,6 @@
       }
 
       .insight-card {
-        // padding-#{$end_dir}: 20px;
         * {
           cursor: pointer;
         }
@@ -197,11 +216,37 @@
           h4 {
             @include font-size(16px);
           }
+          &.more {
+            background-color: transparent;
+            border: 1px solid $primary;
+            transition: all .3s ease-in-out;
+            h4,
+            .nishan-icon {
+              transition: all .3s ease-in-out;
+            }
+            &:hover {
+              background-color: $secondary;
+              border-color: $secondary;
+              h4,
+              .nishan-icon {
+                color: #fff;
+              }
+            }
+            .nishan-icon {
+              font-size: 60px;
+            }
+          }
         }
+      }
+    }
+    .all-insightes-btn {
+      .nishan-icon {
+        font-size: 40px;
       }
     }
   }
 }
+
 body.black-bg {
   .features *,
   .our-team * {
