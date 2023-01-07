@@ -20,6 +20,13 @@ header {
   &.nav-up {
     top: -200px !important;
   }
+  &.active-bg {
+    transition: none;
+    background-color: #fff;
+    .logo-button-container {
+      background-color: #fff;
+    }
+  }
 
   .logo {
     position: relative;

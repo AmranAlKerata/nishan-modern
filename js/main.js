@@ -150,6 +150,18 @@ $(function () {
       false
     );
   }
+  if ($(".first-section").length > 0) {
+    $(window).on("scroll", () => {
+      $(".first-section")
+      if ($(window).scrollTop() >= $(".first-section").offset().top + 500) {
+        $("header").addClass("active-bg")
+      }
+      if ($(window).scrollTop() <= $(".first-section").offset().top) {
+        $("header").removeClass("active-bg")
+      }
+    })
+
+  }
 
   // Remove Circle Animation From Mobile
 
