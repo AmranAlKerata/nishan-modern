@@ -365,15 +365,24 @@ $(function () {
         $(".features *, .our-team *").removeClass("text-white")
         $(".features, .our-team").css("background-color", "#fff")
       }
-      // if ($(window).scrollTop() >= $("footer").offset().top) {
-      //   $("footer").addClass("black-bg")
-      // }
-      // if ($(window).scrollTop() <= $("footer").offset().top) {
-      //   $("footer").removeClass("black-bg")
-      // }
     })
 
   }
+
+  // Contact Page Animation Logic
+  $(".choices-container .choice").on("click", function () {
+    const choiceNum = $(this).attr("data-choice");
+
+    const choiceForm = $(`[data-form="${choiceNum}"]`);
+
+    // Toggle Active Class
+    $(this).addClass("active").siblings().removeClass("active");
+
+    // Show & Scroll two the selected from
+
+    choiceForm.fadeIn().siblings().fadeOut()
+
+  })
 });
 
 // Custom Cursor

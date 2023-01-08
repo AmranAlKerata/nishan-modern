@@ -1,0 +1,23 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.contact-page {
+  // From Section
+  .form-section {
+    .choices-container {
+      h4 {
+        cursor: pointer;
+        &.active {
+          text-decoration: line-through;
+        }
+      }
+    }
+    .choice-form {
+      display: none;
+      &.active {
+        display: block;
+      }
+    }
+  }
+}
