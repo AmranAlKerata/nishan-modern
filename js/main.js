@@ -352,21 +352,15 @@ $(function () {
     $(window).on("scroll", () => {
       if ($(window).scrollTop() >= $("#features").offset().top) {
         $("body").css("background-color", "#000")
-        $(".features *, .our-team *").css({
-          color: "#fff",
-        })
+        $(".features *, .our-team *").addClass("text-white")
       }
       if ($(window).scrollTop() <= $("#features").offset().top) {
         $("body").css("background-color", "#fff")
-        $(".features *, .our-team *").css({
-          color: "unset",
-        })
+        $(".features *, .our-team *").removeClass("text-white")
       }
       if ($(window).scrollTop() >= $("#insight").offset().top) {
         $("body").css("background-color", "#fff")
-        $(".features *, .our-team *").css({
-          color: "unset",
-        })
+        $(".features *, .our-team *").removeClass("text-white")
       }
       // if ($(window).scrollTop() >= $("footer").offset().top) {
       //   $("footer").addClass("black-bg")
