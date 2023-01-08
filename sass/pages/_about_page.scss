@@ -256,5 +256,9 @@
 
 .features *,
 .our-team * {
-  transition: all .5s ease-in-out;
+  transition: all .5s ease-in-out !important;
+}
+.features,
+.our-team {
+  transition: all .5s ease-in-out !important;
 }

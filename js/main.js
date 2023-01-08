@@ -353,14 +353,17 @@ $(function () {
       if ($(window).scrollTop() >= $("#features").offset().top) {
         $("body").css("background-color", "#000")
         $(".features *, .our-team *").addClass("text-white")
+        $(".features, .our-team").css("background-color", "#000")
       }
       if ($(window).scrollTop() <= $("#features").offset().top) {
         $("body").css("background-color", "#fff")
         $(".features *, .our-team *").removeClass("text-white")
+        $(".features, .our-team").css("background-color", "#fff")
       }
       if ($(window).scrollTop() >= $("#insight").offset().top) {
         $("body").css("background-color", "#fff")
         $(".features *, .our-team *").removeClass("text-white")
+        $(".features, .our-team").css("background-color", "#fff")
       }
       // if ($(window).scrollTop() >= $("footer").offset().top) {
       //   $("footer").addClass("black-bg")
