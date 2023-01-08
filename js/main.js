@@ -351,13 +351,25 @@ $(function () {
   if ($(".has-changing-color").length > 0) {
     $(window).on("scroll", () => {
       if ($(window).scrollTop() >= $("#features").offset().top) {
-        $("body").addClass("black-bg")
+        $("body").css("background-color", "#000")
+        $(".features *, .our-team *").css({
+          color: "#fff",
+          transition: "all .5s ease-in-out"
+        })
       }
       if ($(window).scrollTop() <= $("#features").offset().top) {
-        $("body").removeClass("black-bg")
+        $("body").css("background-color", "#fff")
+        $(".features *, .our-team *").css({
+          color: "unset",
+          transition: "all .5s ease-in-out"
+        })
       }
       if ($(window).scrollTop() >= $("#insight").offset().top) {
-        $("body").removeClass("black-bg")
+        $("body").css("background-color", "#fff")
+        $(".features *, .our-team *").css({
+          color: "unset",
+          transition: "all .5s ease-in-out"
+        })
       }
       // if ($(window).scrollTop() >= $("footer").offset().top) {
       //   $("footer").addClass("black-bg")

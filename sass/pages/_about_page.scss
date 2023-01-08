@@ -254,18 +254,8 @@
   }
 }
 
-body.black-bg {
-  .features *,
-  .our-team * {
-    color: #fff;
-    transition: all .5s ease-in-out;
-  }
-}
-footer.black-bg {
-  background-color: $primary !important;
+.features *,
+.our-team * {
+  color: unset;
   transition: all .5s ease-in-out;
-  * {
-    transition: all .5s ease-in-out;
-    color: #fff !important;
-  }
 }
