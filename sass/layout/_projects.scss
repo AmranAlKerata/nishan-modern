@@ -92,6 +92,21 @@
       margin-right: auto;
     }
   }
+  &.more {
+    width: 100vw;
+    height: 100vh;
+    &::before {
+      display: none;
+    }
+    h2 {
+      color: $primary;
+      cursor: pointer;
+    }
+    .nishan-icon {
+      font-size: 70px;
+      line-height: 0;
+    }
+  }
 }
 
 .projects {
@@ -139,6 +154,11 @@
           transition: all .3s ease-in-out;
         }
       }
+    }
+  }
+  .see-more-btn {
+    .nishan-icon {
+      font-size: 40px;
     }
   }
 }

@@ -19,6 +19,10 @@
     <!-- Fancy Box -->
     <link rel="stylesheet" href="css/jquery.fancybox.min.css">
     </link>
+    <!-- Mobiscroll -->
+    <link href="css/mobiscroll.jquery.min.css" rel="stylesheet" />
+    <!-- Select 2 -->
+    <link rel="stylesheet" href="css/select2.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -40,6 +44,10 @@
     <script defer src="js/typed.umd.js"></script>
     <!-- Fancy Box -->
     <script defer src="js/jquery.fancybox.min.js"></script>
+    <!-- Mobiscroll -->
+    <script defer src="js/mobiscroll.jquery.min.js"></script>
+    <!-- Select 2 -->
+    <script defer src="js/select2.min.js"></script>
     <!-- Gsap -->
     <script defer src="js/gsap.min.js"></script>
     <!-- Scroll Trigger -->
@@ -186,17 +194,231 @@
 
                     <!-- Start Choices  -->
                     <div class="choices-container mt-4">
-                        <h4 data-choice="0" class="choice">I have a projects request</h4>
-                        <h4 data-choice="1" class="choice">I would like to lose some nice words</h4>
+                        <h2 data-choice="0" class="choice">I have a projects request</h2>
+                        <h2 data-choice="1" class="choice">I would like to lose some nice words</h2>
                     </div>
 
-                    <div class="choices-forms">
-                        <form data-form="0" class="choice-form" id="0">
-                            <h3>This is Form 0</h3>
-                        </form>
-                        <form data-form="1" class="choice-form" id="1">
-                            <h3>This is Form 1</h3>
-                        </form>
+                    <div class="choices-forms pt-5">
+                        <div class="row">
+                            <div class="col-12 col-lg-6">
+                                <form data-form="0" class="choice-form" id="0">
+                                    <div class="mb-4">
+                                        <input type="text" class="form-control wow animate animate__fadeInUp delay-1"
+                                            required placeholder="Name*" id="name">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="tel" class="form-control wow animate animate__fadeInUp delay-2"
+                                            required placeholder="Phone*" id="phone">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="email" class="form-control wow animate animate__fadeInUp delay-3"
+                                            required placeholder="E-mail*" id="email">
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" id="date"
+                                            class="form-control wow animate animate__fadeInUp delay-4"
+                                            placeholder="Date" />
+                                    </div>
+                                    <div class="mb-4">
+                                        <input type="text" id="time"
+                                            class="form-control wow animate animate__fadeInUp delay-5"
+                                            placeholder="Time" />
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-6">
+                                        <select class="select-2-select form-control  w-100" name="address">
+                                            <option value="all_categories">Address</option>
+                                            <option value="1">
+                                                Saudi Arabia
+                                            </option>
+                                            <option value="2">Syria</option>
+                                            <option value="3">USA</option>
+                                            <option value="4">UK</option>
+                                            <option value="5">AU</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <textarea class="form-control wow animate animate__fadeInUp delay-1"
+                                            id="details" placeholder="Message " rows="6"></textarea>
+                                    </div>
+
+                                    <div class="mb-4 custom-checkbox wow animate animate__fadeInUp delay-7">
+                                        <label class="checkbox bounce">
+                                            <input type="checkbox" id="checkbox-1">
+                                            <svg viewBox="0 0 21 21">
+                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                            </svg>
+                                            Enable custom images
+                                        </label>
+                                    </div>
+                                    <div class="mb-4 custom-checkbox wow animate animate__fadeInUp delay-68">
+                                        <label class="checkbox bounce">
+                                            <input type="checkbox" id="checkbox-2">
+                                            <svg viewBox="0 0 21 21">
+                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                            </svg>
+                                            Enable preloader
+                                        </label>
+                                    </div>
+                                    <div class="mb-4 custom-checkbox wow animate animate__fadeInUp delay-9">
+                                        <label class="checkbox bounce">
+                                            <input type="checkbox" id="checkbox-3">
+                                            <svg viewBox="0 0 21 21">
+                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                            </svg>
+                                            Enable add to cart button
+                                        </label>
+                                    </div>
+
+                                    <div class="mb-4 custom-radio wow animate animate__fadeInUp delay-10">
+                                        <h4>Status</h4>
+                                        <label>
+                                            <input type="radio" name="radio" checked />
+                                            <span>Pending</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="radio" />
+                                            <span>Completed</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="radio" />
+                                            <span>Canceled</span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-4 custom-radio inline wow animate animate__fadeInUp delay-11">
+                                        <h4>Status inline</h4>
+                                        <div class="d-flex gap-2">
+                                            <label>
+                                                <input type="radio" name="radio-inline" checked />
+                                                <span>Pending</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="radio-inline" />
+                                                <span>Completed</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="radio-inline" />
+                                                <span>Canceled</span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-12">
+                                        <div class="custom-upload">
+                                            <label class="custom-upload__button outline" for="uploadFile"
+                                                data-element="custom-upload-button">Attach
+                                                file</label>
+                                            <input class="custom-upload__input" name="uploadFile" accept="all"
+                                                id="uploadFile" type="file" data-behaviour="custom-upload-input">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 custom-checkbox wow animate animate__fadeInUp delay-13">
+                                        <label class="checkbox bounce" for="privacy-policy">
+                                            <input type="checkbox" id="privacy-policy">
+                                            <svg viewBox="0 0 21 21">
+                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                            </svg>
+                                            I agree to the privacy policy and terms and
+                                            conditions.
+                                        </label>
+                                    </div>
+                                    <button type="submit"
+                                        class="button alt wow animate animate__fadeInUp delay-14">Submit</button>
+                                </form>
+
+                                <form data-form="1" class="choice-form" id="1">
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-1">
+                                        <input type="text" class="form-control" required placeholder="Name*" id="name">
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-2">
+                                        <input type="tel" class="form-control" required placeholder="Phone*" id="phone">
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-3">
+                                        <input type="email" class="form-control" required placeholder="E-mail*"
+                                            id="email">
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-4">
+                                        <select class="select-2-select form-control w-100" name="address">
+                                            <option value="all_categories">Address</option>
+                                            <option value="1">
+                                                Saudi Arabia
+                                            </option>
+                                            <option value="2">Syria</option>
+                                            <option value="3">USA</option>
+                                            <option value="4">UK</option>
+                                            <option value="5">AU</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-5">
+                                        <textarea class="form-control" id="details" placeholder="Message "
+                                            rows="6"></textarea>
+                                    </div>
+
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-6 custom-checkbox">
+                                        <label class="checkbox bounce">
+                                            <input type="checkbox" id="checkbox-3">
+                                            <svg viewBox="0 0 21 21">
+                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                            </svg>
+                                            Enable add to cart button
+                                        </label>
+                                    </div>
+
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-7 custom-radio">
+                                        <h5>Status</h5>
+                                        <label>
+                                            <input type="radio" name="radio" checked />
+                                            <span>Pending</span>
+                                        </label>
+                                        <label>
+                                            <input type="radio" name="radio" />
+                                            <span>Completed</span>
+                                        </label>
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-8 custom-radio inline">
+                                        <h5>Status inline</h5>
+                                        <div class="d-flex gap-2">
+                                            <label>
+                                                <input type="radio" name="radio-inline" checked />
+                                                <span>Pending</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="radio-inline" />
+                                                <span>Completed</span>
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="radio-inline" />
+                                                <span>Canceled</span>
+                                            </label>
+
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-9">
+                                        <div class="custom-upload">
+                                            <label class="custom-upload__button outline" for="uploadFile"
+                                                data-element="custom-upload-button">Attach
+                                                file</label>
+                                            <input class="custom-upload__input" name="uploadFile" accept="all"
+                                                id="uploadFile" type="file" data-behaviour="custom-upload-input">
+                                        </div>
+                                    </div>
+                                    <div class="mb-4 wow animate animate__fadeInUp delay-10 custom-checkbox">
+                                        <label class="checkbox bounce" for="privacy-policy">
+                                            <input type="checkbox" id="privacy-policy">
+                                            <svg viewBox="0 0 21 21">
+                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                            </svg>
+                                            I agree to the privacy policy and terms and
+                                            conditions.
+                                        </label>
+                                    </div>
+                                    <button type="submit"
+                                        class="button alt wow animate animate__fadeInUp delay-11">Submit</button>
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
 
                     <!-- End Choices  -->
@@ -204,149 +426,77 @@
         </section>
         <!-- End Form Section -->
 
-
-
-        <!-- Start Insight Section -->
-        <section class="insight" id="insight">
-            <div class="container overflow-visible ">
-                <div class="section-heading">
-                    <h2>Insight</h2>
+        <!-- Start FAQ Section -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-heading text-center mb-0">
+                    <h2 class="my-5">FAQ'S</h2>
                 </div>
-                <!-- Desktop -->
-                <div class="horizontal insight-section d-none d-lg-block">
-                    <div class="pin-wrap">
-                        <div class="animation-wrap to-right">
-                            <div class="insight-card">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                        alt="" class="img">
-                                    <h4 class="title d-flex align-items-center justify-content-start gap-3 fw-bold">
-                                        Marketing around world <span class="nishan-icon">w</span></h4>
-                                    <h6 class="tag">Markting</h6>
-                                </a>
-                            </div>
-                            <div class="insight-card note">
-
-                                <p class="note-content">A brand for a company is like a reputation for a person. You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
-                            </div>
-                            <div class="insight-card">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                        alt="" class="img">
-                                    <h4 class="title d-flex align-items-center justify-content-start gap-3 fw-bold">
-                                        Marketing around world <span class="nishan-icon">w</span></h4>
-                                    <h6 class="tag">Markting</h6>
-                                </a>
-                            </div>
-                            <div class="insight-card note">
-
-                                <p class="note-content">A brand for a company is like a reputation for a person. You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
-                            </div>
-                            <div class="insight-card">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                        alt="" class="img">
-                                    <h4 class="title d-flex align-items-center justify-content-start gap-3 fw-bold">
-                                        Marketing around world <span class="nishan-icon">w</span></h4>
-                                    <h6 class="tag">Markting</h6>
-                                </a>
-                            </div>
-                            <div class="insight-card note">
-                                <p class="note-content">A brand for a company is like a reputation for a person. You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
-                            </div>
-                            <div class="insight-card note more">
-                                <a href="#" class="w-100 h-100  d-flex align-items-center justify-content-center gap-4">
-                                    <h4 class="fw-bold mb-0">All Insightes</h4>
-                                    <span class="nishan-icon">w</span>
-                                </a>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <!-- Mobile -->
-                <div class="swiper insightSwiper d-block d-lg-none" id="insightSwiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="insight-card">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                        alt="" class="img">
-                                    <h4 class="title d-flex align-items-center justify-content-start gap-3 ">
-                                        Marketing is the most important thing for your business <span
-                                            class="nishan-icon">w</span></h4>
-                                    <h6 class="tag">Markting</h6>
-                                </a>
+                <div class="accordion" id="accordionExample">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="accordion-item  active wow animate__animated animate__slideInDown">
+                                <h4 class="accordion-header fw-bold accordion-button" id="headingOne"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    Who are Nishan Studio ?
+                                </h4>
+                                <div id="collapseOne" class="accordio n-collapse collapse show"
+                                    aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Aspirational an original Arabic name, as a familiar musical bell between East
+                                        and West.
+                                    </p>
+                                </div>
                             </div>
                         </div>
-                        <div class="swiper-slide">
-                            <div class="insight-card note">
+                        <hr>
+                        <div class="col-12">
+                            <div class="accordion-item wow animate__animated animate__slideInDown">
+                                <h4 class="accordion-header fw-bold accordion-button collapsed" id="headingTwo"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false"
+                                    aria-controls="collapseTwo">
+                                    What is average working days ?
+                                </h4>
+                                <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                    data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="col-12">
+                            <div class="accordion-item  wow animate__animated animate__slideInDown">
+                                <h4 id="headingthree" class=" accordion-header fw-bold accordion-button collapsed"
+                                    data-bs-toggle="collapse" data-bs-target="#collapsethree" aria-expanded="false"
+                                    aria-controls="collapsethree">
 
-                                <p class="note-content">A brand for a company is like a reputation for a person. You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="insight-card">
-                                <a href="#">
-                                    <img src="https://images.unsplash.com/photo-1494253109108-2e30c049369b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
-                                        alt="" class="img">
-                                    <h4 class="title d-flex align-items-center justify-content-start gap-3">
-                                        Marketing around world <span class="nishan-icon">w</span></h4>
-                                    <h6 class="tag">Markting</h6>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="insight-card note" style="background-color: #b4ffce;">
-                                <p class="note-content">A brand for a company is like a reputation for a person. You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
+                                    What is average working days ?
+
+                                </h4>
+                                <div id="collapsethree" class="accordion-collapse collapse"
+                                    aria-labelledby="headingthree" data-bs-parent="#accordionExample">
+                                    <p class="accordion-body">
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut
+                                        labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur .
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <a href="#"
-                    class="all-insightes-btn w-100 h-100  d-flex d-lg-none align-items-center justify-content-start gap-3 mt-4 d-">
-                    <h4 class="mb-0">All Insightes</h4>
-                    <span class="nishan-icon">w</span>
-                </a>
             </div>
         </section>
-        <!-- End Insight Section-->
+        <!-- End FAQ Section -->
 
         <!-- Start Footer -->
         <footer class="bg-white">
             <div class="container">
-                <div class="footer-top d-none d-lg-block">
-                    <div class="row align-items-end gap-5 gap-lg-0">
-                        <div class="col-lg">
-                            <h5 class="m-0">Let us start something nice!</h5>
-                            <a href="mailto:info@bynishan.com">
-                                <h2 class="text-lowercase fw-bold m-0">info@bynishan.com</h2>
-                            </a>
-                        </div>
-                        <div class="col-lg text-center text-lg-end">
-                            <!-- <a href="#"
-                                class="mb-2 fw-bold submit-query d-flex align-items-center justify-content-center justify-content-lg-end gap-2">Submit
-                                Query
-                                <span class="nishan-icon">r</span></a> -->
-
-                            <a href="#" class="button alt mb-2">Submit
-                                Query
-                            </a>
-
-
-                        </div>
-                    </div>
-                </div>
                 <div class="container p-0">
                     <hr class="d-none d-lg-block">
                 </div>

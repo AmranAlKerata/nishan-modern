@@ -5,9 +5,15 @@
 .contact-page {
   // From Section
   .form-section {
+    .choices-forms {
+      height: 0;
+    }
     .choices-container {
-      h4 {
+      .choice {
         cursor: pointer;
+        @include media ($md) {
+          @include font-size(36px);
+        }
         &.active {
           text-decoration: line-through;
         }
@@ -17,6 +23,67 @@
       display: none;
       &.active {
         display: block;
+      }
+    }
+  }
+  // FAQ
+  .faq {
+    hr {
+      opacity: 0.1 !important;
+      margin: {
+        top: 40px;
+        bottom: 40px;
+      }
+    }
+    .accordion-item {
+      border: none;
+      transition: all .3s ease-in-out;
+      h4 {
+        position: relative;
+        cursor: pointer;
+        &::after {
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-right: 1px solid $secondary;
+          border-bottom: 1px solid $secondary;
+          border-bottom-right-radius: 2px;
+          transform: rotate(-45deg);
+          position: absolute;
+          cursor: pointer;
+          top: 0;
+          #{$end_dir}: 0;
+          transition: all .3s ease-in-out;
+        }
+        &.collapsed::after {
+          transform: rotate(45deg);
+        }
+      }
+
+      h4,
+      p {
+        @include font-size(24px);
+      }
+      p {
+        padding-#{$end_dir}: 100px;
+        @include media ($lg) {
+          padding-#{$end_dir}: 0;
+        }
+      }
+      .accordion-header {
+        display: flex;
+        align-items: center;
+      }
+      .accordion-button {
+        background-color: transparent;
+        color: $primary;
+        font-weight: bold;
+        padding-#{$end_dir}: 40px;
+        display: inline-block;
+        width: 100%;
+        border: none;
+        box-shadow: none;
       }
     }
   }

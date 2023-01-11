@@ -13,6 +13,7 @@
   background: $primary;
   border-radius: 10px;
   font-weight: normal;
+  transition: all .3s ease-in-out;
 
   &:hover,
   &.alt {

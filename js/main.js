@@ -7,6 +7,7 @@ $(function () {
   let navbarHeight = $("header").outerHeight();
   const progressLine = $("#progress-line span");
   const header = $("header");
+  const select2Select = $(".select-2-select");
   let url;
 
   $("html").attr("lang") == "en"
@@ -370,19 +371,56 @@ $(function () {
   }
 
   // Contact Page Animation Logic
+  const choicesForms = $(".choices-forms");
   $(".choices-container .choice").on("click", function () {
     const choiceNum = $(this).attr("data-choice");
 
     const choiceForm = $(`[data-form="${choiceNum}"]`);
+    const formHeight = choiceForm.height();
 
     // Toggle Active Class
     $(this).addClass("active").siblings().removeClass("active");
 
     // Show & Scroll two the selected from
+    choiceForm.siblings().fadeOut();
+    choicesForms.css("height", "0");
 
-    choiceForm.fadeIn().siblings().fadeOut()
+    choiceForm.fadeIn();
+    choicesForms.css("height", `${formHeight}px`)
+    $('html, body').animate({
+      scrollTop: $(".choices-forms").offset().top
+    }, 100);
 
   })
+
+  // Select 2
+  if (select2Select.length > 0) {
+    // Make sure to add "select-2-select" class to any select box
+    select2Select.select2();
+
+
+    // Add Placeholder  to search field
+    $(".select2-container").on("click", () =>
+      $(".select2-search__field").attr("placeholder", "Search")
+    );
+    // Change search filter color after select
+    select2Select.on("change", function () {
+      $(this).parent().find(".select2-container").addClass("active");
+    });
+  }
+  // Show uploaded file name
+  const customUpload = $(".custom-upload");
+  if (customUpload.length > 0) {
+    customUpload.on("change", function () {
+      const fileName = $(this).find(".custom-upload__input").val();
+      const customUploadButton = $(this).find(".custom-upload__button");
+      fileName === ""
+        ? "Upload attachment"
+        : customUploadButton.text(fileName.replace("C:\\fakepath\\", ""));
+    });
+  }
+
+
 });
 
 // Custom Cursor
@@ -401,4 +439,29 @@ $h.on("mouseenter", function (e) {
 
 $h.on("mouseleave", function (e) {
   $c.removeClass("custom-cursor-active");
+});
+
+
+mobiscroll.setOptions({
+  locale: mobiscroll.localeNl,
+  theme: 'ios',
+  themeVariant: 'dark'
+});
+
+$(function () {
+
+  $('#date').mobiscroll().datepicker({
+    controls: ['calendar'],
+    dateFormat: 'D MMMM YYYY',
+    timeFormat: 'hh:mm A',
+    selectMultiple: false,
+    locale: mobiscroll.localeEn
+  });
+
+  $('#time').mobiscroll().datepicker({
+    controls: ['timegrid'],
+    timeFormat: 'hh:mm A',
+    selectMultiple: false,
+    locale: mobiscroll.localeEn
+  });
 });

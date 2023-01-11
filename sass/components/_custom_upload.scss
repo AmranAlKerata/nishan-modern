@@ -1,0 +1,45 @@
+@use "../helpers/vars" as *;
+@use "../bootstrap/vendor/rfs" as *;
+@use "../helpers/mixins" as *;
+.custom-upload__button {
+  cursor: pointer;
+}
+.custom-upload__input {
+  height: 0;
+  left: -10000px;
+  position: absolute;
+}
+
+.custom-upload__button {
+  background-color: $primary;
+  border: 2px solid $primary;
+  border-radius: 5px;
+  @include padding(12px 30px);
+  @include font-size(20px);
+  color: #fff;
+  transition: all .3s ease-in-out;
+  display: inline-block;
+  &.outline {
+    background-color: transparent;
+    color: $primary;
+    &:hover {
+      background-color: $primary;
+      color: #fff;
+    }
+  }
+  &.gray {
+    background-color: #f5f5ff;
+    color: $primary;
+    border-color: #f5f5ff;
+    @include padding(12px 100px);
+    &:hover {
+      background-color: $primary;
+      color: #fff;
+      border-color: $primary;
+    }
+  }
+  &:hover {
+    background-color: transparent;
+    color: $primary;
+  }
+}
