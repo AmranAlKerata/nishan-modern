@@ -87,4 +87,9 @@
       }
     }
   }
+  .contact-footer {
+    @include media($lg) {
+      padding-top: 0;
+    }
+  }
 }
