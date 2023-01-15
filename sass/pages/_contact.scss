@@ -25,9 +25,13 @@
         display: block;
       }
     }
+    .button[type="submit"] {
+      @include font-size(24px);
+    }
   }
   // FAQ
   .faq {
+    @include padding-bottom(150px);
     hr {
       opacity: 0.1 !important;
       margin: {
@@ -49,7 +53,7 @@
           border-right: 1px solid $secondary;
           border-bottom: 1px solid $secondary;
           border-bottom-right-radius: 2px;
-          transform: rotate(-45deg);
+          transform: rotate(45deg);
           position: absolute;
           cursor: pointer;
           top: 0;
@@ -57,7 +61,10 @@
           transition: all .3s ease-in-out;
         }
         &.collapsed::after {
-          transform: rotate(45deg);
+          transform: rotate(-45deg);
+        }
+        &.text-white::after {
+          border-color: #fff;
         }
       }
 

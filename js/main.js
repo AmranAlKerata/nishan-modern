@@ -351,20 +351,20 @@ $(function () {
   // Change Background Color on Scroll
   if ($(".has-changing-color").length > 0) {
     $(window).on("scroll", () => {
-      if ($(window).scrollTop() >= $("#features").offset().top) {
+      if ($(window).scrollTop() >= $(".trigger-section").offset().top - 200) {
         $("body").css("background-color", "#000")
-        $(".features *, .our-team *").addClass("text-white")
-        $(".features, .our-team").css("background-color", "#000")
+        $(".section-changing-color *").addClass("text-white")
+        $(".section-changing-color").css("background-color", "#000")
       }
-      if ($(window).scrollTop() <= $("#features").offset().top) {
+      if ($(window).scrollTop() <= $(".trigger-section").offset().top) {
         $("body").css("background-color", "#fff")
-        $(".features *, .our-team *").removeClass("text-white")
-        $(".features, .our-team").css("background-color", "#fff")
+        $(".section-changing-color *").removeClass("text-white")
+        $(".section-changing-color").css("background-color", "#fff")
       }
-      if ($(window).scrollTop() >= $("#insight").offset().top) {
+      if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
         $("body").css("background-color", "#fff")
-        $(".features *, .our-team *").removeClass("text-white")
-        $(".features, .our-team").css("background-color", "#fff")
+        $(".section-changing-color *").removeClass("text-white")
+        $(".section-changing-color").css("background-color", "#fff")
       }
     })
 
@@ -386,7 +386,7 @@ $(function () {
     choicesForms.css("height", "0");
 
     choiceForm.fadeIn();
-    choicesForms.css("height", `${formHeight}px`)
+    choicesForms.css("height", `${formHeight + 100}px`)
     $('html, body').animate({
       scrollTop: $(".choices-forms").offset().top
     }, 100);
@@ -441,27 +441,29 @@ $h.on("mouseleave", function (e) {
   $c.removeClass("custom-cursor-active");
 });
 
-
-mobiscroll.setOptions({
-  locale: mobiscroll.localeNl,
-  theme: 'ios',
-  themeVariant: 'dark'
-});
-
-$(function () {
-
-  $('#date').mobiscroll().datepicker({
-    controls: ['calendar'],
-    dateFormat: 'D MMMM YYYY',
-    timeFormat: 'hh:mm A',
-    selectMultiple: false,
-    locale: mobiscroll.localeEn
+if ($(".mobiscroll").length > 0) {
+  mobiscroll.setOptions({
+    locale: mobiscroll.localeNl,
+    theme: 'ios',
+    themeVariant: 'dark'
   });
 
-  $('#time').mobiscroll().datepicker({
-    controls: ['timegrid'],
-    timeFormat: 'hh:mm A',
-    selectMultiple: false,
-    locale: mobiscroll.localeEn
+  $(function () {
+
+    $('#date').mobiscroll().datepicker({
+      controls: ['calendar'],
+      dateFormat: 'D MMMM YYYY',
+      timeFormat: 'hh:mm A',
+      selectMultiple: false,
+      locale: mobiscroll.localeEn
+    });
+
+    $('#time').mobiscroll().datepicker({
+      controls: ['timegrid'],
+      timeFormat: 'hh:mm A',
+      selectMultiple: false,
+      locale: mobiscroll.localeEn
+    });
   });
-});
+
+}

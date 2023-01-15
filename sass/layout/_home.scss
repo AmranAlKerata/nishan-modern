@@ -3,6 +3,9 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .home {
+  @include media($md) {
+    min-height: 90vh;
+  }
   @include media($lg) {
     margin-top: 0px !important;
   }

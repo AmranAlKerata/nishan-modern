@@ -144,6 +144,7 @@ hr {
   width: 100%;
   outline: none;
   color: $primary;
+  @include font-size(24px);
 }
 
 .form-control:focus {
@@ -273,7 +274,7 @@ $delay: 100;
   outline: none !important;
   box-shadow: none !important;
   border: none !important;
-  @include font-size(20px);
+  @include font-size(24px);
   padding: 0 !important;
 }
 .select2-container.active .select2-selection__rendered {
@@ -324,4 +325,10 @@ $delay: 100;
   .select2-results__option--highlighted.select2-results__option--selectable {
   background-color: $primary;
   transition: all .3s ease-in-out;
+}
+.section-changing-color * {
+  transition: all .5s ease-in-out !important;
+}
+.section-changing-color {
+  transition: all .5s ease-in-out !important;
 }
