@@ -332,3 +332,28 @@ $delay: 100;
 .section-changing-color {
   transition: all .5s ease-in-out !important;
 }
+
+.nishan-mail {
+  @include font-size(62px);
+
+  position: relative;
+  display: inline-block;
+  color: $primary;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    $secondary,
+    $secondary 50%,
+    $primary 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 400ms ease-in-out;
+  text-decoration: none; // text decorations are clipped in WebKit browsers
+  &:hover {
+    background-position: 0 100%;
+  }
+}
