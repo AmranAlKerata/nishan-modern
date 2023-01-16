@@ -165,18 +165,6 @@ $(function () {
   }
 
   // Remove Circle Animation From Mobile
-
-  if (window.innerWidth <= 991) {
-    $(".swiper-wrapper .project-img").on("touchmove", function () {
-      $(this).addClass("active");
-    })
-    $(".swiper-wrapper .project-img").on("touchend", function () {
-      $(this).removeClass("active");
-    })
-
-  }
-
-  // Add Gray filter for stories on touch  [Mobile]
   if (window.innerWidth <= 991) {
     $(".first-section .col-12 * ").on("mouseenter mouseleave", () => {
       $(".has-circle *").removeClass("text-white");
@@ -191,6 +179,18 @@ $(function () {
       false
     );
   }
+
+  // Add Gray filter for stories & insight on touch  [Mobile]
+  if (window.innerWidth <= 991) {
+    $(".swiper-wrapper .project-img, .swiper-wrapper .insight-card").on("touchmove", function () {
+      $(this).addClass("active");
+    })
+    $(".swiper-wrapper .project-img,  .swiper-wrapper .insight-card").on("touchend", function () {
+      $(this).removeClass("active");
+    })
+
+  }
+
 
   // Accordion Animation For Footer
   if (window.innerWidth <= 991) {
@@ -343,7 +343,6 @@ $(function () {
       slidesPerView: "auto",
       speed: 1000,
       disableOnInteraction: true,
-      spaceBetween: 20,
       breakpoints: {
         766: {
           slidesPerView: 1
@@ -364,7 +363,6 @@ $(function () {
 
 
     $(window).on("scroll", () => {
-      // console.log($(".trigger-section").attr("data-media"))
 
       if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
         $("body").css("background-color", "#000")

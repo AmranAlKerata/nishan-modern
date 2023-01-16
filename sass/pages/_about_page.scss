@@ -93,11 +93,6 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        @include media ($lg) {
-          max-width: unset;
-          max-height: unset;
-          height: auto;
-        }
       }
     }
   }
@@ -149,6 +144,7 @@
             font-size: 50px;
             line-height: 0;
             opacity: 0;
+            transition: all .3s ease-in-out;
           }
         }
         &.note {
@@ -180,6 +176,7 @@
         &:hover {
           .nishan-icon {
             opacity: 1;
+            transform: translate(10px, -10px);
           }
         }
       }
@@ -197,6 +194,12 @@
       }
 
       .insight-card {
+        padding-#{$start_dir}: 20px;
+        filter: grayscale(1);
+        transition: all .3s ease-in-out;
+        &.active {
+          filter: grayscale(0);
+        }
         * {
           cursor: pointer;
         }
@@ -219,6 +222,7 @@
           width: 100%;
           height: auto;
           @include padding(45px);
+          margin-#{$start_dir}: 20px;
           h4 {
             @include font-size(16px);
           }
@@ -248,7 +252,6 @@
     .all-insightes-btn {
       .nishan-icon {
         font-size: 40px;
-        line-height: 0;
       }
     }
   }
