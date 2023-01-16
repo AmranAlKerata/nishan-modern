@@ -167,6 +167,17 @@ $(function () {
   // Remove Circle Animation From Mobile
 
   if (window.innerWidth <= 991) {
+    $(".swiper-wrapper .project-img").on("touchmove", function () {
+      $(this).addClass("active");
+    })
+    $(".swiper-wrapper .project-img").on("touchend", function () {
+      $(this).removeClass("active");
+    })
+
+  }
+
+  // Add Gray filter for stories on touch  [Mobile]
+  if (window.innerWidth <= 991) {
     $(".first-section .col-12 * ").on("mouseenter mouseleave", () => {
       $(".has-circle *").removeClass("text-white");
       $(".circle").removeClass("active");
@@ -350,8 +361,12 @@ $(function () {
 
   // Change Background Color on Scroll
   if ($(".has-changing-color").length > 0) {
+
+
     $(window).on("scroll", () => {
-      if ($(window).scrollTop() >= $(".trigger-section").offset().top - 200) {
+      // console.log($(".trigger-section").attr("data-media"))
+
+      if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
         $("body").css("background-color", "#000")
         $(".section-changing-color *").addClass("text-white")
         $(".section-changing-color").css("background-color", "#000")
@@ -367,6 +382,8 @@ $(function () {
         $(".section-changing-color").css("background-color", "#fff")
       }
     })
+
+
 
   }
 

@@ -48,7 +48,7 @@
     <script defer src="js/fetchData.js"></script>
 </head>
 
-<body data-anm=".anm">
+<body data-anm=".anm" class="has-changing-color with-media">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -276,7 +276,7 @@
                             <a href="#" class="button">Explorer</a>
                         </div>
                         <!-- Testimonial  -->
-                        <div class="bottom-box">
+                        <div class="bottom-box d-none d-lg-block">
                             <span class="nishan-icon">n</span>
                             <h4 class="fw-bold wow overflow-hidden wow animate animate__fadeInDown animation-delay-1">
                                 Testimonial</h4>
@@ -302,7 +302,7 @@
         <!-- End About Section -->
 
         <!-- Start Project Section -->
-        <section class="projects">
+        <section class="projects trigger-section" data-media="1024">
             <!-- Desktop -->
             <div class="horizontal projects-section d-none d-lg-block">
                 <div class="pin-wrap">
@@ -351,10 +351,10 @@
                                 <img src="images/brand_3.png" alt="" class="project-img">
                             </a>
                         </div>
-                        <div class="project more">
+                        <div class="project more section-changing-color">
                             <a href="#" class="">
                                 <h2
-                                    class=" w-100 h-100 mb-0 d-flex align-items-center justify-content-center flex-row gap-3">
+                                    class=" w-100 h-100 mb-0 d-flex align-items-center justify-content-center flex-row gap-3 ">
                                     More <span class="nishan-icon">w</span>
                                 </h2>
                             </a>
@@ -363,7 +363,12 @@
                 </div>
             </div>
             <!-- Mobile -->
-            <div class="swiper porjectsSlider d-block d-lg-none" id="porjectsSlider">
+            <div class="container d-block d-lg-none section-changing-color">
+                <div class="section-heading  d-block d-lg-none section-changing-color">
+                    <h2>Latest Stories</h2>
+                </div>
+            </div>
+            <div class="swiper porjectsSlider d-block d-lg-none section-changing-color" id="porjectsSlider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="project">
@@ -371,8 +376,6 @@
                                 <img src="images/brand_1.png" alt="" class="project-img">
                                 <div class="project-name">
                                     <h3>A landing page for Siahaty App.</h3>
-
-
                                 </div>
                             </a>
                         </div>
@@ -413,9 +416,9 @@
                     </div>
                 </div>
             </div>
-            <div class="container ms-0">
+            <div class="container ms-0 section-changing-color  end-changing-color">
                 <a href="#"
-                    class="see-more-btn w-100 h-100 d-flex d-lg-none align-items-center justify-content-start gap-3">
+                    class="see-more-btn w-100 h-100 d-flex d-lg-none align-items-center justify-content-start gap-4 mt-3">
                     <h4 class="mb-0">
                         See more
                     </h4>
@@ -426,7 +429,7 @@
         <!-- End Projects Section -->
 
         <!-- Start Statistics Section -->
-        <section class="statistics" id="statistics">
+        <section class="statistics section-changing-color" id="statistics">
             <div class="container">
                 <div class="row gap-5 gap-md-0">
                     <div class="col-md" id="counters_1">
