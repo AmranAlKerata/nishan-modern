@@ -182,10 +182,10 @@ $(function () {
 
   // Add Gray filter for stories & insight on touch  [Mobile]
   if (window.innerWidth <= 991) {
-    $(".swiper-wrapper .project-img, .swiper-wrapper .insight-card").on("touchmove", function () {
+    $(".swiper-wrapper .project-img, .swiper-wrapper .insight-card .img").on("touchmove", function () {
       $(this).addClass("active");
     })
-    $(".swiper-wrapper .project-img,  .swiper-wrapper .insight-card").on("touchend", function () {
+    $(".swiper-wrapper .project-img,  .swiper-wrapper .insight-card .img").on("touchend", function () {
       $(this).removeClass("active");
     })
 
@@ -326,6 +326,7 @@ $(function () {
       slidesPerView: "auto",
       speed: 1000,
       disableOnInteraction: true,
+
       breakpoints: {
         766: {
           slidesPerView: 1
@@ -343,6 +344,7 @@ $(function () {
       slidesPerView: "auto",
       speed: 1000,
       disableOnInteraction: true,
+      spaceBetween: 20,
       breakpoints: {
         766: {
           slidesPerView: 1
@@ -361,28 +363,47 @@ $(function () {
   // Change Background Color on Scroll
   if ($(".has-changing-color").length > 0) {
 
+    if ($("body").hasClass("with-media")) {
+      if (window.innerWidth <= 991) {
+        $(window).on("scroll", () => {
 
-    $(window).on("scroll", () => {
-
-      if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
-        $("body").css("background-color", "#000")
-        $(".section-changing-color *").addClass("text-white")
-        $(".section-changing-color").css("background-color", "#000")
+          if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
+            $("body").css("background-color", "#000")
+            $(".section-changing-color *").addClass("text-white")
+            $(".section-changing-color").css("background-color", "#000")
+          }
+          if ($(window).scrollTop() <= $(".trigger-section").offset().top) {
+            $("body").css("background-color", "#fff")
+            $(".section-changing-color *").removeClass("text-white")
+            $(".section-changing-color").css("background-color", "#fff")
+          }
+          if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
+            $("body").css("background-color", "#fff")
+            $(".section-changing-color *").removeClass("text-white")
+            $(".section-changing-color").css("background-color", "#fff")
+          }
+        })
       }
-      if ($(window).scrollTop() <= $(".trigger-section").offset().top) {
-        $("body").css("background-color", "#fff")
-        $(".section-changing-color *").removeClass("text-white")
-        $(".section-changing-color").css("background-color", "#fff")
-      }
-      if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
-        $("body").css("background-color", "#fff")
-        $(".section-changing-color *").removeClass("text-white")
-        $(".section-changing-color").css("background-color", "#fff")
-      }
-    })
+    } else {
+      $(window).on("scroll", () => {
 
-
-
+        if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
+          $("body").css("background-color", "#000")
+          $(".section-changing-color *").addClass("text-white")
+          $(".section-changing-color").css("background-color", "#000")
+        }
+        if ($(window).scrollTop() <= $(".trigger-section").offset().top) {
+          $("body").css("background-color", "#fff")
+          $(".section-changing-color *").removeClass("text-white")
+          $(".section-changing-color").css("background-color", "#fff")
+        }
+        if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
+          $("body").css("background-color", "#fff")
+          $(".section-changing-color *").removeClass("text-white")
+          $(".section-changing-color").css("background-color", "#fff")
+        }
+      })
+    }
   }
 
   // Contact Page Animation Logic

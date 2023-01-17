@@ -30,6 +30,7 @@
       border-radius: 50%;
       transition: box-shadow .3s;
       box-shadow: inset 0 0 0 var(--s, 1px) var(--b, var(--border));
+      min-width: 30px;
       &:hover {
         --s: 2px;
         --b: var(--border-hover);
@@ -127,6 +128,7 @@
       display: flex;
       align-items: center;
       padding: 0.375em 0.75em 0.375em 0.375em;
+      padding-#{$start_dir}: 0;
       border-radius: 99em; // or something higher...
       transition: 0.25s ease;
       @include font-size(24px);
