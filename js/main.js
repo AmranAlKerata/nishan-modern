@@ -23,6 +23,16 @@ $(function () {
     // WOW JS
     wow = new WOW().init();
   }
+  // Cookie button
+  if ($("#cookie-agree").length > 0) {
+    $("#cookie-agree").on("click", () => {
+      $(".cookie-wrapper").fadeOut()
+      const timeout = setTimeout(() => {
+        $(".cookie-wrapper").remove()
+        clearTimeout(timeout)
+      }, 1000);
+    })
+  }
 
   // Progress Line
   $(window).scroll(() => {

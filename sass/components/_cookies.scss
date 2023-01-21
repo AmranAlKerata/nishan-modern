@@ -1,0 +1,36 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.cookie-wrapper {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: auto;
+  z-index: 99999;
+  @include media($md) {
+    width: 95%;
+  }
+  .container {
+    background-color: $gray;
+    border-radius: 10px;
+  }
+  .cookie-content {
+    @include padding(25px);
+  }
+  p,
+  a,
+  button {
+    @include font-size(16px);
+  }
+
+  a {
+    color: #9b9b9b;
+  }
+  button {
+    background-color: transparent;
+    border: none;
+  }
+}
