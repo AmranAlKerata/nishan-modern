@@ -466,7 +466,14 @@ $(function () {
     });
   }
 
+  // Date Picker
+  new AirDatepicker('#date', {
+    isMobile: true,
+    autoClose: true,
+    timepicker: true,
+    timeFormat: 'hh:mm AA'
 
+  })
 });
 
 // Custom Cursor
@@ -487,29 +494,4 @@ $h.on("mouseleave", function (e) {
   $c.removeClass("custom-cursor-active");
 });
 
-if ($(".mobiscroll").length > 0) {
-  mobiscroll.setOptions({
-    locale: mobiscroll.localeNl,
-    theme: 'ios',
-    themeVariant: 'dark'
-  });
 
-  $(function () {
-
-    $('#date').mobiscroll().datepicker({
-      controls: ['calendar'],
-      dateFormat: 'D MMMM YYYY',
-      timeFormat: 'hh:mm A',
-      selectMultiple: false,
-      locale: mobiscroll.localeEn
-    });
-
-    $('#time').mobiscroll().datepicker({
-      controls: ['timegrid'],
-      timeFormat: 'hh:mm A',
-      selectMultiple: false,
-      locale: mobiscroll.localeEn
-    });
-  });
-
-}

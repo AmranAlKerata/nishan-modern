@@ -17,11 +17,13 @@
     </link>
     <!-- Select 2 -->
     <link rel="stylesheet" href="css/select2.min.css">
+    <link rel="stylesheet" type="text/css" href="css/air-datepicker.css" />
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
     <!-- Jquery -->
     <script defer src="js/jquery.min.js"></script>
+
     <!-- ANM -->
     <script defer src="js/anm.min.js"></script>
     <!-- Bootstrap -->
@@ -32,12 +34,15 @@
     <script defer src="js/wow.min.js"></script>
     <!-- Select 2 -->
     <script defer src="js/select2.min.js"></script>
+    <script defer src="js/air-datepicker.js"></script>
+    <script defer src="js/en.js"></script>
     <!-- Gsap -->
     <script defer src="js/gsap.min.js"></script>
     <!-- Scroll Trigger -->
     <script defer src="js/ScrollTrigger.min.js"></script>
     <!-- Horizontal scroll -->
     <script defer src="js/horizontal-scroll.js"></script>
+
     <!-- Main Script -->
     <script defer src="js/main.js"></script>
 </head>
@@ -216,14 +221,10 @@
                                             required placeholder="E-mail*" id="email">
                                     </div>
                                     <div class="mb-4">
-                                        <input type="datetime-local" id="date"
+
+                                        <input type="text" id="date"
                                             class="form-control wow animate animate__fadeInUp delay-4"
                                             placeholder="Date" />
-                                    </div>
-                                    <div class="mb-4">
-                                        <input type="text" id="time"
-                                            class="form-control wow animate animate__fadeInUp delay-5"
-                                            placeholder="Time" />
                                     </div>
                                     <div class="mb-4 wow animate animate__fadeInUp delay-6">
                                         <select class="select-2-select form-control  w-100" name="address">
