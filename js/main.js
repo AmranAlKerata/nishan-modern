@@ -422,7 +422,6 @@ $(function () {
     const choiceNum = $(this).attr("data-choice");
 
     const choiceForm = $(`[data-form="${choiceNum}"]`);
-    const formHeight = choiceForm.height();
 
     // Toggle Active Class
     $(this).addClass("active").siblings().removeClass("active");
@@ -432,7 +431,7 @@ $(function () {
     choicesForms.css("height", "0");
 
     choiceForm.fadeIn();
-    choicesForms.css("height", `${formHeight + 100}px`)
+    choicesForms.css("height", `100%`)
     $('html, body').animate({
       scrollTop: $(".choices-forms").offset().top
     }, 100);
@@ -467,13 +466,14 @@ $(function () {
   }
 
   // Date Picker
-  new AirDatepicker('#date', {
-    isMobile: true,
-    autoClose: true,
-    timepicker: true,
-    timeFormat: 'hh:mm AA'
-
-  })
+  if ($("#date").length > 0) {
+    new AirDatepicker('#date', {
+      isMobile: true,
+      autoClose: true,
+      timepicker: true,
+      timeFormat: 'hh:mm AA'
+    })
+  }
 });
 
 // Custom Cursor
