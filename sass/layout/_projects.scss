@@ -159,7 +159,9 @@
         object-fit: cover;
         filter: grayscale(1);
         transition: all .3s ease-in-out;
-        &.active {
+      }
+      &.active {
+        .project-img {
           filter: grayscale(0);
         }
       }
@@ -182,7 +184,7 @@
 
         h3 {
           cursor: pointer;
-          color: $primary;
+          color: $primary !important;
         }
 
         .arrow-icon {
@@ -193,10 +195,14 @@
             @include font-size(60px);
             line-height: 30px;
             transition: all .3s ease-in-out;
+            color: $primary !important;
           }
 
           margin-right: auto;
         }
+      }
+      &.more::before {
+        display: none;
       }
     }
 
