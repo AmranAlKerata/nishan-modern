@@ -1,4 +1,4 @@
-$(function () {
+$(function() {
   const navItems = $(".menu-links li");
   const menuIcon = $(".menu .icon");
   let didScroll;
@@ -26,12 +26,12 @@ $(function () {
   // Cookie button
   if ($("#cookie-agree").length > 0) {
     $("#cookie-agree").on("click", () => {
-      $(".cookie-wrapper").fadeOut()
+      $(".cookie-wrapper").fadeOut();
       const timeout = setTimeout(() => {
-        $(".cookie-wrapper").remove()
-        clearTimeout(timeout)
+        $(".cookie-wrapper").remove();
+        clearTimeout(timeout);
       }, 1000);
-    })
+    });
   }
 
   // Progress Line
@@ -85,7 +85,7 @@ $(function () {
     $("header").css("top", `${$(".client-list").innerHeight()}px`);
   }
   // Remove client list after click on the button
-  $("#gotIt").on("click", function () {
+  $("#gotIt").on("click", function() {
     $(".client-list").fadeOut();
     $("main").css("margin-top", 0);
     $("header").css("top", 0);
@@ -103,7 +103,7 @@ $(function () {
       }
     }
 
-    navItems.each(function (index) {
+    navItems.each(function(index) {
       if ($(".menu-links").hasClass("active")) {
         $(this).attr("class", `delay-${index + 1}`);
         $(this).attr("class", `animate animate__fadeInUp delay-${index + 1}`);
@@ -132,7 +132,6 @@ $(function () {
     );
   };
 
-
   // Hero Section Circle Animation
   if (!is_touch_enabled()) {
     $(".first-section .col-12 * ").on("mouseenter", () => {
@@ -146,7 +145,7 @@ $(function () {
   } else {
     document.addEventListener(
       "touchmove",
-      function () {
+      function() {
         $(".has-circle * ").addClass("text-white");
         $(".circle").addClass("active");
       },
@@ -154,7 +153,7 @@ $(function () {
     );
     document.addEventListener(
       "touchend",
-      function () {
+      function() {
         $(".has-circle *").removeClass("text-white");
         $(".circle").removeClass("active");
       },
@@ -163,15 +162,14 @@ $(function () {
   }
   if ($(".first-section").length > 0) {
     $(window).on("scroll", () => {
-      $(".first-section")
+      $(".first-section");
       if ($(window).scrollTop() >= $(".first-section").offset().top + 500) {
-        $("header").addClass("active-bg")
+        $("header").addClass("active-bg");
       }
       if ($(window).scrollTop() <= $(".first-section").offset().top) {
-        $("header").removeClass("active-bg")
+        $("header").removeClass("active-bg");
       }
-    })
-
+    });
   }
 
   // Remove Circle Animation From Mobile
@@ -182,7 +180,7 @@ $(function () {
     });
     document.addEventListener(
       "touchmove",
-      function () {
+      function() {
         $(".has-circle *").removeClass("text-white");
         $(".circle").removeClass("active");
       },
@@ -192,20 +190,22 @@ $(function () {
 
   // Add Gray filter for stories & insight on touch  [Mobile]
   if (window.innerWidth <= 991) {
-    $(".swiper-wrapper .project-img, .swiper-wrapper .insight-card .img").on("touchmove", function () {
+    $(
+      ".project, .project-img, .swiper-wrapper .insight-card .img"
+    ).on("touchmove", function() {
       $(this).addClass("active");
-    })
-    $(".swiper-wrapper .project-img,  .swiper-wrapper .insight-card .img").on("touchend", function () {
+    });
+    $(
+      ".project, .project-img,  .swiper-wrapper .insight-card .img"
+    ).on("touchend", function() {
       $(this).removeClass("active");
-    })
-
+    });
   }
-
 
   // Accordion Animation For Footer
   if (window.innerWidth <= 991) {
     $("footer ul:not(.first-list)").slideUp();
-    $("footer .footer-accordion").on("click", function () {
+    $("footer .footer-accordion").on("click", function() {
       $(this).parent().find("ul").slideToggle();
     });
   }
@@ -268,7 +268,7 @@ $(function () {
         let companies = [];
         let current = 0;
         const response = data.data;
-        response.map((t) => {
+        response.map(t => {
           strings.push(t.description);
           names.push(t.name);
           companies.push(t.company);
@@ -367,58 +367,54 @@ $(function () {
         }
       }
     });
-
   }
 
   // Change Background Color on Scroll
   if ($(".has-changing-color").length > 0) {
-
     if ($("body").hasClass("with-media")) {
       if (window.innerWidth <= 991) {
         $(window).on("scroll", () => {
-
-          if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
-            $("body").css("background-color", "#000")
-            $(".section-changing-color *").addClass("text-white")
-            $(".section-changing-color").css("background-color", "#000")
+          if (
+            $(window).scrollTop() >=
+            $(".trigger-section").offset().top - 500
+          ) {
+            $(".section-changing-color *").addClass("text-white");
+            $(".section-changing-color").css("background-color", "#000");
           }
-          if ($(window).scrollTop() <= $(".trigger-section").offset().top) {
-            $("body").css("background-color", "#fff")
-            $(".section-changing-color *").removeClass("text-white")
-            $(".section-changing-color").css("background-color", "#fff")
+          if (
+            $(window).scrollTop() <=
+            $(".trigger-section").offset().top - 500
+          ) {
+            $(".section-changing-color *").removeClass("text-white");
+            $(".section-changing-color").css("background-color", "#fff");
           }
           if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
-            $("body").css("background-color", "#fff")
-            $(".section-changing-color *").removeClass("text-white")
-            $(".section-changing-color").css("background-color", "#fff")
+            $(".section-changing-color *").removeClass("text-white");
+            $(".section-changing-color").css("background-color", "#fff");
           }
-        })
+        });
       }
     } else {
       $(window).on("scroll", () => {
-
-        if ($(window).scrollTop() >= $(".trigger-section").offset().top - 300) {
-          $("body").css("background-color", "#000")
-          $(".section-changing-color *").addClass("text-white")
-          $(".section-changing-color").css("background-color", "#000")
+        if ($(window).scrollTop() >= $(".trigger-section").offset().top - 500) {
+          $(".section-changing-color *").addClass("text-white");
+          $(".section-changing-color").css("background-color", "#000");
         }
-        if ($(window).scrollTop() <= $(".trigger-section").offset().top) {
-          $("body").css("background-color", "#fff")
-          $(".section-changing-color *").removeClass("text-white")
-          $(".section-changing-color").css("background-color", "#fff")
+        if ($(window).scrollTop() <= $(".trigger-section").offset().top - 500) {
+          $(".section-changing-color *").removeClass("text-white");
+          $(".section-changing-color").css("background-color", "#fff");
         }
         if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
-          $("body").css("background-color", "#fff")
-          $(".section-changing-color *").removeClass("text-white")
-          $(".section-changing-color").css("background-color", "#fff")
+          $(".section-changing-color *").removeClass("text-white");
+          $(".section-changing-color").css("background-color", "#fff");
         }
-      })
+      });
     }
   }
 
   // Contact Page Animation Logic
   const choicesForms = $(".choices-forms");
-  $(".choices-container .choice").on("click", function () {
+  $(".choices-container .choice").on("click", function() {
     const choiceNum = $(this).attr("data-choice");
 
     const choiceForm = $(`[data-form="${choiceNum}"]`);
@@ -431,32 +427,44 @@ $(function () {
     choicesForms.css("height", "0");
 
     choiceForm.fadeIn();
-    choicesForms.css("height", `100%`)
-    $('html, body').animate({
-      scrollTop: $(".choices-forms").offset().top
-    }, 100);
+    choicesForms.css("height", `100%`);
+    $("html, body").animate(
+      { scrollTop: $(".choices-forms").offset().top },
+      100
+    );
+  });
 
-  })
+  // Textarea animated border
+  $("textarea").on("change", function() {
+    if ($(this).val().length > 0) {
+      $(this).addClass("active");
+    } else {
+      $(this).removeClass("active");
+    }
+  });
 
   // Select 2
   if (select2Select.length > 0) {
     // Make sure to add "select-2-select" class to any select box
     select2Select.select2();
 
+    select2Select.on("select2:select", function(e) {
+      $(this).parent().find(".select2-selection__rendered").addClass("active");
+    });
 
     // Add Placeholder  to search field
     $(".select2-container").on("click", () =>
       $(".select2-search__field").attr("placeholder", "Search")
     );
     // Change search filter color after select
-    select2Select.on("change", function () {
+    select2Select.on("change", function() {
       $(this).parent().find(".select2-container").addClass("active");
     });
   }
   // Show uploaded file name
   const customUpload = $(".custom-upload");
   if (customUpload.length > 0) {
-    customUpload.on("change", function () {
+    customUpload.on("change", function() {
       const fileName = $(this).find(".custom-upload__input").val();
       const customUploadButton = $(this).find(".custom-upload__button");
       fileName === ""
@@ -467,12 +475,15 @@ $(function () {
 
   // Date Picker
   if ($("#date").length > 0) {
-    new AirDatepicker('#date', {
+    new AirDatepicker("#date", {
       isMobile: true,
       autoClose: true,
       timepicker: true,
-      timeFormat: 'hh:mm AA'
-    })
+      timeFormat: "hh:mm AA",
+      onSelect: ({ date, formattedDate, datepicker }) => {
+        $(`#${datepicker.$el.id}`).addClass("active");
+      }
+    });
   }
 });
 
@@ -480,18 +491,33 @@ $(function () {
 const $c = $("[data-custom-cursor]");
 const $h = $(" .nishan-icon");
 
-$(window).on("mousemove", function (e) {
+$(window).on("mousemove", function(e) {
   x = e.clientX;
   y = e.clientY;
   $c.css("transform", "matrix(1, 0, 0, 1, " + x + "," + y + ")");
 });
 
-$h.on("mouseenter", function (e) {
+$h.on("mouseenter", function(e) {
   $c.addClass("custom-cursor-active");
 });
 
-$h.on("mouseleave", function (e) {
+$h.on("mouseleave", function(e) {
   $c.removeClass("custom-cursor-active");
 });
 
+// $(".button-submit").on("click", function(e) {
+//   const parent = $(this).parent();
+//   // Validate Form
+//   parent.validate();
 
+//   // Checkbox Validation
+//   if ($(".amk-group.required input[type='checkbox']:checked").length <= 0) {
+//     $(".amk-group.required .checkbox").css("color", "red");
+//     parent.validate();
+//   }
+//   if ($(".amk-group.required input[type='checkbox']:checked").length > 0) {
+//     $(".amk-group.required .checkbox").css("color", "#000");
+//   } else {
+//     parent.validate();
+//   }
+// });
