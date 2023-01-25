@@ -191,6 +191,9 @@
 
       .swiper-slide {
         width: 80%;
+        &:last-child {
+          padding-#{$end_dir}: 20px;
+        }
       }
 
       .insight-card {
