@@ -21,6 +21,7 @@
     }
     .choice-form {
       display: none;
+      @include padding-bottom(150px);
       &.active {
         display: block;
       }
