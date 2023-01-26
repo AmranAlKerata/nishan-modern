@@ -371,45 +371,48 @@ $(function() {
 
   // Change Background Color on Scroll
   if ($(".has-changing-color").length > 0) {
-    if ($("body").hasClass("with-media")) {
-      if (window.innerWidth <= 991) {
-        $(window).on("scroll", () => {
-          if (
-            $(window).scrollTop() >=
-            $(".trigger-section").offset().top - 500
-          ) {
-            $(".section-changing-color *").addClass("text-white");
-            $(".section-changing-color").css("background-color", "#000");
-          }
-          if (
-            $(window).scrollTop() <=
-            $(".trigger-section").offset().top - 500
-          ) {
-            $(".section-changing-color *").removeClass("text-white");
-            $(".section-changing-color").css("background-color", "#fff");
-          }
-          if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
-            $(".section-changing-color *").removeClass("text-white");
-            $(".section-changing-color").css("background-color", "#fff");
-          }
-        });
+    // if ($("body").hasClass("with-media")) {
+    //   if (window.innerWidth <= 991) {
+    //     $(window).on("scroll", () => {
+    //       if (
+    //         $(window).scrollTop() >=
+    //         $(".trigger-section").offset().top - 500
+    //       ) {
+    //         $(".section-changing-color *").addClass("text-white");
+    //         $(".section-changing-color").css("background-color", "#000");
+    //       }
+    //       if (
+    //         $(window).scrollTop() <=
+    //         $(".trigger-section").offset().top - 500
+    //       ) {
+    //         $(".section-changing-color *").removeClass("text-white");
+    //         $(".section-changing-color").css("background-color", "#fff");
+    //       }
+    //       if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
+    //         $(".section-changing-color *").removeClass("text-white");
+    //         $(".section-changing-color").css("background-color", "#fff");
+    //       }
+    //     });
+    //   }
+    // }
+    // else {
+
+    $(window).on("scroll", () => {
+      if ($(window).scrollTop() >= $(".trigger-section").offset().top - 500) {
+        $(".section-changing-color *").addClass("text-white");
+        $(".section-changing-color").css("background-color", "#000");
       }
-    } else {
-      $(window).on("scroll", () => {
-        if ($(window).scrollTop() >= $(".trigger-section").offset().top - 500) {
-          $(".section-changing-color *").addClass("text-white");
-          $(".section-changing-color").css("background-color", "#000");
-        }
-        if ($(window).scrollTop() <= $(".trigger-section").offset().top - 500) {
-          $(".section-changing-color *").removeClass("text-white");
-          $(".section-changing-color").css("background-color", "#fff");
-        }
-        if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
-          $(".section-changing-color *").removeClass("text-white");
-          $(".section-changing-color").css("background-color", "#fff");
-        }
-      });
-    }
+      if ($(window).scrollTop() <= $(".trigger-section").offset().top - 500) {
+        $(".section-changing-color *").removeClass("text-white");
+        $(".section-changing-color").css("background-color", "#fff");
+      }
+      if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
+        $(".section-changing-color *").removeClass("text-white");
+        $(".section-changing-color").css("background-color", "#fff");
+      }
+    });
+
+    // }
   }
 
   // Contact Page Animation Logic
