@@ -46,28 +46,6 @@
       opacity: 0;
       transition: all .3s ease-in-out;
     }
-    @media (min-width: 1025px) {
-      // padding-#{$end_dir}: 50px;
-      // .project-name {
-      //   padding: 0;
-      //   padding-#{$end_dir}: 50px;
-      // }
-      // &::before {
-      //   width: calc(100% - 50px);
-      // }
-      // &.last {
-      //   padding-#{$end_dir}: 0;
-      //   padding-#{$start_dir}: 50px;
-      //   &::before {
-      //     left: 50px;
-      //   }
-      //   .project-name {
-      //     padding: 0;
-      //     padding-#{$end_dir}: 0;
-      //     padding-#{$start_dir}: 50px;
-      //   }
-      // }
-    }
 
     &:hover::before {
       opacity: 1;
@@ -132,6 +110,23 @@
       .nishan-icon {
         font-size: 70px;
         line-height: 0;
+      }
+    }
+  }
+  @include media ($lg) {
+    .project-img {
+      filter: grayscale(1);
+    }
+    &.active {
+      &::before {
+        opacity: 1;
+      }
+      .project-name {
+        opacity: 1;
+        z-index: 99;
+      }
+      .project-img {
+        filter: grayscale(0);
       }
     }
   }
