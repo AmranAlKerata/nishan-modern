@@ -3,28 +3,33 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .stories-page {
-  .my-sizer-element {
-    flex-basis: 50%;
-    max-width: 50%;
-    opacity: 0;
-    width: 100%;
-    position: absolute;
-    visibility: hidden;
-  }
   .filters-group {
     margin-bottom: 100px;
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 2px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $scroll;
+      border-radius: 50px;
+    }
   }
   .filter-options a,
   .filter-label {
     @include font-size(24px);
+  }
+  .filter-options {
+    overflow: scroll;
+    width: max-content;
   }
   .filter-options a.active {
     color: $secondary;
   }
   .project {
     padding: 0;
-
-    margin-bottom: 100px;
+    position: relative;
+    margin-bottom: 30px;
     &::before {
       content: '';
       width: 100%;
@@ -42,26 +47,26 @@
       transition: all .3s ease-in-out;
     }
     @media (min-width: 1025px) {
-      padding-#{$end_dir}: 50px;
-      .project-name {
-        padding: 0;
-        padding-#{$end_dir}: 50px;
-      }
-      &::before {
-        width: calc(100% - 50px);
-      }
-      &.last {
-        padding-#{$end_dir}: 0;
-        padding-#{$start_dir}: 50px;
-        &::before {
-          left: 50px;
-        }
-        .project-name {
-          padding: 0;
-          padding-#{$end_dir}: 0;
-          padding-#{$start_dir}: 50px;
-        }
-      }
+      // padding-#{$end_dir}: 50px;
+      // .project-name {
+      //   padding: 0;
+      //   padding-#{$end_dir}: 50px;
+      // }
+      // &::before {
+      //   width: calc(100% - 50px);
+      // }
+      // &.last {
+      //   padding-#{$end_dir}: 0;
+      //   padding-#{$start_dir}: 50px;
+      //   &::before {
+      //     left: 50px;
+      //   }
+      //   .project-name {
+      //     padding: 0;
+      //     padding-#{$end_dir}: 0;
+      //     padding-#{$start_dir}: 50px;
+      //   }
+      // }
     }
 
     &:hover::before {
