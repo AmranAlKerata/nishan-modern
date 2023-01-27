@@ -1,0 +1,133 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.stories-page {
+  .my-sizer-element {
+    flex-basis: 50%;
+    max-width: 50%;
+    opacity: 0;
+    width: 100%;
+    position: absolute;
+    visibility: hidden;
+  }
+  .filters-group {
+    margin-bottom: 100px;
+  }
+  .filter-options a,
+  .filter-label {
+    @include font-size(24px);
+  }
+  .filter-options a.active {
+    color: $secondary;
+  }
+  .project {
+    padding: 0;
+
+    margin-bottom: 100px;
+    &::before {
+      content: '';
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background: rgba(23, 21, 21, 0);
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.672) 28%,
+        #00000047 55%
+      );
+      opacity: 0;
+      transition: all .3s ease-in-out;
+    }
+    @media (min-width: 1025px) {
+      padding-#{$end_dir}: 50px;
+      .project-name {
+        padding: 0;
+        padding-#{$end_dir}: 50px;
+      }
+      &::before {
+        width: calc(100% - 50px);
+      }
+      &.last {
+        padding-#{$end_dir}: 0;
+        padding-#{$start_dir}: 50px;
+        &::before {
+          left: 50px;
+        }
+        .project-name {
+          padding: 0;
+          padding-#{$end_dir}: 0;
+          padding-#{$start_dir}: 50px;
+        }
+      }
+    }
+
+    &:hover::before {
+      opacity: 1;
+    }
+
+    &:hover .project-name {
+      opacity: 1;
+    }
+
+    .project-img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 1 /1;
+      object-fit: cover;
+    }
+
+    .project-name {
+      width: 100%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      cursor: pointer;
+      opacity: 0;
+      transition: all .3s ease-in-out;
+
+      &:hover {
+        .arrow-icon .nishan-icon {
+          transform: translate(10px, -10px);
+        }
+      }
+
+      h3 {
+        cursor: pointer;
+        color: $primary;
+      }
+
+      .arrow-icon {
+        text-align: center;
+
+        .nishan-icon {
+          display: inline-block;
+          @include font-size(60px);
+          line-height: 30px;
+          transition: all .3s ease-in-out;
+        }
+
+        margin-right: auto;
+      }
+    }
+    &.more {
+      width: 100vw;
+      height: 100vh;
+      &::before {
+        display: none;
+      }
+      h2 {
+        color: $primary;
+        cursor: pointer;
+      }
+      .nishan-icon {
+        font-size: 70px;
+        line-height: 0;
+      }
+    }
+  }
+}
