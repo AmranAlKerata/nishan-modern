@@ -26,12 +26,9 @@
     <script defer src="js/anm.min.js"></script>
     <!-- Bootstrap -->
     <script defer src="js/bootstrap.min.js"></script>
-    <!-- Shuffle -->
-    <script defer src="js/shuffle.js"></script>
-    <!-- Shuffle -->
-    <script defer src="js/shuffle-init.js"></script>
+
     <!-- Smoth Scroll -->
-    <script defer src="js/smoth-scroll.min.js"></script>
+    <!-- <script defer src="js/smoth-scroll.min.js"></script> -->
     <!-- Wow Js -->
     <script defer src="js/wow.min.js"></script>
 
@@ -39,7 +36,7 @@
     <script defer src="js/main.js"></script>
 </head>
 
-<body data-anm=".anm" class="stories-page">
+<body data-anm=".anm" class="story-page">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -60,7 +57,7 @@
 
 
         <!-- Start Header -->
-        <header>
+        <header class="bg-white">
             <div class="container-fluid d-flex justify-content-between
                             align-items-center py-4 logo-button-container px-0 px-lg-5">
                 <div class="logo">
@@ -130,14 +127,46 @@
         <!-- End Header -->
 
         <!-- Start Hero -->
-        <section id="stories" class=" first-section stories d-flex align-items-center pt-0 has-circle">
+        <section id="story" class=" first-section story d-flex align-items-center pt-0">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-12">
-                        <h1 class="mass-heading text-center">Stories</h1>
-                    </div>
-                    <div class="circle-container">
-                        <div class="circle anm" data-speed-x="80" data-speed-y="80"></div>
+                    <div class="col-12 col-lg-9">
+                        <span class="ps-2">2023</span>
+                        <h1 class="mass-heading">Marketing around
+                            world</h1>
+                        <!-- Story Boxes -->
+                        <div class="row story-boxes mt-5 gap-3 gap-md-0">
+                            <div class="col">
+                                <div class="box">
+                                    <h3>Services</h3>
+                                    <ul>
+                                        <li>Branding</li>
+                                        <li>Website</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="box">
+                                    <h3>Team</h3>
+                                    <ul>
+                                        <li>Designer</li>
+                                        <li>Front-end Dev</li>
+                                        <li>Back-end Dev</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="box">
+                                    <h3>Client</h3>
+                                    <ul>
+                                        <li>Name of company</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-link mt-5">
+                            <a href="#" class="button outline-btn">Visit it now</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -145,86 +174,85 @@
 
         <!-- End Hero -->
 
-        <!-- Start Stories -->
-        <section class="stories-gallery" id="stories-gallery">
+        <!-- Start Story info Section -->
+        <section class="story-info pt-0" id="story-info">
             <div class="container">
-                <div class="row">
-                    <div class="col-sm-12 filters-group-wrap ">
-                        <div class="filters-group overflow-scroll">
-                            <div class="btn-group filter-options d-flex align-items-center justify-content-start gap-4">
-                                <p class="filter-label">Filter by</p>
-                                <a href="#all" data-group="all" class="active">All</a>
-                                <a href="#apps" data-group="apps">Apps</a>
-                                <a href="#branding" data-group="branding">Branding</a>
-                                <a href="#websites" data-group="websites">Websites</a>
-                                <a href="#creative" data-group="creative">Creative</a>
-                            </div>
-                        </div>
+                <div class="row gap-5 gap-lg-0">
+                    <div class="col-lg-9">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">Introduction</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-2">Ternary is the world’s first native
+                            FinOps cloud cost optimization tool built for Google Cloud on Google Cloud. Ternary
+                            solves the cloud budget challenge by bridging the gap between engineering and finance teams.
+                            <br>
+                            Through its SaaS platform, Ternary helps customers visualize their cloud spend across all
+                            clouds, provides spend
+                            analysis, and offers spend optimization opportunities.
+                        </p>
 
+                    </div>
+                    <div class="col-lg">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-4">Challenge</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-5">The companies and their competitors
+                            rarely address the visual perspective of their products, often neglecting
+                            functionality and user experience.</p>
                     </div>
                 </div>
-
-                <div id="grid" class="row my-shuffle-container">
-
-                    <div class="col-12 col-lg-6 story-item" data-groups='["apps"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_1.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6  story-item" data-groups='["branding","apps"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_2.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 story-item" data-groups='["websites","branding"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_3.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 story-item" data-groups='["creative","apps"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_3.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-1 my-sizer-element"></div>
-                </div>
-
             </div>
         </section>
-        <!-- End Stories -->
+        <!-- End Story info Section -->
 
+        <!-- Start Store Images Section -->
+        <section class="store-images " id="store-images">
+            <div class="store-img" style="background-image: url(/images/brand_1.png);"></div>
+            <div class="store-img" style="background-image: url(/images/brand_2.png);"></div>
+        </section>
+        <!-- End Store Images Section -->
+
+        <section class="gallary" id="gallary">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-9">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">The Power</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-2">
+                            Since the product is chart-based, analytical, and precise, we thought it could use a bit of
+                            imperfect human touch. So we
+                            added a series of strokes, arrows, and scribbles to emphasize the most important aspects of
+                            our
+                            messages and images, and
+                            to balance logic with spontaneity.
+                            <br>
+                            The color palette needed to be flexible and integrate multiple colors to meet data
+                            visualization
+                            needs. We developed a
+                            high-contrast system that uses over 20 colors for the charts in the hierarchy and can
+                            display up to
+                            500 data points.
+                        </p>
+                    </div>
+                </div>
+                <div class="row story-gallary gap-5 gap-md-0">
+                    <div class="col-md">
+                        <img src="./images/brand_1.png" alt="brand_2">
+                    </div>
+                    <div class="col-md">
+                        <img src="./images/brand_2.png" alt="brand_2">
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">Results</h4>
+                    <p class="wow animate animate__fadeInUp animation-delay-2">
+                        The folks at Ternary were thrilled with the end result, especially their development team, who
+                        could now easily integrate our designs into their development process.
+                    </p>
+                </div>
+
+                <hr class="my-5">
+                <div class="next-project">
+                    <span>See more</span>
+                    <a href="#" class="d-block pe-2">Name of next project <span class="nishan-icon">w</span></a>
+                </div>
+            </div>
+        </section>
 
         <!-- Start Footer -->
         <footer>

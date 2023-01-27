@@ -3,6 +3,9 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .stories-page {
+  .stories-gallery {
+    @include padding-bottom(150px);
+  }
   .filters-group {
     margin-bottom: 100px;
     &::-webkit-scrollbar {
@@ -112,21 +115,29 @@
         line-height: 0;
       }
     }
-  }
-  @include media ($lg) {
-    .project-img {
-      filter: grayscale(1);
-    }
-    &.active {
-      &::before {
-        opacity: 1;
+    @include media ($lg) {
+      &:hover::before {
+        opacity: 0;
       }
-      .project-name {
-        opacity: 1;
-        z-index: 99;
+
+      &:hover .project-name {
+        opacity: 0;
       }
       .project-img {
-        filter: grayscale(0);
+        filter: grayscale(1);
+      }
+      &.active {
+        &::before {
+          opacity: 1;
+          z-index: 99;
+        }
+        .project-name {
+          opacity: 1;
+          z-index: 99;
+        }
+        .project-img {
+          filter: grayscale(0);
+        }
       }
     }
   }

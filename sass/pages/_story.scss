@@ -1,0 +1,61 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.story-page {
+  .story {
+    margin-top: 50px;
+    @include media($xl) {
+      margin-top: 98px;
+    }
+    h1 {
+      @include font-size(120px);
+    }
+  }
+  .gallary {
+    @include padding-bottom(150px);
+  }
+  .store-img {
+    height: 100vh;
+    width: 100%;
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    background-repeat: no-repeat;
+  }
+  @media (max-width: 991px) {
+    .store-img {
+      background-size: contain;
+    }
+  }
+
+  @supports (-webkit-touch-callout: none) {
+    .store-img {
+      background-size: auto 100vh;
+      background-attachment: scroll;
+    }
+  }
+  .story-gallary {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    img {
+      aspect-ratio: 1/1;
+      object-fit: cover;
+    }
+  }
+  .next-project a {
+    @include font-size(64px);
+    .nishan-icon {
+      display: inline-block;
+      @include font-size(60px);
+      line-height: 30px;
+      transition: all .3s ease-in-out;
+      color: $primary !important;
+    }
+    &:hover {
+      .nishan-icon {
+        transform: translate(10px, -10px);
+      }
+    }
+  }
+}
