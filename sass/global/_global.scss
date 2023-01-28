@@ -7,7 +7,9 @@
   padding: 0;
   user-select: none;
 }
-
+html {
+  scroll-behavior: smooth;
+}
 html,
 body {
   position: relative;

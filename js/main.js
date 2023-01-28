@@ -371,32 +371,6 @@ $(function() {
 
   // Change Background Color on Scroll
   if ($(".has-changing-color").length > 0) {
-    // if ($("body").hasClass("with-media")) {
-    //   if (window.innerWidth <= 991) {
-    //     $(window).on("scroll", () => {
-    //       if (
-    //         $(window).scrollTop() >=
-    //         $(".trigger-section").offset().top - 500
-    //       ) {
-    //         $(".section-changing-color *").addClass("text-white");
-    //         $(".section-changing-color").css("background-color", "#000");
-    //       }
-    //       if (
-    //         $(window).scrollTop() <=
-    //         $(".trigger-section").offset().top - 500
-    //       ) {
-    //         $(".section-changing-color *").removeClass("text-white");
-    //         $(".section-changing-color").css("background-color", "#fff");
-    //       }
-    //       if ($(window).scrollTop() >= $(".end-changing-color").offset().top) {
-    //         $(".section-changing-color *").removeClass("text-white");
-    //         $(".section-changing-color").css("background-color", "#fff");
-    //       }
-    //     });
-    //   }
-    // }
-    // else {
-
     $(window).on("scroll", () => {
       if ($(window).scrollTop() >= $(".trigger-section").offset().top - 500) {
         $(".section-changing-color *").addClass("text-white");
@@ -411,8 +385,6 @@ $(function() {
         $(".section-changing-color").css("background-color", "#fff");
       }
     });
-
-    // }
   }
 
   // Contact Page Animation Logic
@@ -437,8 +409,8 @@ $(function() {
     );
   });
 
-  // Textarea animated border
-  $("textarea").on("change", function() {
+  // Textarea animated border & Shuffle filter input
+  $("textarea, .js-shuffle-search").on("change", function() {
     if ($(this).val().length > 0) {
       $(this).addClass("active");
     } else {
@@ -488,6 +460,23 @@ $(function() {
       }
     });
   }
+  // Copy Note link
+  $(".copy-note .copy-icon").on("click", function() {
+    /* Get the text field */
+    const noteLink = $(this).parent().parent().attr("href");
+    const currentLink =
+      window.location.origin + window.location.pathname + noteLink;
+
+    /* Copy the text inside the text field */
+    navigator.clipboard.writeText(currentLink);
+
+    // Show Link Copied Alert
+    $(this).parent().prepend("<span>Link copied</span>");
+    const timeout = setTimeout(() => {
+      $(this).parent().find("span").remove();
+      clearTimeout(timeout);
+    }, 5000);
+  });
 });
 
 // Custom Cursor

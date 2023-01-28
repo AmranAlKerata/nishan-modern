@@ -4,7 +4,7 @@ class Demo {
   constructor(element) {
     this.element = element;
     this.shuffle = new Shuffle(element, {
-      itemSelector: "#stories-gallery .story-item",
+      itemSelector: ".shuffle-item",
       sizer: element.querySelector(".my-sizer-element"),
       buffer: 1
     });
@@ -139,9 +139,15 @@ class Demo {
           return false;
         }
       }
-      const titleElement = element.querySelector(".picture-item__title");
-      const titleText = titleElement.textContent.toLowerCase().trim();
-      return titleText.indexOf(searchText) !== -1;
+      const elementCategory = JSON.parse(
+        element.getAttribute("data-groups")
+      ).toString();
+
+      console.log(elementCategory);
+
+      return elementCategory.includes(searchText);
+
+      // return elementCategory.indexOf(searchText) !== -1;
     });
   }
 }

@@ -15,18 +15,19 @@
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
     </link>
-
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
     <!-- Jquery -->
     <script defer src="js/jquery.min.js"></script>
-
     <!-- ANM -->
     <script defer src="js/anm.min.js"></script>
     <!-- Bootstrap -->
     <script defer src="js/bootstrap.min.js"></script>
-
+    <!-- Shuffle -->
+    <script defer src="js/shuffle.js"></script>
+    <!-- Shuffle -->
+    <script defer src="js/shuffle-init.js"></script>
     <!-- Wow Js -->
     <script defer src="js/wow.min.js"></script>
 
@@ -34,7 +35,7 @@
     <script defer src="js/main.js"></script>
 </head>
 
-<body data-anm=".anm" class="story-page">
+<body data-anm=".anm" class="insight-page">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -55,7 +56,7 @@
 
 
         <!-- Start Header -->
-        <header class="bg-white">
+        <header>
             <div class="container-fluid d-flex justify-content-between
                             align-items-center py-4 logo-button-container px-0 px-lg-5">
                 <div class="logo">
@@ -96,10 +97,10 @@
                                 <a href="stories.html">Stories</a>
                             </li>
                             <li>
-                                <a href="story.html" class="active">Story</a>
+                                <a href="story.html">Story</a>
                             </li>
                             <li>
-                                <a href="insight.html">Insight</a>
+                                <a href="insight.html" class="active">Insight</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact</a>
@@ -125,133 +126,125 @@
         <!-- End Header -->
 
         <!-- Start Hero -->
-        <section id="story" class=" first-section story d-flex align-items-center pt-0">
+        <section id="insight" class=" first-section insight d-flex align-items-center pt-0 has-circle">
             <div class="container">
                 <div class="row align-items-center">
-                    <div class="col-12 col-lg-9">
-                        <span class="ps-2 wow animate animate__fadeInUp animation-delay-1">2023</span>
-                        <h1 class="mass-heading wow animate animate__fadeInUp animation-delay-2">Marketing around
-                            world</h1>
-                        <!-- Story Boxes -->
-                        <div class="row story-boxes mt-5 gap-3 gap-md-0">
-                            <div class="col">
-                                <div class="box">
-                                    <h3 class="wow animate animate__fadeInUp animation-delay-3">Services</h3>
-                                    <ul>
-                                        <li class="wow animate animate__fadeInUp animation-delay-4">Branding</li>
-                                        <li class="wow animate animate__fadeInUp animation-delay-5">Website</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col">
-                                <div class="box">
-                                    <h3 class="wow animate animate__fadeInUp animation-delay-6">Team</h3>
-                                    <ul class="wow animate animate__fadeInUp animation-delay-7">
-                                        <li>Designer</li>
-                                        <li>Front-end Dev</li>
-                                        <li>Back-end Dev</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-sm">
-                                <div class="box">
-                                    <h3 class="wow animate animate__fadeInUp animation-delay-8">Client</h3>
-                                    <ul>
-                                        <li class="wow animate animate__fadeInUp animation-delay-9">Name of company</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="project-link mt-5 wow animate animate__fadeInUp animation-delay-10">
-                            <a href="#" class="button outline-btn">Visit it now</a>
-                        </div>
+                    <div class="col-12">
+                        <h1 class="mass-heading text-center">Stories</h1>
+                    </div>
+                    <div class="circle-container">
+                        <div class="circle anm" data-speed-x="80" data-speed-y="80"></div>
                     </div>
                 </div>
             </div>
         </section>
-
         <!-- End Hero -->
 
-        <!-- Start Story info Section -->
-        <section class="story-info pt-0" id="story-info">
+
+        <!-- Start Inisghts gallery -->
+        <section class="insights-gallery" id="insights-gallery">
             <div class="container">
-                <div class="row gap-5 gap-lg-0">
-                    <div class="col-lg-9">
-                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">Introduction</h4>
-                        <p class="wow animate animate__fadeInUp animation-delay-2">Ternary is the world’s first native
-                            FinOps cloud cost optimization tool built for Google Cloud on Google Cloud. Ternary
-                            solves the cloud budget challenge by bridging the gap between engineering and finance teams.
-                            <br>
-                            Through its SaaS platform, Ternary helps customers visualize their cloud spend across all
-                            clouds, provides spend
-                            analysis, and offers spend optimization opportunities.
-                        </p>
-
-                    </div>
-                    <div class="col-lg">
-                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-4">Challenge</h4>
-                        <p class="wow animate animate__fadeInUp animation-delay-5">The companies and their competitors
-                            rarely address the visual perspective of their products, often neglecting
-                            functionality and user experience.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End Story info Section -->
-
-        <!-- Start Store Images Section -->
-        <section class="store-images " id="store-images">
-            <div class="store-img" style="background-image: url(/images/brand_1.png);"></div>
-            <div class="store-img" style="background-image: url(/images/brand_2.png);"></div>
-        </section>
-        <!-- End Store Images Section -->
-
-        <section class="gallary" id="gallary">
-            <div class="container">
+                <h2>Write something to find it</h2>
                 <div class="row">
-                    <div class="col-lg-9">
-                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">The Power</h4>
-                        <p class="wow animate animate__fadeInUp animation-delay-2">
-                            Since the product is chart-based, analytical, and precise, we thought it could use a bit of
-                            imperfect human touch. So we
-                            added a series of strokes, arrows, and scribbles to emphasize the most important aspects of
-                            our
-                            messages and images, and
-                            to balance logic with spontaneity.
-                            <br>
-                            The color palette needed to be flexible and integrate multiple colors to meet data
-                            visualization
-                            needs. We developed a
-                            high-contrast system that uses over 20 colors for the charts in the hierarchy and can
-                            display up to
-                            500 data points.
-                        </p>
+                    <div class="col-sm-12 filters-group-wrap ">
+                        <div class="filters-group">
+                            <div class="filters-group position-relative">
+                                <input class="border-effect textfield filter__search js-shuffle-search form-control"
+                                    type="text" id="filters-search-input" placeholder="apps, branding" />
+                                <span class="focus-border">
+                                    <i></i>
+                                </span>
+                            </div>
+                        </div>
+
                     </div>
-                </div>
-                <div class="row story-gallary gap-5 gap-md-0">
-                    <div class="col-md wow animate animate__fadeIn animation-delay-1">
-                        <img src="./images/brand_1.png" alt="brand_2">
-                    </div>
-                    <div class="col-md wow animate animate__fadeIn animation-delay-2">
-                        <img src="./images/brand_2.png" alt="brand_2">
-                    </div>
-                </div>
-                <div class="col-lg-9">
-                    <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">Results</h4>
-                    <p class="wow animate animate__fadeInUp animation-delay-2">
-                        The folks at Ternary were thrilled with the end result, especially their development team, who
-                        could now easily integrate our designs into their development process.
-                    </p>
                 </div>
 
-                <hr class="my-5">
-                <div class="next-project">
-                    <span class="wow animate animate__fadeInUp animation-delay-1">See more</span>
-                    <a href="#" class="d-block pe-5 wow animate animate__fadeInUp animation-delay-2">Name of next
-                        project <span class="nishan-icon">w</span></a>
+                <div id="grid" class="row my-shuffle-container">
+                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["apps","branding"]'>
+                        <div class="insight-card">
+                            <a href="#">
+                                <img src="images/brand_1.png" alt="" class="insight-img">
+                                <h4 class="title ">
+                                    Marketing around world <span class="nishan-icon">w</span> </h4>
+                                <h6 class="tag">Markting</h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="note-1" class="col-12 col-lg-6 shuffle-item" data-groups='["web","apps","branding"]'>
+                        <div class="insight-card note" style="background-color: aquamarine;">
+                            <a href="#note-1">
+
+                                <p class="note-content">A brand for a company is like a reputation for a person. You
+                                    earn reputation by trying to do hard things well.</p>
+                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
+                                <div class="copy-note text-end">
+                                    <img src="images/copy-outline.svg" class="copy-icon" alt="copy-icon">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["design"]'>
+                        <div class="insight-card">
+                            <a href="#">
+                                <img src="images/brand_2.png" alt="" class="insight-img">
+                                <h4 class="title ">
+                                    Marketing around world <span class="nishan-icon">w</span> </h4>
+                                <h6 class="tag">Markting</h6>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="note-2" class="col-12 col-lg-6 shuffle-item" data-groups='["creative","apps"]'>
+                        <div class="insight-card note">
+                            <a href="#note-2">
+
+                                <p class="note-content">A brand for a company is like a reputation for a person.
+                                    A brand for a company is like a reputation for a person.
+                                    You
+                                    earn reputation by trying to do hard things well.</p>
+                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
+                                <div class="copy-note text-end">
+                                    <img src="images/copy-outline.svg" class="copy-icon" alt="copy-icon">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div id="note-3" class="col-12 col-lg-6 shuffle-item" data-groups='["apps","web design"]'>
+                        <div class="insight-card note" style="background-color: cornflowerblue;">
+                            <a href="#note-3">
+                                <p class="note-content">It takes 20 years to build a reputation and five minutes to ruin
+                                    it.
+                                    If you think about that, you’ll do things
+                                    differently, It takes 20 years to build a reputation and five minutes to ruin it.
+                                    If you think about that, you’ll do things
+                                    differently.
+                                </p>
+                                <h4 class="author fw-bold mt-3">Warren Buffett</h4>
+                                <div class="copy-note text-end">
+                                    <img src="images/copy-outline.svg" class="copy-icon" alt="copy-icon">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["apps"]'>
+                        <div class="insight-card">
+                            <a href="#">
+                                <img src="images/brand_1.png" alt="" class="insight-img">
+                                <h4 class="title ">
+                                    Marketing around world <span class="nishan-icon">w</span> </h4>
+                                <h6 class="tag">Markting</h6>
+
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-1 my-sizer-element"></div>
                 </div>
+
             </div>
         </section>
+        <!-- End Inisghts gallery -->
+
 
         <!-- Start Footer -->
         <footer>

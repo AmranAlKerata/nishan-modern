@@ -140,8 +140,8 @@
 
 .border-effect:focus ~ .focus-border:before,
 .border-effect:focus ~ .focus-border:after,
-.border-effect:not(textarea):valid ~ .focus-border::before,
-.border-effect:not(textarea):valid ~ .focus-border::after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border::before,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border::after,
 .border-effect.active ~ .focus-border:before,
 .border-effect.active ~ .focus-border:after {
   width: 100%;
@@ -150,15 +150,15 @@
 }
 
 .border-effect:focus ~ .focus-border:after,
-.border-effect:not(textarea):valid ~ .focus-border:after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border:after,
 .border-effect.active ~ .focus-border:after {
   transition-delay: 0.2s;
 }
 
 .border-effect:focus ~ .focus-border i:before,
 .border-effect:focus ~ .focus-border i:after,
-.border-effect:not(textarea):valid ~ .focus-border i:before,
-.border-effect:not(textarea):valid ~ .focus-border i:after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border i:before,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border i:after,
 .border-effect.active ~ .focus-border i:before,
 .border-effect.active ~ .focus-border i:after {
   height: 100%;
@@ -166,7 +166,7 @@
 }
 
 .border-effect:focus ~ .focus-border i:after,
-.border-effect:not(textarea):valid ~ .focus-border i:after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border i:after,
 .border-effect.active ~ .focus-border i:after {
   transition-delay: 0.4s;
 }
