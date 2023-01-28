@@ -18,6 +18,9 @@
   }
 
   @include media($lg) {
+    .filter-row {
+      padding: 0 15px;
+    }
     .filters-group-wrap {
       padding: 0;
     }
@@ -29,7 +32,7 @@
   .shuffle-item {
     padding: 30px;
     @include media($lg) {
-      padding: 30px 0;
+      padding: 30px 15px;
     }
   }
   .insight-card .insight-img {
