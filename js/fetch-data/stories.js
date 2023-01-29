@@ -83,6 +83,16 @@ const fetchData = async () => {
       //markers: true,
     });
 
+    // Add Gray filter for stories on touch  [Mobile]
+    if (window.innerWidth <= 991) {
+      $(".project, .project-img").on("touchmove", function() {
+        $(this).addClass("active");
+      });
+      $(".project, .project-img").on("touchend", function() {
+        $(this).removeClass("active");
+      });
+    }
+
     loading = false;
   } catch (error) {
     loading = false;
