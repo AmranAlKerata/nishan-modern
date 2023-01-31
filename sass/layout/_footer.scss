@@ -4,9 +4,14 @@
 
 footer {
   @include padding(100px 0 0 0);
-  background-color: $gray;
 
   .footer-top {
+    @include padding(130px 0);
+    .footer-top-heading {
+      @include font-size(62px);
+      font-weight: bold;
+    }
+    background-color: #f6f6f6;
     h5 {
       color: #d6d6d6;
       text-transform: unset;

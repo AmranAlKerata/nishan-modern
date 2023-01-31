@@ -188,19 +188,19 @@ $(function() {
     );
   }
 
-  // // Add Gray filter for stories & insight on touch  [Mobile]
-  // if (window.innerWidth <= 991) {
-  //   $(
-  //     ".project, .project-img, .swiper-wrapper .insight-card .img"
-  //   ).on("touchmove", function() {
-  //     $(this).addClass("active");
-  //   });
-  //   $(
-  //     ".project, .project-img,  .swiper-wrapper .insight-card .img"
-  //   ).on("touchend", function() {
-  //     $(this).removeClass("active");
-  //   });
-  // }
+  // Add Gray filter for stories & insight on touch  [Mobile]
+  if (window.innerWidth <= 991) {
+    $(
+      ".project, .project-img, .swiper-wrapper .insight-card .img"
+    ).on("touchmove", function() {
+      $(this).addClass("active");
+    });
+    $(
+      ".project, .project-img,  .swiper-wrapper .insight-card .img"
+    ).on("touchend", function() {
+      $(this).removeClass("active");
+    });
+  }
 
   // Accordion Animation For Footer
   if (window.innerWidth <= 991) {

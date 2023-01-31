@@ -1,101 +1,146 @@
-let url = "https://demo2.bynishan.com/api/stories-en";
-let loading = true;
-const storiesContainer = $(".projects");
+// let url = "https://demo2.bynishan.com/api/stories-en";
+let url = "../../stories.json";
+const storiesContainer = $(".stories-page .my-sizer-element");
+const filterOptionsContainer = $(".filter-options");
+const sectionContainer = $(".stories-gallery");
+let storiesOnScreen = [];
+let filterOptions = [];
+const loader = `<div class="amk-loader"><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`;
 
-storiesContainer.html(
-  `<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>`
-);
+// Get all storeis tags and return them as one unique array
+const uniqueTags = data => {
+  // Get all tags and filter them in one array
+  data.map(item => filterOptions.push(...(item.tags || [])));
 
+  //  Remove Duplicated tags
+  const filteredTags = Array.from(new Set(filterOptions));
+
+  // Append Tags in filter options tabs
+  filterOptionsContainer.append(
+    filteredTags.map(
+      tag =>
+        `<a href="#${tag}" data-group="${tag}">${tag.replace("-", " ")}</a>`
+    )
+  );
+};
+
+// Create Stoies HTML MarkUp
+const storyHTMLMarkUp = data => {
+  // Loop over stories and create HTML Markup
+  const stories = data.map(story => {
+    let id = story.id || Math.random(),
+      title = story.title || "Some other work",
+      cover = story.cover || "https://placehold.co/600x400/EEE/31343C",
+      tags = story.tags || [];
+
+    // Create Shuffle Item
+    const shuffleItem = document.createElement("div");
+    shuffleItem.setAttribute("class", "col-12 col-lg-6 shuffle-item");
+    shuffleItem.setAttribute("data-groups", `[${tags.map(el => `"${el}"`)}]`);
+
+    // Create Project
+    const project = document.createElement("div");
+    project.setAttribute("class", "project");
+
+    // Create Link
+    const link = document.createElement("a");
+    link.setAttribute("href", `/story/${id}`);
+
+    // Create Title
+    const projectName = document.createElement("div");
+    projectName.setAttribute("class", "project-name");
+    const h3 = document.createElement("h3");
+    h3.textContent = title;
+
+    // Arrow Icon
+    const arrow = document.createElement("div");
+    arrow.setAttribute("class", "arrow-icon");
+    const nishanIcon = document.createElement("span");
+    nishanIcon.setAttribute("class", "nishan-icon");
+    nishanIcon.textContent = "w";
+
+    // Create Project Cover
+    const projectImg = document.createElement("img");
+    projectImg.setAttribute("src", cover);
+    projectImg.setAttribute("alt", title);
+    projectImg.setAttribute("class", "project-img");
+
+    // Append All Elements together
+    arrow.appendChild(nishanIcon);
+    projectName.appendChild(h3);
+    projectName.appendChild(arrow);
+    link.appendChild(projectName);
+    link.appendChild(projectImg);
+    project.appendChild(link);
+    shuffleItem.appendChild(project);
+
+    return shuffleItem;
+  });
+
+  return stories;
+};
+
+// Fetch Data from API
 const fetchData = async () => {
-  loading = true;
+  // Add Loader
+  sectionContainer.append(loader);
 
   try {
     const data = await fetch(url);
     const resp = await data.json();
 
-    const stories = resp.data;
+    // Show Tags in UI
+    uniqueTags(resp.data);
 
-    storiesContainer.html(`
-        <div class="horizontal projects-section">
-        <div class="pin-wrap">
-            <div class="animation-wrap to-right">
-                <div class="project more">
-                    <a href="#" class="">
-                        <h2
-                            class=" w-100 h-100 mb-0 d-flex align-items-center justify-content-center flex-row gap-3 ">
-                            More <span class="nishan-icon">w</span>
-                        </h2>
-                    </a>
-                </div>
-            </div>
-        </div>
-     </div>
-    `);
+    // Create HTML
+    storyHTMLMarkUp(resp.data);
 
-    stories.forEach(story => {
-      const { id, title, cover } = story;
-      storiesContainer.find(".animation-wrap").prepend(
-        `<div class="project">
-        <a href="#">
-            <div class="project-name">
-                <h3>${title}</h3>
-                <div class="arrow-icon">
-                    <span class="nishan-icon">w</span>
-                </div>
-            </div>
-            <img src="${cover}" alt="" class="project-img">
-        </a>
-    </div>
-      `
-      );
-    });
+    let visibleStoriesCount = 4;
+    let visibleStories = storyHTMLMarkUp(resp.data).splice(
+      0,
+      visibleStoriesCount
+    );
 
-    // GSAP Horizontal Scroll
+    // Remove Loader
+    $(".amk-loader").remove();
 
-    const projects = gsap.utils.toArray(".projects .horizontal");
+    // init shuffle js
+    // init shuffle js
+    const addNewStories = new ShuffleJS(
+      document.getElementById("shuffle-js-container")
+    );
 
-    projects.forEach(function(sec, i) {
-      var thisPinWrap = sec.querySelector(".pin-wrap");
-      var thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
+    // Log events.
+    addNewStories.addShuffleEventListeners();
+    addNewStories._activeFilters = [];
+    addNewStories.addFilterButtons();
+    addNewStories.addSorting();
+    addNewStories.addSearchFilter();
+    addNewStories.onAppendBoxes(storyHTMLMarkUp(resp.data));
 
-      var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth);
+    // let isLoading = true;
+    // const event = () => {
+    //   if (
+    //     window.scrollY >= $(".shuffle-item:last-child").offset().top - 100 &&
+    //     isLoading
+    //   ) {
+    //     console.log("loading");
+    //     isLoading = false;
+    //     window.removeEventListener("scroll", event);
+    //   }
+    //   if (isLoading === false) {
+    //     isLoading = true;
+    //   }
+    // };
 
-      gsap.fromTo(
-        thisAnimWrap,
-        {
-          x: () =>
-            thisAnimWrap.classList.contains("to-right") ? 0 : getToValue()
-        },
-        {
-          x: () =>
-            thisAnimWrap.classList.contains("to-right") ? getToValue() : 0,
-          ease: "none",
-          scrollTrigger: {
-            trigger: sec,
-            start: "top top",
-            end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
-            pin: thisPinWrap,
-            invalidateOnRefresh: true, //anticipatePin: 1,
-            scrub: true
-          }
-        }
-      );
-      //markers: true,
-    });
-
-    // Add Gray filter for stories on touch  [Mobile]
-    if (window.innerWidth <= 991) {
-      $(".project, .project-img").on("touchmove", function() {
-        $(this).addClass("active");
-      });
-      $(".project, .project-img").on("touchend", function() {
-        $(this).removeClass("active");
-      });
-    }
-
-    loading = false;
+    // window.addEventListener("scroll", event);
   } catch (error) {
-    loading = false;
+    // Remove Loader
+    $(".lds-roller").remove();
+    // Append Error
+    $(".amk-loader").append(
+      "<div class='text-center'><h2>Error While Loading Stories...</h2><h3>Refresh the page or try again later</h3></div>"
+    );
     throw new Error(error);
   }
 };

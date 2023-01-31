@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
-    </link>
+
 
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
@@ -26,10 +26,13 @@
     <script defer src="js/anm.min.js"></script>
     <!-- Bootstrap -->
     <script defer src="js/bootstrap.min.js"></script>
+    <!-- Fetch Stories -->
+    <script defer src="js/fetch-data/stories.js"></script>
     <!-- Shuffle -->
     <script defer src="js/shuffle.js"></script>
     <!-- Shuffle -->
     <script defer src="js/shuffle-init.js"></script>
+
     <!-- Wow Js -->
     <script defer src="js/wow.min.js"></script>
 
@@ -43,10 +46,6 @@
         <span></span>
     </div>
     <!-- End Progress Line -->
-
-
-    <!-- End Cookies Box -->
-
 
     <div id="curr" class="custom-cursor" data-custom-cursor>
         <div class="cursor"></div>
@@ -152,72 +151,16 @@
                             <div class="btn-group filter-options d-flex align-items-center justify-content-start gap-4">
                                 <p class="filter-label">Filter by</p>
                                 <a href="#all" data-group="all" class="active">All</a>
-                                <a href="#apps" data-group="apps">Apps</a>
-                                <a href="#branding" data-group="branding">Branding</a>
-                                <a href="#websites" data-group="websites">Websites</a>
-                                <a href="#creative" data-group="creative">Creative</a>
                             </div>
                         </div>
 
                     </div>
                 </div>
 
-                <div id="grid" class="row my-shuffle-container">
-
-                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["apps"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_1.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6  shuffle-item" data-groups='["branding","apps"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_2.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["websites","branding"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_3.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["creative","apps"]'>
-                        <div class="project">
-                            <a href="#">
-                                <div class="project-name">
-                                    <h3>Nishan Website</h3>
-                                    <div class="arrow-icon">
-                                        <span class="nishan-icon">w</span>
-                                    </div>
-                                </div>
-                                <img src="images/brand_3.png" alt="" class="project-img">
-                            </a>
-                        </div>
-                    </div>
+                <div id="shuffle-js-container" class="row my-shuffle-container">
                     <div class="col-1 my-sizer-element"></div>
                 </div>
+
 
             </div>
         </section>
@@ -226,24 +169,23 @@
 
         <!-- Start Footer -->
         <footer>
-            <div class="container">
-                <div class="footer-top d-none d-lg-block">
+
+            <div class="footer-top d-none d-lg-block">
+                <div class="container">
                     <div class="row align-items-center justify-content-between gap-5 gap-lg-0">
-                        <div class="col-lg">
-                            <h5 class="m-0">Let us start something nice!</h5>
-                            <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase fw-bold m-0">
-                                info@bynishan.com </a>
+                        <div class="col-lg-8">
+                            <h2 class="m-0 footer-top-heading">Let us start something nice!</h2>
                         </div>
-                        <div class="col-lg text-center text-lg-end">
+                        <div class="col-lg-4 text-center text-lg-end">
                             <a href="contact.html" class="button">Submit
                                 Query
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="container p-0">
-                    <hr class="d-none d-lg-block">
-                </div>
+            </div>
+
+            <div class="container mt-0 mt-lg-5">
                 <div class="footer-bottom">
                     <div class="row">
                         <div class="col-lg">

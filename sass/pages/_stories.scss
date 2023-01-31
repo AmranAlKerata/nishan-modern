@@ -25,6 +25,9 @@
   .filter-options {
     overflow: scroll;
     width: max-content;
+    a {
+      text-transform: capitalize;
+    }
   }
   .filter-options a.active {
     color: $secondary;

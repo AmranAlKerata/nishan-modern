@@ -1,20 +1,58 @@
 var Shuffle = window.Shuffle;
 
-class Demo {
+class ShuffleJS {
   constructor(element) {
     this.element = element;
+    this.gridItems = this.element.querySelectorAll(".shuffle-item");
     this.shuffle = new Shuffle(element, {
       itemSelector: ".shuffle-item",
       sizer: element.querySelector(".my-sizer-element"),
       buffer: 1
     });
+    const callback = this.showItemsInViewport.bind(this);
+    this.observer = new IntersectionObserver(callback, {
+      threshold: 0.5
+    });
 
-    // Log events.
-    this.addShuffleEventListeners();
-    this._activeFilters = [];
-    this.addFilterButtons();
-    this.addSorting();
-    this.addSearchFilter();
+    // Loop through each grid item and add it to the viewport watcher.
+    for (let i = 0; i < this.gridItems.length; i++) {
+      this.observer.observe(this.gridItems[i]);
+    }
+
+    // Add the transition class to the items after ones that are in the viewport
+    // have received the `in` class.
+    setTimeout(() => {
+      this.addTransitionToItems();
+    }, 100);
+
+    // // // Log events.
+    // this.addShuffleEventListeners();
+    // this._activeFilters = [];
+    // this.addFilterButtons();
+    // this.addSorting();
+    // this.addSearchFilter();
+    // this.onAppendBoxes();
+  }
+  /**
+   * Add the `in` class to the element after it comes into view.
+   */
+  showItemsInViewport(changes) {
+    changes.forEach(function(change) {
+      if (change.isIntersecting) {
+        change.target.classList.add("in");
+      }
+    });
+  }
+
+  /**
+   * Only the items out of the viewport should transition. This way, the first
+   * visible ones will snap into place.
+   */
+  addTransitionToItems() {
+    for (let i = 0; i < this.gridItems.length; i++) {
+      const inner = this.gridItems[i].firstElementChild;
+      inner.classList.add("picture-item__inner--transition");
+    }
   }
 
   /**
@@ -150,8 +188,24 @@ class Demo {
       // return elementCategory.indexOf(searchText) !== -1;
     });
   }
+
+  /**
+ * Create some DOM elements, append them to the shuffle container, then notify
+ * shuffle about the new items. You could also insert the HTML as a string.
+ */
+  onAppendBoxes(array = []) {
+    const elements = array;
+
+    elements.forEach(element => {
+      this.shuffle.element.appendChild(element);
+    });
+
+    // Tell shuffle elements have been appended.
+    // It expects an array of elements as the parameter.
+    this.shuffle.add(elements);
+  }
 }
 
-document.addEventListener("DOMContentLoaded", () => {
-  window.demo = new Demo(document.getElementById("grid"));
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   window.demo = new ShuffleJS(document.getElementById("shuffle-js-container"));
+// });

@@ -2,7 +2,7 @@
 @use "../helpers/mixins" as *;
 @use "../bootstrap/vendor/rfs" as *;
 
-.story-page {
+.insight_single-page {
   .story {
     margin-top: 50px;
     @include media($xl) {
