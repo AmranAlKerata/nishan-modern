@@ -1,17 +1,23 @@
-(function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Shuffle = factory());
-})(this, (function () { 'use strict';
+(function(global, factory) {
+  typeof exports === "object" && typeof module !== "undefined"
+    ? (module.exports = factory())
+    : typeof define === "function" && define.amd
+      ? define(factory)
+      : ((global =
+          typeof globalThis !== "undefined" ? globalThis : global || self),
+        (global.Shuffle = factory()));
+})(this, function() {
+  "use strict";
 
-  var tinyEmitter = {exports: {}};
+  var tinyEmitter = { exports: {} };
 
-  function E() {// Keep this empty so it's easier to inherit from
+  function E() {
+    // Keep this empty so it's easier to inherit from
     // (via https://github.com/lipsmack from https://github.com/scottcorgan/tiny-emitter/issues/3)
   }
 
   E.prototype = {
-    on: function (name, callback, ctx) {
+    on: function(name, callback, ctx) {
       var e = this.e || (this.e = {});
       (e[name] || (e[name] = [])).push({
         fn: callback,
@@ -19,7 +25,7 @@
       });
       return this;
     },
-    once: function (name, callback, ctx) {
+    once: function(name, callback, ctx) {
       var self = this;
 
       function listener() {
@@ -29,7 +35,7 @@
       listener._ = callback;
       return this.on(name, listener, ctx);
     },
-    emit: function (name) {
+    emit: function(name) {
       var data = [].slice.call(arguments, 1);
       var evtArr = ((this.e || (this.e = {}))[name] || []).slice();
       var i = 0;
@@ -41,21 +47,21 @@
 
       return this;
     },
-    off: function (name, callback) {
+    off: function(name, callback) {
       var e = this.e || (this.e = {});
       var evts = e[name];
       var liveEvents = [];
 
       if (evts && callback) {
         for (var i = 0, len = evts.length; i < len; i++) {
-          if (evts[i].fn !== callback && evts[i].fn._ !== callback) liveEvents.push(evts[i]);
+          if (evts[i].fn !== callback && evts[i].fn._ !== callback)
+            liveEvents.push(evts[i]);
         }
       } // Remove event from queue to prevent memory leak
       // Suggested by https://github.com/lazd
       // Ref: https://github.com/scottcorgan/tiny-emitter/commit/c6ebfaa9bc973b33d110a84a307742b7cf94c953#commitcomment-5024910
 
-
-      liveEvents.length ? e[name] = liveEvents : delete e[name];
+      liveEvents.length ? (e[name] = liveEvents) : delete e[name];
       return this;
     }
   };
@@ -64,7 +70,7 @@
 
   var arrayParallel = function parallel(fns, context, callback) {
     if (!callback) {
-      if (typeof context === 'function') {
+      if (typeof context === "function") {
         callback = context;
         context = null;
       } else {
@@ -76,14 +82,18 @@
     if (!pending) return callback(null, []);
     var finished = false;
     var results = new Array(pending);
-    fns.forEach(context ? function (fn, i) {
-      fn.call(context, maybeDone(i));
-    } : function (fn, i) {
-      fn(maybeDone(i));
-    });
+    fns.forEach(
+      context
+        ? function(fn, i) {
+            fn.call(context, maybeDone(i));
+          }
+        : function(fn, i) {
+            fn(maybeDone(i));
+          }
+    );
 
     function maybeDone(i) {
-      return function (err, result) {
+      return function(err, result) {
         if (finished) return;
 
         if (err) {
@@ -93,7 +103,7 @@
         }
 
         results[i] = result;
-        if (! --pending) callback(null, results);
+        if (!--pending) callback(null, results);
       };
     }
   };
@@ -126,11 +136,9 @@
      * @return {boolean}
      */
 
-
     static equals(a, b) {
       return a.x === b.x && a.y === b.y;
     }
-
   }
 
   class Rect {
@@ -166,18 +174,21 @@
      * @return {boolean} Whether a and b intersect.
      */
 
-
     static intersects(a, b) {
-      return a.left < b.left + b.width && b.left < a.left + a.width && a.top < b.top + b.height && b.top < a.top + a.height;
+      return (
+        a.left < b.left + b.width &&
+        b.left < a.left + a.width &&
+        a.top < b.top + b.height &&
+        b.top < a.top + a.height
+      );
     }
-
   }
 
   var Classes = {
-    BASE: 'shuffle',
-    SHUFFLE_ITEM: 'shuffle-item',
-    VISIBLE: 'shuffle-item--visible',
-    HIDDEN: 'shuffle-item--hidden'
+    BASE: "shuffle",
+    SHUFFLE_ITEM: "shuffle-item",
+    VISIBLE: "shuffle-item--visible",
+    HIDDEN: "shuffle-item--hidden"
   };
 
   let id$1 = 0;
@@ -211,56 +222,63 @@
       this.isVisible = true;
       this.element.classList.remove(Classes.HIDDEN);
       this.element.classList.add(Classes.VISIBLE);
-      this.element.removeAttribute('aria-hidden');
+      this.element.removeAttribute("aria-hidden");
     }
 
     hide() {
       this.isVisible = false;
       this.element.classList.remove(Classes.VISIBLE);
       this.element.classList.add(Classes.HIDDEN);
-      this.element.setAttribute('aria-hidden', true);
+      this.element.setAttribute("aria-hidden", true);
     }
 
     init() {
-      this.addClasses([Classes.SHUFFLE_ITEM, Classes.VISIBLE]);
+      this.addClasses([ Classes.SHUFFLE_ITEM, Classes.VISIBLE ]);
       this.applyCss(ShuffleItem.Css.INITIAL);
-      this.applyCss(this.isRTL ? ShuffleItem.Css.DIRECTION.rtl : ShuffleItem.Css.DIRECTION.ltr);
+      this.applyCss(
+        this.isRTL
+          ? ShuffleItem.Css.DIRECTION.rtl
+          : ShuffleItem.Css.DIRECTION.ltr
+      );
       this.scale = ShuffleItem.Scale.VISIBLE;
       this.point = new Point();
     }
 
     addClasses(classes) {
-      classes.forEach(className => {
+      classes.forEach((className) => {
         this.element.classList.add(className);
       });
     }
 
     removeClasses(classes) {
-      classes.forEach(className => {
+      classes.forEach((className) => {
         this.element.classList.remove(className);
       });
     }
 
     applyCss(obj) {
-      Object.keys(obj).forEach(key => {
+      Object.keys(obj).forEach((key) => {
         this.element.style[key] = obj[key];
       });
     }
 
     dispose() {
-      this.removeClasses([Classes.HIDDEN, Classes.VISIBLE, Classes.SHUFFLE_ITEM]);
-      this.element.removeAttribute('style');
+      this.removeClasses([
+        Classes.HIDDEN,
+        Classes.VISIBLE,
+        Classes.SHUFFLE_ITEM
+      ]);
+      this.element.removeAttribute("style");
       this.element = null;
     }
-
   }
 
   ShuffleItem.Css = {
     INITIAL: {
-      position: 'absolute',
+      position: "absolute",
       top: 0,
-      visibility: 'visible',
-      willChange: 'transform'
+      visibility: "visible",
+      willChange: "transform"
     },
     DIRECTION: {
       ltr: {
@@ -273,10 +291,10 @@
     VISIBLE: {
       before: {
         opacity: 1,
-        visibility: 'visible'
+        visibility: "visible"
       },
       after: {
-        transitionDelay: ''
+        transitionDelay: ""
       }
     },
     HIDDEN: {
@@ -284,8 +302,8 @@
         opacity: 0
       },
       after: {
-        visibility: 'hidden',
-        transitionDelay: ''
+        visibility: "hidden",
+        transitionDelay: ""
       }
     }
   };
@@ -295,23 +313,21 @@
   };
 
   let value = null;
-  var testComputedSize = (() => {
+  var testComputedSize = () => {
     if (value !== null) {
       return value;
     }
 
     const element = document.body || document.documentElement;
-    const e = document.createElement('div');
-    e.style.cssText = 'width:10px;padding:2px;box-sizing:border-box;';
+    const e = document.createElement("div");
+    e.style.cssText = "width:10px;padding:2px;box-sizing:border-box;";
     element.appendChild(e);
-    const {
-      width
-    } = window.getComputedStyle(e, null); // Fix for issue #314
+    const { width } = window.getComputedStyle(e, null); // Fix for issue #314
 
     value = Math.round(getNumber(width)) === 10;
     element.removeChild(e);
     return value;
-  });
+  };
 
   /**
    * Retrieve the computed style for an element, parsed as a float.
@@ -325,13 +341,24 @@
    */
 
   function getNumberStyle(element, style) {
-    let styles = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : window.getComputedStyle(element, null);
+    let styles =
+      arguments.length > 2 && arguments[2] !== undefined
+        ? arguments[2]
+        : window.getComputedStyle(element, null);
     let value = getNumber(styles[style]); // Support IE<=11 and W3C spec.
 
-    if (!testComputedSize() && style === 'width') {
-      value += getNumber(styles.paddingLeft) + getNumber(styles.paddingRight) + getNumber(styles.borderLeftWidth) + getNumber(styles.borderRightWidth);
-    } else if (!testComputedSize() && style === 'height') {
-      value += getNumber(styles.paddingTop) + getNumber(styles.paddingBottom) + getNumber(styles.borderTopWidth) + getNumber(styles.borderBottomWidth);
+    if (!testComputedSize() && style === "width") {
+      value +=
+        getNumber(styles.paddingLeft) +
+        getNumber(styles.paddingRight) +
+        getNumber(styles.borderLeftWidth) +
+        getNumber(styles.borderRightWidth);
+    } else if (!testComputedSize() && style === "height") {
+      value +=
+        getNumber(styles.paddingTop) +
+        getNumber(styles.paddingBottom) +
+        getNumber(styles.borderTopWidth) +
+        getNumber(styles.borderBottomWidth);
     }
 
     return value;
@@ -369,7 +396,7 @@
     randomize: false,
     // Determines which property of each item in the array is passed to the
     // sorting method.
-    key: 'element'
+    key: "element"
   };
   /**
    * You can return `undefined` from the `by` function to revert to DOM order.
@@ -379,7 +406,8 @@
    */
 
   function sorter(arr, options) {
-    const opts = { ...defaults,
+    const opts = {
+      ...defaults,
       ...options
     };
     const original = Array.from(arr);
@@ -394,8 +422,7 @@
     } // Sort the elements by the opts.by function.
     // If we don't have opts.by, default to DOM order
 
-
-    if (typeof opts.by === 'function') {
+    if (typeof opts.by === "function") {
       arr.sort((a, b) => {
         // Exit early if we already know we want to revert
         if (revert) {
@@ -410,20 +437,19 @@
           return 0;
         }
 
-        if (valA < valB || valA === 'sortFirst' || valB === 'sortLast') {
+        if (valA < valB || valA === "sortFirst" || valB === "sortLast") {
           return -1;
         }
 
-        if (valA > valB || valA === 'sortLast' || valB === 'sortFirst') {
+        if (valA > valB || valA === "sortLast" || valB === "sortFirst") {
           return 1;
         }
 
         return 0;
       });
-    } else if (typeof opts.compare === 'function') {
+    } else if (typeof opts.compare === "function") {
       arr.sort(opts.compare);
     } // Revert to the original array if necessary
-
 
     if (revert) {
       return original;
@@ -437,7 +463,7 @@
   }
 
   const transitions = {};
-  const eventName = 'transitionend';
+  const eventName = "transitionend";
   let count = 0;
 
   function uniqueId() {
@@ -447,7 +473,10 @@
 
   function cancelTransitionEnd(id) {
     if (transitions[id]) {
-      transitions[id].element.removeEventListener(eventName, transitions[id].listener);
+      transitions[id].element.removeEventListener(
+        eventName,
+        transitions[id].listener
+      );
       transitions[id] = null;
       return true;
     }
@@ -457,7 +486,7 @@
   function onTransitionEnd(element, callback) {
     const id = uniqueId();
 
-    const listener = evt => {
+    const listener = (evt) => {
       if (evt.currentTarget === evt.target) {
         cancelTransitionEnd(id);
         callback(evt);
@@ -499,7 +528,6 @@
       columnSpan = Math.round(columnSpan);
     } // Ensure the column span is not more than the amount of columns in the whole layout.
 
-
     return Math.min(Math.ceil(columnSpan), columns);
   }
   /**
@@ -536,7 +564,6 @@
     // Another example where the second column's item extends past the first:
     // [10, 20, 10, 0] => [20, 20, 10] => 10
 
-
     const available = []; // For how many possible positions for this item there are.
 
     for (let i = 0; i <= columns - columnSpan; i++) {
@@ -559,7 +586,10 @@
     const minPosition = arrayMin(positions);
 
     for (let i = 0, len = positions.length; i < len; i++) {
-      if (positions[i] >= minPosition - buffer && positions[i] <= minPosition + buffer) {
+      if (
+        positions[i] >= minPosition - buffer &&
+        positions[i] <= minPosition + buffer
+      ) {
         return i;
       }
     }
@@ -578,19 +608,15 @@
    */
 
   function getItemPosition(_ref) {
-    let {
-      itemSize,
-      positions,
-      gridSize,
-      total,
-      threshold,
-      buffer
-    } = _ref;
+    let { itemSize, positions, gridSize, total, threshold, buffer } = _ref;
     const span = getColumnSpan(itemSize.width, gridSize, total, threshold);
     const setY = getAvailablePositions(positions, span, total);
     const shortColumnIndex = getShortColumn(setY, buffer); // Position the item
 
-    const point = new Point(gridSize * shortColumnIndex, setY[shortColumnIndex]); // Update the columns array with the new values for each column.
+    const point = new Point(
+      gridSize * shortColumnIndex,
+      setY[shortColumnIndex]
+    ); // Update the columns array with the new values for each column.
     // e.g. before the update the columns could be [250, 0, 0, 0] for an item
     // which spans 2 columns. After it would be [250, itemHeight, itemHeight, 0].
 
@@ -616,13 +642,13 @@
     // a   c
     //  bbb
 
-    itemRects.forEach(itemRect => {
+    itemRects.forEach((itemRect) => {
       if (rowMap[itemRect.top]) {
         // Push the point to the last row array.
         rowMap[itemRect.top].push(itemRect);
       } else {
         // Start of a new row.
-        rowMap[itemRect.top] = [itemRect];
+        rowMap[itemRect.top] = [ itemRect ];
       }
     }); // For each row, find the end of the last item, then calculate
     // the remaining space by dividing it by 2. Then add that
@@ -631,7 +657,7 @@
     let rects = [];
     const rows = [];
     const centeredRows = [];
-    Object.keys(rowMap).forEach(key => {
+    Object.keys(rowMap).forEach((key) => {
       const itemRects = rowMap[key];
       rows.push(itemRects);
       const lastItem = itemRects[itemRects.length - 1];
@@ -642,10 +668,16 @@
 
       if (offset > 0) {
         const newRects = [];
-        canMove = itemRects.every(r => {
-          const newRect = new Rect(r.left + offset, r.top, r.width, r.height, r.id); // Check all current rects to make sure none overlap.
+        canMove = itemRects.every((r) => {
+          const newRect = new Rect(
+            r.left + offset,
+            r.top,
+            r.width,
+            r.height,
+            r.id
+          ); // Check all current rects to make sure none overlap.
 
-          const noOverlap = !rects.some(r => Rect.intersects(newRect, r));
+          const noOverlap = !rects.some((r) => Rect.intersects(newRect, r));
           newRects.push(newRect);
           return noOverlap;
         }); // If none of the rectangles overlapped, the whole group can be centered.
@@ -657,21 +689,24 @@
       // placement for this row will not overlap previous rows (row-spanning
       // elements could be in the way).
 
-
       if (!canMove) {
         let intersectingRect;
-        const hasOverlap = itemRects.some(itemRect => rects.some(r => {
-          const intersects = Rect.intersects(itemRect, r);
+        const hasOverlap = itemRects.some((itemRect) =>
+          rects.some((r) => {
+            const intersects = Rect.intersects(itemRect, r);
 
-          if (intersects) {
-            intersectingRect = r;
-          }
+            if (intersects) {
+              intersectingRect = r;
+            }
 
-          return intersects;
-        })); // If there is any overlap, replace the overlapping row with the original.
+            return intersects;
+          })
+        ); // If there is any overlap, replace the overlapping row with the original.
 
         if (hasOverlap) {
-          const rowIndex = centeredRows.findIndex(items => items.includes(intersectingRect));
+          const rowIndex = centeredRows.findIndex((items) =>
+            items.includes(intersectingRect)
+          );
           centeredRows.splice(rowIndex, 1, rows[rowIndex]);
         }
       }
@@ -683,7 +718,10 @@
     // Then reset sort back to how the items were passed to this method.
     // Remove the wrapper object with index, map to a Point.
 
-    return centeredRows.flat().sort((a, b) => a.id - b.id).map(itemRect => new Point(itemRect.left, itemRect.top));
+    return centeredRows
+      .flat()
+      .sort((a, b) => a.id - b.id)
+      .map((itemRect) => new Point(itemRect.left, itemRect.top));
   }
 
   /**
@@ -700,7 +738,6 @@
     return Array.from(new Set(x));
   } // Used for unique instance variables
 
-
   let id = 0;
 
   class Shuffle extends tinyEmitter.exports {
@@ -712,9 +749,11 @@
      * @constructor
      */
     constructor(element) {
-      let options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      let options =
+        arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
       super();
-      this.options = { ...Shuffle.options,
+      this.options = {
+        ...Shuffle.options,
         ...options
       };
       this.lastSort = {};
@@ -730,7 +769,7 @@
       const el = this._getElementOption(element);
 
       if (!el) {
-        throw new TypeError('Shuffle needs to be initialized with an element.');
+        throw new TypeError("Shuffle needs to be initialized with an element.");
       }
 
       this.element = el;
@@ -753,15 +792,13 @@
       // This avoids layout issues caused by images and fonts loading after the
       // instance has been initialized.
 
-
-      if (document.readyState !== 'complete') {
+      if (document.readyState !== "complete") {
         const layout = this.layout.bind(this);
-        window.addEventListener('load', function onLoad() {
-          window.removeEventListener('load', onLoad);
+        window.addEventListener("load", function onLoad() {
+          window.removeEventListener("load", onLoad);
           layout();
         });
       } // Get container css all in one request. Causes reflow
-
 
       const containerCss = window.getComputedStyle(this.element, null);
       const containerWidth = Shuffle.getSize(this.element).width; // Add styles to the container if it doesn't have them.
@@ -769,9 +806,7 @@
       this._validateStyles(containerCss); // We already got the container's width above, no need to cause another
       // reflow getting it again... Calculate the number of columns there will be
 
-
       this._setColumns(containerWidth); // Kick off!
-
 
       this.filter(this.options.group, this.options.initialSort); // Bind resize events
 
@@ -779,8 +814,10 @@
       // an error if ResizeObserver is not present. You can manually add a window resize
       // event and call `update()` if ResizeObserver is missing, or use Shuffle v5.
 
-      if ('ResizeObserver' in window) {
-        this._resizeObserver = new ResizeObserver(this._handleResizeCallback.bind(this));
+      if ("ResizeObserver" in window) {
+        this._resizeObserver = new ResizeObserver(
+          this._handleResizeCallback.bind(this)
+        );
 
         this._resizeObserver.observe(this.element);
       } // The shuffle items haven't had transitions set on them yet so the user
@@ -788,11 +825,11 @@
       // First, however, a synchronous layout must be caused for the previous
       // styles to be applied without transitions.
 
-
       this.element.offsetWidth; // eslint-disable-line no-unused-expressions
 
       this.setItemTransitions(this.items);
-      this.element.style.transition = `height ${this.options.speed}ms ${this.options.easing}`;
+      this.element.style.transition = `height ${this.options.speed}ms ${this
+        .options.easing}`;
     }
     /**
      * Retrieve an element from an option.
@@ -801,19 +838,16 @@
      * @private
      */
 
-
     _getElementOption(option) {
       // If column width is a string, treat is as a selector and search for the
       // sizer element within the outermost container
-      if (typeof option === 'string') {
+      if (typeof option === "string") {
         return this.element.querySelector(option);
       } // Check for an element
-
 
       if (option && option.nodeType && option.nodeType === 1) {
         return option;
       } // Check for jQuery object
-
 
       if (option && option.jquery) {
         return option[0];
@@ -827,16 +861,14 @@
      * @private
      */
 
-
     _validateStyles(styles) {
       // Position cannot be static.
-      if (styles.position === 'static') {
-        this.element.style.position = 'relative';
+      if (styles.position === "static") {
+        this.element.style.position = "relative";
       } // Overflow has to be hidden.
 
-
-      if (styles.overflow !== 'hidden') {
-        this.element.style.overflow = 'hidden';
+      if (styles.overflow !== "hidden") {
+        this.element.style.overflow = "hidden";
       }
     }
     /**
@@ -849,21 +881,24 @@
      * @private
      */
 
-
     _filter() {
-      let category = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lastFilter;
-      let collection = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : this.items;
+      let category =
+        arguments.length > 0 && arguments[0] !== undefined
+          ? arguments[0]
+          : this.lastFilter;
+      let collection =
+        arguments.length > 1 && arguments[1] !== undefined
+          ? arguments[1]
+          : this.items;
 
       const set = this._getFilteredSets(category, collection); // Individually add/remove hidden/visible classes
 
-
       this._toggleFilterClasses(set); // Save the last filter in case elements are appended.
-
 
       this.lastFilter = category; // This is saved mainly because providing a filter function (like searching)
       // will overwrite the `lastFilter` property every time its called.
 
-      if (typeof category === 'string') {
+      if (typeof category === "string") {
         this.group = category;
       }
 
@@ -877,7 +912,6 @@
      * @private
      */
 
-
     _getFilteredSets(category, items) {
       let visible = [];
       const hidden = []; // category === 'all', add visible class to everything
@@ -886,7 +920,7 @@
         visible = items; // Loop through each item and use provided function to determine
         // whether to hide it or not.
       } else {
-        items.forEach(item => {
+        items.forEach((item) => {
           if (this._doesPassFilter(category, item.element)) {
             visible.push(item);
           } else {
@@ -908,15 +942,15 @@
      * @private
      */
 
-
     _doesPassFilter(category, element) {
-      if (typeof category === 'function') {
+      if (typeof category === "function") {
         return category.call(element, element, this);
       } // Check each element's data-groups attribute against the given category.
 
-
       const attr = element.dataset[Shuffle.FILTER_ATTRIBUTE_KEY];
-      const keys = this.options.delimiter ? attr.split(this.options.delimiter) : JSON.parse(attr);
+      const keys = this.options.delimiter
+        ? attr.split(this.options.delimiter)
+        : JSON.parse(attr);
 
       function testCategory(category) {
         return keys.includes(category);
@@ -938,16 +972,12 @@
      * @private
      */
 
-
     _toggleFilterClasses(_ref) {
-      let {
-        visible,
-        hidden
-      } = _ref;
-      visible.forEach(item => {
+      let { visible, hidden } = _ref;
+      visible.forEach((item) => {
         item.show();
       });
-      hidden.forEach(item => {
+      hidden.forEach((item) => {
         item.hide();
       });
     }
@@ -957,9 +987,8 @@
      * @private
      */
 
-
     _initItems(items) {
-      items.forEach(item => {
+      items.forEach((item) => {
         item.init();
       });
     }
@@ -969,9 +998,8 @@
      * @private
      */
 
-
     _disposeItems(items) {
-      items.forEach(item => {
+      items.forEach((item) => {
         item.dispose();
       });
     }
@@ -979,7 +1007,6 @@
      * Updates the visible item count.
      * @private
      */
-
 
     _updateItemCount() {
       this.visibleItems = this._getFilteredItems().length;
@@ -992,18 +1019,18 @@
      * @protected
      */
 
-
     setItemTransitions(items) {
-      const {
-        speed,
-        easing
-      } = this.options;
-      const positionProps = this.options.useTransforms ? ['transform'] : ['top', 'left']; // Allow users to transtion other properties if they exist in the `before`
+      const { speed, easing } = this.options;
+      const positionProps = this.options.useTransforms
+        ? [ "transform" ]
+        : [ "top", "left" ]; // Allow users to transtion other properties if they exist in the `before`
       // css mapping of the shuffle item.
 
-      const cssProps = Object.keys(ShuffleItem.Css.HIDDEN.before).map(k => hyphenate(k));
+      const cssProps = Object.keys(ShuffleItem.Css.HIDDEN.before).map((k) =>
+        hyphenate(k)
+      );
       const properties = positionProps.concat(cssProps).join();
-      items.forEach(item => {
+      items.forEach((item) => {
         item.element.style.transitionDuration = `${speed}ms`;
         item.element.style.transitionTimingFunction = easing;
         item.element.style.transitionProperty = properties;
@@ -1011,7 +1038,9 @@
     }
 
     _getItems() {
-      return Array.from(this.element.children).filter(el => el.matches(this.options.itemSelector)).map(el => new ShuffleItem(el, this.options.isRTL));
+      return Array.from(this.element.children)
+        .filter((el) => el.matches(this.options.itemSelector))
+        .map((el) => new ShuffleItem(el, this.options.isRTL));
     }
     /**
      * Combine the current items array with a new one and sort it by DOM order.
@@ -1019,23 +1048,21 @@
      * @return {ShuffleItem[]}
      */
 
-
     _mergeNewItems(items) {
       const children = Array.from(this.element.children);
       return sorter(this.items.concat(items), {
         by(element) {
           return children.indexOf(element);
         }
-
       });
     }
 
     _getFilteredItems() {
-      return this.items.filter(item => item.isVisible);
+      return this.items.filter((item) => item.isVisible);
     }
 
     _getConcealedItems() {
-      return this.items.filter(item => !item.isVisible);
+      return this.items.filter((item) => !item.isVisible);
     }
     /**
      * Returns the column size, based on column width and sizer options.
@@ -1045,11 +1072,10 @@
      * @private
      */
 
-
     _getColumnSize(containerWidth, gutterSize) {
       let size; // If the columnWidth property is a function, then the grid is fluid
 
-      if (typeof this.options.columnWidth === 'function') {
+      if (typeof this.options.columnWidth === "function") {
         size = this.options.columnWidth(containerWidth); // columnWidth option isn't a function, are they using a sizing element?
       } else if (this.options.sizer) {
         size = Shuffle.getSize(this.options.sizer).width; // if not, how about the explicitly set option?
@@ -1060,7 +1086,6 @@
       } else {
         size = containerWidth;
       } // Don't let them set a column width of zero.
-
 
       if (size === 0) {
         size = containerWidth;
@@ -1075,14 +1100,13 @@
      * @private
      */
 
-
     _getGutterSize(containerWidth) {
       let size;
 
-      if (typeof this.options.gutterWidth === 'function') {
+      if (typeof this.options.gutterWidth === "function") {
         size = this.options.gutterWidth(containerWidth);
       } else if (this.options.sizer) {
-        size = getNumberStyle(this.options.sizer, 'marginLeft');
+        size = getNumberStyle(this.options.sizer, "marginLeft");
       } else {
         size = this.options.gutterWidth;
       }
@@ -1095,9 +1119,11 @@
      *    it's already available.
      */
 
-
     _setColumns() {
-      let containerWidth = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Shuffle.getSize(this.element).width;
+      let containerWidth =
+        arguments.length > 0 && arguments[0] !== undefined
+          ? arguments[0]
+          : Shuffle.getSize(this.element).width;
 
       const gutter = this._getGutterSize(containerWidth);
 
@@ -1105,7 +1131,10 @@
 
       let calculatedColumns = (containerWidth + gutter) / columnWidth; // Widths given from getStyles are not precise enough...
 
-      if (Math.abs(Math.round(calculatedColumns) - calculatedColumns) < this.options.columnThreshold) {
+      if (
+        Math.abs(Math.round(calculatedColumns) - calculatedColumns) <
+        this.options.columnThreshold
+      ) {
         // e.g. calculatedColumns = 11.998876
         calculatedColumns = Math.round(calculatedColumns);
       }
@@ -1118,7 +1147,6 @@
      * Adjust the height of the grid
      */
 
-
     _setContainerSize() {
       this.element.style.height = `${this._getContainerSize()}px`;
     }
@@ -1127,7 +1155,6 @@
      * @return {number}
      * @private
      */
-
 
     _getContainerSize() {
       return arrayMax(this.positions);
@@ -1138,9 +1165,11 @@
      * @return {number}
      */
 
-
     _getStaggerAmount(index) {
-      return Math.min(index * this.options.staggerAmount, this.options.staggerAmountMax);
+      return Math.min(
+        index * this.options.staggerAmount,
+        this.options.staggerAmountMax
+      );
     }
     /**
      * Emit an event from this instance.
@@ -1148,9 +1177,9 @@
      * @param {Object} [data={}] Optional object data.
      */
 
-
     _dispatch(name) {
-      let data = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+      let data =
+        arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
       if (this.isDestroyed) {
         return;
@@ -1163,7 +1192,6 @@
      * Zeros out the y columns array, which is used to determine item placement.
      * @private
      */
-
 
     _resetCols() {
       let i = this.cols;
@@ -1180,7 +1208,6 @@
      *     out in order in their array.
      */
 
-
     _layout(items) {
       const itemPositions = this._getNextPositions(items);
 
@@ -1190,7 +1217,6 @@
           item.applyCss(ShuffleItem.Css.VISIBLE.after);
         } // If the item will not change its position, do not add it to the render
         // queue. Transitions don't fire when setting a property to the same value.
-
 
         if (Point.equals(item.point, itemPositions[i]) && !item.isHidden) {
           item.applyCss(ShuffleItem.Css.VISIBLE.before);
@@ -1203,7 +1229,10 @@
         item.isHidden = false; // Clone the object so that the `before` object isn't modified when the
         // transition delay is added.
 
-        const styles = this.getStylesForTransition(item, ShuffleItem.Css.VISIBLE.before);
+        const styles = this.getStylesForTransition(
+          item,
+          ShuffleItem.Css.VISIBLE.before
+        );
         styles.transitionDelay = `${this._getStaggerAmount(count)}ms`;
 
         this._queue.push({
@@ -1223,7 +1252,6 @@
      * @private
      */
 
-
     _getNextPositions(items) {
       // If position data is going to be changed, add the item's size to the
       // transformer to allow for calculations.
@@ -1239,8 +1267,9 @@
       } // If no transforms are going to happen, simply return an array of the
       // future points of each item.
 
-
-      return items.map(item => this._getItemPosition(Shuffle.getSize(item.element, true)));
+      return items.map((item) =>
+        this._getItemPosition(Shuffle.getSize(item.element, true))
+      );
     }
     /**
      * Determine the location of the next item, based on its size.
@@ -1248,7 +1277,6 @@
      * @return {Point}
      * @private
      */
-
 
     _getItemPosition(itemSize) {
       return getItemPosition({
@@ -1268,7 +1296,6 @@
      * @protected
      */
 
-
     getTransformedPositions(itemRects, containerWidth) {
       return getCenteredPositions(itemRects, containerWidth);
     }
@@ -1278,11 +1305,13 @@
      * @private
      */
 
-
     _shrink() {
-      let collection = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this._getConcealedItems();
+      let collection =
+        arguments.length > 0 && arguments[0] !== undefined
+          ? arguments[0]
+          : this._getConcealedItems();
       let count = 0;
-      collection.forEach(item => {
+      collection.forEach((item) => {
         function callback() {
           item.applyCss(ShuffleItem.Css.HIDDEN.after);
         } // Continuing would add a transitionend event listener to the element, but
@@ -1292,7 +1321,6 @@
         // after the transitionend event because the transitionend could be
         // canceled if another animation starts.
 
-
         if (item.isHidden) {
           item.applyCss(ShuffleItem.Css.HIDDEN.before);
           callback();
@@ -1301,7 +1329,10 @@
 
         item.scale = ShuffleItem.Scale.HIDDEN;
         item.isHidden = true;
-        const styles = this.getStylesForTransition(item, ShuffleItem.Css.HIDDEN.before);
+        const styles = this.getStylesForTransition(
+          item,
+          ShuffleItem.Css.HIDDEN.before
+        );
         styles.transitionDelay = `${this._getStaggerAmount(count)}ms`;
 
         this._queue.push({
@@ -1318,7 +1349,6 @@
      * @param {ResizeObserverEntry[]} entries
      */
 
-
     _handleResizeCallback(entries) {
       // If shuffle is disabled, destroyed, don't do anything.
       // You can still manually force a shuffle update with shuffle.update({ force: true }).
@@ -1329,9 +1359,11 @@
       // nothing to worry about.
       // eslint-disable-next-line no-restricted-syntax
 
-
       for (const entry of entries) {
-        if (Math.round(entry.contentRect.width) !== Math.round(this.containerWidth)) {
+        if (
+          Math.round(entry.contentRect.width) !==
+          Math.round(this.containerWidth)
+        ) {
           // If there was already an animation waiting, cancel it.
           cancelAnimationFrame(this._rafId); // Offload updating the DOM until the browser is ready.
 
@@ -1348,16 +1380,20 @@
      * @protected
      */
 
-
     getStylesForTransition(item, styleObject) {
       // Clone the object to avoid mutating the original.
-      const styles = { ...styleObject
+      const styles = {
+        ...styleObject
       };
 
       if (this.options.useTransforms) {
-        const sign = this.options.isRTL ? '-' : '';
-        const x = this.options.roundTransforms ? Math.round(item.point.x) : item.point.x;
-        const y = this.options.roundTransforms ? Math.round(item.point.y) : item.point.y;
+        const sign = this.options.isRTL ? "-" : "";
+        const x = this.options.roundTransforms
+          ? Math.round(item.point.x)
+          : item.point.x;
+        const y = this.options.roundTransforms
+          ? Math.round(item.point.y)
+          : item.point.y;
         styles.transform = `translate(${sign}${x}px, ${y}px) scale(${item.scale})`;
       } else {
         if (this.options.isRTL) {
@@ -1379,9 +1415,8 @@
      * @param {function} done Callback to notify `parallel` that this one is done.
      */
 
-
     _whenTransitionDone(element, itemCallback, done) {
-      const id = onTransitionEnd(element, evt => {
+      const id = onTransitionEnd(element, (evt) => {
         itemCallback();
         done(null, evt);
       });
@@ -1395,9 +1430,8 @@
      * @return {function} A function to be called with a `done` function.
      */
 
-
     _getTransitionFunction(opts) {
-      return done => {
+      return (done) => {
         opts.item.applyCss(opts.styles);
 
         this._whenTransitionDone(opts.item.element, opts.callback, done);
@@ -1408,7 +1442,6 @@
      * triggering transitions.
      * @private
      */
-
 
     _processQueue() {
       if (this.isTransitioning) {
@@ -1426,11 +1459,9 @@
         this._dispatch(Shuffle.EventType.LAYOUT); // A call to layout happened, but none of the newly visible items will
         // change position or the transition duration is zero, which will not trigger
         // the transitionend event.
-
       } else {
         this._dispatch(Shuffle.EventType.LAYOUT);
       } // Remove everything in the style queue
-
 
       this._queue.length = 0;
     }
@@ -1439,19 +1470,19 @@
      * @param {Object[]} transitions Array of transition objects.
      */
 
-
     _startTransitions(transitions) {
       // Set flag that shuffle is currently in motion.
       this.isTransitioning = true; // Create an array of functions to be called.
 
-      const callbacks = transitions.map(obj => this._getTransitionFunction(obj));
+      const callbacks = transitions.map((obj) =>
+        this._getTransitionFunction(obj)
+      );
       arrayParallel(callbacks, this._movementFinished.bind(this));
     }
 
     _cancelMovement() {
       // Remove the transition end event for each listener.
       this._transitions.forEach(cancelTransitionEnd); // Reset the array.
-
 
       this._transitions.length = 0; // Show it's no longer active.
 
@@ -1463,13 +1494,12 @@
      * @private
      */
 
-
     _styleImmediately(objects) {
       if (objects.length) {
-        const elements = objects.map(obj => obj.item.element);
+        const elements = objects.map((obj) => obj.item.element);
 
         Shuffle._skipTransitions(elements, () => {
-          objects.forEach(obj => {
+          objects.forEach((obj) => {
             obj.item.applyCss(obj.styles);
             obj.callback();
           });
@@ -1490,24 +1520,20 @@
      * @param {SortOptions} [sortOptions] A sort object which can sort the visible set
      */
 
-
     filter(category, sortOptions) {
       if (!this.isEnabled) {
         return;
       }
 
-      if (!category || category && category.length === 0) {
+      if (!category || (category && category.length === 0)) {
         category = Shuffle.ALL_ITEMS; // eslint-disable-line no-param-reassign
       }
 
       this._filter(category); // Shrink each hidden item
 
-
       this._shrink(); // How many visible elements?
 
-
       this._updateItemCount(); // Update transforms on visible elements so they will animate to their new positions.
-
 
       this.sort(sortOptions);
     }
@@ -1516,9 +1542,11 @@
      * @param {SortOptions} [sortOptions] The options object to pass to `sorter`.
      */
 
-
     sort() {
-      let sortOptions = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : this.lastSort;
+      let sortOptions =
+        arguments.length > 0 && arguments[0] !== undefined
+          ? arguments[0]
+          : this.lastSort;
 
       if (!this.isEnabled) {
         return;
@@ -1532,9 +1560,7 @@
       this._layout(items); // `_layout` always happens after `_shrink`, so it's safe to process the style
       // queue here with styles from the shrink method.
 
-
       this._processQueue(); // Adjust the height of the container.
-
 
       this._setContainerSize();
 
@@ -1548,18 +1574,14 @@
      *    to true forces the update to happen regardless.
      */
 
-
     update() {
-      let {
-        recalculateSizes = true,
-        force = false
-      } = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+      let { recalculateSizes = true, force = false } =
+        arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 
       if (this.isEnabled || force) {
         if (recalculateSizes) {
           this._setColumns();
         } // Layout items
-
 
         this.sort();
       }
@@ -1569,7 +1591,6 @@
      * Maybe an image inside `shuffle` loaded (and now has a height), which means calculations
      * could be off.
      */
-
 
     layout() {
       this.update({
@@ -1582,12 +1603,12 @@
      * @param {Element[]} newItems Collection of new items.
      */
 
-
     add(newItems) {
-      const items = arrayUnique(newItems).map(el => new ShuffleItem(el, this.options.isRTL)); // Add classes and set initial positions.
+      const items = arrayUnique(newItems).map(
+        (el) => new ShuffleItem(el, this.options.isRTL)
+      ); // Add classes and set initial positions.
 
       this._initItems(items); // Determine which items will go with the current filter.
-
 
       this._resetCols();
 
@@ -1597,16 +1618,15 @@
 
       const allSortedItemsSet = this._filter(this.lastFilter, sortedItems);
 
-      const isNewItem = item => items.includes(item);
+      const isNewItem = (item) => items.includes(item);
 
-      const applyHiddenState = item => {
+      const applyHiddenState = (item) => {
         item.scale = ShuffleItem.Scale.HIDDEN;
         item.isHidden = true;
         item.applyCss(ShuffleItem.Css.HIDDEN.before);
         item.applyCss(ShuffleItem.Css.HIDDEN.after);
       }; // Layout all items again so that new items get positions.
       // Synchonously apply positions.
-
 
       const itemPositions = this._getNextPositions(allSortedItemsSet.visible);
 
@@ -1617,7 +1637,7 @@
           item.applyCss(this.getStylesForTransition(item, {}));
         }
       });
-      allSortedItemsSet.hidden.forEach(item => {
+      allSortedItemsSet.hidden.forEach((item) => {
         if (isNewItem(item)) {
           applyHiddenState(item);
         }
@@ -1636,7 +1656,6 @@
      * Disables shuffle from updating dimensions and layout on resize
      */
 
-
     disable() {
       this.isEnabled = false;
     }
@@ -1645,9 +1664,11 @@
      * @param {boolean} [isUpdateLayout=true] if undefined, shuffle will update columns and gutters
      */
 
-
     enable() {
-      let isUpdateLayout = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
+      let isUpdateLayout =
+        arguments.length > 0 && arguments[0] !== undefined
+          ? arguments[0]
+          : true;
       this.isEnabled = true;
 
       if (isUpdateLayout) {
@@ -1661,20 +1682,20 @@
      * @return {Shuffle} The shuffle instance.
      */
 
-
     remove(elements) {
       if (!elements.length) {
         return;
       }
 
       const collection = arrayUnique(elements);
-      const oldItems = collection.map(element => this.getItemByElement(element)).filter(item => !!item);
+      const oldItems = collection
+        .map((element) => this.getItemByElement(element))
+        .filter((item) => !!item);
 
       const handleLayout = () => {
         this._disposeItems(oldItems); // Remove the collection in the callback
 
-
-        collection.forEach(element => {
+        collection.forEach((element) => {
           element.parentNode.removeChild(element);
         });
 
@@ -1682,7 +1703,6 @@
           collection
         });
       }; // Hide collection first.
-
 
       this._toggleFilterClasses({
         visible: [],
@@ -1694,7 +1714,7 @@
       this.sort(); // Update the list of items here because `remove` could be called again
       // with an item that is in the process of being removed.
 
-      this.items = this.items.filter(item => !oldItems.includes(item));
+      this.items = this.items.filter((item) => !oldItems.includes(item));
 
       this._updateItemCount();
 
@@ -1706,15 +1726,13 @@
      * @return {?ShuffleItem} A shuffle item or undefined if it's not found.
      */
 
-
     getItemByElement(element) {
-      return this.items.find(item => item.element === element);
+      return this.items.find((item) => item.element === element);
     }
     /**
      * Dump the elements currently stored and reinitialize all child elements which
      * match the `itemSelector`.
      */
-
 
     resetItems() {
       // Remove refs to current items.
@@ -1738,7 +1756,6 @@
      * Destroys shuffle, removes events, styles, and classes
      */
 
-
     destroy() {
       this._cancelMovement();
 
@@ -1748,9 +1765,8 @@
         this._resizeObserver = null;
       } // Reset container styles
 
-
-      this.element.classList.remove('shuffle');
-      this.element.removeAttribute('style'); // Reset individual item styles
+      this.element.classList.remove("shuffle");
+      this.element.removeAttribute("style"); // Reset individual item styles
 
       this._disposeItems(this.items);
 
@@ -1788,19 +1804,21 @@
      * @return {{width: number, height: number}} The width and height.
      */
 
-
     static getSize(element) {
-      let includeMargins = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+      let includeMargins =
+        arguments.length > 1 && arguments[1] !== undefined
+          ? arguments[1]
+          : false;
       // Store the styles so that they can be used by others without asking for it again.
       const styles = window.getComputedStyle(element, null);
-      let width = getNumberStyle(element, 'width', styles);
-      let height = getNumberStyle(element, 'height', styles);
+      let width = getNumberStyle(element, "width", styles);
+      let height = getNumberStyle(element, "height", styles);
 
       if (includeMargins) {
-        const marginLeft = getNumberStyle(element, 'marginLeft', styles);
-        const marginRight = getNumberStyle(element, 'marginRight', styles);
-        const marginTop = getNumberStyle(element, 'marginTop', styles);
-        const marginBottom = getNumberStyle(element, 'marginBottom', styles);
+        const marginLeft = getNumberStyle(element, "marginLeft", styles);
+        const marginRight = getNumberStyle(element, "marginRight", styles);
+        const marginTop = getNumberStyle(element, "marginTop", styles);
+        const marginBottom = getNumberStyle(element, "marginBottom", styles);
         width += marginLeft + marginRight;
         height += marginTop + marginBottom;
       }
@@ -1818,14 +1836,11 @@
      * @private
      */
 
-
     static _skipTransitions(elements, callback) {
-      const zero = '0ms'; // Save current duration and delay.
+      const zero = "0ms"; // Save current duration and delay.
 
-      const data = elements.map(element => {
-        const {
-          style
-        } = element;
+      const data = elements.map((element) => {
+        const { style } = element;
         const duration = style.transitionDuration;
         const delay = style.transitionDelay; // Set the duration to zero so it happens immediately
 
@@ -1846,17 +1861,16 @@
         element.style.transitionDelay = data[i].delay;
       });
     }
-
   }
 
   Shuffle.ShuffleItem = ShuffleItem;
-  Shuffle.ALL_ITEMS = 'all';
-  Shuffle.FILTER_ATTRIBUTE_KEY = 'groups';
+  Shuffle.ALL_ITEMS = "all";
+  Shuffle.FILTER_ATTRIBUTE_KEY = "groups";
   /** @enum {string} */
 
   Shuffle.EventType = {
-    LAYOUT: 'shuffle:layout',
-    REMOVED: 'shuffle:removed'
+    LAYOUT: "shuffle:layout",
+    REMOVED: "shuffle:removed"
   };
   /** @enum {string} */
 
@@ -1864,8 +1878,8 @@
   /** @enum {string} */
 
   Shuffle.FilterMode = {
-    ANY: 'any',
-    ALL: 'all'
+    ANY: "any",
+    ALL: "all"
   }; // Overrideable options
 
   Shuffle.options = {
@@ -1874,9 +1888,9 @@
     // Transition/animation speed (milliseconds).
     speed: 250,
     // CSS easing function to use.
-    easing: 'cubic-bezier(0.4, 0.0, 0.2, 1)',
+    easing: "cubic-bezier(0.4, 0.0, 0.2, 1)",
     // e.g. '.picture-item'.
-    itemSelector: '*',
+    itemSelector: "*",
     // Element or selector string. Use an element to determine the size of columns
     // and gutters.
     sizer: null,
@@ -1927,6 +1941,5 @@
   Shuffle.__getCenteredPositions = getCenteredPositions;
 
   return Shuffle;
-
-}));
+});
 //# sourceMappingURL=shuffle.js.map

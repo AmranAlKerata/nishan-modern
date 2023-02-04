@@ -181,7 +181,7 @@ textarea.border-effect ~ .focus-border:after {
 }
 textarea.border-effect:focus ~ .focus-border i:after,
 textarea.border-effect:focus ~ .focus-border i:before {
-  height: 96.5%;
+  height: 96.5% !important;
   -webkit-transition: 0.2s;
   transition: 0.2s;
   background-color: $primary;
@@ -189,7 +189,7 @@ textarea.border-effect:focus ~ .focus-border i:before {
 
 textarea.border-effect.active ~ .focus-border i:before,
 textarea.border-effect.active ~ .focus-border i:after {
-  height: 96.5%;
+  height: 96.5% !important;
   transition: 0.2s;
 }
 textarea.border-effect ~ .focus-border i:after {
@@ -204,11 +204,23 @@ textarea.border-effect ~ .focus-border i:after {
 .border-effect.error ~ .focus-border i::after,
 .border-effect.error ~ .focus-border:before,
 .border-effect.error ~ .focus-border::after {
-  background-color: red !important;
+  background-color: red;
 }
 .border-effect.error {
-  border-color: red !important;
+  border-color: red;
+}
+.border-effect.error.active ~ .focus-border i:before,
+.border-effect.error.active ~ .focus-border i::after,
+.border-effect.error.active ~ .focus-border:before,
+.border-effect.error.active ~ .focus-border::after {
+  background-color: $primary;
+}
+
+.border-effect.error.active {
+  border-color: $primary;
 }
 div[id*="-error"] {
-  display: none !important;
+  color: #c4c4c4;
+  position: absolute;
+  @include font-size(14px);
 }

@@ -3,52 +3,148 @@
     "code": 200,
     "data": [
         {
-            "id": 0,
-            "type": "article",
-            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
-            "title": "markting around world",
-            "tags": "markting, apps",
-            "author": "Anas Al Omran"
-        },
-        {
-            "id": 1,
-            "type": "note",
-            "background": "#fff1b4",
-            "description": "A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well.",
-            "tags": "markting, apps",
-            "author": "Jeff Bezos"
-        },
-        {
-            "id": 2,
-            "type": "article",
-            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
-            "title": "markting around world",
-            "tags": "markting, apps",
-            "author": "Anas Al Omran"
-        },
-        {
             "id": 3,
-            "type": "note",
-            "background": "#fff1b4",
-            "description": "A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well.",
-            "tags": "markting, apps",
-            "author": "Jeff Bezos"
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "It takes 20 years to build a reputation and five minutes to ruin it.If you think about that, you’ll do things differently, It takes 20 years to build a reputation and five minutes to ruin it. If you think about that, you’ll do things differently.",
+            "tags": [
+                "السمعة"
+            ],
+            "created_by": "Anas M Alomran"
         },
         {
             "id": 4,
-            "type": "article",
-            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
-            "title": "markting around world",
-            "tags": "markting, apps",
-            "author": "Anas Al Omran"
+            "type": "note",
+            "background": "#7fffd4",
+            "description": "Never lose an opportunity of seeing anything beautiful, for beauty is God's handwriting.",
+            "tags": [
+                "opportunity"
+            ],
+            "author": "Anas M Alomran"
         },
         {
             "id": 5,
             "type": "note",
             "background": "#fff1b4",
-            "description": "A brand for a company is like a reputation for a person. You earn reputation by trying to do hard things well.",
-            "tags": "markting, apps",
-            "author": "Jeff Bezos"
+            "description": "The most beautiful things are not associated with money; they are memories and moments. If you don't celebrate those, they can pass you by.",
+            "tags": [
+                "beautiful"
+            ],
+            "author": "Anas M Alomran"
+        },
+        {
+            "id": 6,
+            "type": "note",
+            "background": "#6495ed",
+            "description": "If the path be beautiful, let us not ask where it leads.",
+            "tags": [
+                "leads",
+                "beautiful"
+            ],
+            "author": "Anas M Alomran"
+        },
+        {
+            "id": 7,
+            "type": "note",
+            "background": "#7fffd4",
+            "description": "Never lose an opportunity of seeing anything beautiful, for beauty is God's handwriting.",
+            "tags": [
+                "opportunity"
+            ],
+            "author": "Anas M Alomran"
+        },
+        {
+            "id": 8,
+            "type": "note",
+            "background": "#fff1b4",
+            "description": "The most beautiful things are not associated with money; they are memories and moments. If you don't celebrate those, they can pass you by.",
+            "tags": [
+                "beautiful"
+            ],
+            "author": "Anas M Alomran"
+        },
+        {
+            "id": 9,
+            "type": "note",
+            "background": "#6495ed",
+            "description": "If the path be beautiful, let us not ask where it leads.",
+            "tags": [
+                "leads",
+                "beautiful"
+            ],
+            "author": "Anas M Alomran"
+        },
+        {
+            "id": 10,
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "marketing team discussing their global marketing strategy\r\nIn fact, a global presence is possible for any business with a creative strategy and an understanding of world markets. Let’s go over what a good global marketing strategy looks like and the best examples worldwide.\r\n\r\nDownload Now: The Global Marketing Playbook [Free Guide]\r\nWhat Is Good Global Marketing?\r\nGlobal marketing is the act of focusing a product on the needs of potential buyers in other countries.\r\n\r\nLike most types of marketing, though, a global marketing strategy comes down to one thing: audience. Knowing who needs your product, what form they need it in, and how to market it in a way that strengthens the brand are core ingredients of awesome global marketing.\r\n\r\nTypically, a global marketing strategy requires a business to do new market research, identify countries where the business's product might be successful, and then localize the brand to reflect the needs of those communities. However, localization is not always necessary. Some brands adopt a global standardization strategy instead.",
+            "tags": [
+                "apps",
+                "branding"
+            ],
+            "created_by": "Anas M Alomran"
+        },
+        {
+            "id": 11,
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "marketing team discussing their global marketing strategy\r\nIn fact, a global presence is possible for any business with a creative strategy and an understanding of world markets. Let’s go over what a good global marketing strategy looks like and the best examples worldwide.\r\n\r\nDownload Now: The Global Marketing Playbook [Free Guide]\r\nWhat Is Good Global Marketing?\r\nGlobal marketing is the act of focusing a product on the needs of potential buyers in other countries.\r\n\r\nLike most types of marketing, though, a global marketing strategy comes down to one thing: audience. Knowing who needs your product, what form they need it in, and how to market it in a way that strengthens the brand are core ingredients of awesome global marketing.\r\n\r\nTypically, a global marketing strategy requires a business to do new market research, identify countries where the business's product might be successful, and then localize the brand to reflect the needs of those communities. However, localization is not always necessary. Some brands adopt a global standardization strategy instead.",
+            "tags": [
+                "websites",
+                "creative"
+            ],
+            "created_by": "Anas M Alomran"
+        },
+        {
+            "id": 12,
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "marketing team discussing their global marketing strategy\r\nIn fact, a global presence is possible for any business with a creative strategy and an understanding of world markets. Let’s go over what a good global marketing strategy looks like and the best examples worldwide.\r\n\r\nDownload Now: The Global Marketing Playbook [Free Guide]\r\nWhat Is Good Global Marketing?\r\nGlobal marketing is the act of focusing a product on the needs of potential buyers in other countries.\r\n\r\nLike most types of marketing, though, a global marketing strategy comes down to one thing: audience. Knowing who needs your product, what form they need it in, and how to market it in a way that strengthens the brand are core ingredients of awesome global marketing.\r\n\r\nTypically, a global marketing strategy requires a business to do new market research, identify countries where the business's product might be successful, and then localize the brand to reflect the needs of those communities. However, localization is not always necessary. Some brands adopt a global standardization strategy instead.",
+            "tags": [
+                "creative"
+            ],
+            "created_by": "Anas M Alomran"
+        },
+        {
+            "id": 13,
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "marketing team discussing their global marketing strategy\r\nIn fact, a global presence is possible for any business with a creative strategy and an understanding of world markets. Let’s go over what a good global marketing strategy looks like and the best examples worldwide.\r\n\r\nDownload Now: The Global Marketing Playbook [Free Guide]\r\nWhat Is Good Global Marketing?\r\nGlobal marketing is the act of focusing a product on the needs of potential buyers in other countries.\r\n\r\nLike most types of marketing, though, a global marketing strategy comes down to one thing: audience. Knowing who needs your product, what form they need it in, and how to market it in a way that strengthens the brand are core ingredients of awesome global marketing.\r\n\r\nTypically, a global marketing strategy requires a business to do new market research, identify countries where the business's product might be successful, and then localize the brand to reflect the needs of those communities. However, localization is not always necessary. Some brands adopt a global standardization strategy instead.",
+            "tags": [
+                "app",
+                "creative"
+            ],
+            "created_by": "Anas M Alomran"
+        },
+        {
+            "id": 14,
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "marketing team discussing their global marketing strategy\r\nIn fact, a global presence is possible for any business with a creative strategy and an understanding of world markets. Let’s go over what a good global marketing strategy looks like and the best examples worldwide.\r\n\r\nDownload Now: The Global Marketing Playbook [Free Guide]\r\nWhat Is Good Global Marketing?\r\nGlobal marketing is the act of focusing a product on the needs of potential buyers in other countries.\r\n\r\nLike most types of marketing, though, a global marketing strategy comes down to one thing: audience. Knowing who needs your product, what form they need it in, and how to market it in a way that strengthens the brand are core ingredients of awesome global marketing.\r\n\r\nTypically, a global marketing strategy requires a business to do new market research, identify countries where the business's product might be successful, and then localize the brand to reflect the needs of those communities. However, localization is not always necessary. Some brands adopt a global standardization strategy instead.",
+            "tags": [
+                "websites",
+                "branding"
+            ],
+            "created_by": "Anas M Alomran"
+        },
+        {
+            "id": 15,
+            "type": "article",
+            "image": "https://demo2.bynishan.com/storage/DHXtwmFJ4nczgV7D6wzyny5vntwaLh2oF8SvM8sW.png",
+            "title": "Marketing around world",
+            "description": "marketing team discussing their global marketing strategy\r\nIn fact, a global presence is possible for any business with a creative strategy and an understanding of world markets. Let’s go over what a good global marketing strategy looks like and the best examples worldwide.\r\n\r\nDownload Now: The Global Marketing Playbook [Free Guide]\r\nWhat Is Good Global Marketing?\r\nGlobal marketing is the act of focusing a product on the needs of potential buyers in other countries.\r\n\r\nLike most types of marketing, though, a global marketing strategy comes down to one thing: audience. Knowing who needs your product, what form they need it in, and how to market it in a way that strengthens the brand are core ingredients of awesome global marketing.\r\n\r\nTypically, a global marketing strategy requires a business to do new market research, identify countries where the business's product might be successful, and then localize the brand to reflect the needs of those communities. However, localization is not always necessary. Some brands adopt a global standardization strategy instead.",
+            "tags": [
+                "websites",
+                "creative"
+            ],
+            "created_by": "Anas M Alomran"
         }
     ],
     "message": "تمت العملية بنجاح"

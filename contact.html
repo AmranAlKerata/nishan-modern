@@ -180,11 +180,11 @@
                     <div class="choices-forms pt-5">
                         <div class="row">
                             <div class="col-12 col-lg-6">
-                                <form data-form="0" class="choice-form" id="0" method="get" action="">
+                                <form data-form="0" class="choice-form" id="form-0" method="get" action="">
                                     <div class="amk-group mb-4 position-relative">
                                         <input autocomplete="off" type="text"
                                             class="border-effect form-control wow animate animate__fadeInUp delay-1"
-                                            required placeholder="Name*" id="name">
+                                            required placeholder="Name*" id="name" name="name">
                                         <span class="focus-border">
                                             <i></i>
                                         </span>
@@ -192,7 +192,7 @@
                                     <div class="amk-group mb-4 position-relative">
                                         <input autocomplete="off" type="tel"
                                             class="border-effect form-control wow animate animate__fadeInUp delay-2"
-                                            required placeholder="Phone*" id="phone">
+                                            required placeholder="Phone*" id="phone" name="phone">
                                         <span class="focus-border">
                                             <i></i>
                                         </span>
@@ -200,7 +200,7 @@
                                     <div class="amk-group mb-4 position-relative">
                                         <input autocomplete="off" type="email"
                                             class="border-effect form-control wow animate animate__fadeInUp delay-3"
-                                            required placeholder="E-mail*" id="email">
+                                            required placeholder="E-mail*" id="email" name="email">
                                         <span class="focus-border">
                                             <i></i>
                                         </span>
@@ -214,7 +214,7 @@
                                             <i></i>
                                         </span>
                                     </div>
-                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-6">
+                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-5">
                                         <select class="select-2-select form-control  w-100" required name="address">
                                             <option value="all_categories">Address</option>
                                             <option value="1">
@@ -229,7 +229,7 @@
 
                                     <div class="amk-group mb-4 position-relative">
                                         <textarea
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-1"
+                                            class="border-effect form-control wow animate animate__fadeInUp delay-6"
                                             required id="details" placeholder="Message " rows="6"></textarea>
                                         <span class="focus-border">
                                             <i></i>
@@ -247,7 +247,7 @@
                                         </label>
                                     </div>
                                     <div
-                                        class="required amk-group mb-4 custom-checkbox wow animate animate__fadeInUp delay-68">
+                                        class="required amk-group mb-4 custom-checkbox wow animate animate__fadeInUp delay-8">
                                         <label class="checkbox bounce">
                                             <input autocomplete="off" required type="checkbox" id="checkbox-2">
                                             <svg viewBox="0 0 21 21">
@@ -327,7 +327,7 @@
                                         class="button-submit button wow animate animate__fadeInUp delay-14">Submit</button>
                                 </form>
 
-                                <form data-form="1" class="choice-form" id="1">
+                                <form data-form="1" class="choice-form" id="form-1">
                                     <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-1">
                                         <input autocomplete="off" type="text" class="border-effect form-control"
                                             required placeholder="Name*" id="name2">
@@ -363,9 +363,10 @@
                                         </select>
                                     </div>
 
-                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-5">
-                                        <textarea class="border-effect form-control" id="details2"
-                                            placeholder="Message " rows="6"></textarea>
+                                    <div class="amk-group mb-4 position-relative">
+                                        <textarea
+                                            class="border-effect form-control wow animate animate__fadeInUp delay-6"
+                                            required id="details" placeholder="Message " rows="6"></textarea>
                                         <span class="focus-border">
                                             <i></i>
                                         </span>
@@ -417,9 +418,9 @@
                                                 data-element="custom-upload-button2">Attach
                                                 file</label>
                                             <small class="d-block mt-2">allowed files: jpg,png,pdf,webp,svg</small>
-                                            <input autocomplete="off" class="custom-upload__input autocomplete=" off""
+                                            <input autocomplete="off" class="custom-upload__input" autocomplete=" off"
                                                 name="uploadFile2" accept="all" id="uploadFile2" type="file"
-                                                data-behaviour="custom-upload-input autocomplete=" off"2">
+                                                data-behaviour="custom-upload-input" autocomplete="off">
                                         </div>
                                     </div>
                                     <div class="amk-group mb-4 wow animate animate__fadeInUp delay-10 custom-checkbox">
@@ -514,8 +515,7 @@
         <!-- End FAQ Section -->
 
         <!-- Start Footer -->
-        <footer>
-
+        <footer class="end-changing-color">
             <div class="container">
                 <div class="footer-bottom">
                     <div class="row">

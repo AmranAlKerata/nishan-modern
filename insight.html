@@ -15,6 +15,8 @@
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
     </link>
+    <!-- Select 2 -->
+    <link rel="stylesheet" href="css/select2.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -24,13 +26,16 @@
     <script defer src="js/anm.min.js"></script>
     <!-- Bootstrap -->
     <script defer src="js/bootstrap.min.js"></script>
+    <!-- Select 2 -->
+    <script defer src="js/select2.min.js"></script>
     <!-- Shuffle -->
     <script defer src="js/shuffle.js"></script>
     <!-- Shuffle -->
     <script defer src="js/shuffle-init.js"></script>
     <!-- Wow Js -->
     <script defer src="js/wow.min.js"></script>
-
+    <!-- Fetch Data -->
+    <script defer src="js/fetch-data/insights.js"></script>
     <!-- Main Script -->
     <script defer src="js/main.js"></script>
 </head>
@@ -149,95 +154,22 @@
                     <div class="col-sm-12 filters-group-wrap ">
                         <div class="filters-group">
                             <div class="filters-group position-relative">
-                                <input class="border-effect textfield filter__search js-shuffle-search form-control"
-                                    type="text" id="filters-search-input" placeholder="apps, branding" />
-                                <span class="focus-border">
-                                    <i></i>
-                                </span>
+                                <!-- <input class="border-effect textfield filter__search js-shuffle-search form-control"
+                                        type="text" id="filters-search-input" placeholder="apps, branding" />
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span> -->
+                                <select class="select-2-select form-control  w-100" id="insightSearchSelect" required
+                                    name="tags" multiple="multiple">
+                                </select>
                             </div>
                         </div>
 
                     </div>
                 </div>
+                <h3 id="shuffle-no-items" class="d-none">No items matched your search</h3>
 
                 <div id="shuffle-js-container" class="row my-shuffle-container">
-                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["apps","branding"]'>
-                        <div class="insight-card">
-                            <a href="#">
-                                <img src="images/brand_1.png" alt="" class="insight-img">
-                                <h4 class="title ">
-                                    Marketing around world <span class="nishan-icon">w</span> </h4>
-                                <h6 class="tag">Markting</h6>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="note-1" class="col-12 col-lg-6 shuffle-item" data-groups='["web","apps","branding"]'>
-                        <div class="insight-card note" style="background-color: aquamarine;">
-                            <a href="#note-1">
-
-                                <p class="note-content">A brand for a company is like a reputation for a person. You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
-                                <div class="copy-note text-end">
-                                    <img src="images/copy-outline.svg" class="copy-icon" alt="copy-icon">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["design"]'>
-                        <div class="insight-card">
-                            <a href="#">
-                                <img src="images/brand_2.png" alt="" class="insight-img">
-                                <h4 class="title ">
-                                    Marketing around world <span class="nishan-icon">w</span> </h4>
-                                <h6 class="tag">Markting</h6>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="note-2" class="col-12 col-lg-6 shuffle-item" data-groups='["creative","apps"]'>
-                        <div class="insight-card note">
-                            <a href="#note-2">
-
-                                <p class="note-content">A brand for a company is like a reputation for a person.
-                                    A brand for a company is like a reputation for a person.
-                                    You
-                                    earn reputation by trying to do hard things well.</p>
-                                <h4 class="author fw-bold mt-3">Jeff Bezos</h4>
-                                <div class="copy-note text-end">
-                                    <img src="images/copy-outline.svg" class="copy-icon" alt="copy-icon">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div id="note-3" class="col-12 col-lg-6 shuffle-item" data-groups='["apps","web design"]'>
-                        <div class="insight-card note" style="background-color: cornflowerblue;">
-                            <a href="#note-3">
-                                <p class="note-content">It takes 20 years to build a reputation and five minutes to ruin
-                                    it.
-                                    If you think about that, you’ll do things
-                                    differently, It takes 20 years to build a reputation and five minutes to ruin it.
-                                    If you think about that, you’ll do things
-                                    differently.
-                                </p>
-                                <h4 class="author fw-bold mt-3">Warren Buffett</h4>
-                                <div class="copy-note text-end">
-                                    <img src="images/copy-outline.svg" class="copy-icon" alt="copy-icon">
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-12 col-lg-6 shuffle-item" data-groups='["apps"]'>
-                        <div class="insight-card">
-                            <a href="#">
-                                <img src="images/brand_1.png" alt="" class="insight-img">
-                                <h4 class="title ">
-                                    Marketing around world <span class="nishan-icon">w</span> </h4>
-                                <h6 class="tag">Markting</h6>
-
-                            </a>
-                        </div>
-                    </div>
                     <div class="col-1 my-sizer-element"></div>
                 </div>
 

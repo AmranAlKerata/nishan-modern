@@ -239,7 +239,7 @@ $(function() {
   // Type Writer Effect
   if ($("#typeWriterEn").length > 0) {
     new TypeIt("#typeWriterEn", {
-      strings: ["Professional", "Great", "Interesting", "Attractive"],
+      strings: [ "Professional", "Great", "Interesting", "Attractive" ],
       cursor: true,
       cursorChar: "|",
       cursorSpeed: 1000,
@@ -268,7 +268,7 @@ $(function() {
         let companies = [];
         let current = 0;
         const response = data.data;
-        response.map(t => {
+        response.map((t) => {
           strings.push(t.description);
           names.push(t.name);
           companies.push(t.company);
@@ -407,6 +407,49 @@ $(function() {
       { scrollTop: $(".choices-forms").offset().top },
       100
     );
+
+    $(`#${choiceForm.attr("id")}`).validate({
+      rules: {
+        name: {
+          required: true,
+          minlength: 2
+        },
+        phone: "required",
+        email: {
+          required: true,
+          email: true
+        }
+      },
+      messages: {
+        name: {
+          required: "Please enter your name",
+          minlength: "Your name must consist of at least 2 characters"
+        },
+        phone: "Please enter you phone",
+        // mobile: "Please enter you mobile number",
+        email: {
+          required: "Please enter you email",
+          email: "Please write a correct email ex: username@provider.com"
+        }
+      }
+    });
+
+    // $(".button-submit").on("click", function(e) {
+    //   const parent = $(this).parent();
+    //   // Validate Form
+    //   parent.validate();
+
+    //   // // Checkbox Validation
+    //   // if ($(".amk-group.required input[type='checkbox']:checked").length <= 0) {
+    //   //   $(".amk-group.required .checkbox").css("color", "red");
+    //   //   parent.validate();
+    //   // }
+    //   // if ($(".amk-group.required input[type='checkbox']:checked").length > 0) {
+    //   //   $(".amk-group.required .checkbox").css("color", "#000");
+    //   // } else {
+    //   //   parent.validate();
+    //   // }
+    // });
   });
 
   // Textarea animated border & Shuffle filter input
@@ -461,21 +504,28 @@ $(function() {
     });
   }
   // Copy Note link
-  $(".copy-note .copy-icon").on("click", function() {
-    /* Get the text field */
-    const noteLink = $(this).parent().parent().attr("href");
-    const currentLink =
-      window.location.origin + window.location.pathname + noteLink;
 
-    /* Copy the text inside the text field */
-    navigator.clipboard.writeText(currentLink);
+  $(document).on("click", function(e) {
+    if (e.target.classList.contains("copy-icon")) {
+      /* Get the text field */
+      const noteLink = e.target.parentElement.parentElement.href;
+      const currentLink = noteLink;
 
-    // Show Link Copied Alert
-    $(this).parent().prepend("<span>Link copied</span>");
-    const timeout = setTimeout(() => {
-      $(this).parent().find("span").remove();
-      clearTimeout(timeout);
-    }, 5000);
+      /* Copy the text inside the text field */
+      navigator.clipboard.writeText(currentLink);
+
+      // Create Link Copied Text
+      const span = document.createElement("span");
+      span.textContent = "Link copied";
+
+      // Show Link Copied Alert
+      e.target.parentElement.prepend(span);
+
+      const timeout = setTimeout(() => {
+        e.target.parentElement.querySelector("span").remove();
+        clearTimeout(timeout);
+      }, 5000);
+    }
   });
 });
 
@@ -496,20 +546,3 @@ $h.on("mouseenter", function(e) {
 $h.on("mouseleave", function(e) {
   $c.removeClass("custom-cursor-active");
 });
-
-// $(".button-submit").on("click", function(e) {
-//   const parent = $(this).parent();
-//   // Validate Form
-//   parent.validate();
-
-//   // Checkbox Validation
-//   if ($(".amk-group.required input[type='checkbox']:checked").length <= 0) {
-//     $(".amk-group.required .checkbox").css("color", "red");
-//     parent.validate();
-//   }
-//   if ($(".amk-group.required input[type='checkbox']:checked").length > 0) {
-//     $(".amk-group.required .checkbox").css("color", "#000");
-//   } else {
-//     parent.validate();
-//   }
-// });

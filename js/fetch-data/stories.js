@@ -1,16 +1,17 @@
-// let url = "https://demo2.bynishan.com/api/stories-en";
-let url = "../../stories.json";
+let url = "https://demo2.bynishan.com/api/stories-en";
+// let url = "../../stories.json";
 const storiesContainer = $(".stories-page .my-sizer-element");
 const filterOptionsContainer = $(".filter-options");
 const sectionContainer = $(".stories-gallery");
 let storiesOnScreen = [];
 let filterOptions = [];
+
 const loader = `<div class="amk-loader"><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>`;
 
 // Get all storeis tags and return them as one unique array
-const uniqueTags = data => {
+const uniqueTags = (data) => {
   // Get all tags and filter them in one array
-  data.map(item => filterOptions.push(...(item.tags || [])));
+  data.map((item) => filterOptions.push(...(item.tags || [])));
 
   //  Remove Duplicated tags
   const filteredTags = Array.from(new Set(filterOptions));
@@ -18,16 +19,16 @@ const uniqueTags = data => {
   // Append Tags in filter options tabs
   filterOptionsContainer.append(
     filteredTags.map(
-      tag =>
+      (tag) =>
         `<a href="#${tag}" data-group="${tag}">${tag.replace("-", " ")}</a>`
     )
   );
 };
 
 // Create Stoies HTML MarkUp
-const storyHTMLMarkUp = data => {
+const storyHTMLMarkUp = (data) => {
   // Loop over stories and create HTML Markup
-  const stories = data.map(story => {
+  const stories = data.map((story) => {
     let id = story.id || Math.random(),
       title = story.title || "Some other work",
       cover = story.cover || "https://placehold.co/600x400/EEE/31343C",
@@ -35,35 +36,35 @@ const storyHTMLMarkUp = data => {
 
     // Create Shuffle Item
     const shuffleItem = document.createElement("div");
-    shuffleItem.setAttribute("class", "col-12 col-lg-6 shuffle-item");
-    shuffleItem.setAttribute("data-groups", `[${tags.map(el => `"${el}"`)}]`);
+    shuffleItem.className = "col-12 col-lg-6 shuffle-item";
+    shuffleItem.setAttribute("data-groups", `[${tags.map((el) => `"${el}"`)}]`);
 
     // Create Project
     const project = document.createElement("div");
-    project.setAttribute("class", "project");
+    project.className = "project";
 
     // Create Link
     const link = document.createElement("a");
-    link.setAttribute("href", `/story/${id}`);
+    link.href = `/story/${id}`;
 
     // Create Title
     const projectName = document.createElement("div");
-    projectName.setAttribute("class", "project-name");
+    projectName.className = "project-name";
     const h3 = document.createElement("h3");
     h3.textContent = title;
 
     // Arrow Icon
     const arrow = document.createElement("div");
-    arrow.setAttribute("class", "arrow-icon");
+    arrow.className = "arrow-icon";
     const nishanIcon = document.createElement("span");
-    nishanIcon.setAttribute("class", "nishan-icon");
+    nishanIcon.className = "nishan-icon";
     nishanIcon.textContent = "w";
 
     // Create Project Cover
     const projectImg = document.createElement("img");
-    projectImg.setAttribute("src", cover);
-    projectImg.setAttribute("alt", title);
-    projectImg.setAttribute("class", "project-img");
+    projectImg.src = cover;
+    projectImg.alt = title;
+    projectImg.className = "project-img";
 
     // Append All Elements together
     arrow.appendChild(nishanIcon);
@@ -95,16 +96,9 @@ const fetchData = async () => {
     // Create HTML
     storyHTMLMarkUp(resp.data);
 
-    let visibleStoriesCount = 4;
-    let visibleStories = storyHTMLMarkUp(resp.data).splice(
-      0,
-      visibleStoriesCount
-    );
-
     // Remove Loader
     $(".amk-loader").remove();
 
-    // init shuffle js
     // init shuffle js
     const addNewStories = new ShuffleJS(
       document.getElementById("shuffle-js-container")
@@ -112,28 +106,46 @@ const fetchData = async () => {
 
     // Log events.
     addNewStories.addShuffleEventListeners();
-    addNewStories._activeFilters = [];
     addNewStories.addFilterButtons();
-    addNewStories.addSorting();
-    addNewStories.addSearchFilter();
-    addNewStories.onAppendBoxes(storyHTMLMarkUp(resp.data));
+    // Append Stories
+    addNewStories.onAppendBoxes(storyHTMLMarkUp(resp.data).slice(0, 4));
 
-    // let isLoading = true;
-    // const event = () => {
-    //   if (
-    //     window.scrollY >= $(".shuffle-item:last-child").offset().top - 100 &&
-    //     isLoading
-    //   ) {
-    //     console.log("loading");
-    //     isLoading = false;
-    //     window.removeEventListener("scroll", event);
-    //   }
-    //   if (isLoading === false) {
-    //     isLoading = true;
-    //   }
-    // };
+    // Start & End Index of how many items you want to show
+    let start = 4;
+    let end = 5;
 
-    // window.addEventListener("scroll", event);
+    let isLoading = false;
+
+    // Add Items & loading
+    const addItems = () => {
+      if (
+        window.scrollY >= $(".shuffle-item:last-child").offset().top - 300 &&
+        !isLoading
+      ) {
+        addNewStories.onAppendBoxes(
+          storyHTMLMarkUp(resp.data).slice(start, end)
+        );
+
+        start = end;
+        end = end + 4; // chagne number to show more than 4 items for each loading
+        isLoading = true;
+        window.removeEventListener("scroll", addItems);
+      }
+    };
+
+    // Remove Loading & stop adding items
+    const stopAddItems = () => {
+      if (
+        window.scrollY < $(".shuffle-item:last-child").offset().top - 300 &&
+        isLoading
+      ) {
+        isLoading = false;
+        window.addEventListener("scroll", addItems);
+      }
+    };
+
+    window.addEventListener("scroll", addItems);
+    window.addEventListener("scroll", stopAddItems);
   } catch (error) {
     // Remove Loader
     $(".lds-roller").remove();

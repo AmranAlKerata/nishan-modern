@@ -1,69 +1,31 @@
+// Customized by Amran Al Kerata
+// email : amranalkerata@gmail.com
+
 var Shuffle = window.Shuffle;
 
 class ShuffleJS {
   constructor(element) {
     this.element = element;
+    this.noItems = document.getElementById("shuffle-no-items");
     this.gridItems = this.element.querySelectorAll(".shuffle-item");
     this.shuffle = new Shuffle(element, {
       itemSelector: ".shuffle-item",
       sizer: element.querySelector(".my-sizer-element"),
       buffer: 1
     });
-    const callback = this.showItemsInViewport.bind(this);
-    this.observer = new IntersectionObserver(callback, {
-      threshold: 0.5
-    });
-
-    // Loop through each grid item and add it to the viewport watcher.
-    for (let i = 0; i < this.gridItems.length; i++) {
-      this.observer.observe(this.gridItems[i]);
-    }
-
-    // Add the transition class to the items after ones that are in the viewport
-    // have received the `in` class.
-    setTimeout(() => {
-      this.addTransitionToItems();
-    }, 100);
-
-    // // // Log events.
-    // this.addShuffleEventListeners();
-    // this._activeFilters = [];
-    // this.addFilterButtons();
-    // this.addSorting();
-    // this.addSearchFilter();
-    // this.onAppendBoxes();
-  }
-  /**
-   * Add the `in` class to the element after it comes into view.
-   */
-  showItemsInViewport(changes) {
-    changes.forEach(function(change) {
-      if (change.isIntersecting) {
-        change.target.classList.add("in");
-      }
-    });
-  }
-
-  /**
-   * Only the items out of the viewport should transition. This way, the first
-   * visible ones will snap into place.
-   */
-  addTransitionToItems() {
-    for (let i = 0; i < this.gridItems.length; i++) {
-      const inner = this.gridItems[i].firstElementChild;
-      inner.classList.add("picture-item__inner--transition");
-    }
+    this.currentTags = [];
   }
 
   /**
    * Shuffle uses the CustomEvent constructor to dispatch events. You can listen
    * for them like you normally would (with jQuery for example).
    */
+
   addShuffleEventListeners() {
-    this.shuffle.on(Shuffle.EventType.LAYOUT, data => {
+    this.shuffle.on(Shuffle.EventType.LAYOUT, (data) => {
       console.log("layout. data:", data);
     });
-    this.shuffle.on(Shuffle.EventType.REMOVED, data => {
+    this.shuffle.on(Shuffle.EventType.REMOVED, (data) => {
       console.log("removed. data:", data);
     });
   }
@@ -76,7 +38,7 @@ class ShuffleJS {
 
     const filterButtons = Array.from(options.children);
     const onClick = this._handleFilterClick.bind(this);
-    filterButtons.forEach(button => {
+    filterButtons.forEach((button) => {
       button.addEventListener("click", onClick, false);
     });
   }
@@ -118,7 +80,7 @@ class ShuffleJS {
   _handleSortChange(evt) {
     // Add and remove `active` class from buttons.
     const buttons = Array.from(evt.currentTarget.children);
-    buttons.forEach(button => {
+    buttons.forEach((button) => {
       if (button.querySelector("input").value === evt.target.value) {
         button.classList.add("active");
       } else {
@@ -153,19 +115,28 @@ class ShuffleJS {
 
   // Advanced filtering
   addSearchFilter() {
-    const searchInput = document.querySelector(".js-shuffle-search");
-    if (!searchInput) {
-      return;
-    }
-    searchInput.addEventListener("keyup", this._handleSearchKeyup.bind(this));
+    const selectTags = $("#insightSearchSelect");
+
+    selectTags.on("select2:select", this._handleSelectTags.bind(this));
+    selectTags.on("select2:unselect", this._handleUnSelectTags.bind(this));
+
+    selectTags.select2({
+      minimumInputLength: 2
+    });
   }
 
   /**
    * Filter the shuffle instance by items with a title that matches the search input.
    * @param {Event} evt Event object.
-   */
-  _handleSearchKeyup(evt) {
-    const searchText = evt.target.value.toLowerCase();
+  */
+  _handleSelectTags(e) {
+    // Selected tag data
+    const data = e.params.data;
+    const selectedTag = data.text.trim().toLowerCase();
+
+    // Add selected tag to  currentTags array
+    this.currentTags.push(selectedTag);
+
     this.shuffle.filter((element, shuffle) => {
       // If there is a current filter applied, ignore elements that don't match it.
       if (shuffle.group !== Shuffle.ALL_ITEMS) {
@@ -177,16 +148,62 @@ class ShuffleJS {
           return false;
         }
       }
-      const elementCategory = JSON.parse(
-        element.getAttribute("data-groups")
-      ).toString();
 
-      console.log(elementCategory);
+      // Get Current Element Tags
+      const elementTags = JSON.parse(element.getAttribute("data-groups"));
 
-      return elementCategory.includes(searchText);
-
-      // return elementCategory.indexOf(searchText) !== -1;
+      // Return Element if it's tags matched the search
+      return elementTags.some((r) => this.currentTags.indexOf(r) >= 0);
     });
+
+    // Check if there is any items if no show no items message
+    if (this.shuffle.visibleItems == 0) {
+      this.noItems.className = "d-block";
+    } else {
+      this.noItems.className = "d-none";
+    }
+  }
+
+  _handleUnSelectTags(e) {
+    // Get the id of removed tag
+    const tagText = e.params.data.text;
+
+    // remove the removed tag from the currentTags array
+    const newTags = this.currentTags.filter((tag) => tag != tagText);
+
+    // Set current tags to the new filtered tags
+    this.currentTags = newTags;
+
+    // Check if we have tags selected from drop down menu, if no show all items [Remove Filter]
+    if (newTags.length === 0) {
+      // Return all items
+      this.shuffle.filter(Shuffle.ALL_ITEM);
+    } else {
+      this.shuffle.filter((element, shuffle) => {
+        // If there is a current filter applied, ignore elements that don't match it.
+        if (shuffle.group !== Shuffle.ALL_ITEMS) {
+          // Get the item's groups.
+          const groups = JSON.parse(element.getAttribute("data-groups"));
+          const isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
+          // Only search elements in the current group
+          if (!isElementInCurrentGroup) {
+            return false;
+          }
+        }
+
+        // Get Current Element Tags
+        const elementTags = JSON.parse(element.getAttribute("data-groups"));
+
+        // Return Element if it's tags matched the search
+        return elementTags.some((r) => this.currentTags.indexOf(r) >= 0);
+      });
+    }
+    // Check if there is any items if no show no items message
+    if (this.shuffle.visibleItems == 0) {
+      this.noItems.className = "d-block";
+    } else {
+      this.noItems.className = "d-none";
+    }
   }
 
   /**
@@ -196,7 +213,7 @@ class ShuffleJS {
   onAppendBoxes(array = []) {
     const elements = array;
 
-    elements.forEach(element => {
+    elements.forEach((element) => {
       this.shuffle.element.appendChild(element);
     });
 
