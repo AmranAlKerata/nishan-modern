@@ -1,5 +1,5 @@
-// let url = "https://demo2.bynishan.com/api/insights-en";
-let url = "../../data.json";
+let url = "https://demo2.bynishan.com/api/insights-en";
+// let url = "../../data.json";
 const storiesContainer = $(".insight-page .my-sizer-element");
 const filterOptionsContainer = $(".filter-options");
 const sectionContainer = $(".insights-gallery");
