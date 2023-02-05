@@ -167,9 +167,6 @@ const fetchData = async () => {
 
     // Log events.
     addNewInsights.addShuffleEventListeners();
-    addNewInsights._activeFilters = [];
-    addNewInsights.addFilterButtons();
-    addNewInsights.addSorting();
     addNewInsights.addSearchFilter();
     // Append Insights
     addNewInsights.onAppendBoxes(storyHTMLMarkUp(resp.data).slice(0, 4));

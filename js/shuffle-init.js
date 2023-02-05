@@ -123,6 +123,12 @@ class ShuffleJS {
     selectTags.select2({
       minimumInputLength: 2
     });
+    $(".select2-selection--multiple.border-effect").after(
+      '<span class="focus-border"><i></i></span>'
+    );
+    // $(".select2-selection--multiple.border-effect").on("click", function() {
+    //   $(this).focus();
+    // });
   }
 
   /**
@@ -162,6 +168,8 @@ class ShuffleJS {
     } else {
       this.noItems.className = "d-none";
     }
+
+    $(".select2-selection--multiple.border-effect").addClass("active");
   }
 
   _handleUnSelectTags(e) {
@@ -178,6 +186,8 @@ class ShuffleJS {
     if (newTags.length === 0) {
       // Return all items
       this.shuffle.filter(Shuffle.ALL_ITEM);
+      // Remove border effect
+      $(".select2-selection--multiple.border-effect").removeClass("active");
     } else {
       this.shuffle.filter((element, shuffle) => {
         // If there is a current filter applied, ignore elements that don't match it.

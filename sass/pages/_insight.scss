@@ -168,4 +168,12 @@
   .select2-selection__choice__display {
     text-transform: capitalize !important;
   }
+  .select2-selection--multiple.border-effect {
+    border-bottom: 1px solid $primary;
+  }
+  .select2-selection--multiple.border-effect.active {
+    border: none;
+  }
+  .select2-container.select2-container--default.select2-container--open {
+  }
 }
