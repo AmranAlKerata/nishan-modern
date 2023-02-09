@@ -50,7 +50,7 @@ const storyHTMLMarkUp = (data) => {
     const projectName = document.createElement("div");
     projectName.className = "project-name";
     const h3 = document.createElement("h3");
-    h3.textContent = title + id;
+    h3.textContent = title;
 
     // Arrow Icon
     const arrow = document.createElement("div");
@@ -63,6 +63,7 @@ const storyHTMLMarkUp = (data) => {
     const projectImg = document.createElement("img");
     projectImg.src = cover;
     projectImg.alt = title;
+    projectImg.loading = "lazy";
     projectImg.className = "project-img";
 
     // Append All Elements together
