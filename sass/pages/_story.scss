@@ -56,6 +56,9 @@
     }
     .not-coverd {
       padding-top: 24px;
+      @include media($md) {
+        padding-top: 0;
+      }
     }
   }
   .next-project a {

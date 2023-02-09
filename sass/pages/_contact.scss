@@ -140,10 +140,7 @@
 
 .border-effect:focus ~ .focus-border:before,
 .border-effect:focus ~ .focus-border:after,
-.border-effect:not(.js-shuffle-search):not(.select2-selection--multiple)
-  ~ .focus-border::before,
-.border-effect:not(.js-shuffle-search):not(.select2-selection--multiple)
-  ~ .focus-border::after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border::before,
 .border-effect.active ~ .focus-border:before,
 .border-effect.active ~ .focus-border:after {
   width: 100%;
@@ -152,20 +149,15 @@
 }
 
 .border-effect:focus ~ .focus-border:after,
-.border-effect:not(.js-shuffle-search):not(.select2-selection--multiple):valid
-  ~ .focus-border:after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border:after,
 .border-effect.active ~ .focus-border:after {
   transition-delay: 0.2s;
 }
 
 .border-effect:focus ~ .focus-border i:before,
 .border-effect:focus ~ .focus-border i:after,
-.border-effect:not(.js-shuffle-search):not(.select2-selection--multiple):valid
-  ~ .focus-border
-  i:before,
-.border-effect:not(.js-shuffle-search):not(.select2-selection--multiple):valid
-  ~ .focus-border
-  i:after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border i:before,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border i:after,
 .border-effect.active ~ .focus-border i:before,
 .border-effect.active ~ .focus-border i:after {
   height: 100%;
@@ -173,9 +165,7 @@
 }
 
 .border-effect:focus ~ .focus-border i:after,
-.border-effect:not(.js-shuffle-search):not(.select2-selection--multiple):valid
-  ~ .focus-border
-  i:after,
+.border-effect:not(.js-shuffle-search):valid ~ .focus-border i:after,
 .border-effect.active ~ .focus-border i:after {
   transition-delay: 0.4s;
 }
@@ -231,5 +221,25 @@ textarea.border-effect ~ .focus-border i:after {
 div[id*="-error"] {
   color: #c4c4c4;
   position: absolute;
+  transform: translateY(7px);
   @include font-size(14px);
+}
+.select-2-select.error + .error {
+  z-index: 99999;
+  bottom: -25px;
+  display: block;
+}
+.error.active + .error {
+  display: none;
+}
+
+.select-2-select.error ~ .select2 .select2-selection__rendered {
+  border-color: red;
+}
+.border-effect.select2-selection--multiple:focus ~ .focus-border,
+.border-effect.select2-selection--multiple:focus ~ .focus-border i {
+  &::before,
+  &::after {
+    display: none;
+  }
 }

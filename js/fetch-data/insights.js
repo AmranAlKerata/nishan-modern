@@ -1,5 +1,5 @@
-let url = "https://demo2.bynishan.com/api/insights-en";
-// let url = "../../data.json";
+// let url = "https://demo2.bynishan.com/api/insights-en";
+let url = "../../data.json";
 const storiesContainer = $(".insight-page .my-sizer-element");
 const filterOptionsContainer = $(".filter-options");
 const sectionContainer = $(".insights-gallery");
@@ -169,8 +169,15 @@ const fetchData = async () => {
     addNewInsights.addShuffleEventListeners();
     addNewInsights.addSearchFilter();
     // Append Insights
-    addNewInsights.onAppendBoxes(storyHTMLMarkUp(resp.data).slice(0, 4));
+    addNewInsights.onAppendBoxes(
+      storyHTMLMarkUp(resp.data).slice(0, 4),
+      storyHTMLMarkUp(resp.data).slice(4, resp.data.length)
+    );
 
+    addNewInsights.allItems = storyHTMLMarkUp(resp.data).slice(
+      4,
+      resp.data.length
+    );
     // Start & End Index of how many items you want to show
     let start = 4;
     let end = 5;
@@ -181,7 +188,8 @@ const fetchData = async () => {
     const addItems = () => {
       if (
         window.scrollY >= $(".shuffle-item:last-child").offset().top - 300 &&
-        !isLoading
+        !isLoading &&
+        !addNewInsights.allItemsVisible
       ) {
         addNewInsights.onAppendBoxes(
           storyHTMLMarkUp(resp.data).slice(start, end)

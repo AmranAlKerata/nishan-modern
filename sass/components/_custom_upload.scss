@@ -9,7 +9,9 @@
   left: -10000px;
   position: absolute;
 }
-
+.custom-upload__input.error ~ .error {
+  color: red !important;
+}
 .custom-upload__button {
   background-color: $primary;
   border: 2px solid $primary;

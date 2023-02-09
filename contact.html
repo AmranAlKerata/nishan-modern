@@ -14,11 +14,10 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
-    </link>
     <!-- Select 2 -->
     <link rel="stylesheet" href="css/select2.min.css">
     <!-- Date Picker -->
-    <link rel="stylesheet" type="text/css" href="css/air-datepicker.css" />
+    <link rel="stylesheet" href="css/air-datepicker.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -125,15 +124,15 @@
                         <ul class="col-lg d-flex flex-column contact-col align-self-end mb-5 mb-lg-0">
                             <li>
                                 <h5 class="pb-3">Let us start something nice!</h5>
-                                <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase fw-bold m-0"">
-                                                                                                info@bynishan.com</a>
+                                <a href="mailto:info@bynishan.com"
+                                    class="nishan-mail text-lowercase fw-bold m-0">info@bynishan.com</a>
                                 <div class=" lang d-block d-lg-none">
                                     <a href="#">اللغة العربية</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    </li>
-                    </ul>
                 </div>
-            </div>
             </div>
         </header>
         <!-- End Header -->
@@ -169,279 +168,237 @@
         <!-- Start Form Section -->
         <section class="form-section" id="form-section">
             <div class="container">
-                <h3 class="fw-bold">What can we do for you?</h4>
+                <h3 class="fw-bold">What can we do for you?</h3>
 
-                    <!-- Start Choices  -->
-                    <div class="choices-container mt-4">
-                        <h3 data-choice="0" class="choice">I have a projects request</h3>
-                        <h3 data-choice="1" class="choice">I would like to lose some nice words</h3>
-                    </div>
+                <!-- Start Choices  -->
+                <div class="choices-container mt-4">
+                    <h3 data-choice="0" class="choice">I have a projects request</h3>
+                    <h3 data-choice="1" class="choice">I would like to lose some nice words</h3>
+                </div>
 
-                    <div class="choices-forms pt-5">
-                        <div class="row">
-                            <div class="col-12 col-lg-6">
-                                <form data-form="0" class="choice-form" id="form-0" method="get" action="">
-                                    <div class="amk-group mb-4 position-relative">
-                                        <input autocomplete="off" type="text"
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-1"
-                                            required placeholder="Name*" id="name" name="name">
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div class="amk-group mb-4 position-relative">
-                                        <input autocomplete="off" type="tel"
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-2"
-                                            required placeholder="Phone*" id="phone" name="phone">
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div class="amk-group mb-4 position-relative">
-                                        <input autocomplete="off" type="email"
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-3"
-                                            required placeholder="E-mail*" id="email" name="email">
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div class="amk-group mb-4 position-relative">
+                <div class="choices-forms pt-5">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <form data-form="0" class="choice-form" id="form-0" method="get">
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="text"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-1"
+                                        required placeholder="Name*" id="name" name="name">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="tel"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-2"
+                                        required placeholder="Phone*" id="phone" name="phone">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="email"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-3"
+                                        required placeholder="E-mail*" id="email" name="email">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
 
-                                        <input autocomplete="off" type="text" id="date"
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-4"
-                                            required placeholder="Date" />
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-5">
-                                        <select class="select-2-select form-control  w-100" required name="address">
-                                            <option value="all_categories">Address</option>
-                                            <option value="1">
-                                                Saudi Arabia
-                                            </option>
-                                            <option value="2">Syria</option>
-                                            <option value="3">USA</option>
-                                            <option value="4">UK</option>
-                                            <option value="5">AU</option>
-                                        </select>
-                                    </div>
+                                    <input autocomplete="off" type="text" name="date" id="date"
+                                        class="custom-date border-effect form-control wow animate animate__fadeInUp delay-4"
+                                        required placeholder="Date">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative wow animate animate__fadeInUp delay-5">
+                                    <select class="select-2-select form-control  w-100" required name="userAddress">
+                                        <option value="" disabled selected>Address</option>
+                                        <option value="1">
+                                            Saudi Arabia
+                                        </option>
+                                        <option value="2">Syria</option>
+                                        <option value="3">USA</option>
+                                        <option value="4">UK</option>
+                                        <option value="5">AU</option>
+                                    </select>
+                                </div>
 
-                                    <div class="amk-group mb-4 position-relative">
-                                        <textarea
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-6"
-                                            required id="details" placeholder="Message " rows="6"></textarea>
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <textarea name="message"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-6"
+                                        required id="details" placeholder="Message " rows="6"></textarea>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
 
-                                    <div
-                                        class="amk-group required mb-4 custom-checkbox wow animate animate__fadeInUp delay-7">
-                                        <label class="checkbox bounce">
-                                            <input autocomplete="off" type="checkbox" required id="checkbox-1">
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            Enable custom images
-                                        </label>
-                                    </div>
-                                    <div
-                                        class="required amk-group mb-4 custom-checkbox wow animate animate__fadeInUp delay-8">
-                                        <label class="checkbox bounce">
-                                            <input autocomplete="off" required type="checkbox" id="checkbox-2">
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            Enable preloader
-                                        </label>
-                                    </div>
-                                    <div
-                                        class="required amk-group mb-4 custom-checkbox wow animate animate__fadeInUp delay-9">
-                                        <label class="checkbox bounce">
-                                            <input autocomplete="off" required type="checkbox" id="checkbox-3">
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            Enable add to cart button
-                                        </label>
-                                    </div>
+                                <div
+                                    class="amk-group required mb-5 custom-checkbox wow animate animate__fadeInUp delay-7">
+                                    <label class="checkbox bounce">
+                                        <input type="checkbox" name="enable-images" required id="checkbox-1">
+                                        <svg viewBox="0 0 21 21">
+                                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                        </svg>
+                                        Enable custom images
+                                    </label>
+                                </div>
+                                <div class=" amk-group mb-5 custom-checkbox wow animate animate__fadeInUp delay-8">
+                                    <label class="checkbox bounce">
+                                        <input type="checkbox" name="enable-preloader" id="checkbox-2">
+                                        <svg viewBox="0 0 21 21">
+                                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                        </svg>
+                                        Enable preloader
+                                    </label>
+                                </div>
+                                <div
+                                    class="required amk-group mb-5 custom-checkbox wow animate animate__fadeInUp delay-9">
+                                    <label class="checkbox bounce">
+                                        <input required name="enable-cart" type="checkbox" id="checkbox-3">
+                                        <svg viewBox="0 0 21 21">
+                                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                        </svg>
+                                        Enable add to cart button
+                                    </label>
+                                </div>
 
-                                    <div
-                                        class="required amk-group mb-4 custom-radio wow animate animate__fadeInUp delay-10">
-                                        <h4 class="fw-bold">Status</h4>
+                                <div
+                                    class="required amk-group mb-5 custom-radio wow animate animate__fadeInUp delay-10">
+                                    <h4 class="fw-bold">Status</h4>
+                                    <label>
+                                        <input type="radio" name="radio" checked>
+                                        <span>Pending</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="radio">
+                                        <span>Completed</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="radio">
+                                        <span>Canceled</span>
+                                    </label>
+                                </div>
+                                <div class="amk-group mb-5 custom-radio inline wow animate animate__fadeInUp delay-11">
+                                    <h4 class="fw-bold">Status inline</h4>
+                                    <div class="d-flex gap-2 flex-wrap">
                                         <label>
-                                            <input autocomplete="off" required type="radio" name="radio" checked />
+                                            <input type="radio" name="radio-inline" checked>
                                             <span>Pending</span>
                                         </label>
                                         <label>
-                                            <input autocomplete="off" required type="radio" name="radio" />
+                                            <input type="radio" name="radio-inline">
                                             <span>Completed</span>
                                         </label>
                                         <label>
-                                            <input autocomplete="off" required type="radio" name="radio" />
+                                            <input type="radio" name="radio-inline">
                                             <span>Canceled</span>
                                         </label>
-                                    </div>
-                                    <div
-                                        class="amk-group mb-4 custom-radio inline wow animate animate__fadeInUp delay-11">
-                                        <h4 class="fw-bold">Status inline</h4>
-                                        <div class="d-flex gap-2 flex-wrap">
-                                            <label>
-                                                <input autocomplete="off" type="radio" name="radio-inline" checked />
-                                                <span>Pending</span>
-                                            </label>
-                                            <label>
-                                                <input autocomplete="off" type="radio" name="radio-inline" />
-                                                <span>Completed</span>
-                                            </label>
-                                            <label>
-                                                <input autocomplete="off" type="radio" name="radio-inline" />
-                                                <span>Canceled</span>
-                                            </label>
 
-                                        </div>
                                     </div>
-                                    <div class="wow animate animate__fadeInUp delay-12" style="margin-bottom: 3rem;">
-                                        <div class="custom-upload">
-                                            <label class="custom-upload__button outline" for="uploadFile"
-                                                data-element="custom-upload-button">Attach
-                                                file</label>
-                                            <small class="d-block mt-2">allowed files: jpg,png,pdf,webp,svg</small>
-                                            <input autocomplete="off" class="custom-upload__input autocomplete=" off""
-                                                name="uploadFile" accept="all" id="uploadFile" type="file"
-                                                data-behaviour="custom-upload-input autocomplete=" off"">
-                                        </div>
+                                </div>
+                                <div class="wow animate animate__fadeInUp delay-12" style="margin-bottom: 3rem;">
+                                    <div class="custom-upload">
+                                        <label class="custom-upload__button outline" for="uploadFile"
+                                            data-element="custom-upload-button">Attach
+                                            file</label>
+                                        <small class="d-block mt-2">allowed files: jpg,png,pdf,webp,svg</small>
+                                        <input class="custom-upload__input" name="uploadFile" id="uploadFile"
+                                            type="file" data-behaviour="custom-upload-input">
                                     </div>
-                                    <div class="amk-group mb-4 custom-checkbox wow animate animate__fadeInUp delay-13">
-                                        <label class="checkbox bounce" for="privacy-policy">
-                                            <input autocomplete="off" type="checkbox" id="privacy-policy">
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            I agree to the privacy policy and terms and
-                                            conditions.
-                                        </label>
-                                    </div>
-                                    <button type="submit"
-                                        class="button-submit button wow animate animate__fadeInUp delay-14">Submit</button>
-                                </form>
+                                </div>
+                                <div class="amk-group mb-5 custom-checkbox wow animate animate__fadeInUp delay-13">
+                                    <label class="checkbox bounce" for="privacy-policy">
+                                        <input type="checkbox" id="privacy-policy">
+                                        <svg viewBox="0 0 21 21">
+                                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                        </svg>
+                                        I agree to the privacy policy and terms and
+                                        conditions.
+                                    </label>
+                                </div>
+                                <button type="submit"
+                                    class="button-submit button wow animate animate__fadeInUp delay-14"
+                                    data-form-submit="#form-0">Submit</button>
+                            </form>
 
-                                <form data-form="1" class="choice-form" id="form-1">
-                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-1">
-                                        <input autocomplete="off" type="text" class="border-effect form-control"
-                                            required placeholder="Name*" id="name2">
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div
-                                        class=" amk-group mb-4 position-relative wow animate animate__fadeInUp delay-2">
-                                        <input autocomplete="off" type="tel" class="border-effect form-control" required
-                                            placeholder="Phone*" id="phone2">
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-3">
-                                        <input autocomplete="off" type="email" class="border-effect form-control"
-                                            required placeholder="E-mail*" id="email2">
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
-                                    <div class="amk-group mb-4 position-relative wow animate animate__fadeInUp delay-4">
-                                        <select class="select-2-select form-control w-100" name="address2">
-                                            <option value="all_categories">Address</option>
-                                            <option value="1">
-                                                Saudi Arabia
-                                            </option>
-                                            <option value="2">Syria</option>
-                                            <option value="3">USA</option>
-                                            <option value="4">UK</option>
-                                            <option value="5">AU</option>
-                                        </select>
-                                    </div>
+                            <form data-form="1" class="choice-form" id="form-1">
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="text"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-1"
+                                        required placeholder="Name*" id="name1" name="name">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="tel"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-2"
+                                        required placeholder="Phone*" id="phone1" name="phone">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="email"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-3"
+                                        required placeholder="E-mail*" id="email1" name="email">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
 
-                                    <div class="amk-group mb-4 position-relative">
-                                        <textarea
-                                            class="border-effect form-control wow animate animate__fadeInUp delay-6"
-                                            required id="details" placeholder="Message " rows="6"></textarea>
-                                        <span class="focus-border">
-                                            <i></i>
-                                        </span>
-                                    </div>
+                                    <input autocomplete="off" type="text" name="date2" id="date2"
+                                        class="custom-date border-effect form-control wow animate animate__fadeInUp delay-4"
+                                        required placeholder="Date">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative wow animate animate__fadeInUp delay-5">
+                                    <select class="select-2-select form-control  w-100" required name="userAddress">
+                                        <option value="" disabled selected>Address</option>
+                                        <option value="1">
+                                            Saudi Arabia
+                                        </option>
+                                        <option value="2">Syria</option>
+                                        <option value="3">USA</option>
+                                        <option value="4">UK</option>
+                                        <option value="5">AU</option>
+                                    </select>
+                                </div>
 
-                                    <div class="amk-group mb-4 wow animate animate__fadeInUp delay-6 custom-checkbox">
-                                        <label class="checkbox bounce">
-                                            <input autocomplete="off" type="checkbox" id="checkbox-6">
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            Enable add to cart button
-                                        </label>
-                                    </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <textarea name="message"
+                                        class="border-effect form-control wow animate animate__fadeInUp delay-6"
+                                        required id="details1" placeholder="Message " rows="6"></textarea>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div
+                                    class="amk-group required mb-5 custom-checkbox wow animate animate__fadeInUp delay-7">
+                                    <label class="checkbox bounce">
+                                        <input type="checkbox" name="enable-images" required id="checkbox-4">
+                                        <svg viewBox="0 0 21 21">
+                                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                        </svg>
+                                        Enable custom images
+                                    </label>
+                                </div>
 
-                                    <div class="amk-group mb-4 wow animate animate__fadeInUp delay-7 custom-radio">
-                                        <h4 class="fw-bold">Status</h4>
-                                        <label>
-                                            <input autocomplete="off" type="radio" name="radio2" checked />
-                                            <span>Pending</span>
-                                        </label>
-                                        <label>
-                                            <input autocomplete="off" type="radio" name="radio2" />
-                                            <span>Completed</span>
-                                        </label>
-                                    </div>
-                                    <div
-                                        class="amk-group mb-4 wow animate animate__fadeInUp delay-8 custom-radio inline">
-                                        <h4 class="fw-bold">Status inline</h4>
-                                        <div class="d-flex gap-2 flex-wrap">
-                                            <label>
-                                                <input autocomplete="off" type="radio" name="radio-inline2" checked />
-                                                <span>Pending</span>
-                                            </label>
-                                            <label>
-                                                <input autocomplete="off" type="radio" name="radio-inline2" />
-                                                <span>Completed</span>
-                                            </label>
-                                            <label>
-                                                <input autocomplete="off" type="radio" name="radio-inline2" />
-                                                <span>Canceled</span>
-                                            </label>
-
-                                        </div>
-                                    </div>
-                                    <div class="amk-group mb-4 wow animate animate__fadeInUp delay-9">
-                                        <div class="custom-upload">
-                                            <label class="custom-upload__button outline" for="uploadFile2"
-                                                data-element="custom-upload-button2">Attach
-                                                file</label>
-                                            <small class="d-block mt-2">allowed files: jpg,png,pdf,webp,svg</small>
-                                            <input autocomplete="off" class="custom-upload__input" autocomplete=" off"
-                                                name="uploadFile2" accept="all" id="uploadFile2" type="file"
-                                                data-behaviour="custom-upload-input" autocomplete="off">
-                                        </div>
-                                    </div>
-                                    <div class="amk-group mb-4 wow animate animate__fadeInUp delay-10 custom-checkbox">
-                                        <label class="checkbox bounce" for="privacy-policy2">
-                                            <input autocomplete="off" type="checkbox" id="privacy-policy2">
-                                            <svg viewBox="0 0 21 21">
-                                                <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
-                                            </svg>
-                                            I agree to the privacy policy and terms and
-                                            conditions.
-                                        </label>
-                                    </div>
-                                    <button type="submit"
-                                        class="button wow animate animate__fadeInUp delay-11">Submit</button>
-                                </form>
-                            </div>
-
+                                <button type="submit" class="button wow animate animate__fadeInUp delay-11"
+                                    data-form-submit="#form-1">Submit</button>
+                            </form>
                         </div>
-                    </div>
 
-                    <!-- End Choices  -->
+                    </div>
+                </div>
+
+                <!-- End Choices  -->
             </div>
         </section>
         <!-- End Form Section -->

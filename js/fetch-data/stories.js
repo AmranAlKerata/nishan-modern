@@ -1,5 +1,4 @@
 let url = "https://demo2.bynishan.com/api/stories-en";
-// let url = "../../stories.json";
 const storiesContainer = $(".stories-page .my-sizer-element");
 const filterOptionsContainer = $(".filter-options");
 const sectionContainer = $(".stories-gallery");
@@ -51,7 +50,7 @@ const storyHTMLMarkUp = (data) => {
     const projectName = document.createElement("div");
     projectName.className = "project-name";
     const h3 = document.createElement("h3");
-    h3.textContent = title;
+    h3.textContent = title + id;
 
     // Arrow Icon
     const arrow = document.createElement("div");
@@ -109,6 +108,10 @@ const fetchData = async () => {
     addNewStories.addFilterButtons();
     // Append Stories
     addNewStories.onAppendBoxes(storyHTMLMarkUp(resp.data).slice(0, 4));
+    addNewStories.allItems = storyHTMLMarkUp(resp.data).slice(
+      4,
+      resp.data.length
+    );
 
     // Start & End Index of how many items you want to show
     let start = 4;
@@ -120,7 +123,8 @@ const fetchData = async () => {
     const addItems = () => {
       if (
         window.scrollY >= $(".shuffle-item:last-child").offset().top - 300 &&
-        !isLoading
+        !isLoading &&
+        !addNewStories.allItemsVisible
       ) {
         addNewStories.onAppendBoxes(
           storyHTMLMarkUp(resp.data).slice(start, end)

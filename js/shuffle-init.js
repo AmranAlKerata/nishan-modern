@@ -14,6 +14,8 @@ class ShuffleJS {
       buffer: 1
     });
     this.currentTags = [];
+    this.allItems = [];
+    this.allItemsVisible = false;
   }
 
   /**
@@ -44,6 +46,12 @@ class ShuffleJS {
   }
 
   _handleFilterClick(evt) {
+    // When you selected some tags for filter ==> show all items
+    if (!this.allItemsVisible) {
+      this.onAppendBoxes(this.allItems);
+      this.allItemsVisible = true;
+    }
+
     const btn = evt.currentTarget;
     const isActive = btn.classList.contains("active");
     const btnGroup = btn.getAttribute("data-group");
@@ -69,79 +77,30 @@ class ShuffleJS {
     }
   }
 
-  addSorting() {
-    const buttonGroup = document.querySelector(".sort-options");
-    if (!buttonGroup) {
-      return;
-    }
-    buttonGroup.addEventListener("change", this._handleSortChange.bind(this));
-  }
-
-  _handleSortChange(evt) {
-    // Add and remove `active` class from buttons.
-    const buttons = Array.from(evt.currentTarget.children);
-    buttons.forEach((button) => {
-      if (button.querySelector("input").value === evt.target.value) {
-        button.classList.add("active");
-      } else {
-        button.classList.remove("active");
-      }
-    });
-
-    // Create the sort options to give to Shuffle.
-    const { value } = evt.target;
-    let options = {};
-
-    function sortByDate(element) {
-      return element.getAttribute("data-created");
-    }
-
-    function sortByTitle(element) {
-      return element.getAttribute("data-title").toLowerCase();
-    }
-
-    if (value === "date-created") {
-      options = {
-        reverse: true,
-        by: sortByDate
-      };
-    } else if (value === "title") {
-      options = {
-        by: sortByTitle
-      };
-    }
-    this.shuffle.sort(options);
-  }
-
   // Advanced filtering
   addSearchFilter() {
     const selectTags = $("#insightSearchSelect");
 
+    // Handel Select & Remove Selected operations
     selectTags.on("select2:select", this._handleSelectTags.bind(this));
     selectTags.on("select2:unselect", this._handleUnSelectTags.bind(this));
 
     selectTags.select2({
-      minimumInputLength: 2
+      minimumInputLength: 2 // set minimun length of characters to start searching
     });
+
+    // Append border effect items
     $(".select2-selection--multiple.border-effect").after(
       '<span class="focus-border"><i></i></span>'
     );
-    // $(".select2-selection--multiple.border-effect").on("click", function() {
-    //   $(this).focus();
-    // });
   }
 
-  /**
-   * Filter the shuffle instance by items with a title that matches the search input.
-   * @param {Event} evt Event object.
-  */
-  _handleSelectTags(e) {
-    // Selected tag data
-    const data = e.params.data;
-    const selectedTag = data.text.trim().toLowerCase();
-
-    // Add selected tag to  currentTags array
-    this.currentTags.push(selectedTag);
+  _handleSelectFilter() {
+    // When you selected some tags for filter ==> show all items
+    if (!this.allItemsVisible) {
+      this.onAppendBoxes(this.allItems);
+      this.allItemsVisible = true;
+    }
 
     this.shuffle.filter((element, shuffle) => {
       // If there is a current filter applied, ignore elements that don't match it.
@@ -161,6 +120,17 @@ class ShuffleJS {
       // Return Element if it's tags matched the search
       return elementTags.some((r) => this.currentTags.indexOf(r) >= 0);
     });
+  }
+
+  _handleSelectTags(e) {
+    // Selected tag data
+    const data = e.params.data;
+    const selectedTag = data.text.trim().toLowerCase();
+
+    // Add selected tag to  currentTags array
+    this.currentTags.push(selectedTag);
+
+    this._handleSelectFilter();
 
     // Check if there is any items if no show no items message
     if (this.shuffle.visibleItems == 0) {
@@ -169,6 +139,7 @@ class ShuffleJS {
       this.noItems.className = "d-none";
     }
 
+    // Add Border Effect
     $(".select2-selection--multiple.border-effect").addClass("active");
   }
 
@@ -189,24 +160,7 @@ class ShuffleJS {
       // Remove border effect
       $(".select2-selection--multiple.border-effect").removeClass("active");
     } else {
-      this.shuffle.filter((element, shuffle) => {
-        // If there is a current filter applied, ignore elements that don't match it.
-        if (shuffle.group !== Shuffle.ALL_ITEMS) {
-          // Get the item's groups.
-          const groups = JSON.parse(element.getAttribute("data-groups"));
-          const isElementInCurrentGroup = groups.indexOf(shuffle.group) !== -1;
-          // Only search elements in the current group
-          if (!isElementInCurrentGroup) {
-            return false;
-          }
-        }
-
-        // Get Current Element Tags
-        const elementTags = JSON.parse(element.getAttribute("data-groups"));
-
-        // Return Element if it's tags matched the search
-        return elementTags.some((r) => this.currentTags.indexOf(r) >= 0);
-      });
+      this._handleSelectFilter();
     }
     // Check if there is any items if no show no items message
     if (this.shuffle.visibleItems == 0) {

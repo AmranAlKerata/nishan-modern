@@ -407,8 +407,34 @@ $(function() {
       { scrollTop: $(".choices-forms").offset().top },
       100
     );
+  });
 
-    $(`#${choiceForm.attr("id")}`).validate({
+  // Date Picker
+  if ($(".custom-date").length > 0) {
+    $(".custom-date").each(function(el) {
+      new AirDatepicker(`#${$(this)[0].id}`, {
+        isMobile: true,
+        autoClose: true,
+        timepicker: true,
+        timeFormat: "hh:mm AA",
+        onSelect: ({ date, formattedDate, datepicker }) => {
+          $(`#${datepicker.$el.id}`).addClass("active");
+        }
+      });
+    });
+  }
+
+  $("form button[type='submit']").on("click", function() {
+    const submitedForm = $(this).attr("data-form-submit");
+    $(submitedForm).validate({
+      errorPlacement: function errorPlacement(error, element) {
+        if (element[0].type === "checkbox") {
+          element.parent().after(error);
+        } else {
+          element.after(error);
+        }
+      },
+      ignore: null,
       rules: {
         name: {
           required: true,
@@ -418,6 +444,9 @@ $(function() {
         email: {
           required: true,
           email: true
+        },
+        userAddress: {
+          required: true
         }
       },
       messages: {
@@ -426,30 +455,15 @@ $(function() {
           minlength: "Your name must consist of at least 2 characters"
         },
         phone: "Please enter you phone",
-        // mobile: "Please enter you mobile number",
         email: {
           required: "Please enter you email",
           email: "Please write a correct email ex: username@provider.com"
+        },
+        userAddress: {
+          required: "Please select your address."
         }
       }
     });
-
-    // $(".button-submit").on("click", function(e) {
-    //   const parent = $(this).parent();
-    //   // Validate Form
-    //   parent.validate();
-
-    //   // // Checkbox Validation
-    //   // if ($(".amk-group.required input[type='checkbox']:checked").length <= 0) {
-    //   //   $(".amk-group.required .checkbox").css("color", "red");
-    //   //   parent.validate();
-    //   // }
-    //   // if ($(".amk-group.required input[type='checkbox']:checked").length > 0) {
-    //   //   $(".amk-group.required .checkbox").css("color", "#000");
-    //   // } else {
-    //   //   parent.validate();
-    //   // }
-    // });
   });
 
   // Textarea animated border & Shuffle filter input
@@ -468,6 +482,7 @@ $(function() {
 
     select2Select.on("select2:select", function(e) {
       $(this).parent().find(".select2-selection__rendered").addClass("active");
+      $(this).parent().find('div[id*="-error"]').remove();
     });
 
     // Add Placeholder  to search field
@@ -491,20 +506,7 @@ $(function() {
     });
   }
 
-  // Date Picker
-  if ($("#date").length > 0) {
-    new AirDatepicker("#date", {
-      isMobile: true,
-      autoClose: true,
-      timepicker: true,
-      timeFormat: "hh:mm AA",
-      onSelect: ({ date, formattedDate, datepicker }) => {
-        $(`#${datepicker.$el.id}`).addClass("active");
-      }
-    });
-  }
   // Copy Note link
-
   $(document).on("click", function(e) {
     if (e.target.classList.contains("copy-icon")) {
       /* Get the text field */

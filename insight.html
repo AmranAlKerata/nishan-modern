@@ -14,7 +14,6 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
-    </link>
     <!-- Select 2 -->
     <link rel="stylesheet" href="css/select2.min.css">
     <!-- Main Style -->
@@ -117,15 +116,15 @@
                         <ul class="col-lg d-flex flex-column contact-col align-self-end mb-5 mb-lg-0">
                             <li>
                                 <h5 class="pb-3">Let us start something nice!</h5>
-                                <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase fw-bold m-0"">
-                                                                                                info@bynishan.com</a>
+                                <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase fw-bold m-0">
+                                    info@bynishan.com</a>
                                 <div class=" lang d-block d-lg-none">
                                     <a href="#">اللغة العربية</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    </li>
-                    </ul>
                 </div>
-            </div>
             </div>
         </header>
         <!-- End Header -->
@@ -149,16 +148,17 @@
         <!-- Start Inisghts gallery -->
         <section class="insights-gallery" id="insights-gallery">
             <div class="container">
-                <h2>Write some words to find best results</h2>
+                <div class="row">
+                    <div class="col-12 col-lg-6 overflow-hidden">
+                        <h2 class="wow animate animate__fadeInUp delay-1">Write some words to find best results</h2>
+                    </div>
+                </div>
+
                 <div class="row filter-row">
                     <div class="col-sm-12 filters-group-wrap ">
                         <div class="filters-group">
                             <div class="filters-group position-relative">
-                                <!-- <input class="border-effect textfield filter__search js-shuffle-search form-control"
-                                        type="text" id="filters-search-input" placeholder="apps, branding" />
-                                    <span class="focus-border">
-                                        <i></i>
-                                    </span> -->
+
                                 <select class="d-none select-2-select form-control  w-100" id="insightSearchSelect"
                                     required name="tags" multiple="multiple">
                                 </select>
