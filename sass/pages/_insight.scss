@@ -13,6 +13,10 @@
     padding: 0 30px;
     margin-top: 80px;
     margin-bottom: 80px;
+    @include media($md) {
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
   }
   h2 {
     margin-left: 19px;

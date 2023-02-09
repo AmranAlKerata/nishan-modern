@@ -35,11 +35,6 @@
     background-position: center center;
     background-repeat: no-repeat;
   }
-  @media (max-width: 991px) {
-    .store-img {
-      background-size: contain;
-    }
-  }
 
   @supports (-webkit-touch-callout: none) {
     .store-img {
