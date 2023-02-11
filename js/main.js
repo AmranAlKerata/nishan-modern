@@ -533,7 +533,7 @@ $(function() {
 
 // Custom Cursor
 const $c = $("[data-custom-cursor]");
-const $h = $(" .nishan-icon");
+const $h = $(" .nishan-icon, header .menu .icon");
 
 $(window).on("mousemove", function(e) {
   x = e.clientX;
