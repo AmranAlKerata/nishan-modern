@@ -85,9 +85,7 @@ class ShuffleJS {
     selectTags.on("select2:select", this._handleSelectTags.bind(this));
     selectTags.on("select2:unselect", this._handleUnSelectTags.bind(this));
 
-    selectTags.select2({
-      minimumInputLength: 2 // set minimun length of characters to start searching
-    });
+    selectTags.select2();
 
     // Append border effect items
     $(".select2-selection--multiple.border-effect").after(
