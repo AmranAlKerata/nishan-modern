@@ -19,7 +19,7 @@
     }
   }
   h2 {
-    margin-left: 19px;
+    margin-#{$start_dir}: 19px;
   }
 
   @include media($lg) {
@@ -30,7 +30,7 @@
       padding: 0;
     }
     h2 {
-      margin-left: 0;
+      margin-#{$start_dir}: 0;
     }
   }
 

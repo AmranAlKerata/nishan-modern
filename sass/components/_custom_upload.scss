@@ -6,7 +6,7 @@
 }
 .custom-upload__input {
   height: 0;
-  left: -10000px;
+  #{$start_dir}: -10000px;
   position: absolute;
 }
 .custom-upload__input.error ~ .error {

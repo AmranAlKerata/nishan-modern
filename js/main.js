@@ -426,6 +426,8 @@ $(function() {
 
   $("form button[type='submit']").on("click", function() {
     const submitedForm = $(this).attr("data-form-submit");
+    const lang = $("html").attr("lang");
+
     $(submitedForm).validate({
       errorPlacement: function errorPlacement(error, element) {
         if (element[0].type === "checkbox") {
@@ -451,16 +453,30 @@ $(function() {
       },
       messages: {
         name: {
-          required: "Please enter your name",
-          minlength: "Your name must consist of at least 2 characters"
+          required:
+            lang === "en" ? "Please enter your name" : "يرجى إدخال إسمك",
+          minlength:
+            lang === "en"
+              ? "Your name must consist of at least 2 characters"
+              : "يجب أن يتكون اسمك من حرفين على الأقل"
         },
-        phone: "Please enter you phone",
+        phone:
+          lang === "en" ? "Please enter you phone" : "الرجاء إدخال رقم هاتفك",
         email: {
-          required: "Please enter you email",
-          email: "Please write a correct email ex: username@provider.com"
+          required:
+            lang === "en"
+              ? "Please enter you email"
+              : "يرجى إدخال البريد الإلكتروني الخاص بك",
+          email:
+            lang === "en"
+              ? "Please write a correct email ex: username@provider.com"
+              : "يرجى كتابة بريد إلكتروني صحيح على سبيل المثال: username@provider.com"
         },
         userAddress: {
-          required: "Please select your address."
+          required:
+            lang === "en"
+              ? "Please select your address."
+              : "الرجاء تحديد عنوانك."
         }
       }
     });

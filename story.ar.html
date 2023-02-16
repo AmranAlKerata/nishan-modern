@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 
 <head>
     <meta charset="UTF-8">
@@ -13,8 +13,9 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.rtl.min.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
+
     <!-- Main Style -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.rtl.css">
     <!-- *****Js Files***** -->
     <!-- Jquery -->
     <script defer src="js/jquery.min.js"></script>
@@ -31,7 +32,7 @@
     <script defer src="js/main.js"></script>
 </head>
 
-<body data-anm=".anm" class="insight_single-page">
+<body data-anm=".anm" class="story-page">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -54,20 +55,20 @@
         <!-- Start Header -->
         <header class="bg-white">
             <div class="container-fluid d-flex justify-content-between
-                            align-items-center py-4 logo-button-container px-0 px-lg-5">
+                                            align-items-center py-4 logo-button-container px-0 px-lg-5">
                 <div class="logo">
                     <a href="/">
                         <img src="images/logo.svg" alt="Logo">
                     </a>
                 </div>
                 <div class="menu d-flex justify-content-end
-                                align-items-center gap-3" style="gap: 30px !important">
+                                                align-items-center gap-3" style="gap: 30px !important">
                     <span class="text-capitalize
-                                        login-btn lang-btn">
-                        <a href="#">اللغة العربية</a></span>
+                                                        login-btn lang-btn">
+                        <a href="story.html">English</a></span>
                     <span class="text-capitalize
-                                    login-btn d-none d-lg-block">
-                        <a href="#">Login</a></span>
+                                                    login-btn d-none d-lg-block">
+                        <a href="#">تسجيل الدخول</a></span>
                     <div class="icon">
                         <div>
                             <span></span>
@@ -83,35 +84,35 @@
                     <div class="row">
                         <ul class="w-100 links col-lg links">
                             <li>
-                                <a href="index.html">Home</a>
+                                <a href="index.ar.html">الرئيسية</a>
                             </li>
                             <li>
-                                <a href="about.html">About us</a>
+                                <a href="about.ar.html">من نحن</a>
 
                             </li>
                             <li>
-                                <a href="stories.html">Stories</a>
+                                <a href="stories.ar.html">المشاريع</a>
                             </li>
                             <li>
-                                <a href="story.html">Story</a>
+                                <a href="story.ar.html" class="active">مشروع</a>
                             </li>
                             <li>
-                                <a href="insight.html">Insight</a>
+                                <a href="insight.ar.html">المدونة</a>
                             </li>
                             <li>
-                                <a href="contact.html">Contact</a>
+                                <a href="contact.ar.html">إتصل بنا</a>
                             </li>
                             <li>
-                                <a href="#">Login</a>
+                                <a href="#">تسجيل الدخول</a>
                             </li>
                         </ul>
                         <ul class="col-lg d-flex flex-column contact-col align-self-end mb-5 mb-lg-0">
                             <li>
-                                <h5 class="pb-3">Let us start something nice!</h5>
-                                <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase fw-bold m-0">
-                                    info@bynishan.com</a>
-                                <div class=" lang d-block d-lg-none">
-                                    <a href="#">اللغة العربية</a>
+                                <h5 class="pb-3">دعونا نبدأ شيئا لطيفا!</h5>
+                                <a href="mailto:info@bynishan.com"
+                                    class="nishan-mail text-lowercase fw-bold m-0">info@bynishan.com</a>
+                                <div class="lang d-block d-lg-none">
+                                    <a href="story.html">English</a>
                                 </div>
                             </li>
                         </ul>
@@ -122,43 +123,93 @@
         <!-- End Header -->
 
         <!-- Start Hero -->
-        <section id="story" class="first-section story d-flex align-items-center py-0">
+        <section id="story" class=" first-section story d-flex align-items-center pt-0">
             <div class="container">
                 <div class="row align-items-center">
                     <div class="col-12 col-lg-10">
-                        <h1 class="fw-bold mass-heading wow animate animate__fadeInUp animation-delay-2">Name of Insight
-                            Article</h1>
-                        <p class="story-desc wow animate animate__fadeInUp animation-delay-3">Description</p>
+                        <h1 class="fw-bold mass-heading wow animate animate__fadeInUp animation-delay-2">التسويق حول
+                            العالم
+                        </h1>
+                        <p class="story-desc wow animate animate__fadeInUp animation-delay-3">وصف</p>
                         <!-- Story Boxes -->
                         <div class="row story-boxes mt-5  gap-md-0">
-                            <div class="col-12 col-md-4">
+                            <div class="col-6 col-md-3">
                                 <div class="box">
-                                    <h4 class="wow animate animate__fadeInUp animation-delay-1">Author</h4>
+                                    <h4 class="wow animate animate__fadeInUp animation-delay-1">عميل</h4>
                                     <ul>
-                                        <li class="wow animate animate__fadeInUp animation-delay-2">Name of Author</li>
+                                        <li class="wow animate animate__fadeInUp animation-delay-2">اسم الشركة</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div class="col-12 col-md-4">
+                            <div class="col-6 col-md-3">
                                 <div class="box">
-                                    <h4 class="wow animate animate__fadeInUp animation-delay-5">Date</h4>
+                                    <h4 class="wow animate animate__fadeInUp animation-delay-3">فريق</h4>
+                                    <ul class="wow animate animate__fadeInUp animation-delay-4">
+                                        <li> المصمم </li>
+                                        <li> تطوير الواجهة الأمامية </li>
+                                        <li> تطوير الخلفية </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-6 col-md-3">
+                                <div class="box">
+                                    <h4 class="wow animate animate__fadeInUp animation-delay-5">خدمات</h4>
                                     <ul>
-                                        <li class="wow animate animate__fadeInUp animation-delay-6">28 Jun 2023 12:10 PM
+                                        <li class="wow animate animate__fadeInUp animation-delay-6">العلامة التجارية
                                         </li>
+                                        <li class="wow animate animate__fadeInUp animation-delay-7">موقع إلكتروني</li>
                                     </ul>
                                 </div>
                             </div>
-
+                            <div class="col-6 col-md-3">
+                                <div class="box">
+                                    <h4 class="wow animate animate__fadeInUp animation-delay-8">تاريخ</h4>
+                                    <ul>
+                                        <li class="wow animate animate__fadeInUp animation-delay-9">2023</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="project-link mt-5 wow animate animate__fadeInUp animation-delay-10">
+                            <a href="#" class="button outline-btn">قم بزيارتها الآن</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
+
         <!-- End Hero -->
 
+        <!-- Start Story info Section -->
+        <section class="story-info pt-5 pt-md-0" id="story-info">
+            <div class="container">
+                <div class="row gap-5 gap-lg-0">
+                    <div class="col-lg-9">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">مقدمة</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-2">Ternary هو أول مواطن في العالم
+                            أداة تحسين تكلفة السحابة FinOps المصممة لـ Google Cloud على Google Cloud. ثلاثي
+                            يحل تحدي ميزانية السحابة من خلال سد الفجوة بين فرق الهندسة والمالية.
+                            <br>
+                            من خلال منصة SaaS ، تساعد Ternary العملاء على تصور إنفاقهم على السحابة عبر الكل
+                            الغيوم ، يوفر الإنفاق
+                            التحليل ، ويقدم فرص تحسين الإنفاق.
+
+                        </p>
+
+                    </div>
+                    <div class="col-lg">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-4">تحدي</h4>
+                        <p class="wow animate animate__fadeInUp animation-delay-5">الشركات ومنافسيها
+                            نادرًا ما يعالجون المنظور المرئي لمنتجاتهم ، وغالبًا ما يتجاهلون
+                            الوظيفة وتجربة المستخدم.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Story info Section -->
 
         <!-- Start Store Images Section -->
-        <section class="store-images pt-0" id="store-images">
+        <section class="store-images " id="store-images">
             <div class="store-img" style="background-image: url(/images/brand_1.png);"></div>
             <div class="store-img" style="background-image: url(/images/brand_2.png);"></div>
         </section>
@@ -168,20 +219,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9">
+                        <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">القوة</h4>
                         <p class="wow animate animate__fadeInUp animation-delay-2">
-                            Since the product is chart-based, analytical, and precise, we thought it could use a bit of
-                            imperfect human touch. So we
-                            added a series of strokes, arrows, and scribbles to emphasize the most important aspects of
-                            our
-                            messages and images, and
-                            to balance logic with spontaneity.
+                            نظرًا لأن المنتج قائم على الرسم البياني والتحليلي والدقيق ، فقد اعتقدنا أنه يمكن استخدام
+                            القليل من
+                            لمسة إنسانية غير كاملة. لذلك نحن
+                            أضافت سلسلة من السكتات الدماغية والسهام والخربشات للتأكيد على أهم جوانب
+                            ملكنا
+                            الرسائل والصور و
+                            لتحقيق التوازن بين المنطق والعفوية.
                             <br>
-                            The color palette needed to be flexible and integrate multiple colors to meet data
-                            visualization
-                            needs. We developed a
-                            high-contrast system that uses over 20 colors for the charts in the hierarchy and can
-                            display up to
-                            500 data points.
+                            يجب أن تكون لوحة الألوان مرنة وأن تدمج ألوانًا متعددة لتلبية البيانات
+                            التصور
+                            يحتاج. قمنا بتطوير ملف
+                            نظام عالي التباين يستخدم أكثر من 20 لونًا للمخططات في التسلسل الهرمي ويمكنه
+                            عرض ما يصل إلى
+                            500 نقطة بيانات.
                         </p>
                     </div>
                 </div>
@@ -197,17 +250,18 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
+                    <h4 class="fw-bold wow animate animate__fadeInUp animation-delay-1">نتائج</h4>
                     <p class="wow animate animate__fadeInUp animation-delay-2">
-                        The folks at Ternary were thrilled with the end result, especially their development team, who
-                        could now easily integrate our designs into their development process.
+                        كان الناس في Ternary سعداء بالنتيجة النهائية ، وخاصة فريق التطوير الخاص بهم
+                        يمكن الآن دمج تصميماتنا بسهولة في عملية التطوير الخاصة بهم.
                     </p>
                 </div>
 
                 <hr class="my-5">
                 <div class="next-project">
-                    <span class="wow animate animate__fadeInUp animation-delay-1">See more</span>
-                    <a href="#" class="d-block pe-5 wow animate animate__fadeInUp animation-delay-2">Name of next
-                        article <span class="nishan-icon">w</span></a>
+                    <span class="wow animate animate__fadeInUp animation-delay-1">عرض المزيد</span>
+                    <a href="#" class="d-block pe-5 wow animate animate__fadeInUp animation-delay-2">
+                        اسم المشروع القادم<span class="nishan-icon">w</span></a>
                 </div>
             </div>
         </section>
@@ -219,27 +273,27 @@
                 <div class="container">
                     <div class="row align-items-center justify-content-between gap-5 gap-lg-0">
                         <div class="col-lg-8">
-                            <h2 class="m-0 footer-top-heading">Let us start something nice!</h2>
+                            <h2 class="m-0 footer-top-heading">دعونا نبدأ شيئا لطيفا!</h2>
                         </div>
                         <div class="col-lg-4 text-center text-lg-end">
-                            <a href="contact.html" class="button">Submit
-                                Query
+                            <a href="contact.html" class="button">إرسال الاستعلام
+
                             </a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="container mt-0 mt-lg-5">
+            <div class="container mt-5">
                 <div class="footer-bottom">
                     <div class="row">
                         <div class="col-lg">
                             <span class="nishan-icon opacity-0 hidden d-none d-lg-block">c</span>
                             <h4
                                 class="footer-about footer-heading wow overflow-hidden animate animate__fadeInUp animation-delay-1">
-                                We are Design & Branding
-                                studio work 100%
-                                digital.</h4>
+                                نحن التصميم والعلامات التجارية
+                                عمل الاستوديو 100٪
+                                رقمي.</h4>
                         </div>
                         <div class="col-lg"></div>
                         <div class="col-lg">
@@ -247,12 +301,11 @@
                                 <div
                                     class="footer-accordion d-flex flex-row flex-lg-column align-items-center align-items-lg-start gap-3 gap-lg-0 mb-0 wow overflow-hidden wow animate animate__fadeIn animation-delay-5">
                                     <span class="nishan-icon d-none d-lg-block">c</span>
-                                    <h4 class="fw-bold">Contact</h4>
+                                    <h4 class="fw-bold">اتصال</h4>
                                 </div>
                                 <ul class="list-unstyled first-list">
                                     <li class="wow overflow-hidden animate animate__fadeInUp animation-delay-1">
-                                        Saudi
-                                        Arabia</li>
+                                        السعودية</li>
                                     <li class="wow overflow-hidden animate animate__fadeInUp animation-delay-2">
                                         <a href="tel:+966503827878">
                                             (966) 503827878
@@ -271,22 +324,24 @@
                                 <div
                                     class="footer-accordion d-flex flex-row flex-lg-column align-items-center align-items-lg-start gap-3 gap-lg-0 mb-0 wow overflow-hidden wow animate animate__fadeIn animation-delay-5">
                                     <span class="nishan-icon d-none d-lg-block">m</span>
-                                    <h4 class="fw-bold">Social Media
+                                    <h4 class="fw-bold">وسائل التواصل الاجتماعي
+
                                     </h4>
                                 </div>
                                 <ul class="list-unstyled">
                                     <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-1">
-                                        <a href="#">Instagram</a>
+                                        <a href="#">انستغرام</a>
                                     </li>
                                     <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-2">
-                                        <a href="#">Twitter</a>
+                                        <a href="#">تويتر</a>
                                     </li>
                                     <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-3">
-                                        <a href="#">Behance</a>
+                                        <a href="#">بيهانس</a>
                                     </li>
                                     <li
                                         class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-4 mt-3">
-                                        <a href="#">Notarized by maroof.</a>
+                                        <a href="#">موثق من قبل معروف.
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
@@ -297,22 +352,24 @@
                                 <div
                                     class="footer-accordion d-flex flex-row flex-lg-column align-items-center align-items-lg-start gap-3 gap-lg-0 mb-0 wow overflow-hidden wow animate animate__fadeIn animation-delay-5">
                                     <span class="nishan-icon d-none d-lg-block">l</span>
-                                    <h4 class="fw-bold">Legal</h4>
+                                    <h4 class="fw-bold">قانوني</h4>
                                 </div>
                                 <ul class="list-unstyled">
                                     <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-1">
                                         <a href="#">
-                                            FAQ's
+                                            التعليمات
                                         </a>
                                     </li>
                                     <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-2">
                                         <a href="#">
-                                            Privacy policy
+                                            سياسة الخصوصية
+
                                         </a>
                                     </li>
                                     <li class="wow overflow-hidden wow animate animate__fadeInUp animation-delay-3">
                                         <a href="#">
-                                            Terms and Conditions
+                                            الأحكام والشروط
+
                                         </a>
                                     </li>
                                 </ul>
@@ -322,7 +379,7 @@
                         </div>
                     </div>
                     <div class="copyright">
-                        <p>Copyright 2023 Nishan ® All rights reserved</p>
+                        <p>حقوق الطبع والنشر 2023 Nishan ® جميع الحقوق محفوظة</p>
                     </div>
                 </div>
             </div>

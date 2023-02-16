@@ -43,9 +43,9 @@
       background-color: $primary;
       position: absolute;
       bottom: -10px;
-      left: 0;
+      #{$start_dir}: 0;
       transform: scaleX(.5);
-      transform-origin: bottom left;
+      transform-origin: bottom $start_dir;
       transition: all .3s ease-in-out;
     }
 

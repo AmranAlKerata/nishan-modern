@@ -19,7 +19,7 @@
       height: 100%;
       background-color: rgba(0, 0, 0, 0.649);
       top: 0;
-      left: 0;
+      #{$start_dir}: 0;
     }
     .play-button {
       display: flex;
@@ -29,7 +29,7 @@
       width: 100%;
       position: absolute;
       top: 0;
-      left: 0;
+      #{$start_dir}: 0;
       z-index: 999;
       cursor: pointer;
       &:hover::before {
@@ -46,7 +46,7 @@
         }
         background-color: $secondary;
         top: 50%;
-        left: 50%;
+        #{$start_dir}: 50%;
         transform: translate(-50%, -50%);
         border-radius: 50%;
         animation: ripple-white 1s linear infinite;
@@ -124,6 +124,7 @@
       }
 
       .insight-card {
+        direction: $dir;
         * {
           cursor: pointer;
         }

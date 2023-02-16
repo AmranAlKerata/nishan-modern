@@ -51,7 +51,7 @@ section {
       position: absolute;
       opacity: .7;
       width: 100%;
-      left: 0;
+      #{$start_dir}: 0;
       a {
         &.text-white:hover {
           color: #fff !important;
