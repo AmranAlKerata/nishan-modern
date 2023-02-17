@@ -1,4 +1,8 @@
-let url = "https://demo2.bynishan.com/api/stories-en";
+const lang = $("html").attr("lang");
+let url;
+lang === "en"
+  ? (url = "https://demo2.bynishan.com/api/stories-en")
+  : (url = "https://demo2.bynishan.com/api/stories-ar");
 const storiesContainer = $(".stories-page .my-sizer-element");
 const filterOptionsContainer = $(".filter-options");
 const sectionContainer = $(".stories-gallery");

@@ -1,4 +1,5 @@
 $(function() {
+  const lang = $("html").attr("lang");
   const navItems = $(".menu-links li");
   const menuIcon = $(".menu .icon");
   let didScroll;
@@ -10,7 +11,7 @@ $(function() {
   const select2Select = $(".select-2-select");
   let url;
 
-  $("html").attr("lang") == "en"
+  lang === "en"
     ? (url = "https://demo2.bynishan.com/api/testimonialsEn")
     : (url = "https://demo2.bynishan.com/api/testimonialsAr");
 
@@ -237,9 +238,12 @@ $(function() {
   });
 
   // Type Writer Effect
-  if ($("#typeWriterEn").length > 0) {
-    new TypeIt("#typeWriterEn", {
-      strings: [ "Professional", "Great", "Interesting", "Attractive" ],
+  if ($("#typeWriter").length > 0) {
+    new TypeIt("#typeWriter", {
+      strings:
+        lang === "en"
+          ? [ "Professional", "Great", "Interesting", "Attractive" ]
+          : [ "إحترافية", "رائعة", "ممتعة", "جذابة" ],
       cursor: true,
       cursorChar: "|",
       cursorSpeed: 1000,
@@ -426,7 +430,6 @@ $(function() {
 
   $("form button[type='submit']").on("click", function() {
     const submitedForm = $(this).attr("data-form-submit");
-    const lang = $("html").attr("lang");
 
     $(submitedForm).validate({
       errorPlacement: function errorPlacement(error, element) {
@@ -534,7 +537,7 @@ $(function() {
 
       // Create Link Copied Text
       const span = document.createElement("span");
-      span.textContent = "Link copied";
+      span.textContent = lang === "en" ? "Link copied" : "تم نسخ الرابط";
 
       // Show Link Copied Alert
       e.target.parentElement.prepend(span);

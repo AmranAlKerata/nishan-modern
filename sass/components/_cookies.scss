@@ -5,7 +5,7 @@
 .cookie-wrapper {
   position: fixed;
   bottom: 20px;
-  #{$start_dir}: 50%;
+  left: 50%;
   transform: translateX(-50%);
   width: 100%;
   height: auto;

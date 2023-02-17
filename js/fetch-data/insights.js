@@ -1,4 +1,8 @@
-let url = "https://demo2.bynishan.com/api/insights-en";
+const lang = $("html").attr("lang");
+let url;
+lang === "en"
+  ? (url = "https://demo2.bynishan.com/api/insights-en")
+  : (url = "https://demo2.bynishan.com/api/insights-ar");
 const storiesContainer = $(".insight-page .my-sizer-element");
 const filterOptionsContainer = $(".filter-options");
 const sectionContainer = $(".insights-gallery");
@@ -222,7 +226,11 @@ const fetchData = async () => {
     $(".lds-roller").remove();
     // Append Error
     $(".amk-loader").append(
-      "<div class='text-center'><h2>Error While Loading Insights...</h2><h3>Refresh the page or try again later</h3></div>"
+      `<div class='text-center'><h2>${lang === "en"
+        ? "Error While Loading Insights..."
+        : "حدث خطأ أثناء تحميل المقالات..."}</h2><h3>${lang === "en"
+        ? "Refresh the page or try again later"
+        : "قم بتحديث الصفحة أو حاول مجدداً في وقت لاحق"}</h3></div>`
     );
     throw new Error(error);
   }

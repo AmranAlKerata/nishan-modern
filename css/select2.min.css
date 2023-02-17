@@ -386,7 +386,6 @@
 .select2-container--default[dir=rtl]
   .select2-selection--multiple
   .select2-selection__choice__remove {
-  border-left: 1px solid #aaa;
   border-right: none;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;

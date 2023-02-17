@@ -9,8 +9,8 @@
   h2 {
     text-transform: unset;
   }
-  #typeWriterEn,
-  #typeWriterEn span {
+  #typeWriter,
+  #typeWriter span {
     @include font-size(62px);
     font-family: 'IBM', sans-serif;
     text-transform: capitalize;
