@@ -1729,6 +1729,9 @@ header li.finish:before {
   }
 }
 @media (max-width: 991px) {
+  .pin-wrap {
+    overflow: hidden;
+  }
   .projects-section.horizontal .animation-wrap,
   .projects-section.horizontal .pin-wrap {
     -webkit-box-align: center;
