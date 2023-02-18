@@ -181,7 +181,7 @@ hr {
   outline: none;
   color: #000000;
   font-size: calc(1.275rem + 0.3vw);
-  padding-left: 20px;
+  padding-right: 20px;
 }
 @media (min-width: 1200px) {
   .form-control {
@@ -312,7 +312,7 @@ label {
   float: left;
   border-radius: 100%;
   margin-top: -20px;
-  margin-left: -20px;
+  margin-right: -20px;
   background: #fff;
 }
 .custom-cursor.custom-cursor-active {
@@ -342,8 +342,8 @@ label {
   z-index: 99999999;
 }
 .container {
-  padding-right: 20px;
   padding-left: 20px;
+  padding-right: 20px;
 }
 .select2-container {
   width: 100% !important;
@@ -373,7 +373,7 @@ label {
   box-shadow: none !important;
   font-size: calc(1.275rem + 0.3vw);
   padding: 0 !important;
-  padding-left: 20px !important;
+  padding-right: 20px !important;
   border-bottom: 1px solid #000000;
 }
 @media (min-width: 1200px) {
@@ -393,7 +393,7 @@ label {
   transform: translateY(-50%) !important;
   width: 30px !important;
   height: 30px !important;
-  right: 15px !important;
+  left: 15px !important;
 }
 .select2-selection__arrow img {
   -webkit-transition: all 0.2s ease-in-out;
@@ -424,11 +424,11 @@ label {
   border-color: #e2e2e2 !important;
 }
 .select2-results li {
-  padding-left: calc(1.3125rem + 0.75vw);
+  padding-right: calc(1.3125rem + 0.75vw);
 }
 @media (min-width: 1200px) {
   .select2-results li {
-    padding-left: 1.875rem;
+    padding-right: 1.875rem;
   }
 }
 .select2-results__option {
@@ -489,7 +489,7 @@ label {
   width: 100%;
   height: 100%;
   top: 0;
-  left: 0;
+  right: 0;
   background: #fff;
   z-index: 9999;
 }
@@ -663,7 +663,7 @@ section .section-heading h2 {
   position: absolute;
   opacity: 0.7;
   width: 100%;
-  left: 0;
+  right: 0;
 }
 .hover-links .hover-link.hidden a.text-white:hover {
   color: #fff !important;
@@ -870,7 +870,7 @@ section .section-heading h2 {
   stroke-linejoin: round;
   stroke: var(--stroke, var(--border-active));
   position: absolute;
-  left: 3px;
+  right: 3px;
   width: 25px;
   height: 25px;
   -webkit-transform: scale(var(--scale, 1)) translateZ(0);
@@ -954,7 +954,7 @@ section .section-heading h2 {
 }
 .custom-radio label input {
   position: absolute;
-  left: -9999px;
+  right: -9999px;
 }
 .custom-radio label input:checked + span:before {
   -webkit-box-shadow: inset 0 0 0 0.4375em #000000;
@@ -968,7 +968,7 @@ section .section-heading h2 {
   -ms-flex-align: center;
   align-items: center;
   padding: 0.375em 0.75em 0.375em 0.375em;
-  padding-left: 0;
+  padding-right: 0;
   border-radius: 99em;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
@@ -990,7 +990,7 @@ section .section-heading h2 {
   width: 30px;
   height: 30px;
   border-radius: 50%;
-  margin-right: 0.375em;
+  margin-left: 0.375em;
   -webkit-transition: 0.25s ease;
   transition: 0.25s ease;
   -webkit-box-shadow: inset 0 0 0 0.125em #000000;
@@ -1001,7 +1001,7 @@ section .section-heading h2 {
 }
 .custom-upload__input {
   height: 0;
-  left: -10000px;
+  right: -10000px;
   position: absolute;
 }
 .custom-upload__input.error ~ .error {
@@ -1099,7 +1099,7 @@ header {
   background-color: transparent;
   position: fixed;
   min-width: 100%;
-  left: 0;
+  right: 0;
   top: 0;
   z-index: 999;
   -webkit-transition: all 0.4s ease-in-out;
@@ -1170,11 +1170,11 @@ header .menu .icon {
 }
 header .menu .icon div {
   margin: auto;
-  margin-right: 0;
+  margin-left: 0;
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
+  right: 0;
   bottom: 0;
   width: 22px;
   height: 12px;
@@ -1218,7 +1218,7 @@ header .menu-links {
   max-height: 100vh;
   overflow: scroll;
   top: -110%;
-  left: 0%;
+  right: 0%;
   z-index: -1;
   background-color: #fff;
   display: -webkit-box;
@@ -1230,7 +1230,7 @@ header .menu-links {
   -webkit-box-pack: start;
   -ms-flex-pack: start;
   justify-content: flex-start;
-  text-align: left;
+  text-align: right;
   -webkit-transition: all 0.8s ease-in-out;
   transition: all 0.8s ease-in-out;
 }
@@ -1251,7 +1251,7 @@ header .menu-links .container {
 }
 header .menu-links li {
   position: relative;
-  text-align: left;
+  text-align: right;
 }
 header .menu-links li a {
   font-size: calc(1.575rem + 3.9vw);
@@ -1519,11 +1519,11 @@ header li.finish:before {
   background-color: #000000;
   position: absolute;
   bottom: -10px;
-  left: 0;
+  right: 0;
   -webkit-transform: scaleX(0.5);
   transform: scaleX(0.5);
-  -webkit-transform-origin: bottom left;
-  transform-origin: bottom left;
+  -webkit-transform-origin: bottom right;
+  transform-origin: bottom right;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -1639,7 +1639,7 @@ header li.finish:before {
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     background: rgba(23, 21, 21, 0);
     background: radial-gradient(
       circle,
@@ -1689,7 +1689,7 @@ header li.finish:before {
   }
   .projects-section.horizontal .project .project-name .arrow-icon {
     text-align: center;
-    margin-right: auto;
+    margin-left: auto;
   }
   .projects-section.horizontal .project .project-name .arrow-icon .nishan-icon {
     display: inline-block;
@@ -1745,7 +1745,7 @@ header li.finish:before {
     position: relative;
     height: 100%;
     width: 100%;
-    margin-left: 20px;
+    margin-right: 20px;
   }
   .projects .project:before {
     content: "";
@@ -1753,7 +1753,7 @@ header li.finish:before {
     height: 100%;
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     background: rgba(23, 21, 21, 0);
     background: radial-gradient(
       circle,
@@ -1810,7 +1810,7 @@ header li.finish:before {
   }
   .projects .project .project-name .arrow-icon {
     text-align: center;
-    margin-right: auto;
+    margin-left: auto;
   }
   .projects .project .project-name .arrow-icon .nishan-icon {
     display: inline-block;
@@ -1971,7 +1971,7 @@ footer .copyright p {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.649);
   top: 0;
-  left: 0;
+  right: 0;
 }
 .about-page .video-img-placeholder .play-button {
   display: -webkit-box;
@@ -1987,7 +1987,7 @@ footer .copyright p {
   width: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   z-index: 999;
   cursor: pointer;
 }
@@ -2114,7 +2114,7 @@ footer .copyright p {
   }
 }
 .about-page .insight .insight-section.horizontal .insight-card {
-  direction: ltr;
+  direction: rtl;
 }
 .about-page .insight .insight-section.horizontal .insight-card * {
   cursor: pointer;
@@ -2217,10 +2217,10 @@ footer .copyright p {
   width: 80%;
 }
 .about-page .insight .swiper-wrapper .swiper-slide:last-child {
-  padding-right: 20px;
+  padding-left: 20px;
 }
 .about-page .insight .swiper-wrapper .insight-card:not(.note) {
-  margin-left: 20px;
+  margin-right: 20px;
 }
 .about-page .insight .swiper-wrapper .insight-card * {
   cursor: pointer;
@@ -2361,15 +2361,15 @@ footer .copyright p {
   display: block;
   width: 20px;
   height: 20px;
-  border-right: 1px solid #4136f1;
+  border-left: 1px solid #4136f1;
   border-bottom: 1px solid #4136f1;
-  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
   -webkit-transform: rotate(45deg);
   transform: rotate(45deg);
   position: absolute;
   cursor: pointer;
   top: 0;
-  right: 0;
+  left: 0;
   -webkit-transition: all 0.3s ease-in-out;
   transition: all 0.3s ease-in-out;
 }
@@ -2391,11 +2391,11 @@ footer .copyright p {
   }
 }
 .contact-page .faq .accordion-item p {
-  padding-right: 100px;
+  padding-left: 100px;
 }
 @media (max-width: 991px) {
   .contact-page .faq .accordion-item p {
-    padding-right: 0;
+    padding-left: 0;
   }
 }
 .contact-page .faq .accordion-item .accordion-header {
@@ -2410,7 +2410,7 @@ footer .copyright p {
   background-color: transparent;
   color: #000000;
   font-weight: bold;
-  padding-right: 40px;
+  padding-left: 40px;
   display: inline-block;
   width: 100%;
   border: none;
@@ -2422,7 +2422,7 @@ footer .copyright p {
   content: "";
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
   width: 0;
   height: 1px;
   background-color: #000000;
@@ -2434,8 +2434,8 @@ footer .copyright p {
 .border-effect ~ .focus-border:after {
   top: auto;
   bottom: 0;
-  right: auto;
-  left: 0;
+  left: auto;
+  right: 0;
   -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
 }
@@ -2444,7 +2444,7 @@ footer .copyright p {
   content: "";
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 1px;
   height: 0;
   background-color: #000000;
@@ -2452,8 +2452,8 @@ footer .copyright p {
   transition: 0.2s;
 }
 .border-effect ~ .focus-border i:after {
-  left: auto;
-  right: 0;
+  right: auto;
+  left: 0;
   top: auto;
   bottom: 0;
   -webkit-transition-delay: 0.4s;
@@ -2495,8 +2495,8 @@ footer .copyright p {
 textarea.border-effect ~ .focus-border:after {
   top: auto;
   bottom: 8px;
-  right: auto;
-  left: 0;
+  left: auto;
+  right: 0;
   -webkit-transition-delay: 0.6s;
   transition-delay: 0.6s;
 }
@@ -2514,8 +2514,8 @@ textarea.border-effect.active ~ .focus-border i:before {
   transition: 0.2s;
 }
 textarea.border-effect ~ .focus-border i:after {
-  left: auto;
-  right: 0;
+  right: auto;
+  left: 0;
   top: auto;
   bottom: 8px;
   -webkit-transition-delay: 0.4s !important;
@@ -2572,14 +2572,14 @@ div[id*=-error] {
   }
 }
 .stories-page .filters-group {
-  margin-left: 30px;
   margin-right: 30px;
+  margin-left: 30px;
   margin-bottom: 100px;
 }
 @media (max-width: 768px) {
   .stories-page .filters-group {
-    margin-left: 0;
     margin-right: 0;
+    margin-left: 0;
     margin-bottom: 50px;
   }
 }
@@ -2631,7 +2631,7 @@ div[id*=-error] {
   height: 100%;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   background: rgba(23, 21, 21, 0);
   background: radial-gradient(
     circle,
@@ -2678,7 +2678,7 @@ div[id*=-error] {
 }
 .stories-page .project .project-name .arrow-icon {
   text-align: center;
-  margin-right: auto;
+  margin-left: auto;
 }
 .stories-page .project .project-name .arrow-icon .nishan-icon {
   display: inline-block;
@@ -2852,7 +2852,7 @@ div[id*=-error] {
   }
 }
 .insight-page h2 {
-  margin-left: 19px;
+  margin-right: 19px;
 }
 @media (max-width: 991px) {
   .insight-page .filter-row {
@@ -2862,7 +2862,7 @@ div[id*=-error] {
     padding: 0;
   }
   .insight-page h2 {
-    margin-left: 0;
+    margin-right: 0;
   }
 }
 .insight-page .shuffle-item {
@@ -2963,7 +2963,7 @@ div[id*=-error] {
 }
 .insight-page .insight-card.note .copy-note span {
   color: #000000;
-  margin-right: 20px;
+  margin-left: 20px;
 }
 .insight-page .insight-card.note .copy-note .copy-icon {
   max-width: 20px;
