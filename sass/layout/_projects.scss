@@ -163,7 +163,7 @@
       margin-#{$start_dir}: 20px;
 
       .project-img {
-        width: 100%;
+        width: 100vw;
         height: auto;
         aspect-ratio: 1 /1;
         object-fit: cover;
@@ -213,6 +213,9 @@
       }
       &.more::before {
         display: none;
+      }
+      &.more {
+        width: 100vw;
       }
     }
 
