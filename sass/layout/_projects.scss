@@ -121,6 +121,9 @@
 }
 
 @include media($lg) {
+  .pin-wrap {
+    overflow: hidden;
+  }
   .projects-section.horizontal .pin-wrap,
   .projects-section.horizontal .animation-wrap {
     align-items: center;
