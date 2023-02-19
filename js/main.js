@@ -558,17 +558,6 @@ $(function() {
     });
   }
 
-  // Toggle Active Class for positions-item
-  if ($(".positions-item").length > 0) {
-    $(".positions-item").on("click", function() {
-      if ($(this).find(".req").attr("aria-expanded") === "true") {
-        $(this).addClass("active").siblings().removeClass("active");
-      } else {
-        console.log(false);
-        $(this).removeClass("active");
-      }
-    });
-  }
   // validate positions form
   if ($(".submit-position").length > 0) {
     $(".submit-position").on("click", function() {
