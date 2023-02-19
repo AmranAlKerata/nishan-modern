@@ -1,0 +1,95 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.positions {
+  .positions-item {
+    border: 1px solid $primary;
+    margin-bottom: 40px;
+    .padding-50 {
+      padding: 0 50px;
+    }
+    h4,
+    h5 {
+      margin: 0;
+    }
+
+    .position-heading {
+      padding-#{$start_dir}: 50px;
+      @include media($md) {
+        padding-#{$start_dir}: 0;
+        padding: 20px 0;
+        text-align: center;
+      }
+    }
+
+    .req {
+      cursor: pointer;
+      border-#{$start_dir}: 1px solid;
+      padding: 30px 50px;
+      @include media($md) {
+        border-#{$start_dir}: none;
+        border-top: 1px solid;
+        padding: 20px;
+        text-align: center;
+      }
+    }
+    .position-form {
+      background-color: #eaeaea;
+      &.collapse,
+      &.collapsing {
+        border-top: 1px solid $primary;
+      }
+    }
+    form .row {
+      > * {
+        padding: 0;
+      }
+      .about,
+      .website {
+        flex-grow: 2;
+      }
+      .simple-txt-counter {
+        z-index: 9999999999999;
+        color: #f4001e;
+        font-size: 16px;
+        text-align: $end_dir;
+      }
+    }
+    .submit-container {
+      text-align: center;
+      background-color: #fff;
+      padding: 20px 0;
+      border-top: 1px solid $primary;
+      .submit-position {
+        text-align: center;
+        border: none;
+        color: $secondary;
+        @include font-size(36px);
+        background-color: transparent;
+        .nishan-icon {
+          display: inline-block;
+          font-size: 60px;
+          line-height: 0;
+          transition: all 0.3s ease-in-out;
+          transform: translate(0, 10px);
+        }
+        &:hover {
+          .nishan-icon {
+            transform: translate(10px, 0px);
+          }
+        }
+      }
+    }
+    input:not([type='checkbox']),
+    textarea {
+      height: 100%;
+    }
+    .custom-checkbox .checkbox input {
+      background-color: transparent;
+    }
+    .custom-checkbox .checkbox input {
+      --b: var(--border-hover);
+    }
+  }
+}

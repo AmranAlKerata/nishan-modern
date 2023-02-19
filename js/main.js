@@ -548,6 +548,23 @@ $(function() {
       }, 5000);
     }
   });
+
+  // Text Counter
+  if ($(".max-length").length > 0) {
+    $(function() {
+      $(".max-length").simpleTxtCounter({
+        maxLength: 6500
+      });
+    });
+  }
+  if ($(".submit-position").length > 0) {
+    $(".submit-position").on("click", function() {
+      const dataSubmit = $(this).attr("data-submit");
+      const dataForm = $(this).parent().parent().attr("data-form");
+      console.log($(`.position-form form[data-form="${dataForm}"]`));
+      $(`.position-form form[data-form="${dataForm}"]`).validate();
+    });
+  }
 });
 
 // Custom Cursor
