@@ -10,7 +10,8 @@
     text-transform: unset;
   }
   #typeWriter,
-  #typeWriter span {
+  #typeWriter span,
+  #typeWriter + span {
     @include font-size(62px);
     font-family: 'IBM', sans-serif;
     text-transform: capitalize;

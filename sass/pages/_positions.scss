@@ -70,9 +70,12 @@
       .submit-position {
         text-align: center;
         border: none;
-        color: $secondary;
+        color: $primary;
         @include font-size(36px);
         background-color: transparent;
+        &:hover {
+          color: $secondary;
+        }
         .nishan-icon {
           display: inline-block;
           font-size: 60px;

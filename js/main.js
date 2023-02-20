@@ -239,26 +239,35 @@ $(function() {
 
   // Type Writer Effect
   if ($("#typeWriter").length > 0) {
-    new TypeIt("#typeWriter", {
+    // new TypeIt("#typeWriter", {
+    //   strings:
+    //     lang === "en"
+    //       ? [ "Professional", "Great", "Interesting", "Attractive" ]
+    //       : [ "إحترافية", "رائعة", "ممتعة", "جذابة" ],
+    //   cursor: true,
+    //   cursorChar: "|",
+    //   cursorSpeed: 1000,
+    //   deleteSpeed: null,
+    //   breakLines: false,
+    //   breakDelay: 550,
+    //   speed: 200,
+    //   startDelay: 250,
+    //   startDelete: false,
+    //   nextStringDelay: 3000,
+    //   loop: true,
+    //   loopDelay: 500,
+    //   lifeLike: true,
+    //   waitUntilVisible: true
+    // }).go();
+    new Typed("#typeWriter", {
       strings:
         lang === "en"
           ? [ "Professional", "Great", "Interesting", "Attractive" ]
           : [ "إحترافية", "رائعة", "ممتعة", "جذابة" ],
-      cursor: true,
-      cursorChar: "|",
-      cursorSpeed: 1000,
-      deleteSpeed: null,
-      breakLines: false,
-      breakDelay: 550,
-      speed: 200,
-      startDelay: 250,
-      startDelete: false,
-      nextStringDelay: 3000,
-      loop: true,
-      loopDelay: 500,
-      lifeLike: true,
-      waitUntilVisible: true
-    }).go();
+      typeSpeed: 60,
+      backSpeed: 60,
+      loop: true
+    });
   }
 
   if ($("#testimonialContent").length > 0) {
