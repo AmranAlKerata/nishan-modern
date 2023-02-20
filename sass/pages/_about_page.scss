@@ -110,7 +110,6 @@
       display: flex;
       position: relative;
       z-index: 1;
-      // height: 70vh;
       gap: 50px;
     }
 
@@ -174,10 +173,17 @@
             }
           }
         }
+        @if ($lang =="ar") {
+          .nishan-icon {
+            transform: translate(0, 0) scale(-1) rotate(90deg);
+          }
+        }
         &:hover {
           .nishan-icon {
-            opacity: 1;
             transform: translate(10px, -10px);
+            @if ($lang =="ar") {
+              transform: translate(-10px, -10px) scale(-1) rotate(90deg);
+            }
           }
         }
       }
@@ -229,7 +235,7 @@
           width: 100%;
           height: auto;
           @include padding(45px);
-          // margin-#{$start_dir}: 20px;
+
           h4 {
             @include font-size(16px);
           }

@@ -65,10 +65,38 @@
       transition: all .3s ease-in-out;
       color: $primary !important;
     }
+    @if ($lang =="ar") {
+      .nishan-icon {
+        transform: translate(0, 0) scale(-1) rotate(90deg);
+      }
+    }
     &:hover {
       .nishan-icon {
-        transform: translate(10px, -10px);
+        transform: translate(-10px, -10px);
+        @if ($lang =="ar") {
+          transform: translate(-10px, -10px) scale(-1) rotate(90deg);
+        }
       }
+    }
+  }
+  .copy-note {
+    cursor: pointer;
+    span {
+      color: $primary;
+      margin-#{$end_dir}: 20px;
+    }
+    &.page {
+      span {
+        margin-#{$start_dir}: 20px;
+        margin-#{$end_dir}: unset;
+        display: inline-block;
+        transform: translateY(-10px);
+        color: $secondary;
+      }
+    }
+    .copy-icon {
+      transform: translateY(-10px);
+      max-width: 30px;
     }
   }
 }

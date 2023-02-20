@@ -83,9 +83,17 @@
           transition: all 0.3s ease-in-out;
           transform: translate(0, 10px);
         }
+        @if ($lang =="ar") {
+          .nishan-icon {
+            transform: translate(0, 0) scale(-1) rotate(90deg);
+          }
+        }
         &:hover {
           .nishan-icon {
-            transform: translate(10px, 0px);
+            transform: translate(10px, -10px);
+            @if ($lang =="ar") {
+              transform: translate(-10px, -10px) scale(-1) rotate(90deg);
+            }
           }
         }
       }

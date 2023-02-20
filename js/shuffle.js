@@ -1926,7 +1926,7 @@
     // Attempt to center grid items in each row.
     isCentered: false,
     // Attempt to align grid items to right.
-    isRTL: false,
+    isRTL: lang === "en" ? false : true,
     // Whether to round pixel values used in translate(x, y). This usually avoids
     // blurriness.
     roundTransforms: true

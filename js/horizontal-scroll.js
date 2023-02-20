@@ -34,7 +34,13 @@ insight.forEach(function(sec, i) {
   var thisPinWrap = sec.querySelector(".pin-wrap");
   var thisAnimWrap = thisPinWrap.querySelector(".animation-wrap");
 
-  var getToValue = () => -(thisAnimWrap.scrollWidth - window.innerWidth + 200);
+  var getToValue = () =>
+    -(
+      thisAnimWrap.scrollWidth -
+      window.innerWidth +
+      (window.innerWidth -
+        document.querySelector(".horizontal.insight-section").offsetWidth)
+    );
 
   gsap.fromTo(
     thisAnimWrap,

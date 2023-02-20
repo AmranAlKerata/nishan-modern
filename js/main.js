@@ -535,26 +535,39 @@ $(function() {
   }
 
   // Copy Note link
+  let clickabel = true;
   $(document).on("click", function(e) {
-    if (e.target.classList.contains("copy-icon")) {
-      /* Get the text field */
-      const noteLink = e.target.parentElement.parentElement.href;
-      const currentLink = noteLink;
+    if (clickabel) {
+      if (e.target.classList.contains("copy-icon")) {
+        /* Get the text field */
+        let noteLink = e.target.parentElement.parentElement.href;
+        if (e.target.parentElement.classList.contains("page")) {
+          noteLink = window.location.href;
+        }
+        const currentLink = noteLink;
 
-      /* Copy the text inside the text field */
-      navigator.clipboard.writeText(currentLink);
+        /* Copy the text inside the text field */
+        navigator.clipboard.writeText(currentLink);
 
-      // Create Link Copied Text
-      const span = document.createElement("span");
-      span.textContent = lang === "en" ? "Link copied" : "تم نسخ الرابط";
+        // Create Link Copied Text
+        const span = document.createElement("span");
+        span.textContent = lang === "en" ? "Link copied" : "تم نسخ الرابط";
 
-      // Show Link Copied Alert
-      e.target.parentElement.prepend(span);
+        // Show Link Copied Alert
+        if (e.target.parentElement.classList.contains("page")) {
+          e.target.parentElement.append(span);
+        } else {
+          e.target.parentElement.prepend(span);
+        }
 
-      const timeout = setTimeout(() => {
-        e.target.parentElement.querySelector("span").remove();
-        clearTimeout(timeout);
-      }, 5000);
+        clickabel = false;
+
+        const timeout = setTimeout(() => {
+          e.target.parentElement.querySelector("span").remove();
+          clickabel = true;
+          clearTimeout(timeout);
+        }, 5000);
+      }
     }
   });
 
@@ -579,7 +592,7 @@ $(function() {
 
 // Custom Cursor
 const $c = $("[data-custom-cursor]");
-const $h = $(" .nishan-icon, header .menu .icon");
+const $h = $(" .nishan-icon, header .menu .icon, .copy-icon");
 
 $(window).on("mousemove", function(e) {
   x = e.clientX;

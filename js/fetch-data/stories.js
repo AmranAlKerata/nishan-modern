@@ -160,7 +160,11 @@ const fetchData = async () => {
     $(".lds-roller").remove();
     // Append Error
     $(".amk-loader").append(
-      "<div class='text-center'><h2>Error While Loading Stories...</h2><h3>Refresh the page or try again later</h3></div>"
+      `<div class='text-center'><h2>${lang === "en"
+        ? "Error While Loading Stories..."
+        : "حدث خطأ أثناء تحميل المشاريع..."}</h2><h3>${lang === "en"
+        ? "Refresh the page or try again later"
+        : "قم بتحديث الصفحة أو حاول مجدداً في وقت لاحق"}</h3></div>`
     );
     throw new Error(error);
   }
