@@ -561,27 +561,12 @@ $(function() {
   }
 
   // Scroll to the top of position form
-  // $(".req").on("click", function() {
-  //   const id = $(this).attr("aria-controls");
-  //   console.log(id, $(`#${id}`));
-  //   $("html").animate(
-  //     {
-  //       scrollTop: $(`#${id}`).offset().top
-  //     },
-  //     1000
-  //   );
-  // });
-
-  /**
-          Bootstrap accordion scroll to top of active panel heading
-          http://stackoverflow.com/a/29195062/1241535
-        ----------------------------------------------*/
   $(".positions-item").on("shown.bs.collapse", function(e) {
     const offset = $(this).find(".collapse.show");
     console.log(offset);
     $("html,body").animate(
       {
-        scrollTop: offset.offset().top - 200
+        scrollTop: offset.offset().top - 400
       },
       10
     );
