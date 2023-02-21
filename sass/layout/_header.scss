@@ -147,6 +147,9 @@ header {
       text-align: $start_dir;
       a {
         @include font-size(72px);
+        @include media($xl) {
+          @include font-size(64px);
+        }
         @include media($lg) {
           @include font-size(32px);
         }
