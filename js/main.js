@@ -239,26 +239,6 @@ $(function() {
 
   // Type Writer Effect
   if ($("#typeWriter").length > 0) {
-    // new TypeIt("#typeWriter", {
-    //   strings:
-    //     lang === "en"
-    //       ? [ "Professional", "Great", "Interesting", "Attractive" ]
-    //       : [ "إحترافية", "رائعة", "ممتعة", "جذابة" ],
-    //   cursor: true,
-    //   cursorChar: "|",
-    //   cursorSpeed: 1000,
-    //   deleteSpeed: null,
-    //   breakLines: false,
-    //   breakDelay: 550,
-    //   speed: 200,
-    //   startDelay: 250,
-    //   startDelete: false,
-    //   nextStringDelay: 3000,
-    //   loop: true,
-    //   loopDelay: 500,
-    //   lifeLike: true,
-    //   waitUntilVisible: true
-    // }).go();
     new Typed("#typeWriter", {
       strings:
         lang === "en"
@@ -579,6 +559,33 @@ $(function() {
       });
     });
   }
+
+  // Scroll to the top of position form
+  // $(".req").on("click", function() {
+  //   const id = $(this).attr("aria-controls");
+  //   console.log(id, $(`#${id}`));
+  //   $("html").animate(
+  //     {
+  //       scrollTop: $(`#${id}`).offset().top
+  //     },
+  //     1000
+  //   );
+  // });
+
+  /**
+          Bootstrap accordion scroll to top of active panel heading
+          http://stackoverflow.com/a/29195062/1241535
+        ----------------------------------------------*/
+  $(".positions-item").on("shown.bs.collapse", function(e) {
+    const offset = $(this).find(".collapse.show");
+    console.log(offset);
+    $("html,body").animate(
+      {
+        scrollTop: offset.offset().top - 200
+      },
+      10
+    );
+  });
 
   // validate positions form
   if ($(".submit-position").length > 0) {
