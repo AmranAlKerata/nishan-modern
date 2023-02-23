@@ -3,7 +3,11 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .store-page {
+  &:not(.details) .select2-search--dropdown {
+    display: none;
+  }
   .filters {
+    margin-bottom: 45px;
     .view-as {
       .hidden-checkbox {
         position: relative;
@@ -23,9 +27,254 @@
       }
     }
     .sort-by {
+      .select2-container {
+        max-width: 250px;
+        width: 100%;
+        .select2-container--default
+          .select2-selection--single
+          .select2-selection__rendered {
+          text-align: $start_dir !important;
+        }
+      }
     }
   }
-  .select2-search--dropdown {
-    display: none;
+  .steps {
+    background-color: #f6f6f6;
+    counter-reset: step;
+    @include padding(70px 0);
+    .user-steps {
+      li {
+        &::before {
+          counter-increment: step;
+          content: counter(step);
+          color: $primary;
+          background-color: transparent;
+          font-size: 16px;
+          display: inline-flex;
+          justify-content: center;
+          align-items: center;
+          width: 34px;
+          height: 34px;
+          border-radius: 50%;
+          border: 1px solid $primary;
+          margin-#{$end_dir}: 5px;
+        }
+        &.active::before {
+          color: #fff;
+          background-color: $primary;
+        }
+        @include media ($lg) {
+          &:not(.active) {
+            text-indent: -9999px;
+            &::before {
+              float: $start_dir;
+              text-indent: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+  .services {
+    @include margin-top(115px);
+    @include media ($xl) {
+      @include margin-bottom(115px);
+    }
+    .service {
+      border: 1px solid $primary;
+      &.selected-service {
+        border-width: 2px;
+      }
+      @include padding(45px 65px);
+      .badge {
+        border: 1px solid $primary;
+        border-radius: 19px;
+        padding: 5px 20px;
+      }
+      .price {
+        color: $secondary;
+      }
+    }
+  }
+
+  // Details Page
+  .agreement-details {
+    .tabs {
+      @include margin-bottom(50px);
+      li {
+        @include font-size(24px);
+        color: #bfbfbf;
+        cursor: pointer;
+        transition: color .3s ease-in-out;
+        &.active {
+          color: $primary;
+        }
+      }
+    }
+  }
+  .client-box {
+    .single-box {
+      display: none;
+      animation: fadeIn 1s ease-in-out forwards;
+      .selected-service {
+        padding: 0;
+        .service-container {
+          @include padding(45px 65px);
+        }
+      }
+
+      &#scope {
+        .desc {
+          color: #9f9f9f;
+        }
+        .service-list {
+          li {
+            @include font-size(24px);
+            @include padding(20px 65px);
+
+            border-top: 1px solid $primary;
+            &:last-child {
+              border-bottom: 1px solid $primary;
+            }
+          }
+        }
+        .service-payment-details {
+          @include padding(40px 65px);
+          li {
+            @include font-size(24px);
+          }
+        }
+        .payment-fact {
+          img {
+            max-width: 28px;
+            width: 100%;
+          }
+        }
+      }
+      &#terms {
+        border: 2px solid $primary;
+        @include padding(45px 65px);
+      }
+      &#faqs {
+        @include padding(21px 0);
+        border: 2px solid $primary;
+        .accordion-item {
+          border-bottom: 1px solid $primary !important;
+          &.last {
+            border: none !important;
+          }
+          @include padding(24px 65px);
+          border: none;
+          transition: all .3s ease-in-out;
+          h4 {
+            position: relative;
+            cursor: pointer;
+            margin: 0;
+            text-transform: uppercase;
+            &::after {
+              content: "";
+              display: block;
+              width: 20px;
+              height: 20px;
+              border-#{$end_dir}: 1px solid $primary;
+              border-bottom: 1px solid $primary;
+              border-bottom-#{$end_dir}-radius: 2px;
+              transform: rotate(45deg);
+              position: absolute;
+              cursor: pointer;
+              top: 0;
+              #{$end_dir}: 0;
+              transition: all .3s ease-in-out;
+            }
+            &.collapsed::after {
+              transform: rotate(-45deg);
+            }
+          }
+
+          h4,
+          p {
+            @include font-size(24px);
+          }
+          p {
+            padding-#{$end_dir}: 100px;
+            @include media ($lg) {
+              padding-#{$end_dir}: 0;
+            }
+          }
+          .accordion-header {
+            display: flex;
+            align-items: center;
+          }
+          .accordion-button {
+            background-color: transparent;
+            color: $primary;
+            font-weight: bold;
+            padding-#{$end_dir}: 40px;
+            display: inline-block;
+            width: 100%;
+            border: none;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    .single-box.active {
+      display: block;
+    }
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+      }
+      100% {
+        opacity: 1;
+      }
+    }
+  }
+
+  // From Side
+  .form-side {
+    .form-h-s {
+      margin-bottom: 25px;
+    }
+    #client-form {
+      margin-top: 50px;
+      .hint {
+        @include font-size(24px);
+        color: #9f9f9f;
+      }
+      .uploaded-file {
+        margin-top: 10px;
+        background-color: #a0f7ef;
+        border-radius: 10px;
+        @include padding(24px 27px);
+
+        img {
+          max-width: 20px;
+          width: 100%;
+          cursor: pointer;
+        }
+      }
+      .payment-radio {
+        svg {
+          position: absolute;
+          left: 40px;
+        }
+        span:before {
+          margin-right: 50px;
+        }
+        small {
+          color: #969696;
+          @include font-size(24px);
+        }
+      }
+      .bank-account-details {
+        .underline {
+          text-decoration: underline;
+        }
+      }
+      small {
+        color: #969696;
+      }
+    }
   }
 }

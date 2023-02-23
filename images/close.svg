@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_557" data-name="Group 557" transform="translate(-1702 -3694)">
+    <text id="X" transform="translate(1710 3706)" fill="#aaa" font-size="10" font-family="IBMPlexSansArabic-Regular, IBM Plex Sans Arabic"><tspan x="-3.065" y="0">X</tspan></text>
+    <g id="Ellipse_96" data-name="Ellipse 96" transform="translate(1702 3694)" fill="none" stroke="#aaa" stroke-width="1">
+      <circle cx="8" cy="8" r="8" stroke="none"/>
+      <circle cx="8" cy="8" r="7.5" fill="none"/>
+    </g>
+  </g>
+</svg>

@@ -142,10 +142,11 @@
         <!-- Start Store Content -->
         <section class="store-content" id="store-content">
             <div class="container">
+                <!-- Filter -->
                 <div class="filters">
                     <div class="row">
-                        <div class="col-12 col-lg-8">
-                            <div class="view-as d-flex align-items-center justify-content-start gap-3">
+                        <div class="col-12 col-lg-6">
+                            <div class="view-as d-flex align-items-center justify-content-start gap-3 h-100">
                                 <h4 class="m-0">View as</h4>
                                 <div class="hidden-checkbox">
                                     <input type="radio" name="all" id="all" checked>
@@ -161,10 +162,10 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-lg-4 text-end">
-                            <div class="sort-by">
+                        <div class="col-12 col-lg-6">
+                            <div class="sort-by d-flex align-items-center justify-content-end gap-4">
                                 <h4 class="m-0">Sort by</h4>
-                                <select class="select-2-select form-control" required name="sort">
+                                <select class="select-2-select form-control" name="sort">
                                     <option value="1">
                                         Price(Lowest)
                                     </option>
@@ -172,6 +173,40 @@
                                     <option value="3">Name(A-Z)</option>
                                     <option value="4">Name(Z-A)</option>
                                 </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Steps -->
+            <div class="steps">
+                <div class="container">
+
+                    <ul
+                        class="user-steps d-flex align-items-center justify-content-between  justify-content-lg-start gap-1 gap-lg-5">
+                        <li class="step active">
+                            Select
+                        </li>
+                        <li class="step">
+                            Agreement Details
+                        </li>
+                        <li class="step">
+                            Checkout
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Packages & Products -->
+            <div class="services">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
+                            <div class="service package">
+                                <h6 class="badge d-inline-block">Expert choice</h6>
+                                <h4 class="title fw-bold my-3">Social Media Consulting</h4>
+                                <h4 class="price fw-bold">99 SAR</h4>
                             </div>
                         </div>
                     </div>

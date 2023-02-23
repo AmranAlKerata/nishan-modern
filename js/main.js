@@ -580,6 +580,18 @@ $(function() {
       $(`.position-form form[data-form="${dataForm}"]`).validate();
     });
   }
+
+  // Store Details Box [Change Content]
+  $(".agreement-details .tab").on("click", function() {
+    const dataTab = $(this).attr("data-tab");
+    // Change active class
+    $(this).addClass("active").siblings().removeClass("active");
+    $(".client-box")
+      .find(`#${dataTab}`)
+      .addClass("active")
+      .siblings()
+      .removeClass("active");
+  });
 });
 
 // Custom Cursor

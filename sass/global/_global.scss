@@ -135,7 +135,17 @@ hr {
   background-color: $scroll;
   border-radius: 50px;
 }
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
 .form-control {
   background-color: transparent;
   border: none;

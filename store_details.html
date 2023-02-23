@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nishan</title>
+    <!-- Site Icon -->
+    <link rel="shortcut icon" href="images/Nishan-icon.svg" type="image/x-icon">
+    <!-- *****Css Files***** -->
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
+    <!-- Animate CSS -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Select 2 -->
+    <link rel="stylesheet" href="css/select2.min.css">
+    <!-- Main Style -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- *****Js Files***** -->
+    <!-- Jquery -->
+    <script defer src="js/jquery.min.js"></script>
+    <!-- ANM -->
+    <script defer src="js/anm.min.js"></script>
+    <!-- Bootstrap -->
+    <script defer src="js/bootstrap.min.js"></script>
+    <!-- Select 2 -->
+    <script defer src="js/select2.min.js"></script>
+    <!-- Wow Js -->
+    <script defer src="js/wow.min.js"></script>
+    <!-- Main Script -->
+    <script defer src="js/main.js"></script>
+</head>
+
+<body data-anm=".anm" class="store-page details">
+    <!-- Start Progress Line -->
+    <div class="progress-line position-fixed" id="progress-line">
+        <span></span>
+    </div>
+    <!-- End Progress Line -->
+
+
+    <!-- End Cookies Box -->
+
+
+    <div id="curr" class="custom-cursor" data-custom-cursor>
+        <div class="cursor"></div>
+    </div>
+
+
+
+    <main class="position-relative">
+
+
+        <!-- Start Header -->
+        <header class="bg-white">
+            <div class="container-fluid d-flex justify-content-between
+                    align-items-center py-4 logo-button-container px-0 px-lg-5">
+                <div class="logo">
+                    <a href="/">
+                        <img src="images/logo.svg" alt="Logo">
+                    </a>
+                </div>
+                <div class="menu d-flex justify-content-end
+                        align-items-center gap-3" style="gap: 30px !important">
+                    <span class="text-capitalize
+                            login-btn lang-btn">
+                        <a href="#">اللغة العربية</a></span>
+                    <span class="text-capitalize
+                            login-btn d-none d-lg-block">
+                        <a href="#">Login</a></span>
+                    <div class="icon">
+                        <div>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="menu-links">
+
+                <div class="container">
+                    <div class="row">
+                        <ul class="w-100 links col-lg links">
+                            <li>
+                                <a href="index.html">Home</a>
+                            </li>
+                            <li>
+                                <a href="about.html">About us</a>
+
+                            </li>
+                            <li>
+                                <a href="stories.html">Stories</a>
+                            </li>
+                            <li>
+                                <a href="story.html" class="active">Store</a>
+                            </li>
+                            <li>
+                                <a href="insight.html">Insight</a>
+                            </li>
+                            <li>
+                                <a href="contact.html">Contact</a>
+                            </li>
+                            <li>
+                                <a href="#">Login</a>
+                            </li>
+                        </ul>
+                        <ul class="col-lg d-flex flex-column contact-col
+                                align-self-end mb-5 mb-lg-0">
+                            <li>
+                                <h5 class="pb-3">Let us start something
+                                    nice!</h5>
+                                <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase
+                                        fw-bold m-0">
+                                    info@bynishan.com</a>
+                                <div class=" lang d-block d-lg-none">
+                                    <a href="#">اللغة العربية</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- End Header -->
+
+
+
+        <!-- Start Store Content -->
+        <section class="store-content" id="store-content">
+            <!-- Steps -->
+            <div class="steps">
+                <div class="container">
+
+                    <h3 class="mb-4">We are glad to hear that &lt;_&gt;</h3>
+                    <ul class="mt-5 mt-lg-0 user-steps d-flex align-items-center
+                        justify-content-between  justify-content-lg-start gap-1 gap-lg-5 ">
+                        <li class="step">
+                            Select
+                        </li>
+                        <li class="step active">
+                            Agreement Details
+                        </li>
+                        <li class="step">
+                            Checkout
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Packages & Products -->
+            <div class="services">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-xl-5">
+                            <div class="agreement-details">
+                                <ul class="tabs d-flex align-items-center
+                                        justify-content-start gap-3">
+                                    <li class="tab active" data-tab="scope">Scope
+                                        of work</li>
+                                    <li class="tab" data-tab="terms">Terms
+                                        and Conditions</li>
+                                    <li class="tab" data-tab="faqs">FAQs</li>
+                                </ul>
+                            </div>
+                            <div class="client-box">
+                                <div id="scope" class="single-box active ">
+                                    <div class="service selected-service
+                                            package">
+                                        <div class="service-container">
+                                            <h6 class="badge
+                                                    d-inline-block">Light social</h6>
+                                            <h4 class="title fw-bold my-3">Social
+                                                Posts Design</h4>
+                                            <h4 class="price fw-bold">50 SAR</h4>
+                                            <p class="desc">Social media
+                                                always need to be active,
+                                                that allows to get
+                                                more
+                                                orders</p>
+                                        </div>
+                                        <ul class="service-list">
+                                            <li>8 Posts design</li>
+                                            <li>Add content</li>
+                                            <li>Support responses</li>
+                                            <li>1 Social platform</li>
+                                            <li>Format: jpg, png, gif</li>
+                                            <li>24/7 Support</li>
+                                        </ul>
+                                        <ul class="service-payment-details">
+                                            <li>1 Payment Milestone</li>
+                                            <li>30 Days Estimated</li>
+                                            <li>3 Revisionrounds</li>
+                                        </ul>
+
+                                    </div>
+                                    <div class="payment-fact mt-5 d-flex
+                                            align-items-center
+                                            justify-content-start gap-2">
+                                        <img src="./images/true.svg" alt="true">
+                                        <p>Online payments secured 100% by
+                                            providers.</p>
+                                    </div>
+                                    <div class="payment-fact d-flex
+                                            align-items-center
+                                            justify-content-start gap-2">
+                                        <img src="./images/true.svg" alt="true">
+                                        <p>No payments cards data storage.</p>
+                                    </div>
+                                </div>
+                                <div id="terms" class="single-box">
+                                    <h4 class="fw-bold">Definitions:</h4>
+                                    <p>
+                                        The first party: Nishan ® Studio,
+                                        officially documented through the
+                                        Marouf
+                                        service of the Ministry of Commerce
+                                        and
+                                        Investment in the Kingdom of Saudi
+                                        Arabia until the date of creation of
+                                        this
+                                        document.
+                                        The second party: He is the owner of
+                                        the necessary authority to conclude
+                                        this
+                                        agreement on behalf of: himself /
+                                        his
+                                        institution / his company / the
+                                        company / institution mentioned in
+                                        item:
+                                        customer data and who wishes to
+                                        benefit from
+                                        the services provided by Nishan ®
+                                        Studio.
+                                    </p>
+                                    <h4 class="fw-bold mt-5">Communication:</h4>
+                                    <p>
+                                        (1) The approved means of
+                                        communication for communicating with
+                                        the first party
+                                        are documented at the bottom of this
+                                        document, noting that the programs
+                                        used for communication are: SMS,
+                                        WhatsApp,
+                                        and e-mail.
+                                    </p>
+                                </div>
+                                <div id="faqs" class="single-box">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="row">
+                                            <div class="col-12">
+                                                <div class="accordion-item
+                                                        active">
+                                                    <h4 class="accordion-header
+                                                            fw-bold
+                                                            accordion-button" id="headingOne" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseOne" aria-expanded="true"
+                                                        aria-controls="collapseOne">
+                                                        Who are Nishan
+                                                        Studio ?
+                                                    </h4>
+                                                    <div id="collapseOne" class="accordio
+                                                            n-collapse collapse
+                                                            show" aria-labelledby="headingOne"
+                                                        data-bs-parent="#accordionExample">
+                                                        <p class="accordion-body">
+                                                            Aspirational an
+                                                            original Arabic
+                                                            name, as a
+                                                            familiar musical
+                                                            bell between
+                                                            East
+                                                            and West.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="accordion-item
+                                                        ">
+                                                    <h4 class="accordion-header
+                                                            fw-bold
+                                                            accordion-button
+                                                            collapsed" id="headingTwo" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapseTwo" aria-expanded="false"
+                                                        aria-controls="collapseTwo">
+                                                        What is average
+                                                        working days ?
+                                                    </h4>
+                                                    <div id="collapseTwo" class="accordion-collapse
+                                                            collapse" aria-labelledby="headingTwo"
+                                                        data-bs-parent="#accordionExample">
+                                                        <p class="accordion-body">
+                                                            Lorem ipsum
+                                                            dolor sit amet,
+                                                            consectetur
+                                                            adipiscing elit,
+                                                            sed
+                                                            do eiusmod
+                                                            tempor
+                                                            incididunt ut
+                                                            labore et dolore
+                                                            magna aliqua.
+                                                            Lorem ipsum
+                                                            dolor sit amet,
+                                                            consectetur.
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-12">
+                                                <div class="accordion-item last
+                                                        ">
+                                                    <h4 id="headingthree" class="
+                                                            accordion-header
+                                                            fw-bold
+                                                            accordion-button
+                                                            collapsed" data-bs-toggle="collapse"
+                                                        data-bs-target="#collapsethree" aria-expanded="false"
+                                                        aria-controls="collapsethree">
+                                                        What is average
+                                                        working days ?
+
+                                                    </h4>
+                                                    <div id="collapsethree" class="accordion-collapse
+                                                            collapse" aria-labelledby="headingthree"
+                                                        data-bs-parent="#accordionExample">
+                                                        <p class="accordion-body">
+                                                            Lorem ipsum
+                                                            dolor sit amet,
+                                                            consectetur
+                                                            adipiscing elit,
+                                                            sed
+                                                            do eiusmod
+                                                            tempor
+                                                            incididunt ut
+                                                            labore et dolore
+                                                            magna aliqua.
+                                                            Lorem ipsum
+                                                            dolor sit amet,
+                                                            consectetur .
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-12 col-xl-6 form-side mt-5 mt-xl-0">
+                            <h4 class="mb-0 d-flex align-items-center justify-content-start fw-bold"
+                                style="line-height: 1.5;">
+                                Client Details</h4>
+                            <form id="client-form">
+                                <div class="required amk-group mb-5 custom-radio">
+                                    <h4 class="fw-bold form-h-s">You are process this as</h4>
+                                    <label>
+                                        <input type="radio" name="radio" checked>
+                                        <span>Individual</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="radio">
+                                        <span>Authorized Official / Owner</span>
+                                    </label>
+                                </div>
+                                <h4 class="fw-bold form-h-s">Personal</h4>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="text" class="border-effect form-control" required
+                                        placeholder="Name*" id="name" name="name">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="tel" class="border-effect form-control" required
+                                        placeholder="Phone*" id="phone" name="phone">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="email" class="border-effect form-control" required
+                                        placeholder="E-mail*" id="email" name="email">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <h4 class="fw-bold form-h-s">Address</h4>
+                                <div class="row">
+                                    <div class="col-lg">
+                                        <div class="amk-group mb-5 position-relative ">
+                                            <select class="select-2-select form-control  w-100" required
+                                                name="userAddress">
+                                                <option value="" disabled selected>Country</option>
+                                                <option value="1">
+                                                    Saudi Arabia
+                                                </option>
+                                                <option value="2">Syria</option>
+                                                <option value="3">USA</option>
+                                                <option value="4">UK</option>
+                                                <option value="5">AU</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg">
+                                        <div class="amk-group mb-5 position-relative">
+                                            <select class="select-2-select form-control  w-100" required
+                                                name="userAddress">
+                                                <option value="" disabled selected>City</option>
+                                                <option value="1">
+                                                    Saudi Arabia
+                                                </option>
+                                                <option value="2">Syria</option>
+                                                <option value="3">USA</option>
+                                                <option value="4">UK</option>
+                                                <option value="5">AU</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <h4 class="fw-bold">Would you like to talk to us briefly about the Company /
+                                    Organization?</h4>
+                                <p class="hint form-h-s">Example: vision, orientation…</p>
+                                <div class="required amk-group mb-5 custom-radio">
+                                    <label>
+                                        <input type="radio" name="talk-type" checked>
+                                        <span>Yes</span>
+                                    </label>
+                                    <div class="amk-group position-relative">
+                                        <textarea name="message" class="border-effect form-control " required
+                                            id="details" placeholder="Click here to start writing " rows="6"></textarea>
+                                        <span class="focus-border">
+                                            <i></i>
+                                        </span>
+                                    </div>
+                                    <label>
+                                        <input type="radio" name="talk-type">
+                                        <span>No now</span>
+                                    </label>
+                                </div>
+                                <h4 class="fw-bold form-h-s">You are paying via</h4>
+                                <div class="amk-group mb-5 position-relative">
+                                    <input autocomplete="off" type="text" class="border-effect form-control" required
+                                        placeholder="Click here to start writing*" id="audiences" name="audiences">
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="required amk-group mb-5 custom-radio">
+                                    <h4 class="fw-bold">Preferred method of communication</h4>
+                                    <p class="hint form-h-s">
+                                        Example: We may need some clarification to
+                                        complete the work or reach you directly
+                                    </p>
+                                    <label>
+                                        <input type="radio" name="communication-method" checked>
+                                        <span>Whats App</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="communication-method">
+                                        <span>Our Client Area</span>
+                                    </label>
+                                    <label>
+                                        <input type="radio" name="communication-method">
+                                        <span>Mobile Call</span>
+                                    </label>
+                                </div>
+                                <div class="required amk-group mb-5 custom-radio">
+                                    <h4 class="fw-bold">Attach Files</h4>
+                                    <p class="hint form-h-s">
+                                        Example: old logo, current logo, ideas, concept, guidelines,
+                                        profile …
+                                    </p>
+                                    <div class="custom-upload">
+                                        <label class="custom-upload__button outline" style="width: fit-content;"
+                                            for="uploadFile" data-element="custom-upload-button">Attach
+                                            file</label>
+                                        <small class="d-block mt-2">allowed files: jpg,png,pdf,webp,svg</small>
+                                        <input class="custom-upload__input" name="uploadFile" id="uploadFile"
+                                            type="file" data-behaviour="custom-upload-input">
+                                    </div>
+
+                                    <div class="uploaded-file d-flex align-items-center justify-content-between">
+                                        <h5 class="mb-0">Logo.pdf</h5>
+                                        <img src="./images/close.svg" alt="Close Icon">
+                                    </div>
+                                </div>
+                                <div class="required amk-group  custom-radio">
+                                    <h4 class="fw-bold">You are paying via</h4>
+                                    <label class="align-items-center payment-radio">
+
+                                        <input type="radio" name="payment" checked>
+
+                                        <span>Mada, ApplePay, Visa <small> (Online Getway)</small></span>
+                                        <svg id="Group_516" data-name="Group 516" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="28.122" height="28.072"
+                                            viewBox="0 0 28.122 28.072">
+                                            <defs>
+                                                <clipPath id="clip-path">
+                                                    <rect id="Rectangle_220" data-name="Rectangle 220" width="28.122"
+                                                        height="28.072" transform="translate(0 0)" />
+                                                </clipPath>
+                                            </defs>
+                                            <g id="Group_516-2" data-name="Group 516" clip-path="url(#clip-path)">
+                                                <path id="Path_1470" data-name="Path 1470"
+                                                    d="M14.061,0A14.036,14.036,0,1,0,28.122,14.011,14.035,14.035,0,0,0,14.061,0m0,26.028A11.992,11.992,0,1,1,26.078,14.061,12.023,12.023,0,0,1,14.061,26.028" />
+                                                <path id="Path_1471" data-name="Path 1471"
+                                                    d="M14.061,3.839A10.2,10.2,0,1,0,24.283,14.011,10.194,10.194,0,0,0,14.061,3.839m0,18.15a7.978,7.978,0,1,1,7.978-7.978,8,8,0,0,1-7.978,7.978" />
+                                            </g>
+                                        </svg>
+                                    </label>
+
+                                    <label class="align-items-center payment-radio">
+                                        <input type="radio" name="payment">
+                                        <span>PayPal <small>(Online Getway)</small></span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="26.95" height="27.225"
+                                            viewBox="0 0 26.95 27.225">
+                                            <defs>
+                                                <clipPath id="clip-path">
+                                                    <rect id="Rectangle_218" data-name="Rectangle 218" width="26.95"
+                                                        height="27.225" transform="translate(0 0)" fill="#020205" />
+                                                </clipPath>
+                                            </defs>
+                                            <g id="Group_515" data-name="Group 515" transform="translate(0 0)">
+                                                <g id="Group_511" data-name="Group 511" clip-path="url(#clip-path)">
+                                                    <path id="Path_1467" data-name="Path 1467"
+                                                        d="M14.586,10.057a3.61,3.61,0,0,0,.535-.412,3.24,3.24,0,0,0,.951-1.59,1.9,1.9,0,0,0-.648-2.134,2.014,2.014,0,0,0-1.185-.365H11.571l-.085.365L10.4,10.557h2.555a3.1,3.1,0,0,0,1.627-.5m-1.6-2.834h1.3c.067.294.107.3.127.312a.472.472,0,0,1-.024.2l-.01.035-.008.034A1.453,1.453,0,0,1,12.94,8.89h-.3Z"
+                                                        fill="#020205" />
+                                                    <path id="Path_1468" data-name="Path 1468"
+                                                        d="M25.507,7.005a6.863,6.863,0,0,0-2.034-1.689,6.464,6.464,0,0,0-1.265-2.644A7.558,7.558,0,0,0,16.319,0H5.124L4.8,1.463.514,20.494,0,22.78H4.236l-.462,2.056-.538,2.389h9.483l.313-1.426,1.032-4.686H16.73a9.849,9.849,0,0,0,9.994-7.861,7.111,7.111,0,0,0-1.217-6.247M4.718,20.557H2.368l4.25-18.89h9.765A5.41,5.41,0,0,1,21.126,4.2a4.768,4.768,0,0,1,.592,2.107,6.877,6.877,0,0,1-.168,1.865,7.928,7.928,0,0,1-2.01,3.837,8.154,8.154,0,0,1-5.86,2.431c-.048,0-.1.006-.144.006H9.354L8.008,20.557H4.718Zm19.713-7.5a7.324,7.324,0,0,1-7.452,5.834h-4.3L11.335,25H5.62l.5-2.222H9.564l.314-1.427,1.031-4.685h3.048a9.028,9.028,0,0,0,9.16-7.2A9.129,9.129,0,0,0,23.286,8.4a4.7,4.7,0,0,1,1.145,4.658"
+                                                        fill="#020205" />
+                                                </g>
+                                            </g>
+                                        </svg>
+
+                                    </label>
+
+                                    <label class="align-items-center payment-radio">
+                                        <input type="radio" name="payment">
+                                        <span>Bank Transfare</span>
+                                        <svg xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="25.763"
+                                            viewBox="0 0 26 25.763">
+                                            <defs>
+                                                <clipPath id="clip-path">
+                                                    <rect id="Rectangle_219" data-name="Rectangle 219" width="26"
+                                                        height="25.763" transform="translate(0 0)" />
+                                                </clipPath>
+                                            </defs>
+                                            <g id="Group_514" data-name="Group 514" transform="translate(0 0)">
+                                                <g id="Group_513" data-name="Group 513" clip-path="url(#clip-path)">
+                                                    <path id="Path_1469" data-name="Path 1469"
+                                                        d="M25.929,8.018a.609.609,0,0,1-.091-.092l-7.1-4.4a6.425,6.425,0,0,0-11.466,0L.162,7.926a.609.609,0,0,1-.091.092.457.457,0,0,0-.066.1A.466.466,0,0,0,0,8.24a.405.405,0,0,0,0,.13Q0,8.4,0,8.436v2.18a.672.672,0,0,0,.65.693H1.3V21.7H.655A.672.672,0,0,0,0,22.4v2.907c0,.359.291.65.65.3h24.69c.359.352.649.061.649-.3V22.4a.672.672,0,0,0-.649-.693h-.65v-10.4h.65a.672.672,0,0,0,.649-.693V8.436a.364.364,0,0,0,0-.066.355.355,0,0,0,0-.13.466.466,0,0,0,0-.118.453.453,0,0,0-.065-.1M13,1.265a5.2,5.2,0,1,1-5.2,5.2,5.2,5.2,0,0,1,5.2-5.2m6.5,10.044V21.553a.644.644,0,0,0,0,.152H15.6v-8.9a6.492,6.492,0,0,0,2.027-1.5Zm-5.2,1.17V21.7H11.7V12.479a6.56,6.56,0,0,0,2.6,0m-3.9.327v8.9H6.5a.644.644,0,0,0,0-.152V11.309H8.374a6.492,6.492,0,0,0,2.027,1.5M1.3,9.074l5.3-3.313a6.34,6.34,0,0,0-.1,1,6.327,6.327,0,0,0,.909,3.249H1.3Zm3.9,2.235V21.553a.644.644,0,0,0,0,.152H2.6v-10.4Zm19.492,13H1.3V22.671h23.39Zm-3.9-2.6a.644.644,0,0,0,0-.152V11.309h2.6V21.7Zm3.9-11.695H18.588A6.327,6.327,0,0,0,19.5,6.761a6.339,6.339,0,0,0-.1-1l5.3,3.313Z" />
+                                                </g>
+                                            </g>
+                                        </svg>
+
+                                    </label>
+
+                                </div>
+                                <div class="bank-account-details">
+                                    <h5 class="underline">Our Bank account details</h5>
+                                    <h5>Saudi Arabia</h5>
+                                    <h5 class="fw-bold">Alrajhi Bank</h5>
+                                    <h5 class="fw-bold">ANAS M ALOMRAN</h5>
+                                    <h5 class="fw-bold">IPAN 12345678901234</h5>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-12">
+                                        <div class="amk-group mb-5 position-relative">
+                                            <input autocomplete="off" type="text" class="border-effect form-control"
+                                                required placeholder="Name" id="bank-user-name" name="name">
+                                            <span class="focus-border">
+                                                <i></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="amk-group mb-5 position-relative">
+                                            <input autocomplete="off" type="number" class="border-effect form-control"
+                                                required placeholder="Amount" id="bank-amount" name="amount">
+                                            <span class="focus-border">
+                                                <i></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 col-lg-6">
+                                        <div class="amk-group mb-5 position-relative">
+                                            <input autocomplete="off" type="number" class="border-effect form-control"
+                                                required placeholder="Receipt number" id="receipt-number"
+                                                name="receipt-number">
+                                            <span class="focus-border">
+                                                <i></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="custom-upload">
+                                    <label class="custom-upload__button outline" style="width: fit-content;"
+                                        for="uploadFile" data-element="custom-upload-button">Attach receipt</label>
+                                    <small class="d-block mt-2">allowed files: jpg,png,pdf,pdf,svg</small>
+                                    <input class="custom-upload__input" name="receipt-file" id="receipt-file"
+                                        type="file" data-behaviour="custom-upload-input">
+                                </div>
+                                <div class="mb-5 uploaded-file d-flex align-items-center justify-content-between">
+                                    <h5 class="mb-0">Receipt.pdf</h5>
+                                    <img src="./images/close.svg" alt="Close Icon">
+                                </div>
+                                <h4 class="fw-bold form-h-s">Finally</h4>
+                                <div class="amk-group mb-5 custom-checkbox">
+                                    <label class="checkbox bounce" for="privacy-policy">
+                                        <input type="checkbox" id="privacy-policy">
+                                        <svg viewBox="0 0 21 21">
+                                            <polyline points="5 10.75 8.5 14.25 16 6"></polyline>
+                                        </svg>
+                                        I agree to the privacy policy and terms and
+                                        conditions.
+                                    </label>
+                                </div>
+                                <button type="submit" class="button-submit button me-5"
+                                    data-form-submit="#form-0">Checkout
+                                    now</button>
+                                <a href="store.html" class="back-to-store">Back to store</a>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End Store Content -->
+
+
+
+        <!-- Start Footer -->
+        <footer>
+
+            <div class="footer-top d-none d-lg-block">
+                <div class="container">
+                    <div class="row align-items-center
+                            justify-content-between gap-5 gap-lg-0">
+                        <div class="col-lg-8">
+                            <h2 class="m-0 footer-top-heading">Let us start
+                                something nice!</h2>
+                        </div>
+                        <div class="col-lg-4 text-center text-lg-end">
+                            <a href="contact.html" class="button">Submit
+                                Query
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="container mt-0 mt-lg-5">
+                <div class="footer-bottom">
+                    <div class="row">
+                        <div class="col-lg">
+                            <span class="nishan-icon opacity-0 hidden d-none
+                                    d-lg-block">c</span>
+                            <h4 class="footer-about footer-heading wow
+                                    overflow-hidden animate animate__fadeInUp
+                                    animation-delay-1">
+                                We are Design & Branding
+                                studio work 100%
+                                digital.</h4>
+                        </div>
+                        <div class="col-lg"></div>
+                        <div class="col-lg">
+                            <div class="footer-box">
+                                <div class="footer-accordion d-flex flex-row
+                                        flex-lg-column align-items-center
+                                        align-items-lg-start gap-3 gap-lg-0 mb-0
+                                        wow overflow-hidden wow animate
+                                        animate__fadeIn animation-delay-5">
+                                    <span class="nishan-icon d-none
+                                            d-lg-block">c</span>
+                                    <h4 class="fw-bold">Contact</h4>
+                                </div>
+                                <ul class="list-unstyled first-list">
+                                    <li class="wow overflow-hidden animate
+                                            animate__fadeInUp
+                                            animation-delay-1">
+                                        Saudi
+                                        Arabia</li>
+                                    <li class="wow overflow-hidden animate
+                                            animate__fadeInUp
+                                            animation-delay-2">
+                                        <a href="tel:+966503827878">
+                                            (966) 503827878
+                                        </a>
+                                    </li>
+                                    <li class="wow overflow-hidden animate
+                                            animate__fadeInUp
+                                            animation-delay-3">
+                                        <a href="mailto:info@bynishan.com">
+                                            info@bynishan.com
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr class="between d-block d-lg-none">
+
+                            <div class="footer-box mt-0 mt-lg-5">
+                                <div class="footer-accordion d-flex flex-row
+                                        flex-lg-column align-items-center
+                                        align-items-lg-start gap-3 gap-lg-0 mb-0
+                                        wow overflow-hidden wow animate
+                                        animate__fadeIn animation-delay-5">
+                                    <span class="nishan-icon d-none
+                                            d-lg-block">m</span>
+                                    <h4 class="fw-bold">Social Media
+                                    </h4>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-1">
+                                        <a href="#">Instagram</a>
+                                    </li>
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-2">
+                                        <a href="#">Twitter</a>
+                                    </li>
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-3">
+                                        <a href="#">Behance</a>
+                                    </li>
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-4 mt-3">
+                                        <a href="#">Notarized by maroof.</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg">
+                            <hr class="between d-block d-lg-none">
+                            <div class="footer-box">
+                                <div class="footer-accordion d-flex flex-row
+                                        flex-lg-column align-items-center
+                                        align-items-lg-start gap-3 gap-lg-0 mb-0
+                                        wow overflow-hidden wow animate
+                                        animate__fadeIn animation-delay-5">
+                                    <span class="nishan-icon d-none
+                                            d-lg-block">l</span>
+                                    <h4 class="fw-bold">Legal</h4>
+                                </div>
+                                <ul class="list-unstyled">
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-1">
+                                        <a href="#">
+                                            FAQ's
+                                        </a>
+                                    </li>
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-2">
+                                        <a href="#">
+                                            Privacy policy
+                                        </a>
+                                    </li>
+                                    <li class="wow overflow-hidden wow
+                                            animate animate__fadeInUp
+                                            animation-delay-3">
+                                        <a href="#">
+                                            Terms and Conditions
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <hr class="between d-block d-lg-none">
+
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>Copyright 2023 Nishan ® All rights reserved</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- End Footer -->
+    </main>
+
+</body>
+
+</html>
