@@ -180,12 +180,6 @@
             @include font-size(24px);
           }
         }
-        .payment-fact {
-          img {
-            max-width: 28px;
-            width: 100%;
-          }
-        }
       }
       &#terms {
         border: 2px solid $primary;
@@ -311,6 +305,19 @@
       small {
         color: #969696;
       }
+    }
+  }
+  // Thank You (Checkout)
+  .thank-you {
+    @include margin-top(115px);
+    @include media ($xl) {
+      @include margin-bottom(115px);
+    }
+  }
+  .fact {
+    img {
+      max-width: 28px;
+      width: 100%;
     }
   }
 }
