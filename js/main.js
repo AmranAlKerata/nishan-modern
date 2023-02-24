@@ -360,6 +360,17 @@ $(function() {
         }
       }
     });
+    const productSwiper = new Swiper("#productSwiper", {
+      slidesPerView: 1,
+      speed: 1000,
+      disableOnInteraction: true,
+      speed: 1000,
+      loop: true,
+      clickabel: true,
+      pagination: {
+        el: ".swiper-pagination"
+      }
+    });
   }
 
   // Change Background Color on Scroll
@@ -472,6 +483,16 @@ $(function() {
         }
       }
     });
+  });
+
+  $("#client-form").validate({
+    errorPlacement: function errorPlacement(error, element) {
+      if (element[0].type === "checkbox") {
+        element.parent().after(error);
+      } else {
+        element.after(error);
+      }
+    }
   });
 
   // Textarea animated border & Shuffle filter input

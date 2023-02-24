@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <!-- Select 2 -->
     <link rel="stylesheet" href="css/select2.min.css">
+    <!-- Swiper  -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -26,6 +28,8 @@
     <script defer src="js/bootstrap.min.js"></script>
     <!-- Select 2 -->
     <script defer src="js/select2.min.js"></script>
+    <!-- Swiper Js -->
+    <script defer src="js/swiper-bundle.min.js"></script>
     <!-- Jquery Validate -->
     <script defer src="js/jquery.validate.min.js"></script>
     <!-- Wow Js -->
@@ -169,18 +173,33 @@
                             <div class="client-box">
                                 <div id="scope" class="single-box active ">
                                     <div class="service selected-service
-                                            package">
-                                        <div class="service-container">
+                                            product">
+                                        <div class="service-container position-relative">
                                             <h6 class="badge
-                                                    d-inline-block">Light social</h6>
-                                            <h4 class="title fw-bold my-3">Social
-                                                Posts Design</h4>
-                                            <h4 class="price fw-bold">50 SAR</h4>
-                                            <p class="desc">Social media
-                                                always need to be active,
-                                                that allows to get
-                                                more
-                                                orders</p>
+                                                    d-inline-block">Exclusive</h6>
+                                            <!-- Swiper -->
+                                            <div class="swiper product-swiper" id="productSwiper">
+                                                <div class="swiper-wrapper">
+                                                    <div class="swiper-slide">
+                                                        <img src="./images/product.png" alt="T-shirt"
+                                                            class="product-image">
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <img src="./images/brand_1.png" alt="T-shirt"
+                                                            class="product-image">
+                                                    </div>
+                                                    <div class="swiper-slide">
+                                                        <img src="./images/brand_2.png" alt="T-shirt"
+                                                            class="product-image">
+                                                    </div>
+                                                </div>
+                                                <div class="swiper-pagination"></div>
+                                            </div>
+                                            <h4 class="title fw-bold my-3 p-65">Creative T-shirt</h4>
+                                            <h4 class="price fw-bold p-65">100 SAR</h4>
+                                            <p class="desc p-65">A creative T-shirt that carries an artistic
+                                                painting that expresses passion, which we
+                                                designed to be your daily inspiration</p>
                                         </div>
                                         <ul class="service-list">
                                             <li>8 Posts design</li>
@@ -428,7 +447,7 @@
                                 <h4 class="fw-bold">Would you like to talk to us briefly about the Company /
                                     Organization?</h4>
                                 <p class="hint form-h-s">Example: vision, orientation…</p>
-                                <div class="amk-group mb-5 custom-radio">
+                                <div class=" amk-group mb-5 custom-radio">
                                     <label>
                                         <input type="radio" name="talk-type" checked>
                                         <span>Yes</span>
@@ -625,8 +644,8 @@
                                         conditions.
                                     </label>
                                 </div>
-                                <button type="submit" class="button-submit button me-3 me-lg-5"
-                                    id="checkoutSubmit">Checkout
+                                <button type="submit" id="checkoutSubmit"
+                                    class="button-submit button me-3 me-lg-5">Checkout
                                     now</button>
                                 <a href="store.html" class="back-to-store">Back to store</a>
                             </form>
