@@ -485,15 +485,17 @@ $(function() {
     });
   });
 
-  $("#client-form").validate({
-    errorPlacement: function errorPlacement(error, element) {
-      if (element[0].type === "checkbox") {
-        element.parent().after(error);
-      } else {
-        element.after(error);
+  if ($("#client-form").length > 0) {
+    $("#client-form").validate({
+      errorPlacement: function errorPlacement(error, element) {
+        if (element[0].type === "checkbox") {
+          element.parent().after(error);
+        } else {
+          element.after(error);
+        }
       }
-    }
-  });
+    });
+  }
 
   // Textarea animated border & Shuffle filter input
   $("textarea, .js-shuffle-search").on("change", function() {
@@ -545,6 +547,15 @@ $(function() {
         if (e.target.parentElement.classList.contains("page")) {
           noteLink = window.location.href;
         }
+        if (e.target.parentElement.classList.contains("service-copy")) {
+          const w = window.location;
+          noteLink =
+            w.origin +
+            w.pathname +
+            "#" +
+            e.target.closest(".service-spacer").getAttribute("id");
+        }
+
         const currentLink = noteLink;
 
         /* Copy the text inside the text field */
@@ -613,6 +624,42 @@ $(function() {
       .siblings()
       .removeClass("active");
   });
+
+  // Scroll to the top of package - show & hide control buttons
+  $(".service-box").on("shown.bs.collapse", function(e) {
+    const offset = $(this);
+    $(this).parent().find(".service-details").removeClass("show");
+    $(this).parent().find(".process-checkout ").addClass("show");
+
+    $("html,body").animate(
+      {
+        scrollTop: offset.offset().top - 400
+      },
+      10
+    );
+  });
+  // Show copy icon
+  $(".service-box").on("show.bs.collapse", function(e) {
+    $(this).parent().parent().find(".copy-note").fadeIn();
+  });
+
+  // Hide copy icon -show & hide control buttons
+  $(".service-box").on("hide.bs.collapse", function(e) {
+    $(this).parent().find(".service-details").addClass("show");
+    $(this).parent().find(".process-checkout ").removeClass("show");
+    $(this).parent().parent().find(".copy-note").fadeOut();
+  });
+
+  // Open Accordion based on
+  // Check if we are on the store page
+  if ($("body").hasClass("services-page")) {
+    // Check if we have a hash in href
+    const hash = window.location.hash;
+    if (hash) {
+      // Just open the selected service box
+      $(hash).find("button.service-details").click();
+    }
+  }
 });
 
 // Custom Cursor

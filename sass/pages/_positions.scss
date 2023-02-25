@@ -64,17 +64,17 @@
     }
     .submit-container {
       text-align: center;
-      background-color: #fff;
+      background-color: $secondary;
       padding: 20px 0;
       border-top: 1px solid $primary;
       .submit-position {
         text-align: center;
         border: none;
-        color: $primary;
-        @include font-size(36px);
+        color: #fff;
+        @include font-size(24px);
         background-color: transparent;
         &:hover {
-          color: $secondary;
+          color: #fff;
         }
         .nishan-icon {
           display: inline-block;

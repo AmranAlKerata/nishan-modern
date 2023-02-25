@@ -15,6 +15,8 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <!-- Select 2 -->
     <link rel="stylesheet" href="css/select2.min.css">
+    <!-- Swiper  -->
+    <link rel="stylesheet" href="css/swiper-bundle.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -28,11 +30,13 @@
     <script defer src="js/select2.min.js"></script>
     <!-- Wow Js -->
     <script defer src="js/wow.min.js"></script>
+    <!-- Swiper Js -->
+    <script defer src="js/swiper-bundle.min.js"></script>
     <!-- Main Script -->
     <script defer src="js/main.js"></script>
 </head>
 
-<body data-anm=".anm" class="store-page">
+<body data-anm=".anm" class="store-page services-page">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -200,47 +204,199 @@
             </div>
 
             <!-- Packages & Products -->
-            <div class="services">
+            <div class="services page" id="services">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12 col-lg-6">
-                            <div class="service package">
-                                <h6 class="badge d-inline-block">Expert choice</h6>
-                                <h4 class="title fw-bold my-3">Social Media Consulting</h4>
-                                <h4 class="price fw-bold">99 SAR</h4>
-                                <div class="service-control">
-                                    <div
-                                        class="d-block d-md-flex align-items-center justify-content-between flex-column flex-md-row gap-md-2">
-                                        <div class="position-heading">
-                                            <h4 class="d-inline-block fw-bold">Graphic Designer</h4>
-                                            <h5 class="ms-3 d-inline-block fw-normal">Remotely</h5>
-                                        </div>
-                                        <div class="req" data-bs-toggle="collapse"
-                                            data-bs-target="#application-developer" aria-expanded="false"
-                                            aria-controls="application-developer">Details</div>
+                    <div class="row justify-content-between">
+                        <div class="col-12 col-lg-6 service-col">
+                            <div id="social-media-package" class="service-spacer">
+                                <div class="service package accordion-service">
+                                    <div class="d-flex align-items-center justify-content-between p-65">
+                                        <h6 class="badge d-inline-block">Expert choice</h6>
+                                        <span class="copy-note text-end service-copy">
+                                            <img class="copy-icon" alt="copy-icon" src="images/copy-outline.svg">
+                                        </span>
                                     </div>
-                                    <div class="position-form" style="height: 0;overflow: hidden;"
-                                        id="application-developer" class="accordion-collapse collapse"
-                                        data-bs-parent="#positions">
-                                        <div class="position-desc mt-5 padding-50">
-                                            <h4 class="fw-bold wow animate animate__fadeInUp">Job Scope</h4>
-                                            <p class="wow animate animate__fadeInUp">Motion graphics designers,
-                                                sometimes just called
-                                                motion designers, create artwork for the
-                                                web, television or film.
-                                                This could include movie clips, trailers, commercials, title sequences,
-                                                etc. They use
-                                                visual effects, animation and
-                                                other cinematic techniques to bring life to their creations. Motion
-                                                graphics designers,
-                                                sometimes just called motion
-                                                designers, create artwork for the web, television or film. This could
-                                                include movie
-                                                clips, trailers, commercials, title
-                                                sequences, etc.</p>
+
+                                    <h4 class="title fw-bold my-3 p-65">Social Media Consulting</h4>
+                                    <h4 class="price fw-bold p-65  mb-3">99 SAR</h4>
+                                    <div class="service-control">
+
+                                        <div class="service-box" style="height: 0;overflow: hidden;" id="consulting"
+                                            class="accordion-collapse collapse" data-bs-parent="#services">
+                                            <p class="desc p-65">Social media
+                                                always need to be active,
+                                                that allows to get
+                                                more
+                                                orders</p>
+                                            <ul class="service-list">
+                                                <li>8 Posts design</li>
+                                                <li>Add content</li>
+                                                <li>Support responses</li>
+                                                <li>1 Social platform</li>
+                                                <li>Format: jpg, png, gif</li>
+                                                <li>24/7 Support</li>
+                                            </ul>
+                                            <ul class="service-payment-details">
+                                                <li>1 Payment Milestone</li>
+                                                <li>30 Days Estimated</li>
+                                                <li>3 Revisionrounds</li>
+                                            </ul>
                                         </div>
-                                        <h2>Hello</h2>
+                                        <a href="store_details.html" class="button w-100 process-checkout">Process to
+                                            Checkout</a>
+                                        <button class=" w-100 bg-transparent border-0 service-details text-center show"
+                                            data-bs-toggle="collapse" data-bs-target="#consulting" aria-expanded="false"
+                                            aria-controls="consulting">Details</button>
                                     </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 service-col">
+                            <div id="social-media-design" class="service-spacer">
+                                <div class="service package accordion-service">
+                                    <div class="d-flex align-items-center justify-content-between p-65">
+                                        <h6 class="badge d-inline-block">Light social</h6>
+                                        <span class="copy-note text-end service-copy">
+                                            <img class="copy-icon" alt="copy-icon" src="images/copy-outline.svg">
+                                        </span>
+                                    </div>
+
+                                    <h4 class="title fw-bold my-3 p-65">Social Posts Design</h4>
+                                    <h4 class="price fw-bold p-65  mb-3">50 SAR</h4>
+                                    <div class="service-control">
+
+                                        <div class="service-box" style="height: 0;overflow: hidden;" id="posts-design"
+                                            class="accordion-collapse collapse" data-bs-parent="#services">
+                                            <p class="desc p-65">Social media
+                                                always need to be active,
+                                                that allows to get
+                                                more
+                                                orders</p>
+                                            <ul class="service-list">
+                                                <li>8 Posts design</li>
+                                                <li>Add content</li>
+                                                <li>Support responses</li>
+                                                <li>1 Social platform</li>
+                                                <li>Format: jpg, png, gif</li>
+                                                <li>24/7 Support</li>
+                                            </ul>
+                                            <ul class="service-payment-details">
+                                                <li>1 Payment Milestone</li>
+                                                <li>30 Days Estimated</li>
+                                                <li>3 Revisionrounds</li>
+                                            </ul>
+                                        </div>
+                                        <a href="store_details.html" class="button w-100 process-checkout">Process to
+                                            Checkout</a>
+                                        <button class=" w-100 bg-transparent border-0 service-details text-center show"
+                                            data-bs-toggle="collapse" data-bs-target="#posts-design"
+                                            aria-expanded="false" aria-controls="posts-design">Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 service-col">
+                            <div id="brand-consulting-service" class="service-spacer">
+                                <div class="service package accordion-service">
+                                    <div class="d-flex align-items-center justify-content-between p-65">
+                                        <h6 class="badge d-inline-block">Light social</h6>
+                                        <span class="copy-note text-end service-copy">
+                                            <img class="copy-icon" alt="copy-icon" src="images/copy-outline.svg">
+                                        </span>
+                                    </div>
+
+                                    <h4 class="title fw-bold my-3 p-65">Social Posts Design</h4>
+                                    <h4 class="price fw-bold p-65  mb-3">50 SAR</h4>
+                                    <div class="service-control">
+
+                                        <div class="service-box" style="height: 0;overflow: hidden;"
+                                            id="brand-consulting" class="accordion-collapse collapse"
+                                            data-bs-parent="#services">
+                                            <p class="desc p-65">Social media
+                                                always need to be active,
+                                                that allows to get
+                                                more
+                                                orders</p>
+                                            <ul class="service-list">
+                                                <li>8 Posts design</li>
+                                                <li>Add content</li>
+                                                <li>Support responses</li>
+                                                <li>1 Social platform</li>
+                                                <li>Format: jpg, png, gif</li>
+                                                <li>24/7 Support</li>
+                                            </ul>
+                                            <ul class="service-payment-details">
+                                                <li>1 Payment Milestone</li>
+                                                <li>30 Days Estimated</li>
+                                                <li>3 Revisionrounds</li>
+                                            </ul>
+                                        </div>
+                                        <a href="store_details.html" class="button w-100 process-checkout">Process to
+                                            Checkout</a>
+                                        <button class=" w-100 bg-transparent border-0 service-details text-center show"
+                                            data-bs-toggle="collapse" data-bs-target="#brand-consulting"
+                                            aria-expanded="false" aria-controls="brand-consulting">Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-lg-6 service-col">
+                            <div id="creative-t-shirt" class="service-spacer">
+                                <div class="service product accordion-service pt-0">
+                                    <div class="service-container position-relative">
+                                        <div class="d-flex align-items-center justify-content-between p-65 floating">
+                                            <h6 class="badge d-inline-block">Exclusive</h6>
+                                            <span class="copy-note text-end service-copy">
+                                                <img class="copy-icon" alt="copy-icon" src="images/copy-outline.svg">
+                                            </span>
+                                        </div>
+
+                                        <!-- Swiper -->
+                                        <div class="swiper product-swiper" id="productSwiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <img src="./images/product.png" alt="T-shirt" class="product-image">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="./images/brand_1.png" alt="T-shirt" class="product-image">
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <img src="./images/brand_2.png" alt="T-shirt" class="product-image">
+                                                </div>
+                                            </div>
+                                            <div class="swiper-pagination"></div>
+                                        </div>
+                                        <h4 class="title fw-bold mt-4 mb-3 p-65">Creative T-shirt</h4>
+                                        <h4 class="price fw-bold p-65 mb-3">100 SAR</h4>
+                                        <div class="service-box" style="height: 0;overflow: hidden;" id="t-shirt"
+                                            class="accordion-collapse collapse" data-bs-parent="#services">
+                                            <p class="desc p-65">Social media
+                                                always need to be active,
+                                                that allows to get
+                                                more
+                                                orders</p>
+                                            <ul class="service-list">
+                                                <li>8 Posts design</li>
+                                                <li>Add content</li>
+                                                <li>Support responses</li>
+                                                <li>1 Social platform</li>
+                                                <li>Format: jpg, png, gif</li>
+                                                <li>24/7 Support</li>
+                                            </ul>
+                                            <ul class="service-payment-details">
+                                                <li>1 Payment Milestone</li>
+                                                <li>30 Days Estimated</li>
+                                                <li>3 Revisionrounds</li>
+                                            </ul>
+                                        </div>
+                                        <a href="store_details.html" class="button w-100 process-checkout">Process to
+                                            Checkout</a>
+                                        <button class=" w-100 bg-transparent border-0 service-details text-center show"
+                                            data-bs-toggle="collapse" data-bs-target="#t-shirt" aria-expanded="false"
+                                            aria-controls="t-shirt">Details</button>
+                                    </div>
+
                                 </div>
                             </div>
                         </div>

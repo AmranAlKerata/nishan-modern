@@ -7,6 +7,29 @@
     display: none;
   }
 
+  %service-list {
+    .service-list {
+      li {
+        @include font-size(24px);
+        @include padding(20px 65px);
+
+        border-top: 1px solid $primary;
+        &:last-child {
+          border-bottom: 1px solid $primary;
+        }
+      }
+    }
+  }
+
+  %service-payment-details {
+    .service-payment-details {
+      @include padding(40px 65px);
+      li {
+        @include font-size(24px);
+      }
+    }
+  }
+
   .filters {
     margin-bottom: 45px;
     .view-as {
@@ -84,6 +107,19 @@
     @include media ($xl) {
       @include margin-bottom(115px);
     }
+    &.page {
+      @include margin-top(40px);
+      .service-spacer {
+        @include padding-top(75px);
+      }
+    }
+    .service-col {
+      @media (min-width: 992px) {
+        max-width: 46%;
+        width: 100%;
+        padding: 0;
+      }
+    }
     .service {
       border: 1px solid $primary;
       &.selected-service {
@@ -99,225 +135,297 @@
         color: $secondary;
       }
     }
-  }
-
-  // Details Page
-  .agreement-details {
-    .tabs {
-      @include margin-bottom(50px);
-      li {
-        @include font-size(24px);
-        color: #bfbfbf;
+    .accordion-service {
+      @include padding(45px 0 0);
+      .service-details {
+        border-top: 1px solid $primary !important;
+        padding: 20px 0;
         cursor: pointer;
-        transition: color .3s ease-in-out;
-        &.active {
-          color: $primary;
+        display: none;
+        &.show {
+          display: block;
         }
       }
-    }
-  }
-  .client-box {
-    .single-box {
-      display: none;
-      animation: fadeIn 1s ease-in-out forwards;
-      .selected-service {
-        padding: 0;
-        .service-container {
-          @include padding(30px 65px);
+      @extend %service-list;
+      @extend %service-payment-details;
+      .process-checkout {
+        border-radius: 0;
+        background-color: $secondary;
+        padding: 20px 0;
+        display: none;
+        &:hover {
+          background-color: $primary;
         }
-        &.product {
-          .service-container {
-            padding: 0;
+        &.show {
+          display: block;
+        }
+      }
+      .copy-note {
+        cursor: pointer;
+        display: none;
+
+        span {
+          color: $primary;
+          margin-#{$end_dir}: 20px;
+        }
+        &.page {
+          span {
+            margin-#{$start_dir}: 20px;
+            margin-#{$end_dir}: unset;
+            display: inline-block;
+            transform: translateY(-10px);
+            color: $secondary;
           }
-          .p-65 {
-            @include padding(0 65px);
-            &.desc {
-              @include padding(0 65px 30px 65px);
-            }
-          }
+        }
+        .copy-icon {
+          max-width: 30px;
+        }
+      }
+      &.product {
+        .floating {
+          position: absolute;
+          top: 30px;
+          left: 0;
+          // @media (min-width: 1200px) {
+          //   #{$start_dir}: 4.0625rem;
+          // }
+          // #{$start_dir}: calc(1.53125rem + 3.375vw);
+          z-index: 999;
+          width: 100%;
           .badge {
-            position: absolute;
-            top: 30px;
-            @media (min-width: 1200px) {
-              #{$start_dir}: 4.0625rem;
-            }
-            #{$start_dir}: calc(1.53125rem + 3.375vw);
-            z-index: 999;
             background-color: #fff;
           }
-          .swiper-pagination {
-            text-align: $end_dir;
-            padding-#{$end_dir}: 30px;
-            .swiper-pagination-bullet-active {
-              background-color: $primary;
-            }
-          }
-          .product-image {
-            aspect-ratio: 16 / 9;
-            object-fit: cover;
+        }
+        .swiper-pagination {
+          text-align: $end_dir;
+          padding-#{$end_dir}: 30px;
+          .swiper-pagination-bullet-active {
+            background-color: $primary;
           }
         }
-      }
-
-      &#scope {
-        .desc {
-          color: #9f9f9f;
+        .product-image {
+          aspect-ratio: 16 / 9;
+          object-fit: cover;
         }
-        .service-list {
-          li {
-            @include font-size(24px);
-            @include padding(20px 65px);
-
-            border-top: 1px solid $primary;
-            &:last-child {
-              border-bottom: 1px solid $primary;
-            }
-          }
-        }
-        .service-payment-details {
-          @include padding(40px 65px);
-          li {
-            @include font-size(24px);
-          }
-        }
-      }
-      &#terms {
-        border: 2px solid $primary;
-        @include padding(45px 65px);
-      }
-      &#faqs {
-        @include padding(21px 0);
-        border: 2px solid $primary;
-        .accordion-item {
-          border-bottom: 1px solid $primary !important;
-          &.last {
-            border: none !important;
-          }
-          @include padding(24px 65px);
-          border: none;
-          transition: all .3s ease-in-out;
-          h4 {
-            position: relative;
-            cursor: pointer;
-            margin: 0;
-            text-transform: uppercase;
-            &::after {
-              content: "";
-              display: block;
-              width: 20px;
-              height: 20px;
-              border-#{$end_dir}: 1px solid $primary;
-              border-bottom: 1px solid $primary;
-              border-bottom-#{$end_dir}-radius: 2px;
-              transform: rotate(45deg);
-              position: absolute;
-              cursor: pointer;
-              top: 0;
-              #{$end_dir}: 0;
-              transition: all .3s ease-in-out;
-            }
-            &.collapsed::after {
-              transform: rotate(-45deg);
-            }
-          }
-
-          h4,
-          p {
-            @include font-size(24px);
-          }
-          p {
-            padding-#{$end_dir}: 100px;
-            @include media ($lg) {
-              padding-#{$end_dir}: 0;
-            }
-          }
-          .accordion-header {
-            display: flex;
-            align-items: center;
-          }
-          .accordion-button {
-            background-color: transparent;
-            color: $primary;
-            font-weight: bold;
-            padding-#{$end_dir}: 40px;
-            display: inline-block;
-            width: 100%;
-            border: none;
-            box-shadow: none;
-          }
-        }
-      }
-    }
-    .single-box.active {
-      display: block;
-    }
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-      }
-      100% {
-        opacity: 1;
       }
     }
   }
+}
 
-  // From Side
-  .form-side {
-    .form-h-s {
-      margin-bottom: 25px;
+// Details Page
+.agreement-details {
+  .tabs {
+    @include margin-bottom(50px);
+    li {
+      @include font-size(24px);
+      color: #bfbfbf;
+      cursor: pointer;
+      transition: color .3s ease-in-out;
+      &.active {
+        color: $primary;
+      }
     }
-    #client-form {
-      margin-top: 50px;
-      .hint {
-        @include font-size(24px);
-        color: #9f9f9f;
-      }
-      .uploaded-file {
-        margin-top: 10px;
-        background-color: #a0f7ef;
-        border-radius: 10px;
-        @include padding(24px 27px);
+  }
+}
+.client-box {
+  .single-box {
+    display: none;
+    animation: fadeIn 1s ease-in-out forwards;
 
-        img {
-          max-width: 20px;
-          width: 100%;
-          cursor: pointer;
+    .selected-service {
+      padding: 0;
+      .service-container {
+        @include padding(30px 65px);
+      }
+      &.product {
+        .service-container {
+          padding: 0;
+        }
+
+        .badge {
+          position: absolute;
+          top: 30px;
+          @media (min-width: 1200px) {
+            #{$start_dir}: 4.0625rem;
+          }
+          #{$start_dir}: calc(1.53125rem + 3.375vw);
+          z-index: 999;
+          background-color: #fff;
+        }
+        .swiper-pagination {
+          text-align: $end_dir;
+          padding-#{$end_dir}: 30px;
+          .swiper-pagination-bullet-active {
+            background-color: $primary;
+          }
+        }
+        .product-image {
+          aspect-ratio: 16 / 9;
+          object-fit: cover;
         }
       }
-      .payment-radio {
-        svg {
-          position: absolute;
-          left: 40px;
+      @extend %service-list;
+      @extend %service-payment-details;
+    }
+
+    &#terms {
+      border: 2px solid $primary;
+      @include padding(45px 65px);
+    }
+    &#faqs {
+      @include padding(21px 0);
+      border: 2px solid $primary;
+      .accordion-item {
+        border-bottom: 1px solid $primary !important;
+        &.last {
+          border: none !important;
         }
-        span:before {
-          margin-right: 50px;
+        @include padding(24px 65px);
+        border: none;
+        transition: all .3s ease-in-out;
+        h4 {
+          position: relative;
+          cursor: pointer;
+          margin: 0;
+          text-transform: uppercase;
+          &::after {
+            content: "";
+            display: block;
+            width: 20px;
+            height: 20px;
+            border-#{$end_dir}: 1px solid $primary;
+            border-bottom: 1px solid $primary;
+            border-bottom-#{$end_dir}-radius: 2px;
+            transform: rotate(45deg);
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            #{$end_dir}: 0;
+            transition: all .3s ease-in-out;
+          }
+          &.collapsed::after {
+            transform: rotate(-45deg);
+          }
         }
-        small {
-          color: #969696;
+
+        h4,
+        p {
           @include font-size(24px);
         }
-      }
-      .bank-account-details {
-        .underline {
-          text-decoration: underline;
+        p {
+          padding-#{$end_dir}: 100px;
+          @include media ($lg) {
+            padding-#{$end_dir}: 0;
+          }
         }
+        .accordion-header {
+          display: flex;
+          align-items: center;
+        }
+        .accordion-button {
+          background-color: transparent;
+          color: $primary;
+          font-weight: bold;
+          padding-#{$end_dir}: 40px;
+          display: inline-block;
+          width: 100%;
+          border: none;
+          box-shadow: none;
+        }
+      }
+    }
+  }
+  .single-box.active {
+    display: block;
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+// From Side
+.form-side {
+  .form-h-s {
+    margin-bottom: 25px;
+  }
+  #client-form {
+    margin-top: 50px;
+    .hint {
+      @include font-size(24px);
+      color: #9f9f9f;
+    }
+    .uploaded-file {
+      margin-top: 10px;
+      background-color: #a0f7ef;
+      border-radius: 10px;
+      @include padding(24px 27px);
+
+      img {
+        max-width: 20px;
+        width: 100%;
+        cursor: pointer;
+      }
+    }
+    .payment-radio {
+      svg {
+        position: absolute;
+        left: 40px;
+      }
+      span:before {
+        margin-right: 50px;
       }
       small {
         color: #969696;
+        @include font-size(24px);
       }
     }
-  }
-  // Thank You (Checkout)
-  .thank-you {
-    @include margin-top(115px);
-    @include media ($xl) {
-      @include margin-bottom(115px);
+    .bank-account-details {
+      .underline {
+        text-decoration: underline;
+      }
+    }
+    small {
+      color: #969696;
     }
   }
-  .fact {
-    img {
-      max-width: 28px;
-      width: 100%;
-    }
+}
+// Thank You (Checkout)
+.thank-you {
+  @include margin-top(115px);
+  @include media ($xl) {
+    @include margin-bottom(115px);
   }
+}
+.fact {
+  img {
+    max-width: 28px;
+    width: 100%;
+  }
+}
+.p-65 {
+  @include padding(0 65px);
+  &.desc {
+    @include padding(0 65px 30px 65px);
+  }
+}
+.m-65 {
+  @if ($lang =="en") {
+    @include margin-left(65px);
+  } @else {
+    @include margin-right(65px);
+  }
+}
+.pb-45 {
+  @include padding-bottom(45px);
+}
+.desc {
+  color: #9f9f9f;
+}
+.mt-45 {
+  @include margin-top(45px);
 }

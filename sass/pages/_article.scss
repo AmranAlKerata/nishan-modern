@@ -85,15 +85,7 @@
       color: $primary;
       margin-#{$end_dir}: 20px;
     }
-    &.page {
-      span {
-        margin-#{$start_dir}: 20px;
-        margin-#{$end_dir}: unset;
-        display: inline-block;
-        transform: translateY(-10px);
-        color: $secondary;
-      }
-    }
+
     .copy-icon {
       transform: translateY(-10px);
       max-width: 30px;
