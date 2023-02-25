@@ -638,16 +638,25 @@ $(function() {
       10
     );
   });
+
   // Show copy icon
   $(".service-box").on("show.bs.collapse", function(e) {
-    $(this).parent().parent().find(".copy-note").fadeIn();
+    $(this).parents(".service-spacer").find(".copy-note").fadeIn();
+    $(this).parents(".accordion-service").css("border-width", "2px");
   });
 
   // Hide copy icon -show & hide control buttons
   $(".service-box").on("hide.bs.collapse", function(e) {
-    $(this).parent().find(".service-details").addClass("show");
-    $(this).parent().find(".process-checkout ").removeClass("show");
-    $(this).parent().parent().find(".copy-note").fadeOut();
+    $(this)
+      .parents(".service-spacer")
+      .find(".service-details")
+      .addClass("show");
+    $(this)
+      .parents(".service-spacer")
+      .find(".process-checkout ")
+      .removeClass("show");
+    $(this).parents(".service-spacer").find(".copy-note").fadeOut();
+    $(this).parents(".accordion-service").css("border-width", "1px");
   });
 
   // Open Accordion based on

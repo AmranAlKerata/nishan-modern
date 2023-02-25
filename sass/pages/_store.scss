@@ -182,19 +182,15 @@
         }
       }
       &.product {
-        .floating {
+        .badge {
           position: absolute;
           top: 30px;
-          left: 0;
-          // @media (min-width: 1200px) {
-          //   #{$start_dir}: 4.0625rem;
-          // }
-          // #{$start_dir}: calc(1.53125rem + 3.375vw);
-          z-index: 999;
-          width: 100%;
-          .badge {
-            background-color: #fff;
+          @media (min-width: 1200px) {
+            #{$start_dir}: 4.0625rem;
           }
+          #{$start_dir}: calc(1.53125rem + 3.375vw);
+          z-index: 999;
+          background-color: #fff;
         }
         .swiper-pagination {
           text-align: $end_dir;
