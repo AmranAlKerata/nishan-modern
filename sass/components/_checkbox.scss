@@ -120,7 +120,7 @@
     overflow: hidden;
     margin-bottom: 0.375em;
 
-    input {
+    input[type="radio"] {
       position: absolute;
       #{$start_dir}: -9999px;
       &:checked + span {
@@ -148,7 +148,7 @@
         border-radius: 50%;
         margin-#{$end_dir}: 0.375em;
         transition: 0.25s ease;
-        box-shadow: inset 0 0 0 0.125em $primary;
+        box-shadow: inset 0 0 0 0.07em $primary;
       }
     }
   }

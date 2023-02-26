@@ -8,25 +8,21 @@
   }
 
   %service-list {
-    .service-list {
-      li {
-        @include font-size(24px);
-        @include padding(20px 65px);
+    li {
+      @include font-size(24px);
+      @include padding(20px 65px);
 
-        border-top: 1px solid $primary;
-        &:last-child {
-          border-bottom: 1px solid $primary;
-        }
+      border-top: 1px solid $primary;
+      &:last-child {
+        border-bottom: 1px solid $primary;
       }
     }
   }
 
   %service-payment-details {
-    .service-payment-details {
-      @include padding(40px 65px);
-      li {
-        @include font-size(24px);
-      }
+    @include padding(40px 65px);
+    li {
+      @include font-size(24px);
     }
   }
 
@@ -112,6 +108,20 @@
       .service-spacer {
         @include padding-top(75px);
       }
+      // .masonry {
+      //   column-count: 2;
+      //   column-gap: 10px;
+      //   .service-col {
+      //     display: grid;
+      //     grid-template-rows: 1fr auto;
+      //     break-inside: avoid;
+      //   }
+
+      //   .service-spacer {
+      //     grid-row: 1 / -1;
+      //     grid-column: 1;
+      //   }
+      // }
     }
     .service-col {
       @media (min-width: 992px) {
@@ -130,6 +140,7 @@
         border: 1px solid $primary;
         border-radius: 19px;
         padding: 5px 20px;
+        background-color: #fff;
       }
       .price {
         color: $secondary;
@@ -146,8 +157,12 @@
           display: block;
         }
       }
-      @extend %service-list;
-      @extend %service-payment-details;
+      .service-list {
+        @extend %service-list;
+      }
+      .service-payment-details {
+        @extend %service-payment-details;
+      }
       .process-checkout {
         border-radius: 0;
         background-color: $secondary;
@@ -202,6 +217,85 @@
         .product-image {
           aspect-ratio: 16 / 9;
           object-fit: cover;
+        }
+      }
+      &.customized {
+        background-color: #f6dec8;
+        .service-control {
+          background-color: #fff;
+          .package-option {
+            .heading {
+              cursor: pointer;
+              @include padding(20px 65px);
+              border-top: 1px solid $primary;
+              h4 {
+                margin-bottom: 0;
+              }
+              .arrow {
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-#{$end_dir}: 1px solid $primary;
+                border-bottom: 1px solid $primary;
+                border-bottom-#{$end_dir}-radius: 2px;
+                transform: rotate(-45deg);
+                cursor: pointer;
+                transition: all .3s ease-in-out;
+              }
+            }
+            .options {
+              @extend %service-list;
+              background-color: #f4f4f4;
+              .custom-radio label span:before,
+              .custom-checkbox .checkbox input {
+                background-color: transparent;
+              }
+              .custom-radio input[type="number"] {
+                background-color: transparent;
+                border: none;
+                @include font-size(24px);
+                @media (min-width: 1200px) {
+                  max-width: 70%;
+                  padding-#{$start_dir}: 20px;
+                }
+                &:focus {
+                  border: none;
+                  outline: none;
+                }
+              }
+            }
+            &.active {
+              .arrow {
+                transform: rotate(45deg);
+              }
+            }
+          }
+          .package-list {
+            @include padding(20px 65px);
+            border-top: 1px solid $primary;
+            input[type="number"] {
+              background-color: transparent;
+              border: none;
+              @include font-size(24px);
+              @media (min-width: 1200px) {
+                max-width: 60%;
+                padding-#{$start_dir}: 20px;
+              }
+              &:focus {
+                border: none;
+                outline: none;
+              }
+            }
+            textarea {
+              background-color: transparent;
+              border: none;
+              @include font-size(24px);
+              &:focus {
+                border: none;
+                outline: none;
+              }
+            }
+          }
         }
       }
     }
@@ -260,8 +354,12 @@
           object-fit: cover;
         }
       }
-      @extend %service-list;
-      @extend %service-payment-details;
+      .service-list {
+        @extend %service-list;
+      }
+      .service-payment-details {
+        @extend %service-payment-details;
+      }
     }
 
     &#terms {

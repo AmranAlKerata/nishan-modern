@@ -669,6 +669,24 @@ $(function() {
       $(hash).find("button.service-details").click();
     }
   }
+
+  // Side up & down custom package option
+  if ($(".package-option").length > 0) {
+    $(".package-option:not(.active) .options").slideUp();
+    $(".package-option .heading").on("click", function() {
+      if ($(this).parent().hasClass("active")) {
+        $(this).parent().find(".options").slideUp();
+        $(this).parent().removeClass("active");
+      } else {
+        $(this).parent().find(".options").slideDown();
+        $(this).parent().addClass("active");
+      }
+    });
+  }
+});
+
+$(".options .custom-radio input[type='number']").on("click", function() {
+  $(this).parents(".custom-radio ").find("input[type='radio']").click();
 });
 
 // Custom Cursor

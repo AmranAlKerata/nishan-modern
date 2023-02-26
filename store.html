@@ -34,6 +34,10 @@
     <script defer src="js/swiper-bundle.min.js"></script>
     <!-- Main Script -->
     <script defer src="js/main.js"></script>
+    <!-- Masonry Grid -->
+    <script defer src="js/masonry.pkgd.min.js"></script>
+
+
 </head>
 
 <body data-anm=".anm" class="store-page services-page">
@@ -125,6 +129,7 @@
             </div>
         </header>
         <!-- End Header -->
+
 
         <!-- Start Hero -->
         <section id="positions-hero" class=" first-section positions-hero d-flex align-items-center pt-0 has-circle">
@@ -397,6 +402,215 @@
                                             aria-controls="t-shirt">Details</button>
                                     </div>
 
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-12 col-lg-6 service-col">
+                            <div id="customized" class="service-spacer">
+                                <div class="service package accordion-service customized">
+                                    <div class="d-flex align-items-center justify-content-between p-65">
+                                        <h6 class="badge d-inline-block">As you like</h6>
+                                        <span class="copy-note text-end service-copy">
+                                            <img class="copy-icon" alt="copy-icon" src="images/copy-outline.svg">
+                                        </span>
+                                    </div>
+
+                                    <h4 class="title fw-bold my-3 p-65">Customize your package</h4>
+                                    <h4 class="price fw-bold p-65  mb-3">Estimat 0 SAR</h4>
+                                    <p class="desc p-65">Create your package and customize the items
+                                        you need, our agent will review your order
+                                        within 24 hoursallows to get more orders</p>
+                                    <div class="service-control">
+
+                                        <div class="service-box" style="height: 0;overflow: hidden;"
+                                            id="customized-packages" class="accordion-collapse collapse"
+                                            data-bs-parent="#services">
+                                            <!-- Customize Option -->
+                                            <div class="package-option active">
+                                                <div class="heading d-flex align-items-center justify-content-between">
+                                                    <h4 class=" fw-bold">Choose Servicess</h4>
+                                                    <i class="arrow"></i>
+                                                </div>
+                                                <ul class="options">
+                                                    <li class="amk-group custom-radio">
+                                                        <label class="mb-0">
+                                                            <input type="radio" name="radio" checked>
+                                                            <span class="p-0">Branding</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-radio">
+                                                        <label class="mb-0">
+                                                            <input type="radio" name="radio">
+                                                            <span class="p-0">Marketing</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-radio">
+                                                        <label class="mb-0">
+                                                            <input type="radio" name="radio">
+                                                            <span class="p-0">Snickers</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-radio">
+                                                        <label class="mb-0">
+                                                            <input type="radio" name="radio">
+                                                            <span class="p-0">Other</span>
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- Customize Option -->
+                                            <div class="package-option">
+                                                <div class="heading d-flex align-items-center justify-content-between">
+                                                    <h4 class=" fw-bold">Select items</h4>
+                                                    <i class="arrow"></i>
+                                                </div>
+                                                <ul class="options">
+                                                    <li class="amk-group custom-checkbox ">
+                                                        <label class=" checkbox bounce" for="naming">
+                                                            <input type="checkbox" id="naming" checked>
+                                                            <svg viewBox=" 0 0 21 21">
+                                                                <polyline points="5 10.75 8.5 14.25 16 6">
+                                                                </polyline>
+                                                            </svg>
+                                                            Naming
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-checkbox ">
+                                                        <label class=" checkbox bounce" for="brand">
+                                                            <input type="checkbox" id="brand">
+                                                            <svg viewBox=" 0 0 21 21">
+                                                                <polyline points="5 10.75 8.5 14.25 16 6">
+                                                                </polyline>
+                                                            </svg>
+                                                            Brand Story
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-checkbox ">
+                                                        <label class="checkbox bounce" for="brand-strategy">
+                                                            <input type="checkbox" id="brand-strategy">
+                                                            <svg viewBox=" 0 0 21 21">
+                                                                <polyline points="5 10.75 8.5 14.25 16 6">
+                                                                </polyline>
+                                                            </svg>
+                                                            Brand Strategy
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-checkbox ">
+                                                        <label class="checkbox bounce" for="logo">
+                                                            <input type="checkbox" id="logo">
+                                                            <svg viewBox=" 0 0 21 21">
+                                                                <polyline points="5 10.75 8.5 14.25 16 6">
+                                                                </polyline>
+                                                            </svg>
+                                                            Logo & Trademark Design
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- Customize Option -->
+                                            <div class="package-option">
+                                                <div class="heading d-flex align-items-center justify-content-between">
+                                                    <h4 class=" fw-bold">Choose Revision Rounds</h4>
+                                                    <i class="arrow"></i>
+                                                </div>
+                                                <ul class="options">
+                                                    <li class="amk-group custom-radio">
+                                                        <label class="mb-0">
+                                                            <input type="radio" name="round" checked>
+                                                            <span class="p-0">One Round</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-radio">
+                                                        <label class="mb-0">
+                                                            <input type="radio" name="round">
+                                                            <span class="p-0">3 Revision Rounds</span>
+                                                        </label>
+                                                    </li>
+                                                    <li class="amk-group custom-radio">
+                                                        <label
+                                                            class="mb-0 d-flex align-items-start align-items-xl-center justify-content-start flex-column flex-xl-row">
+                                                            <input type="radio" name="round">
+                                                            <span class="p-0 mb-2 mb-xl-0">Other :</span>
+                                                            <input type="number" placeholder="Click to write number">
+                                                        </label>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <!-- Customize Option -->
+                                            <div class="package-list pe-0">
+                                                <div
+                                                    class="d-flex align-items-start align-items-xl-center justify-content-start flex-column flex-xl-row">
+
+                                                    <h4 class="fw-bold mb-2 mb-xl-0" title="you can add some text here">
+                                                        Estimate Days <svg class="ms-2"
+                                                            xmlns="http://www.w3.org/2000/svg" width="16" height="19"
+                                                            viewBox="0 0 16 19">
+                                                            <g id="Group_557" data-name="Group 557"
+                                                                transform="translate(-593.5 -4608.493)">
+                                                                <g id="Group_556" data-name="Group 556">
+                                                                    <g id="Group_537" data-name="Group 537"
+                                                                        transform="translate(-39.5 322.493)">
+                                                                        <text id="i" transform="translate(641 4300)"
+                                                                            fill="#aaa" font-size="13"
+                                                                            font-family="IBMPlexSansArabic-Regular, IBM Plex Sans Arabic">
+                                                                            <tspan x="-1.625" y="0">i</tspan>
+                                                                        </text>
+                                                                        <g id="Ellipse_96" data-name="Ellipse 96"
+                                                                            transform="translate(633 4287)" fill="none"
+                                                                            stroke="#aaa" stroke-width="1">
+                                                                            <circle cx="8" cy="8" r="8" stroke="none" />
+                                                                            <circle cx="8" cy="8" r="7.5" fill="none" />
+                                                                        </g>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </svg></h4>
+
+                                                    <input type="number" placeholder="Click here to write number">
+
+                                                </div>
+                                            </div>
+                                            <!-- Customize Option -->
+                                            <div class="package-list">
+
+                                                <h4 class="fw-bold mb-2" title="you can add some text here">Write
+                                                    details <svg class="ms-2" xmlns="http://www.w3.org/2000/svg"
+                                                        width="16" height="19" viewBox="0 0 16 19">
+                                                        <g id="Group_557" data-name="Group 557"
+                                                            transform="translate(-593.5 -4608.493)">
+                                                            <g id="Group_556" data-name="Group 556">
+                                                                <g id="Group_537" data-name="Group 537"
+                                                                    transform="translate(-39.5 322.493)">
+                                                                    <text id="i" transform="translate(641 4300)"
+                                                                        fill="#aaa" font-size="13"
+                                                                        font-family="IBMPlexSansArabic-Regular, IBM Plex Sans Arabic">
+                                                                        <tspan x="-1.625" y="0">i</tspan>
+                                                                    </text>
+                                                                    <g id="Ellipse_96" data-name="Ellipse 96"
+                                                                        transform="translate(633 4287)" fill="none"
+                                                                        stroke="#aaa" stroke-width="1">
+                                                                        <circle cx="8" cy="8" r="8" stroke="none" />
+                                                                        <circle cx="8" cy="8" r="7.5" fill="none" />
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </svg>
+                                                </h4>
+
+                                                <textarea name="details" id="details" class="pt-0 w-100" rows="5"
+                                                    placeholder="Click here to write more details"></textarea>
+
+                                            </div>
+
+                                        </div>
+                                        <a href="store_details.html" class="button w-100 process-checkout">Process to
+                                            Checkout</a>
+                                        <button class=" w-100 bg-transparent border-0 service-details text-center show"
+                                            data-bs-toggle="collapse" data-bs-target="#customized-packages"
+                                            aria-expanded="false" aria-controls="customized-packages">Details</button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
