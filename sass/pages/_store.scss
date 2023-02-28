@@ -108,20 +108,6 @@
       .service-spacer {
         @include padding-top(75px);
       }
-      // .masonry {
-      //   column-count: 2;
-      //   column-gap: 10px;
-      //   .service-col {
-      //     display: grid;
-      //     grid-template-rows: 1fr auto;
-      //     break-inside: avoid;
-      //   }
-
-      //   .service-spacer {
-      //     grid-row: 1 / -1;
-      //     grid-column: 1;
-      //   }
-      // }
     }
     .service-col {
       @media (min-width: 992px) {
@@ -153,6 +139,7 @@
         padding: 20px 0;
         cursor: pointer;
         display: none;
+        color: $primary;
         &.show {
           display: block;
         }
@@ -308,6 +295,9 @@
     @include margin-bottom(50px);
     li {
       @include font-size(24px);
+      @include media($md) {
+        @include font-size(18px);
+      }
       color: #bfbfbf;
       cursor: pointer;
       transition: color .3s ease-in-out;
