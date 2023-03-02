@@ -608,9 +608,9 @@ $(function() {
           : $(this).hide();
       });
     }
-    $("#masonry-row").masonry();
-
-    console.log(id);
+    if (window.innerWidth > 767) {
+      $("#masonry-row").masonry();
+    }
   });
 
   // Scroll to the top of position form
@@ -666,14 +666,16 @@ $(function() {
     $(this).parents(".service-col").css("z-index", 999999);
   });
 
-  $("#masonry-row")
-    .masonry({
-      itemSelector: ".service-col",
-      gutter: 75
-    })
-    .on("shown.bs.collapse", function(e) {
-      $("#masonry-row").masonry();
-    });
+  if (window.innerWidth > 767) {
+    $("#masonry-row")
+      .masonry({
+        itemSelector: ".service-col",
+        gutter: 75
+      })
+      .on("shown.bs.collapse", function(e) {
+        $("#masonry-row").masonry();
+      });
+  }
 
   // Hide copy icon -show & hide control buttons
   $(".service-box").on("hide.bs.collapse", function(e) {
@@ -725,8 +727,6 @@ $(function() {
       } else {
         $(".bank-account-details").hide();
       }
-
-      console.log(checked);
     });
   }
 });
