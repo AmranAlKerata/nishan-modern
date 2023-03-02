@@ -592,6 +592,27 @@ $(function() {
     });
   }
 
+  // Filter Store Services
+  $(".view-as .hidden-checkbox input").on("click", function() {
+    const id = $(this).attr("id");
+    const services = $(".service-col");
+
+    if (id === "all") {
+      services.each(function() {
+        $(this).show();
+      });
+    } else {
+      services.each(function() {
+        $(this).attr("data-service-type") === id
+          ? $(this).show()
+          : $(this).hide();
+      });
+    }
+    $("#masonry-row").masonry();
+
+    console.log(id);
+  });
+
   // Scroll to the top of position form
   $(".positions-item").on("shown.bs.collapse", function(e) {
     const offset = $(this).find(".collapse.show");
@@ -639,11 +660,20 @@ $(function() {
     );
   });
 
-  // Show copy icon
   $(".service-box").on("show.bs.collapse", function(e) {
     $(this).parents(".service-spacer").find(".copy-note").fadeIn();
     $(this).parents(".accordion-service").css("border-width", "2px");
+    $(this).parents(".service-col").css("z-index", 999999);
   });
+
+  $("#masonry-row")
+    .masonry({
+      itemSelector: ".service-col",
+      gutter: 75
+    })
+    .on("shown.bs.collapse", function(e) {
+      $("#masonry-row").masonry();
+    });
 
   // Hide copy icon -show & hide control buttons
   $(".service-box").on("hide.bs.collapse", function(e) {
@@ -657,6 +687,7 @@ $(function() {
       .removeClass("show");
     $(this).parents(".service-spacer").find(".copy-note").fadeOut();
     $(this).parents(".accordion-service").css("border-width", "1px");
+    $(this).parents(".service-col").css("z-index", "unset");
   });
 
   // Open Accordion based on
@@ -683,6 +714,21 @@ $(function() {
       }
     });
   }
+  // Show Bank Details
+  if ($(".payment-radio").length > 0) {
+    $(".payment-radio input[type='radio']").on("click", function() {
+      const checked = $(this).is(":checked");
+      const id = $(this).attr("id");
+
+      if (id === "bankPaymentRadio" && checked) {
+        $(".bank-account-details").show();
+      } else {
+        $(".bank-account-details").hide();
+      }
+
+      console.log(checked);
+    });
+  }
 });
 
 $(".options .custom-radio input[type='number']").on("click", function() {
@@ -706,3 +752,18 @@ $h.on("mouseenter", function(e) {
 $h.on("mouseleave", function(e) {
   $c.removeClass("custom-cursor-active");
 });
+// Enable Tooltips
+var tooltipTriggerList = [].slice.call(
+  document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
+var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
+// const Shuffle = window.Shuffle; // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
+// const element = document.getElementById("servicesShuffle");
+// const sizer = element.querySelector(".services-sizer");
+
+// const shuffleInstance = new Shuffle(element, {
+//   itemSelector: ".service-col",
+//   sizer: sizer // could also be a selector: '.js-shuffle-sizer'
+// });

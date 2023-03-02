@@ -6,10 +6,28 @@
   &:not(.details) .select2-search--dropdown {
     display: none;
   }
+  .custom-radio label span,
+  .package-list h4,
+  .custom-checkbox .checkbox.bounce {
+    @include font-size(20px);
+  }
+  .custom-radio label span:before,
+  .custom-checkbox .checkbox svg {
+    width: 25px;
+    height: 25px;
+  }
+  .custom-checkbox .checkbox svg {
+    left: 0;
+  }
+  .custom-checkbox .checkbox input {
+    width: 25px;
+    height: 25px;
+    min-width: 25px;
+  }
 
   %service-list {
     li {
-      @include font-size(24px);
+      @include font-size(20px);
       @include padding(20px 65px);
 
       border-top: 1px solid $primary;
@@ -22,7 +40,7 @@
   %service-payment-details {
     @include padding(40px 65px);
     li {
-      @include font-size(24px);
+      @include font-size(20px);
     }
   }
 
@@ -43,6 +61,11 @@
           &:checked + h4 {
             color: $secondary;
           }
+        }
+      }
+      @include media($md) {
+        h4 {
+          @include font-size(18px);
         }
       }
     }
@@ -110,6 +133,7 @@
       }
     }
     .service-col {
+      background-color: #fff;
       @media (min-width: 992px) {
         max-width: 46%;
         width: 100%;
@@ -119,7 +143,7 @@
     .service {
       border: 1px solid $primary;
       &.selected-service {
-        border-width: 2px;
+        // border-width: 2px;
       }
       @include padding(45px 65px);
       .badge {
@@ -155,6 +179,8 @@
         background-color: $secondary;
         padding: 20px 0;
         display: none;
+        color: #fff;
+        border-top: 2px solid $primary;
         &:hover {
           background-color: $primary;
         }
@@ -182,6 +208,10 @@
         .copy-icon {
           max-width: 30px;
         }
+      }
+      .items-selected {
+        @include font-size(18px);
+        color: #a5a5a5;
       }
       &.product {
         .badge {
@@ -217,6 +247,7 @@
               border-top: 1px solid $primary;
               h4 {
                 margin-bottom: 0;
+                @include font-size(20px);
               }
               .arrow {
                 display: block;
@@ -240,7 +271,7 @@
               .custom-radio input[type="number"] {
                 background-color: transparent;
                 border: none;
-                @include font-size(24px);
+                @include font-size(20px);
                 @media (min-width: 1200px) {
                   max-width: 70%;
                   padding-#{$start_dir}: 20px;
@@ -263,7 +294,7 @@
             input[type="number"] {
               background-color: transparent;
               border: none;
-              @include font-size(24px);
+              @include font-size(20px);
               @media (min-width: 1200px) {
                 max-width: 60%;
                 padding-#{$start_dir}: 20px;
@@ -276,13 +307,54 @@
             textarea {
               background-color: transparent;
               border: none;
-              @include font-size(24px);
+              @include font-size(20px);
               &:focus {
                 border: none;
                 outline: none;
               }
             }
           }
+        }
+      }
+    }
+    @include media($md) {
+      h4,
+      p,
+      .items-selected,
+      .custom-radio label span,
+      .service-details,
+      .service-list li,
+      .service-payment-details li,
+      .process-checkout,
+      .custom-checkbox .checkbox.bounce,
+      .service-control .package-list input[type=number],
+      .service-control .package-list textarea,
+      .service-control .custom-radio input[type=number] {
+        font-size: 18px !important;
+      }
+      .custom-radio label span:before,
+      .custom-checkbox .checkbox input {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+      }
+      .custom-checkbox .checkbox svg {
+        width: 25px;
+        height: 25px;
+        left: 0;
+      }
+    }
+    svg:focus {
+      outline: none;
+    }
+    @include media($md) {
+      .selected-items {
+        position: relative;
+
+        svg {
+          position: absolute;
+          right: -8px;
+          top: 2px;
         }
       }
     }
@@ -294,7 +366,7 @@
   .tabs {
     @include margin-bottom(50px);
     li {
-      @include font-size(24px);
+      @include font-size(20px);
       @include media($md) {
         @include font-size(18px);
       }
@@ -394,7 +466,7 @@
 
         h4,
         p {
-          @include font-size(24px);
+          @include font-size(20px);
         }
         p {
           padding-#{$end_dir}: 100px;
@@ -415,6 +487,11 @@
           width: 100%;
           border: none;
           box-shadow: none;
+        }
+        @include media($md) {
+          .accordion-item .accordion-button {
+            font-size: 18px;
+          }
         }
       }
     }
@@ -440,7 +517,7 @@
   #client-form {
     margin-top: 50px;
     .hint {
-      @include font-size(24px);
+      @include font-size(20px);
       color: #9f9f9f;
     }
     .uploaded-file {
@@ -465,16 +542,69 @@
       }
       small {
         color: #969696;
-        @include font-size(24px);
+        @include font-size(20px);
       }
     }
     .bank-account-details {
+      display: none;
       .underline {
         text-decoration: underline;
       }
     }
     small {
       color: #969696;
+    }
+
+    textarea.border-effect ~ .focus-border:after,
+    textarea.border-effect ~ .focus-border::before {
+      width: 0;
+    }
+    textarea.border-effect:focus ~ .focus-border:after,
+    textarea.border-effect:focus ~ .focus-border::before,
+    textarea.border-effect.active ~ .focus-border:after,
+    textarea.border-effect.active ~ .focus-border::before {
+      width: 100%;
+    }
+
+    textarea.border-effect ~ .focus-border i:after,
+    textarea.border-effect ~ .focus-border i::before {
+      height: 0;
+    }
+
+    textarea.border-effect.active ~ .focus-border i:after,
+    textarea.border-effect.active ~ .focus-border i:before {
+      height: 95.5% !important;
+    }
+    @include media($md) {
+      h4,
+      p,
+      .custom-radio label span,
+      .custom-checkbox .checkbox.bounce,
+      textarea,
+      input[type=number],
+      input,
+      .select2-results li,
+      .select2-selection__render,
+      .custom-upload__button.outline,
+      .button-submit,
+      .back-to-store {
+        font-size: 18px !important;
+      }
+      .payment-radio small,
+      .custom-upload small {
+        font-size: 16px;
+      }
+      .custom-radio label span:before,
+      .custom-checkbox .checkbox input {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+      }
+      .custom-checkbox .checkbox svg {
+        width: 25px;
+        height: 25px;
+        left: 0;
+      }
     }
   }
 }
@@ -484,10 +614,34 @@
   @include media ($xl) {
     @include margin-bottom(115px);
   }
+  @include media($md) {
+    h3 {
+      font-size: 20px;
+    }
+    .fact p,
+    .button,
+    h4,
+    .custom-checkbox .checkbox.bounce {
+      font-size: 18px;
+    }
+    .custom-checkbox .checkbox svg {
+      width: 25px;
+      height: 25px;
+      left: 0;
+    }
+    .custom-checkbox .checkbox input {
+      width: 25px;
+      height: 25px;
+      min-width: 25px;
+    }
+  }
 }
 .fact {
+  p {
+    @include font-size(20px);
+  }
   img {
-    max-width: 28px;
+    max-width: 23px;
     width: 100%;
   }
 }
@@ -512,4 +666,13 @@
 }
 .mt-45 {
   @include margin-top(45px);
+}
+
+@include media($md) {
+  .select2-results li,
+  .select2-container--default
+    .select2-selection--single
+    .select2-selection__rendered {
+    font-size: 18px !important;
+  }
 }

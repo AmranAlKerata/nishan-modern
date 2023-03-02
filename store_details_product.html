@@ -195,7 +195,7 @@
                                                 </div>
                                                 <div class="swiper-pagination"></div>
                                             </div>
-                                            <h4 class="title fw-bold my-3 p-65">Creative T-shirt</h4>
+                                            <h4 class="title fw-bold mt-4 mb-3 p-65">Creative T-shirt</h4>
                                             <h4 class="price fw-bold p-65">100 SAR</h4>
                                             <p class="desc p-65">A creative T-shirt that carries an artistic
                                                 painting that expresses passion, which we
@@ -515,7 +515,7 @@
                                     <h4 class="fw-bold">You are paying via</h4>
                                     <label class="align-items-center payment-radio">
 
-                                        <input type="radio" name="payment" checked>
+                                        <input type="radio" name="payment" checked id="mada">
 
                                         <span>Mada, ApplePay, Visa <small> (Online Getway)</small></span>
                                         <svg id="Group_516" data-name="Group 516" xmlns="http://www.w3.org/2000/svg"
@@ -537,7 +537,7 @@
                                     </label>
 
                                     <label class="align-items-center payment-radio">
-                                        <input type="radio" name="payment">
+                                        <input type="radio" name="payment" id="paypal">
                                         <span>PayPal <small>(Online Getway)</small></span>
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="26.95" height="27.225"
@@ -563,7 +563,7 @@
                                     </label>
 
                                     <label class="align-items-center payment-radio">
-                                        <input type="radio" name="payment">
+                                        <input type="radio" name="payment" id="bankPaymentRadio">
                                         <span>Bank Transfare</span>
                                         <svg xmlns="http://www.w3.org/2000/svg"
                                             xmlns:xlink="http://www.w3.org/1999/xlink" width="26" height="25.763"
@@ -592,7 +592,7 @@
                                     <h5 class="fw-bold">ANAS M ALOMRAN</h5>
                                     <h5 class="fw-bold">IPAN 12345678901234</h5>
                                 </div>
-                                <div class="row mt-3">
+                                <div class="bank-account-details row mt-3">
                                     <div class="col-12">
                                         <div class="amk-group mb-5 position-relative">
                                             <input autocomplete="off" type="text" class="border-effect form-control"
@@ -622,16 +622,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="custom-upload">
+                                <div class="bank-account-details custom-upload">
                                     <label class="custom-upload__button outline" style="width: fit-content;"
                                         for="uploadFile" data-element="custom-upload-button">Attach receipt</label>
                                     <small class="d-block mt-2">allowed files: jpg,png,pdf,pdf,svg</small>
                                     <input class="custom-upload__input" name="receipt-file" id="receipt-file"
                                         type="file" data-behaviour="custom-upload-input">
                                 </div>
-                                <div class="mb-5 uploaded-file d-flex align-items-center justify-content-between">
-                                    <h5 class="mb-0">Receipt.pdf</h5>
-                                    <img src="./images/close.svg" alt="Close Icon">
+                                <div class="bank-account-details">
+                                    <div class="mb-5 uploaded-file d-flex align-items-center justify-content-between">
+                                        <h5 class="mb-0">Receipt.pdf</h5>
+                                        <img src="./images/close.svg" alt="Close Icon">
+                                    </div>
                                 </div>
                                 <h4 class="fw-bold form-h-s">Finally</h4>
                                 <div class="amk-group mb-5 custom-checkbox">
@@ -656,8 +658,6 @@
             </div>
         </section>
         <!-- End Store Content -->
-
-
 
         <!-- Start Footer -->
         <footer>
