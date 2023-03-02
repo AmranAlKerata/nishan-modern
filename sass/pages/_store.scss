@@ -118,6 +118,13 @@
             }
           }
         }
+        @include media($md) {
+          @include font-size(18px);
+          &::before {
+            width: 30px;
+            height: 30px;
+          }
+        }
       }
     }
   }
