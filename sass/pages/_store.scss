@@ -99,8 +99,8 @@
           display: inline-flex;
           justify-content: center;
           align-items: center;
-          width: 34px;
-          height: 34px;
+          width: 30px;
+          height: 30px;
           border-radius: 50%;
           border: 1px solid $primary;
           margin-#{$end_dir}: 5px;
@@ -123,6 +123,12 @@
           &::before {
             width: 30px;
             height: 30px;
+          }
+          &:not(.active) {
+            opacity: 0;
+            width: 0;
+            visibility: hidden;
+            height: 0;
           }
         }
       }
@@ -171,6 +177,11 @@
         cursor: pointer;
         display: none;
         color: $primary;
+        transition: all .3s ease-in-out;
+        &:hover {
+          background-color: $primary !important;
+          color: #fff;
+        }
         &.show {
           display: block;
         }
@@ -269,7 +280,12 @@
               }
             }
             .options {
+              max-height: 281px;
+              overflow-y: scroll;
               @extend %service-list;
+              li:last-child {
+                border-bottom: none !important;
+              }
               background-color: #f4f4f4;
               .custom-radio label span:before,
               .custom-checkbox .checkbox input {
@@ -292,6 +308,12 @@
             &.active {
               .arrow {
                 transform: rotate(45deg);
+              }
+              .heading {
+                border-bottom: 1px solid $primary;
+              }
+              .options li:first-child {
+                border-top: none;
               }
             }
           }

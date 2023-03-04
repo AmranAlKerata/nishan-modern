@@ -708,14 +708,25 @@ $(function() {
     $(".package-option:not(.active) .options").slideUp();
     $(".package-option .heading").on("click", function() {
       if ($(this).parent().hasClass("active")) {
-        $(this).parent().find(".options").slideUp();
         $(this).parent().removeClass("active");
+        $(this).parent().find(".options").slideUp();
       } else {
-        $(this).parent().find(".options").slideDown();
         $(this).parent().addClass("active");
+        $(this).parent().find(".options").slideDown();
+        $(this).parent().siblings().find(".options").slideUp();
+        $(this).parent().siblings().removeClass("active");
       }
     });
   }
+
+  // Count Service Items Selected
+
+  $("#serviceITems  input[type='checkbox']").on("click", function() {
+    const itemsSelcted = $("#serviceITems input[type='checkbox']:checked")
+      .length;
+    $("#serviceItemsSelected").text(`${itemsSelcted} Items Selected`);
+  });
+
   // Show Bank Details
   if ($(".payment-radio").length > 0) {
     $(".payment-radio input[type='radio']").on("click", function() {
