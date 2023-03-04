@@ -711,6 +711,13 @@ $(function() {
   if ($(".package-option").length > 0) {
     $(".package-option:not(.active) .options").slideUp();
     $(".package-option .heading").on("click", function() {
+      $("html,body").animate(
+        {
+          scrollTop: $(this).offset().top - 200
+        },
+        10
+      );
+
       if ($(this).parent().hasClass("active")) {
         $(this).parent().removeClass("active");
         $(this).parent().find(".options").slideUp();
