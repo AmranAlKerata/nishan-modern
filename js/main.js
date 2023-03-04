@@ -608,8 +608,10 @@ $(function() {
           : $(this).hide();
       });
     }
-    if (window.innerWidth > 767) {
-      $("#masonry-row").masonry();
+    if ($("#masonry-row").length > 0) {
+      if (window.innerWidth > 767) {
+        $("#masonry-row").masonry();
+      }
     }
   });
 
@@ -667,14 +669,16 @@ $(function() {
   });
 
   if (window.innerWidth > 767) {
-    $("#masonry-row")
-      .masonry({
-        itemSelector: ".service-col",
-        gutter: 75
-      })
-      .on("shown.bs.collapse", function(e) {
-        $("#masonry-row").masonry();
-      });
+    if ($("#masonry-row").length > 0) {
+      $("#masonry-row")
+        .masonry({
+          itemSelector: ".service-col",
+          gutter: 75
+        })
+        .on("shown.bs.collapse", function(e) {
+          $("#masonry-row").masonry();
+        });
+    }
   }
 
   // Hide copy icon -show & hide control buttons
