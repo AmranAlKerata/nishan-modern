@@ -17,7 +17,7 @@
     height: 25px;
   }
   .custom-checkbox .checkbox svg {
-    left: 0;
+    #{$start_dir}: 0;
   }
   .custom-checkbox .checkbox input {
     width: 25px;
@@ -370,7 +370,7 @@
       .custom-checkbox .checkbox svg {
         width: 25px;
         height: 25px;
-        left: 0;
+        $start-dir: 0;
       }
     }
     svg:focus {
@@ -454,12 +454,12 @@
     }
 
     &#terms {
-      border: 2px solid $primary;
+      border: 1px solid $primary;
       @include padding(45px 65px);
     }
     &#faqs {
       @include padding(21px 0);
-      border: 2px solid $primary;
+      border: 1px solid $primary;
       .accordion-item {
         border-bottom: 1px solid $primary !important;
         &.last {
@@ -564,10 +564,10 @@
     .payment-radio {
       svg {
         position: absolute;
-        left: 40px;
+        #{$start_dir}: 40px;
       }
       span:before {
-        margin-right: 50px;
+        margin-#{$end_dir}: 50px;
       }
       small {
         color: #969696;
@@ -632,7 +632,7 @@
       .custom-checkbox .checkbox svg {
         width: 25px;
         height: 25px;
-        left: 0;
+        $start-dir: 0;
       }
     }
   }

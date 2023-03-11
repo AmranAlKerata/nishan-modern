@@ -711,13 +711,6 @@ $(function() {
   if ($(".package-option").length > 0) {
     $(".package-option:not(.active) .options").slideUp();
     $(".package-option .heading").on("click", function() {
-      $("html,body").animate(
-        {
-          scrollTop: $(this).offset().top - 200
-        },
-        10
-      );
-
       if ($(this).parent().hasClass("active")) {
         $(this).parent().removeClass("active");
         $(this).parent().find(".options").slideUp();
@@ -727,6 +720,14 @@ $(function() {
         $(this).parent().siblings().find(".options").slideUp();
         $(this).parent().siblings().removeClass("active");
       }
+      const itemOffset = $(this).offset();
+
+      $("html,body").animate(
+        {
+          scrollTop: itemOffset.top - 300
+        },
+        10
+      );
     });
   }
 
@@ -735,7 +736,7 @@ $(function() {
   $("#serviceITems  input[type='checkbox']").on("click", function() {
     const itemsSelcted = $("#serviceITems input[type='checkbox']:checked")
       .length;
-    $("#serviceItemsSelected").text(`${itemsSelcted} Items Selected`);
+    $("#serviceItemsSelected span").text(itemsSelcted);
   });
 
   // Show Bank Details
@@ -781,11 +782,3 @@ var tooltipTriggerList = [].slice.call(
 var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
-// const Shuffle = window.Shuffle; // Assumes you're using the UMD version of Shuffle (for example, from unpkg.com).
-// const element = document.getElementById("servicesShuffle");
-// const sizer = element.querySelector(".services-sizer");
-
-// const shuffleInstance = new Shuffle(element, {
-//   itemSelector: ".service-col",
-//   sizer: sizer // could also be a selector: '.js-shuffle-sizer'
-// });
