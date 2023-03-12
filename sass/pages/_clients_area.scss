@@ -1,0 +1,22 @@
+@use "../helpers/vars" as *;
+@use "../helpers/mixins" as *;
+@use "../bootstrap/vendor/rfs" as *;
+
+.clients-area {
+  .page-top {
+    background-color: #f6f6f6;
+    @include padding(70px 0);
+  }
+  .page-content {
+    @include margin-top(115px);
+  }
+  small {
+    color: #969696;
+    font-size: 14px;
+  }
+  .login-section {
+    .button {
+      @include margin-top(60px);
+    }
+  }
+}
