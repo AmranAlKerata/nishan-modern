@@ -38,4 +38,58 @@
       color: #c4c4c4;
     }
   }
+  .welcome {
+    @include font-size(22px);
+  }
+  header .logout-btn {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    @include font-size(22px);
+  }
+  .counter {
+    color: $secondary;
+    // @include font-size(24px);
+  }
+  .filter-tabs {
+    margin-bottom: 20px;
+  }
+
+  .tab {
+    background-color: #ddd;
+    border: none;
+    color: black;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+  .tab.active {
+    background-color: #ccc;
+  }
+
+  .items-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .item {
+    background-color: #f2f2f2;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  .item.completed {
+    background-color: #aaffaa;
+  }
+
+  .item.in-process {
+    background-color: #ffffaa;
+  }
+
+  .item.expired {
+    background-color: #ffaaaa;
+  }
 }
