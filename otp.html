@@ -122,34 +122,65 @@
 
 
         <!-- Start Login -->
-        <section class="login-section" id="login-section">
-            <!-- Page Top -->
+        <section class="otp-section" id="otp-section">
+            <!-- Steps -->
             <div class="page-top">
                 <div class="container">
                     <h3 class="mb-4">Client area</h3>
-                    <p>Welcome again, this area enables you to follow & manage
-                        your agreements</p>
+                    <p>Welcome back USERNAME. <br> we sent OTP code to
+                        your ABCxxx@gmail.com & xxxxxxx123</p>
 
                 </div>
             </div>
             <div class="container page-content">
                 <div class="row">
                     <div class="col-12 col-lg-4">
-                        <form id="login-form" class="login-form">
-                            <h4 class="fw-bold mb-4 wow animate animate__fadeInUp delay-1">Enter your email, mobile or
-                                ID</h4>
-                            <div class="amk-group position-relative">
-                                <input autocomplete="off" type="text"
-                                    class="border-effect form-control wow animate animate__fadeInUp delay-2" required
-                                    placeholder="Enter your email, mobile or ID" id="login" name="login">
-                                <span class="focus-border">
-                                    <i></i>
-                                </span>
+                        <form id="otp-form" class="otp-form">
+                            <h4 class="fw-bold mb-4 wow animate animate__fadeInUp delay-1">Please enter OTP code</h4>
+                            <div class="otp-container">
+                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-2">
+                                    <input type="number" min="0" max="9" maxlength="1"
+                                        class="otp-input border-effect form-controls" placeholder="*" autofocus
+                                        required>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-3">
+                                    <input type="number" min="0" max="9" maxlength="1"
+                                        class="otp-input border-effect form-controls" placeholder="*" required>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-4">
+                                    <input type="number" min="0" max="9" maxlength="1"
+                                        class="otp-input border-effect form-controls" placeholder="*" required>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-5">
+                                    <input type="number" min="0" max="9" maxlength="1"
+                                        class="otp-input border-effect form-controls" placeholder="*" required>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-6">
+                                    <input type="number" min="0" max="9" maxlength="1"
+                                        class="otp-input border-effect form-controls" placeholder="*" required>
+                                    <span class="focus-border">
+                                        <i></i>
+                                    </span>
+                                </div>
+
                             </div>
-                            <small class="wow animate animate__fadeInUp delay-3">If you need assistance, please contact
-                                your Supervisor</small>
-                            <div class="wow animate animate__fadeInUp delay-4">
-                                <button class="button" type="submit">Send Login Request</button>
+
+                            <small class=" wow animate animate__fadeInUp delay-7">OTP code will expire in 5
+                                minutes.</small>
+                            <div class="wow animate animate__fadeInUp delay-8">
+                                <button class="button" type="submit">Login</button>
                             </div>
                         </form>
                     </div>

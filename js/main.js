@@ -782,3 +782,28 @@ var tooltipTriggerList = [].slice.call(
 var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
   return new bootstrap.Tooltip(tooltipTriggerEl);
 });
+
+// OTP
+const inputs = document.querySelectorAll(".otp-input");
+
+inputs.forEach((input, index) => {
+  input.addEventListener("input", (event) => {
+    // Check if the input value is a single digit number
+    if (/^\d$/.test(input.value)) {
+      // If the input value is valid, move focus to the next input element
+      if (index < inputs.length - 1) {
+        inputs[index + 1].focus();
+      }
+    } else {
+      // If the input value is not a single digit number, clear the input value
+      input.value = "";
+    }
+  });
+
+  // Allow the user to remove digits one by one using the backspace key
+  input.addEventListener("keydown", (event) => {
+    if (event.key === "Backspace" && input.value === "" && index > 0) {
+      inputs[index - 1].focus();
+    }
+  });
+});
