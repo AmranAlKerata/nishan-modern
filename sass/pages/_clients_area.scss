@@ -53,6 +53,11 @@
     background-color: transparent;
     outline: none;
     @include font-size(22px);
+    color: #c4bfbf;
+    transition: color .3s ease-in-out;
+    &:hover {
+      color: $primary;
+    }
   }
   .counter {
     color: $secondary;
@@ -81,6 +86,10 @@
     }
     margin-top: 50px;
     .filter-item {
+      transition: background-color .2s ease-in-out;
+      &:hover {
+        background-color: #f4f4f4;
+      }
       border-top: 1px solid $primary;
       &:last-child {
         border-bottom: 1px solid $primary;
@@ -317,11 +326,24 @@
         &#terms {
           border: 1px solid $primary;
           @include padding(45px 65px);
+
+          h5,
+          p {
+            @include font-size(20px);
+          }
+
+          @include media ($md) {
+            h5,
+            p {
+              @include font-size(18px);
+            }
+          }
         }
         &#faqs {
           @include padding(21px 0);
           border: 1px solid $primary;
           .accordion-item {
+            @include font-size(20px);
             border-bottom: 1px solid $primary !important;
             &.last {
               border: none !important;
@@ -329,11 +351,10 @@
             @include padding(24px 65px);
             border: none;
             transition: all .3s ease-in-out;
-            h4 {
+            .accordion-header {
               position: relative;
               cursor: pointer;
               margin: 0;
-              text-transform: uppercase;
               &::after {
                 content: "";
                 display: block;
@@ -354,9 +375,15 @@
               }
             }
 
-            h4,
+            .accordion-header,
             p {
               @include font-size(20px);
+            }
+            @include media ($md) {
+              .accordion-header,
+              p {
+                @include font-size(18px);
+              }
             }
             p {
               padding-#{$end_dir}: 100px;
