@@ -88,6 +88,9 @@
     background-color: #f6f6f6;
     counter-reset: step;
     @include padding(70px 0);
+    @include media($md) {
+      @include margin-top(35px);
+    }
     .user-steps {
       li {
         &::before {
@@ -155,9 +158,7 @@
     }
     .service {
       border: 1px solid $primary;
-      &.selected-service {
-        // border-width: 2px;
-      }
+
       @include padding(45px 65px);
       .badge {
         border: 1px solid $primary;

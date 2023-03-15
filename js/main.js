@@ -783,6 +783,26 @@ $(function() {
       });
     });
   }
+
+  if ($("#filter-tabs").length > 0) {
+    $("#filter-tabs").select2();
+    // apply the select2 plugin to the #filter-tabs select element
+    $("#filter-tabs").on("change", function() {
+      var category = $(this).val();
+      // get the value of the selected option and store it in a variable
+      if (category == "all") {
+        $(".filter-items .filter-item").show();
+        // show all items with the class ".filter-item" inside .filter-items
+      } else {
+        $(".filter-items .filter-item").hide();
+        // hide all items with the class ".filter-item" inside .filter-items
+        $(
+          '.filter-items .filter-item[data-category="' + category + '"]'
+        ).show();
+        // show only the items with the data-category attribute matching the selected category
+      }
+    });
+  }
 });
 
 // Custom Cursor

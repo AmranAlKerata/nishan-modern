@@ -3,9 +3,15 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .clients-area {
+  .select2-search--dropdown {
+    display: none;
+  }
   .page-top {
     background-color: #f6f6f6;
     @include padding(70px 0);
+    @include media($md) {
+      @include margin-top(35px);
+    }
   }
   .page-content {
     @include margin-top(115px);
@@ -34,6 +40,7 @@
     border: none;
     border-bottom: 1px solid $primary;
     outline: none;
+    border-radius: 0 !important;
     &::placeholder {
       color: #c4c4c4;
     }
@@ -49,47 +56,392 @@
   }
   .counter {
     color: $secondary;
-    // @include font-size(24px);
   }
-  .filter-tabs {
-    margin-bottom: 20px;
+  .agreements-list {
+    @include margin-top(130px);
   }
+  .filters {
+    .select2-container {
+      max-width: 150px;
+      width: 100%;
+      .select2-container--default
+        .select2-selection--single
+        .select2-selection__rendered {
+        text-align: $start_dir !important;
+      }
+    }
+    .select2-selection__rendered {
+      border-bottom: 0;
+      color: $secondary !important;
+    }
+  }
+  .filter-items {
+    .row {
+      row-gap: 50px;
+    }
+    margin-top: 50px;
+    .filter-item {
+      border-top: 1px solid $primary;
+      &:last-child {
+        border-bottom: 1px solid $primary;
+      }
+      @include padding-top(50px);
+      @include padding-bottom(50px);
+      .link {
+        @include font-size(24px);
+      }
+      .status {
+        @include font-size(18px);
+        padding: 5px 20px;
+        border-radius: 50px;
+        background-color: #dbdbdb;
+        &.in-process {
+          background-color: #abdfef;
+        }
+        &.completed {
+          background-color: #d5ebc7;
+        }
+        &.expird {
+          background-color: #dbdbdb;
+        }
+      }
+      .type {
+        color: $secondary;
+      }
+      .link {
+        @if ($lang =="ar") {
+          .nishan-icon {
+            transform: translate(0, 0) scale(-1) rotate(90deg);
+          }
+        }
+        &:hover {
+          .nishan-icon {
+            transform: translate(10px, -10px);
+            @if ($lang =="ar") {
+              transform: translate(10px, -10px) scale(-1) rotate(90deg);
+            }
+          }
+        }
+        .nishan-icon {
+          font-size: 50px;
+          line-height: 0;
+          transition: all .3s ease-in-out;
+        }
+      }
+    }
+  }
+  .agreements-details-section {
+    .back-arrow {
+      left: 15px;
+    }
 
-  .tab {
-    background-color: #ddd;
-    border: none;
-    color: black;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+    .agreement-details-top {
+      @include margin-top(55px);
+      border-top: 1px solid #cccccc;
+      @include padding-top(45px);
+      @include padding-bottom(45px);
+      .key {
+        color: hsl(0, 0%, 80%);
+      }
+      .value {
+        color: #3d36d6;
+      }
+      @include media($md) {
+        h4 {
+          @include font-size(18px);
+        }
+      }
+    }
+    .agreement-tabs {
+      overflow: scroll;
+      &::-webkit-scrollbar {
+        height: 3px;
+      }
+      .container-fluid {
+        border: 1px solid #dedede;
+        @media (max-width: 1430px) {
+          width: max-content;
+        }
+      }
+      .tabs-row {
+        .agreement-tab {
+          border-left: 1px solid #dedede;
+          @include padding(40px);
+          h4,
+          svg path {
+            transition: all .3s ease-in-out;
+          }
+          h4 {
+            color: #9f9f9f;
+            cursor: pointer;
+          }
+          svg path {
+            fill: #9f9f9f;
+          }
+          &.active,
+          &:hover {
+            h4 {
+              color: $primary;
+            }
+            svg path {
+              fill: $secondary;
+            }
+          }
+          @include media($md) {
+            h4 {
+              @include font-size(18px);
+            }
+            svg {
+              width: 20px;
+            }
+          }
+        }
+      }
+      $fade-duration: 1s; // Set the duration of the fade animation
 
-  .tab.active {
-    background-color: #ccc;
-  }
+      .notification {
+        width: 11px;
+        height: 11px;
+        border-radius: 50%;
+        background-color: #fd9c9c;
+        opacity: 0; // Start with a transparent notification
+        animation: fade-in-out $fade-duration ease-in-out infinite;
+      }
 
-  .items-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+      @keyframes fade-in-out {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+    .agreement-actions {
+      @include margin-top(95px);
+      @include media ($xl) {
+        @include margin-bottom(95px);
+      }
+      button {
+        @include font-size(18px);
+      }
+    }
+    .services {
+      %service-list {
+        li {
+          @include font-size(20px);
+          @include padding(20px 65px);
 
-  .item {
-    background-color: #f2f2f2;
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-  }
+          border-top: 1px solid $primary;
+          &:last-child {
+            border-bottom: 1px solid $primary;
+          }
+        }
+      }
+      %service-payment-details {
+        @include padding(40px 65px);
+        li {
+          @include font-size(20px);
+        }
+      }
 
-  .item.completed {
-    background-color: #aaffaa;
-  }
+      @include margin-top(95px);
+      @include media ($xl) {
+        @include margin-bottom(95px);
+      }
 
-  .item.in-process {
-    background-color: #ffffaa;
-  }
+      .service {
+        border: 1px solid $primary;
 
-  .item.expired {
-    background-color: #ffaaaa;
+        @include padding(45px 65px);
+        .badge {
+          border: 1px solid $primary;
+          border-radius: 19px;
+          padding: 5px 20px;
+          background-color: #fff;
+        }
+        .price {
+          color: $secondary;
+        }
+      }
+    }
+
+    .client-box {
+      .single-box {
+        display: none;
+        animation: fadeIn 1s ease-in-out forwards;
+
+        .selected-service {
+          padding: 0;
+          .service-container {
+            @include padding(30px 65px);
+          }
+          &.product {
+            .service-container {
+              padding: 0;
+            }
+
+            .badge {
+              position: absolute;
+              top: 30px;
+              @media (min-width: 1200px) {
+                #{$start_dir}: 4.0625rem;
+              }
+              #{$start_dir}: calc(1.53125rem + 3.375vw);
+              z-index: 999;
+              background-color: #fff;
+            }
+            .swiper-pagination {
+              text-align: $end_dir;
+              padding-#{$end_dir}: 30px;
+              .swiper-pagination-bullet-active {
+                background-color: $primary;
+              }
+            }
+            .product-image {
+              aspect-ratio: 16 / 9;
+              object-fit: cover;
+            }
+          }
+          .service-list {
+            @extend %service-list;
+          }
+          .service-payment-details {
+            @extend %service-payment-details;
+          }
+        }
+
+        &#terms {
+          border: 1px solid $primary;
+          @include padding(45px 65px);
+        }
+        &#faqs {
+          @include padding(21px 0);
+          border: 1px solid $primary;
+          .accordion-item {
+            border-bottom: 1px solid $primary !important;
+            &.last {
+              border: none !important;
+            }
+            @include padding(24px 65px);
+            border: none;
+            transition: all .3s ease-in-out;
+            h4 {
+              position: relative;
+              cursor: pointer;
+              margin: 0;
+              text-transform: uppercase;
+              &::after {
+                content: "";
+                display: block;
+                width: 20px;
+                height: 20px;
+                border-#{$end_dir}: 1px solid $primary;
+                border-bottom: 1px solid $primary;
+                border-bottom-#{$end_dir}-radius: 2px;
+                transform: rotate(45deg);
+                position: absolute;
+                cursor: pointer;
+                top: 0;
+                #{$end_dir}: 0;
+                transition: all .3s ease-in-out;
+              }
+              &.collapsed::after {
+                transform: rotate(-45deg);
+              }
+            }
+
+            h4,
+            p {
+              @include font-size(20px);
+            }
+            p {
+              padding-#{$end_dir}: 100px;
+              @include media ($lg) {
+                padding-#{$end_dir}: 0;
+              }
+            }
+            .accordion-header {
+              display: flex;
+              align-items: center;
+            }
+            .accordion-button {
+              background-color: transparent;
+              color: $primary;
+              font-weight: bold;
+              padding-#{$end_dir}: 40px;
+              display: inline-block;
+              width: 100%;
+              border: none;
+              box-shadow: none;
+            }
+            @include media($md) {
+              .accordion-item .accordion-button {
+                font-size: 18px;
+              }
+            }
+          }
+        }
+      }
+      .single-box.active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    }
+    #client-details {
+      .custom-radio label span,
+      .package-list h4,
+      .custom-checkbox .checkbox.bounce {
+        @include font-size(20px);
+      }
+      .custom-radio label span:before,
+      .custom-checkbox .checkbox svg {
+        width: 25px;
+        height: 25px;
+      }
+      margin-top: 50px;
+      input:disabled {
+        background-color: #f0f0f0;
+        border: none;
+      }
+    }
+    @include media($md) {
+      h4,
+      p,
+      .items-selected,
+      .custom-radio label span,
+      .service-details,
+      .service-list li,
+      .service-payment-details li,
+      .process-checkout,
+      .custom-checkbox .checkbox.bounce,
+      .service-control .package-list input[type=number],
+      .service-control .package-list textarea,
+      .service-control .custom-radio input[type=number],
+      .form-control {
+        font-size: 18px !important;
+      }
+      .custom-radio label span:before,
+      .custom-checkbox .checkbox input {
+        width: 25px;
+        height: 25px;
+        min-width: 25px;
+      }
+      .custom-checkbox .checkbox svg {
+        width: 25px;
+        height: 25px;
+        $start-dir: 0;
+      }
+    }
   }
 }

@@ -13,6 +13,8 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.css">
     <!-- Animate CSS -->
     <link rel="stylesheet" href="css/animate.min.css">
+    <!-- Select 2 -->
+    <link rel="stylesheet" href="css/select2.min.css">
     <!-- Main Style -->
     <link rel="stylesheet" href="css/style.css">
     <!-- *****Js Files***** -->
@@ -22,6 +24,8 @@
     <script defer src="js/bootstrap.min.js"></script>
     <!-- Count Up -->
     <script defer src="js/multi-animated-counter.js"></script>
+    <!-- Select 2 -->
+    <script defer src="js/select2.min.js"></script>
     <!-- Wow Js -->
     <script defer src="js/wow.min.js"></script>
     <!-- Main Script -->
@@ -119,8 +123,8 @@
 
 
 
-        <!-- Start Login -->
-        <section class="otp-section" id="otp-section">
+        <!-- Start Agreements -->
+        <section class="agreements-section" id="agreements-section">
             <!-- Steps -->
             <div class="page-top">
                 <div class="container">
@@ -163,26 +167,92 @@
                             Chat messages</h4>
                     </div>
                 </div>
-                <div class="filter-tabs">
-                    <button class="tab" data-filter="all">All</button>
-                    <button class="tab" data-filter="completed">Completed</button>
-                    <button class="tab" data-filter="in-process">In Process</button>
-                    <button class="tab" data-filter="expired">Expired</button>
+                <!-- Tabs -->
+                <div class="row agreements-list">
+                    <div class="col-12 col-lg-6">
+                        <h3>Follow & manage your agreements now</h3>
+                    </div>
+                    <div class="col-12 col-lg-6 filters">
+                        <div class="filter-tabs d-flex align-items-center justify-content-start justify-content-lg-end">
+                            <h4 class="filter-as mb-0 me-3">Filter as</h4>
+                            <select id="filter-tabs">
+                                <option value="all">All</option>
+                                <option value="completed">Completed</option>
+                                <option value="in-process">In Process</option>
+                                <option value="expired">Expired</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="items-container">
-                    <div class="item completed">Item 1 (Completed)</div>
-                    <div class="item in-process">Item 2 (In Process)</div>
-                    <div class="item expired">Item 3 (Expired)</div>
-                    <div class="item completed">Item 4 (Completed)</div>
-                    <div class="item in-process">Item 5 (In Process)</div>
-                    <div class="item expired">Item 6 (Expired)</div>
-                </div>
-
             </div>
+            <div class="filter-items">
+                <div class="filter-item" data-category="completed">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-lg-4">
+                                <h4 class="ag_no mb-0">Agreement No 1234567</h4>
+                            </div>
+                            <div class="col-6 col-lg-2 text-end text-lg-start">
+                                <span class="status completed">Completed</span>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <h4 class="type mb-0">Agreement Administrator</h4>
+                            </div>
+                            <div class="col-6 col-lg-2">
+                                <a href="details.html"
+                                    class="link d-flex justify-content-end justify-content-lg-start align-items-center gap-2">Details
+                                    <span class="d-inline-block nishan-icon">w</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="filter-item" data-category="in-process">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-lg-4">
+                                <h4 class="ag_no mb-0">Agreement No 1234567</h4>
+                            </div>
+                            <div class="col-6 col-lg-2 text-end text-lg-start">
+                                <span class="status in-process">In
+                                    Process</span>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <h4 class="type mb-0">Agreement Administrator</h4>
+                            </div>
+                            <div class="col-6 col-lg-2">
+                                <a href="details.html"
+                                    class="link d-flex justify-content-end justify-content-lg-start align-items-center gap-2">Details
+                                    <span class="d-inline-block nishan-icon">w</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="filter-item" data-category="expired">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6 col-lg-4">
+                                <h4 class="ag_no mb-0">Agreement No 1234567</h4>
+                            </div>
+                            <div class="col-6 col-lg-2 text-end text-lg-start">
+                                <span class="status expird">Expird</span>
+                            </div>
+                            <div class="col-6 col-lg-4">
+                                <h4 class="type mb-0">Agreement Administrator</h4>
+                            </div>
+                            <div class="col-6 col-lg-2">
+                                <a href="details.html"
+                                    class="link d-flex justify-content-end justify-content-lg-start align-items-center gap-2">Details
+                                    <span class="d-inline-block nishan-icon">w</span></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
         </section>
-        <!-- End Login -->
+        <!-- End Agreements -->
 
 
 
