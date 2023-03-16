@@ -73,7 +73,7 @@ p,
 q {
   @include font-size(24px);
   margin: 0;
-  color: $text;
+  color: $primary;
   font-family: 'IBM', sans-serif;
   font-weight: lighter;
 }
@@ -108,7 +108,7 @@ a {
   transition: all 0.3s ease-in-out;
 
   &:hover {
-    color: $linkHover !important;
+    color: $secondary !important;
   }
 }
 
@@ -123,7 +123,7 @@ textarea {
 }
 
 hr {
-  color: $border;
+  color: $primary;
   opacity: 1 !important;
 }
 
@@ -132,7 +132,7 @@ hr {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: $scroll;
+  background-color: $primary;
   border-radius: 50px;
 }
 /* Chrome, Safari, Edge, Opera */
@@ -150,7 +150,7 @@ input[type=number] {
   background-color: transparent;
   border: none;
   min-height: 60px;
-  border-bottom: 1px solid $border;
+  border-bottom: 1px solid $primary;
   position: relative;
   z-index: 999999;
   width: 100%;

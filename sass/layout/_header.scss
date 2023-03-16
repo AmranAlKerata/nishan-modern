@@ -46,7 +46,7 @@ header {
 
     a {
       @include font-size(22px);
-      color: $text;
+      color: $primary;
       font-weight: lighter;
     }
   }
