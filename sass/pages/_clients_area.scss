@@ -162,18 +162,26 @@
       }
     }
     .agreement-tabs {
+      width: 101%;
+      position: sticky;
+      top: 0;
+      left: 0;
+      background-color: #fff;
       overflow: scroll;
+      z-index: 9999999999999;
       &::-webkit-scrollbar {
         height: 3px;
       }
       .container-fluid {
-        border: 1px solid #dedede;
+        border-top: 1px solid #dedede;
+        border-bottom: 1px solid #dedede;
         @media (max-width: 1430px) {
           width: max-content;
         }
       }
       .tabs-row {
         .agreement-tab {
+          flex-grow: 1;
           border-left: 1px solid #dedede;
           @include padding(40px);
           h4,
@@ -234,8 +242,18 @@
       @include media ($xl) {
         @include margin-bottom(95px);
       }
-      button {
-        @include font-size(18px);
+      .icon-box {
+        svg path {
+          transition: fill .3s ease-in-out;
+        }
+        &:hover {
+          svg path {
+            fill: $secondary;
+          }
+        }
+        button {
+          @include font-size(18px);
+        }
       }
     }
     .services {
