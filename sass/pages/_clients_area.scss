@@ -9,9 +9,6 @@
   .page-top {
     background-color: #f6f6f6;
     @include padding(70px 0);
-    @include media($md) {
-      @include margin-top(35px);
-    }
   }
   .page-content {
     @include margin-top(115px);
@@ -84,11 +81,10 @@
     .row {
       row-gap: 50px;
     }
-    margin-top: 50px;
     .filter-item {
       transition: background-color .2s ease-in-out;
       &:hover {
-        background-color: #f4f4f4;
+        background-color: #fafafa;
       }
       border-top: 1px solid $primary;
       &:last-child {
@@ -243,17 +239,32 @@
         @include margin-bottom(95px);
       }
       .icon-box {
-        svg path {
+        svg path,
+        button {
           transition: fill .3s ease-in-out;
         }
-        &:hover {
-          svg path {
+        svg {
+          cursor: pointer;
+          path {
             fill: $secondary;
           }
         }
+        transition: background-color .3s ease-in-out;
+        @include padding(17px 22px);
+        border-radius: 10px;
+        &:hover {
+          background-color: #f0f0f0;
+        }
         button {
+          color: $primary;
           @include font-size(18px);
         }
+      }
+    }
+    .content {
+      @include margin-top(95px);
+      @include media ($xl) {
+        @include margin-bottom(95px);
       }
     }
     .services {
@@ -273,11 +284,6 @@
         li {
           @include font-size(20px);
         }
-      }
-
-      @include margin-top(95px);
-      @include media ($xl) {
-        @include margin-bottom(95px);
       }
 
       .service {
@@ -487,6 +493,527 @@
         height: 25px;
         $start-dir: 0;
       }
+    }
+    .payment-details {
+      .payment-item {
+        border: 1px solid $primary;
+        margin-bottom: 40px;
+        transition: border 1px solid $primary;
+        .status-btn {
+          &.payable {
+            background-color: #fd9c9c;
+            color: $primary;
+            &:hover {
+              background-color: darken(#fd9c9c, 5%);
+            }
+          }
+          &.pay {
+            &:hover {
+              color: #fff !important;
+            }
+          }
+          &.paid-revision {
+            background-color: #d1ebcd;
+            color: $primary;
+            &:hover {
+              background-color: darken(#d1ebcd, 5%);
+            }
+          }
+          &.paid {
+            background-color: #a5de9d;
+            color: $primary;
+            &:hover {
+              background-color: darken(#a5de9d, 5%);
+            }
+          }
+          &:hover {
+            color: $primary !important;
+          }
+        }
+        .payment-tab-info {
+          .payment-method,
+          .payment-date,
+          .username {
+            @include font-size(18px);
+          }
+        }
+        .padding-50 {
+          padding: 0 50px;
+          @include media($md) {
+            padding: 0 30px;
+          }
+        }
+
+        h4,
+        h5 {
+          margin: 0;
+        }
+        .payment-heading-container {
+          @include padding(0 50px);
+          .payment-heading {
+            @include padding(30px 0);
+
+            @include media($md) {
+              padding-#{$start_dir}: 0;
+              padding: 20px 0;
+              text-align: center;
+            }
+            svg {
+              margin-top: -5px;
+            }
+          }
+          .price {
+            color: $secondary;
+          }
+        }
+
+        .payment-form {
+          background-color: #f4f4f4;
+          form {
+            margin-#{$start_dir}: 80px;
+            @include media ($lg) {
+              margin-#{$start_dir}: 0;
+            }
+          }
+
+          &.collapse,
+          &.collapsing {
+            border-top: 1px solid $primary;
+          }
+          .payment-radio {
+            &.bank-radio {
+              margin-bottom: 3rem;
+            }
+            svg {
+              position: absolute;
+              #{$start_dir}: 40px;
+            }
+            span:before {
+              margin-#{$end_dir}: 50px;
+              background-color: transparent;
+            }
+            small {
+              color: #969696;
+              @include font-size(20px);
+            }
+          }
+          .bank-account-details {
+            &.first-bank-details {
+              margin-top: -3rem;
+            }
+            margin-#{$start_dir}: 80px;
+            @include media ($lg) {
+              margin-#{$start_dir}: 0;
+            }
+            display: none;
+            .underline {
+              text-decoration: underline;
+            }
+            .custom-upload__button {
+              border-radius: 10px;
+            }
+          }
+          small {
+            color: #969696;
+          }
+
+          @include media($md) {
+            h4,
+            p,
+            .custom-radio label span,
+            .custom-checkbox .checkbox.bounce,
+            textarea,
+            input[type=number],
+            input,
+            .custom-upload__button.outline,
+            .button-submit,
+            .back-to-store {
+              font-size: 18px !important;
+            }
+            .payment-radio small,
+            .custom-upload small {
+              font-size: 16px;
+            }
+            .custom-radio label span:before,
+            .custom-checkbox .checkbox input {
+              width: 25px;
+              height: 25px;
+              min-width: 25px;
+            }
+            .custom-checkbox .checkbox svg {
+              width: 25px;
+              height: 25px;
+              $start-dir: 0;
+            }
+          }
+        }
+        form .row {
+          > * {
+            padding: 0;
+          }
+          .about,
+          .website {
+            flex-grow: 2;
+          }
+        }
+        .submit-container {
+          text-align: center;
+          background-color: $secondary;
+          padding: 20px 0;
+          border-top: 1px solid $primary;
+          .submit-payment {
+            text-align: center;
+            border: none;
+            color: #fff;
+            @include font-size(24px);
+            background-color: transparent;
+            &:hover {
+              color: #fff;
+            }
+          }
+        }
+        input:not([type='checkbox']),
+        textarea {
+          height: 100%;
+        }
+        .custom-checkbox .checkbox input {
+          background-color: transparent;
+        }
+        .custom-checkbox .checkbox input {
+          --b: var(--border-hover);
+        }
+        @include media ($lg) {
+          .payment-heading {
+            row-gap: 20px;
+          }
+          .title-col {
+            order: 0;
+            h4 {
+              font-size: 22px !important;
+              margin: 0;
+            }
+          }
+          .price-col {
+            order: 1;
+            h4 {
+              font-size: 22px !important;
+              margin: 0;
+            }
+          }
+          .btn-col {
+            order: 2;
+            .status-btn {
+              font-size: 13px;
+            }
+          }
+          .details-col {
+            order: 3;
+          }
+          .payment-tab-info {
+            .payment-method,
+            .payment-date,
+            .username {
+              font-size: 16px !important;
+            }
+          }
+        }
+      }
+    }
+    .payment-amounts .table-container {
+      @include margin-top(100px);
+      border-top: 1px solid $primary;
+      @include padding-top(32px);
+    }
+    .files-details {
+      .file-item {
+        border: 1px solid $primary;
+        margin-bottom: 40px;
+        transition: border 1px solid $primary;
+
+        .file-tab-info {
+          .file-date,
+          .file-size,
+          .file-type,
+          .username {
+            @include font-size(18px);
+          }
+          .file-size,
+          .file-type {
+            color: #9f9f9f;
+          }
+        }
+        .padding-50 {
+          padding: 0 50px;
+          @include media($md) {
+            padding: 0 30px;
+          }
+        }
+
+        h4,
+        h5 {
+          margin: 0;
+        }
+        .file-heading-container {
+          @include padding(0 50px);
+          .file-heading {
+            @include padding(30px 0);
+            @include media($md) {
+              padding-#{$start_dir}: 0;
+              padding: 20px 0;
+              text-align: center;
+            }
+            svg {
+              margin-top: -5px;
+            }
+          }
+          .delete-btn,
+          .download-btn {
+            @include font-size(16px);
+          }
+          .delete-btn {
+            color: #de9191;
+          }
+        }
+      }
+      @include media ($xl) {
+        .file-heading {
+          row-gap: 20px;
+        }
+        .title-col {
+          order: 0;
+          h4 {
+            font-size: 22px !important;
+            margin: 0;
+          }
+        }
+        .info-col {
+          order: 1;
+          h4 {
+            font-size: 22px !important;
+            margin: 0;
+          }
+        }
+        .details-col {
+          order: 2;
+        }
+        .btns-col {
+          order: 3;
+        }
+        .file-tab-info {
+          .file-date,
+          .file-size,
+          .file-type,
+          .username {
+            font-size: 16px !important;
+          }
+        }
+      }
+    }
+    .agents-details {
+      .agent-item {
+        border: 1px solid $primary;
+        margin-bottom: 40px;
+        transition: border 1px solid $primary;
+
+        .agent-tab-info {
+          .agent-number,
+          .agent-email,
+          .agent-type {
+            @include font-size(18px);
+          }
+          .agent-type {
+            color: #9f9f9f;
+          }
+        }
+        .padding-50 {
+          padding: 0 50px;
+          @include media($md) {
+            padding: 0 30px;
+          }
+        }
+
+        h4,
+        h5 {
+          margin: 0;
+        }
+        .agent-heading-container {
+          @include padding(0 50px);
+          .agent-heading {
+            @include padding(30px 0);
+            padding-#{$start_dir}: 50px;
+            @include media($md) {
+              padding-#{$start_dir}: 0;
+              padding: 20px 0;
+              text-align: center;
+            }
+            svg {
+              margin-top: -5px;
+            }
+          }
+          .archive-btn,
+          .agent-btn {
+            @include font-size(16px);
+          }
+          .agent-btn {
+            min-width: 120px;
+            @include media($xl) {
+              min-width: auto;
+            }
+          }
+          .delete-btn {
+            color: #9f9f9f;
+          }
+        }
+        &.inactive {
+          h4,
+          .agent-number,
+          .agent-email {
+            color: #9f9f9f;
+          }
+          .reactive {
+            background-color: #d7e3c0;
+            color: $primary !important;
+            &:hover {
+              color: $primary !important;
+              background-color: darken(#d7e3c0, 5%);
+            }
+          }
+        }
+      }
+      @include media ($xl) {
+        .agent-heading {
+          row-gap: 20px;
+        }
+        .title-col {
+          order: 0;
+          h4 {
+            font-size: 22px !important;
+            margin: 0;
+          }
+        }
+        .info-col {
+          order: 1;
+          h4 {
+            font-size: 22px !important;
+            margin: 0;
+          }
+        }
+        .details-col {
+          order: 2;
+          .status-btn {
+            font-size: 13px;
+          }
+        }
+        .btns-col {
+          order: 3;
+          @include media($xl) {
+            .archive-btn-col {
+              width: auto;
+            }
+            .agent-btn-col {
+              width: auto;
+              flex-grow: 0;
+            }
+          }
+        }
+        .agent-tab-info {
+          .agent-type,
+          .agent-number,
+          .agent-email {
+            font-size: 16px !important;
+          }
+        }
+      }
+    }
+    .upload-files-section {
+      .new-file-box {
+        border: 1px solid $primary;
+        @include padding(30px 50px);
+        .cancel {
+          color: #9f9f9f;
+          transition: color .3s ease-in-out;
+          &:hover {
+            color: $primary;
+          }
+        }
+        .form-inputs {
+          @include margin-top(40px);
+          .amk-group {
+            margin-left: 0;
+            margin-right: 0;
+          }
+          .uploaded-file {
+            @media (min-width: 1025px) {
+              min-width: 300px;
+            }
+            @include media($lg) {
+              width: 100%;
+            }
+          }
+
+          @include media($lg) {
+            .custom-upload,
+            .custom-upload__button {
+              width: 100%;
+              text-align: center;
+            }
+            .custom-upload__button {
+              border-width: 1px;
+            }
+          }
+        }
+      }
+      #upload {
+        @include margin-top(50px);
+        @include media ($md) {
+          font-size: 16px;
+        }
+      }
+    }
+    .add-agents-section {
+      .new-agent-box {
+        border: 1px solid $primary;
+        @include padding(30px 50px);
+        .cancel {
+          color: #9f9f9f;
+          transition: color .3s ease-in-out;
+          &:hover {
+            color: $primary;
+          }
+        }
+        .form-inputs {
+          @include margin-top(40px);
+          .amk-group {
+            margin-left: 0;
+            margin-right: 0;
+          }
+        }
+      }
+      #send-invitation {
+        @include margin-top(50px);
+        @include media ($md) {
+          font-size: 16px;
+        }
+      }
+      .custom-checkbox {
+        @include margin-top(30px);
+        #inviting {
+          margin-top: 4px;
+        }
+        svg {
+          top: 6px;
+          @include media ($md) {
+            top: 4px;
+            left: 0;
+          }
+        }
+      }
+    }
+  }
+  .custom-upload {
+    border-radius: 10px;
+    .custom-upload__button {
+      border-width: 1px;
     }
   }
 }

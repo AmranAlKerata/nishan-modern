@@ -526,7 +526,7 @@ $(function() {
     });
   }
   // Show uploaded file name
-  const customUpload = $(".custom-upload");
+  const customUpload = $(".custom-upload:not(.hidden-name)");
   if (customUpload.length > 0) {
     customUpload.on("change", function() {
       const fileName = $(this).find(".custom-upload__input").val();
@@ -616,9 +616,9 @@ $(function() {
   });
 
   // Scroll to the top of position form
-  $(".positions-item").on("shown.bs.collapse", function(e) {
+  $(".positions-item, .payment-item").on("shown.bs.collapse", function(e) {
     const offset = $(this).find(".collapse.show");
-    console.log(offset);
+
     $("html,body").animate(
       {
         scrollTop: offset.offset().top - 400
@@ -744,7 +744,6 @@ $(function() {
     $(".payment-radio input[type='radio']").on("click", function() {
       const checked = $(this).is(":checked");
       const id = $(this).attr("id");
-
       if (id === "bankPaymentRadio" && checked) {
         $(".bank-account-details").show();
       } else {
@@ -800,6 +799,90 @@ $(function() {
           '.filter-items .filter-item[data-category="' + category + '"]'
         ).show();
         // show only the items with the data-category attribute matching the selected category
+      }
+    });
+  }
+
+  // Set Agreements Details Section top space
+  if ($(".agreements-details-section").length > 0) {
+    $(".agreements-details-section").css(
+      "padding-top",
+      `${$("header").innerHeight()}px`
+    );
+    $(window).resize(function() {
+      $(".agreements-details-section").css(
+        "padding-top",
+        `${$("header").innerHeight()}px`
+      );
+    });
+  }
+
+  if ($(".upload-files-section").length > 0) {
+    const uploadBtn = $("#upload");
+    const newFileForm = $(".new-file-form");
+
+    const newFileBoxTemplate = `<div class="new-file-box mb-5" style="display:none;"><div class="d-flex align-items-center justify-content-between"><h4 class="mb-0 title">Add a new file</h4><button class="cancel border-0 bg-transparent">cancel</button></div><div class="padding-50 form-inputs"><div class="row gap-3 mb-4 "><div class="col-12 col-lg-8 amk-group position-relative p-0"><input autocomplete="off" type="text" class="border-effect form-control" required placeholder="Description of file" id="description" name="name"><span class="focus-border"><i></i></span></div><div class="col-12 col-lg amk-group position-relative p-0"><input autocomplete="off" type="text" class="border-effect form-control" required placeholder="Type" id="type" name="type"><span class="focus-border"><i></i></span></div></div><div class="d-flex align-items-center gap-4 flex-column flex-lg-row"><div class="custom-upload hidden-name"><label class="custom-upload__button outline" for="uploadFile" data-element="custom-upload-button">Select file</label><input class="custom-upload__input" name="uploadFile" id="uploadFile" type="file" data-behaviour="custom-upload-input"></div><div class="uploaded-file mt-0 d-flex align-items-center justify-content-between"><h5 class="mb-0">Receipt.pdf</h5><img src="./images/close.svg" alt="Close Icon"></div></div></div></div>`;
+
+    // Hide the upload button by default
+    uploadBtn.hide();
+
+    // Add a new file box when the "New file" button is clicked
+    $("#new-file").click(function() {
+      newFileForm.prepend(newFileBoxTemplate);
+      const newFileBox = newFileForm.find(".new-file-box:first-child");
+      newFileBox.fadeIn();
+      uploadBtn.show();
+      $("html, body").animate(
+        {
+          scrollTop: newFileBox.offset().top - 200
+        },
+        100
+      );
+    });
+
+    // Remove the file box when the "Cancel" button is clicked
+    newFileForm.on("click", ".cancel", function() {
+      const newFileBox = $(this).closest(".new-file-box");
+      newFileBox.remove();
+      if (newFileForm.find(".new-file-box").length === 0) {
+        uploadBtn.hide();
+      }
+    });
+  }
+
+  if ($(".add-agents-section").length > 0) {
+    const invitationBtn = $("#send-invitation");
+    const checkbox = $("#inviting-checkbox");
+    const newAgentForm = $(".new-agent-form");
+
+    const newagentBoxTemplate = `<div class="new-agent-box mb-5" style="display:none;"><div class="d-flex align-items-center justify-content-between"><h4 class="mb-0 title">Add a new agent</h4><button class="cancel border-0 bg-transparent">cancel</button></div><div class="padding-50 form-inputs"><div class="row gap-3 mb-4 "><div class="col-12 col-lg amk-group position-relative p-0"><input autocomplete="off" type="text" class="border-effect form-control" required placeholder="Name*" id="name" name="name"><span class="focus-border"><i></i></span></div><div class="col-12 col-lg amk-group position-relative p-0"><input autocomplete="off" type="tel" class="border-effect form-control" required placeholder="Mobile*" id="mobile" name="tel"><span class="focus-border"><i></i></span></div></div><div class="row gap-3"><div class="col-12 col-lg amk-group position-relative p-0"><input type="email" class="border-effect form-control" required placeholder="Email*" id="email" name="email"><span class="focus-border"><i></i></span></div><div class="col-12 col-lg amk-group p-0 d-none d-lg-block"></div></div></div></div>`;
+
+    // Hide the Invitation Btn button by default
+    invitationBtn.hide();
+    checkbox.hide();
+
+    // Add a new file box when the "New file" button is clicked
+    $("#new-agent").click(function() {
+      newAgentForm.prepend(newagentBoxTemplate);
+      const newAgentBox = newAgentForm.find(".new-agent-box:first-child");
+      newAgentBox.fadeIn();
+      invitationBtn.show();
+      checkbox.show();
+      $("html, body").animate(
+        {
+          scrollTop: newAgentBox.offset().top - 200
+        },
+        100
+      );
+    });
+
+    // Remove the file box when the "Cancel" button is clicked
+    newAgentForm.on("click", ".cancel", function() {
+      const newFileBox = $(this).closest(".new-agent-box");
+      newFileBox.remove();
+      if (newAgentForm.find(".new-agent-box").length === 0) {
+        invitationBtn.hide();
+        checkbox.hide();
       }
     });
   }
