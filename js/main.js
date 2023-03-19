@@ -743,11 +743,18 @@ $(function() {
   if ($(".payment-radio").length > 0) {
     $(".payment-radio input[type='radio']").on("click", function() {
       const checked = $(this).is(":checked");
-      const id = $(this).attr("id");
-      if (id === "bankPaymentRadio" && checked) {
-        $(".bank-account-details").show();
+      const className = $(this).attr("class");
+
+      if (className === "bank-payment-radio" && checked) {
+        $(this)
+          .parents(".has-bank-payment")
+          .find(".bank-account-details")
+          .fadeIn();
       } else {
-        $(".bank-account-details").hide();
+        $(this)
+          .parents(".has-bank-payment")
+          .find(".bank-account-details")
+          .fadeOut();
       }
     });
   }
@@ -814,6 +821,13 @@ $(function() {
         "padding-top",
         `${$("header").innerHeight()}px`
       );
+    });
+  }
+  // Set Agreements Details Section top space
+  if ($(".store-content").length > 0) {
+    $(".store-content").css("padding-top", `${$("header").innerHeight()}px`);
+    $(window).resize(function() {
+      $(".store-content").css("padding-top", `${$("header").innerHeight()}px`);
     });
   }
 

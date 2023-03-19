@@ -11,7 +11,7 @@
     @include padding(70px 0);
   }
   .page-content {
-    @include margin-top(115px);
+    @include margin-top(55px);
   }
   small {
     color: #969696;
@@ -142,7 +142,7 @@
 
     .agreement-details-top {
       @include margin-top(55px);
-      border-top: 1px solid #cccccc;
+      border-top: 1px solid #dedede;
       @include padding-top(45px);
       @include padding-bottom(45px);
       .key {
@@ -166,7 +166,8 @@
       overflow: scroll;
       z-index: 9999999999999;
       &::-webkit-scrollbar {
-        height: 3px;
+        height: 0;
+        display: none;
       }
       .container-fluid {
         border-top: 1px solid #dedede;
@@ -937,18 +938,15 @@
           }
         }
         .form-inputs {
+          .border-effect.active ~ .focus-border:after,
+          .border-effect:focus ~ .focus-border:after,
+          .border-effect:not(.js-shuffle-search):valid ~ .focus-border:after {
+            width: 100%;
+          }
           @include margin-top(40px);
           .amk-group {
             margin-left: 0;
             margin-right: 0;
-          }
-          .uploaded-file {
-            @media (min-width: 1025px) {
-              min-width: 300px;
-            }
-            @include media($lg) {
-              width: 100%;
-            }
           }
 
           @include media($lg) {
@@ -1012,8 +1010,33 @@
   }
   .custom-upload {
     border-radius: 10px;
+    @include media ($lg) {
+      width: 100%;
+    }
+    small {
+      position: absolute;
+      @include media ($lg) {
+        position: static;
+      }
+    }
     .custom-upload__button {
       border-width: 1px;
+      @include padding(16px 27px);
+    }
+  }
+}
+.uploaded-file {
+  @media (min-width: 992px) {
+    min-width: 300px;
+  }
+  @include media($lg) {
+    width: 100%;
+  }
+}
+@include media ($md) {
+  .payment-radio {
+    svg {
+      width: 23px;
     }
   }
 }
