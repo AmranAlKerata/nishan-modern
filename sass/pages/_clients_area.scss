@@ -3,9 +3,6 @@
 @use "../bootstrap/vendor/rfs" as *;
 
 .clients-area {
-  .select2-search--dropdown {
-    display: none;
-  }
   .page-top {
     background-color: #f6f6f6;
     @include padding(70px 0);
@@ -269,6 +266,11 @@
       }
     }
     .services {
+      @media (min-width: 1200px) {
+        .package-col {
+          padding-#{$end_dir}: 75px;
+        }
+      }
       %service-list {
         li {
           @include font-size(20px);
@@ -662,6 +664,7 @@
           background-color: $secondary;
           padding: 20px 0;
           border-top: 1px solid $primary;
+          transition: background-color .3s ease-in-out;
           .submit-payment {
             text-align: center;
             border: none;
@@ -671,6 +674,9 @@
             &:hover {
               color: #fff;
             }
+          }
+          &:hover {
+            background-color: $primary;
           }
         }
         input:not([type='checkbox']),
@@ -855,6 +861,15 @@
           .agent-btn {
             @include font-size(16px);
           }
+          .archive-btn {
+            transition: all .3s ease-in-out;
+            border-radius: 10px;
+            padding: 12px 30px;
+            background-color: transparent;
+            &:hover {
+              background-color: #dedede;
+            }
+          }
           .agent-btn {
             min-width: 120px;
             @include media($xl) {
@@ -1022,6 +1037,68 @@
     .custom-upload__button {
       border-width: 1px;
       @include padding(16px 27px);
+    }
+  }
+  .replay-box {
+    border: 1px solid $primary;
+    .title {
+      border-bottom: 1px solid $primary;
+      @include padding(20px 50px);
+    }
+    .padding-50 {
+      @include padding(0 50px);
+    }
+    #replay {
+      .inputs-row {
+        @include padding(20px 50px);
+        @include media ($lg) {
+          @include padding(20px 30px);
+          .col-12 {
+            padding: 0;
+          }
+        }
+      }
+      textarea.border-effect ~ .focus-border:after,
+      textarea.border-effect ~ .focus-border::before {
+        width: 0;
+      }
+      textarea.border-effect:focus ~ .focus-border:after,
+      textarea.border-effect:focus ~ .focus-border::before,
+      textarea.border-effect.active ~ .focus-border:after,
+      textarea.border-effect.active ~ .focus-border::before {
+        width: 100%;
+      }
+
+      textarea.border-effect ~ .focus-border i:after,
+      textarea.border-effect ~ .focus-border i::before {
+        height: 0;
+      }
+
+      textarea.border-effect.active ~ .focus-border i:after,
+      textarea.border-effect.active ~ .focus-border i:before {
+        height: 95.5% !important;
+      }
+
+      .submit-container {
+        text-align: center;
+        background-color: $secondary;
+        padding: 20px 0;
+        border-top: 1px solid $primary;
+        transition: background-color .3s ease-in-out;
+        .send {
+          text-align: center;
+          border: none;
+          color: #fff;
+          @include font-size(24px);
+          background-color: transparent;
+          &:hover {
+            color: #fff;
+          }
+        }
+        &:hover {
+          background-color: $primary;
+        }
+      }
     }
   }
 }

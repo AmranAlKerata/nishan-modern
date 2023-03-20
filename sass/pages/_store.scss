@@ -138,6 +138,11 @@
     }
   }
   .services {
+    @media (min-width: 1200px) {
+      .package-col {
+        padding-#{$end_dir}: 75px;
+      }
+    }
     @include margin-top(115px);
     @include media ($xl) {
       @include margin-bottom(115px);

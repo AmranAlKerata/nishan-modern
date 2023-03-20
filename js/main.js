@@ -524,6 +524,15 @@ $(function() {
     select2Select.on("change", function() {
       $(this).parent().find(".select2-container").addClass("active");
     });
+
+    if ($("body.clients-area").length > 0) {
+      $("body.clients-area .select-2-select").select2({
+        minimumResultsForSearch: Infinity
+      });
+      $("body.clients-area #cannedMessagesSelect-2").select2({
+        minimumResultsForSearch: 0
+      });
+    }
   }
   // Show uploaded file name
   const customUpload = $(".custom-upload:not(.hidden-name)");
