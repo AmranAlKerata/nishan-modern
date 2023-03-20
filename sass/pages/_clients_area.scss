@@ -1102,6 +1102,187 @@
       }
     }
   }
+  .replies {
+    @include margin-top(70px);
+    border: 1px solid $primary;
+    .title {
+      border-bottom: 1px solid $primary;
+      @include padding(20px 50px);
+    }
+    .replay-item {
+      @include padding(40px 50px);
+      border-bottom: 1px solid $primary;
+      &:last-of-type {
+        border: none;
+      }
+      &.user-item {
+        background-color: #f4f4f4;
+      }
+      .user {
+        .user-image {
+          img {
+            border-radius: 50%;
+            width: 57px;
+            height: 57px;
+            object-fit: contain;
+            @include media ($md) {
+              width: 40px;
+              height: 40px;
+            }
+          }
+        }
+
+        .user-position,
+        .user-note {
+          color: $secondary;
+          @include font-size(18px);
+          @include media ($md) {
+            font-size: 16px;
+          }
+        }
+        .user-note {
+          color: #bcbcbc;
+        }
+      }
+      .user-message,
+      .user-files {
+        @include margin-top(30px);
+        @include padding(0 50px);
+        @include media($lg) {
+          padding: 0;
+        }
+      }
+      .date {
+        span {
+          font-size: 16px;
+          color: #aaaaaa;
+          @include media ($md) {
+            font-size: 14px;
+          }
+        }
+      }
+      .uploaded-file {
+        width: fit-content;
+      }
+    }
+  }
+  .rounds-details {
+    .round-item {
+      border: 1px solid $primary;
+      &.used {
+        border: 1px dashed $primary;
+        border-spacing: 4px;
+      }
+      &.not-available {
+        border: 1px solid #9f9f9f;
+        h4 {
+          color: #9f9f9f !important;
+        }
+      }
+      margin-bottom: 40px;
+      transition: border 1px solid $primary;
+
+      .round-tab-info {
+        .round-date {
+          @include font-size(18px);
+        }
+      }
+      .padding-50 {
+        padding: 0 50px;
+        @include media($md) {
+          padding: 0 30px;
+        }
+      }
+
+      h4,
+      h5 {
+        margin: 0;
+      }
+      .round-heading-container {
+        @include padding(0 50px);
+        .round-heading {
+          @include padding(30px 0);
+          padding-#{$start_dir}: 50px;
+          @include media($md) {
+            padding-#{$start_dir}: 0;
+            padding: 20px 0;
+            text-align: center;
+          }
+          svg {
+            margin-top: -5px;
+          }
+        }
+
+        .round-btn {
+          @include font-size(16px);
+        }
+
+        .round-btn {
+          min-width: 160px;
+          @include media($xl) {
+            min-width: auto;
+          }
+          &.used {
+            border-color: #83d189;
+            color: #83d189;
+            &:hover {
+              background-color: darken(#83d189, 10%);
+            }
+          }
+          &.not-available {
+            color: #9f9f9f;
+            border: 1px solid #9f9f9f !important;
+            background-color: transparent;
+            cursor: not-allowed;
+            &:hover {
+              color: #9f9f9f !important;
+              border-color: #9f9f9f !important;
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+    @include media ($xl) {
+      .round-heading {
+        row-gap: 20px;
+      }
+      .title-col {
+        order: 0;
+        h4 {
+          font-size: 22px !important;
+          margin: 0;
+        }
+      }
+      .info-col {
+        order: 1;
+        h4 {
+          font-size: 22px !important;
+          margin: 0;
+        }
+      }
+      .details-col {
+        order: 2;
+      }
+      .btns-col {
+        order: 3;
+        @include media($xl) {
+          .archive-btn-col {
+            width: auto;
+          }
+          .round-btn-col {
+            width: auto;
+            flex-grow: 0;
+          }
+        }
+      }
+      .round-tab-info {
+        .round-date {
+          font-size: 16px !important;
+        }
+      }
+    }
+  }
 }
 .uploaded-file {
   @media (min-width: 992px) {
@@ -1109,6 +1290,11 @@
   }
   @include media($lg) {
     width: 100%;
+  }
+  @include media ($md) {
+    h5 {
+      font-size: 16px;
+    }
   }
 }
 @include media ($md) {
