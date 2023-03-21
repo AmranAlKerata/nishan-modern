@@ -504,7 +504,7 @@ body:not(.messages-body) {
   .select2-container--default .select2-search--dropdown .select2-search__field {
     line-height: 61px !important;
     padding: 0;
-    padding-left: 20px !important;
+    padding-#{$start_dir}: 20px !important;
     min-height: 61px;
   }
   .select2-container--default .select2-search--dropdown .select2-search__field {
@@ -512,7 +512,7 @@ body:not(.messages-body) {
     border: none !important;
     border-radius: 0 !important;
     padding: 0 !important;
-    padding-left: 20px !important;
+    padding-#{$start_dir}: 20px !important;
   }
   .select2-search--dropdown {
     padding: 0 !important;
@@ -537,7 +537,4 @@ body:not(.messages-body) {
   .select2-container.active .select2-selection__rendered {
     border-bottom: none !important;
   }
-  // .select2-dropdown {
-  // border-top: none !important;
-  // }
 }
