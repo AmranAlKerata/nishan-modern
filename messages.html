@@ -32,7 +32,7 @@
     <script defer src="js/main.js"></script>
 </head>
 
-<body data-anm=".anm" class="clients-area">
+<body data-anm=".anm" class="clients-area messages-body">
     <!-- Start Progress Line -->
     <div class="progress-line position-fixed" id="progress-line">
         <span></span>
@@ -327,9 +327,9 @@
                     <div class="replay-box">
                         <h4 class="title mb-0 fw-bold">Replay now</h2>
                             <form id="replay">
-                                <div class="row inputs-row mt-3 mt-lg-5">
-                                    <div class="col-12 col-lg-6">
-                                        <div class="amk-group mb-5 position-relative ">
+                                <div class="row inputs-row">
+                                    <div class="col-12 col-lg-6 pe-0">
+                                        <div class="amk-group mb-0 mb-lg-5 position-relative ">
                                             <select class="select-2-select form-control w-100" required
                                                 name="canned-messages" id="cannedMessagesSelect-2">
                                                 <option value="" disabled selected>Canned Messages</option>
@@ -343,8 +343,8 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-12 col-lg-6">
-                                        <div class="amk-group mb-5 position-relative ">
+                                    <div class="col-12 col-lg-6 ps-0">
+                                        <div class="amk-group mb-2 mb-lg-5 position-relative ">
                                             <select class="select-2-select form-control  w-100" required
                                                 name="preferences">
                                                 <option value="" disabled selected>Display Preferences</option>
@@ -359,13 +359,14 @@
                                     <div class="col-12">
                                         <div class="amk-group position-relative mb-5">
                                             <textarea name="message" class="border-effect form-control" id="details"
-                                                placeholder="Click here to write" rows="6"></textarea>
+                                                placeholder="Click here to write" rows="3"></textarea>
                                             <span class="focus-border">
                                                 <i></i>
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="d-flex align-items-center gap-4 flex-column flex-lg-row mb-3 mb-lg-5">
+                                    <div
+                                        class="d-flex align-items-center gap-4 flex-column flex-lg-row mb-3 mb-lg-5  replay-btns">
                                         <div class="custom-upload hidden-name position-relative">
                                             <label class="custom-upload__button outline" for="uploadFile-1"
                                                 data-element="custom-upload-button">Attach
@@ -401,10 +402,10 @@
                                             </div>
                                             <div class="user-info ms-3">
                                                 <h4 class="username mb-0 fw-bold">Username</h4>
+                                                <span class="user-position">Staff</span>
                                                 <div class="date text-start d-block d-md-none">
                                                     <span>14 Sep 2023</span>
                                                 </div>
-                                                <span class="user-position">Staff</span>
                                             </div>
                                         </div>
                                         <div class="date text-end d-none d-md-block">
@@ -431,10 +432,10 @@
                                             </div>
                                             <div class="user-info ms-3">
                                                 <h4 class="username mb-0 fw-bold">Username</h4>
+                                                <span class="user-position">Administrator</span>
                                                 <div class="date text-start d-block d-md-none">
                                                     <span>14 Sep 2023</span>
                                                 </div>
-                                                <span class="user-position">Administrator</span>
                                             </div>
                                         </div>
                                         <div class="date text-end d-none d-md-block">
