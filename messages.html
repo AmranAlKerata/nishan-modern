@@ -324,9 +324,12 @@
             <div class="messages-details content" id="messages">
                 <div class="container">
                     <!-- Replay box -->
-                    <div class="replay-box">
-                        <h4 class="title mb-0 fw-bold">Replay now</h2>
-                            <form id="replay">
+                    <div class="replay-box" id="replay-box">
+                        <h4 class="title mb-0 fw-bold d-flex align-items-center justify-content-between"
+                            data-bs-toggle="collapse" data-bs-target="#replay" aria-expanded="false"
+                            aria-controls="replay">Replay now</h2>
+                            <form id="replay" style="height: 0;overflow: hidden;" class="accordion-collapse collapse"
+                                data-bs-parent="#replay-box">
                                 <div class="row inputs-row">
                                     <div class="col-12 col-lg-6 pe-0">
                                         <div class="amk-group mb-0 mb-lg-5 position-relative ">

@@ -318,9 +318,12 @@
             <div class="messages-details content" id="messages">
                 <div class="container">
                     <!-- Replay box -->
-                    <div class="replay-box">
-                        <h4 class="title mb-0 fw-bold">رد الآن</h2>
-                            <form id="replay">
+                    <div class="replay-box" id="replay-box">
+                        <h4 class="title mb-0 fw-bold d-flex align-items-center justify-content-between"
+                            data-bs-toggle="collapse" data-bs-target="#replay" aria-expanded="false"
+                            aria-controls="replay">رد الآن</h2>
+                            <form id="replay" style="height: 0;overflow: hidden;" class="accordion-collapse collapse"
+                                data-bs-parent="#replay-box">
                                 <div class="row inputs-row">
                                     <div class="col-12 col-lg-6 pe-0">
                                         <div class="amk-group mb-0 mb-lg-5 position-relative ">
@@ -342,15 +345,18 @@
                                             <select class="select-2-select form-control  w-100" required
                                                 name="preferences">
                                                 <option value="" disabled selected>تفضيلات العرض</option>
-                                                <option value="1">الرد الخارجي</option>
+                                                <option value="1">
+                                                    الرد الخارجي
+                                                </option>
                                                 <option value="2">الرد الداخلي</option>
+
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-12">
                                         <div class="amk-group position-relative mb-5">
                                             <textarea name="message" class="border-effect form-control" id="details"
-                                                placeholder="انقر هنا للكتابة" rows="3"></textarea>
+                                                placeholder="إنقر هنا للكتابة" rows="3"></textarea>
                                             <span class="focus-border">
                                                 <i></i>
                                             </span>
@@ -360,9 +366,9 @@
                                         class="d-flex align-items-center gap-4 flex-column flex-lg-row mb-3 mb-lg-5  replay-btns">
                                         <div class="custom-upload hidden-name position-relative">
                                             <label class="custom-upload__button outline" for="uploadFile-1"
-                                                data-element="custom-upload-button">رفع الملف
-                                                المرفق</label>
-                                            <small class="d-block mt-2 ">الملفات المسموح بها: jpg، png، pdf</small>
+                                                data-element="custom-upload-button">إرفاق ملف</label>
+
+                                            <small class="d-block mt-2 ">الملفات المسموح بها: jpg، png، pdff</small>
 
                                             <input class="custom-upload__input" name="uploadFile-1" id="uploadFile-1"
                                                 type="file" data-behaviour="custom-upload-input">
@@ -372,7 +378,6 @@
                                             <h5 class="mb-0">Receipt.pdf</h5><img src="./images/close.svg"
                                                 alt="Close Icon">
                                         </div>
-
                                     </div>
                                 </div>
                                 <div class="submit-container ms-0">

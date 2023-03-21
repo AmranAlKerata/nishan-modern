@@ -1043,6 +1043,7 @@
   }
   .replay-box {
     border: 1px solid $primary;
+    border-bottom: 0;
     .select2-selection__rendered {
       background-color: #f4f4f4;
       color: $primary !important;
@@ -1053,18 +1054,52 @@
         padding: 1.25rem calc(1.4375rem + 2.25vw) !important;
       }
     }
-    .select-2-select[name=preferences]
+    .select-2-select[name=canned-messages]
       + .select2-container
       .select2-selection__rendered {
-      border-#{$start_dir}: 1px solid $primary;
+      border-#{$end_dir}: 1px solid $primary;
       @include media($lg) {
-        border-top: 1px solid $primary;
-        border-#{$start_dir}: none;
+        border-bottom: 1px solid $primary;
+        border-#{$end_dir}: none;
+      }
+    }
+
+    @include media($lg) {
+      span[id*=select2-preferences] {
+        border-top: 1px solid $primary !important;
       }
     }
 
     .title {
       border-bottom: 1px solid $primary;
+      position: relative;
+      &::after {
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-#{$end_dir}: 1px solid $secondary;
+        border-bottom: 1px solid $secondary;
+        border-bottom-#{$end_dir}-radius: 2px;
+        transform: rotate(-45deg);
+        @if ($lang =="ar") {
+          transform: rotate(45deg);
+        }
+        @include media ($md) {
+          width: 15px;
+          height: 15px;
+        }
+        cursor: pointer;
+
+        transition: all .3s ease-in-out;
+      }
+      &[aria-expanded=true]::after {
+        transform: rotate(45deg);
+        @if ($lang =="ar") {
+          transform: rotate(-45deg);
+        }
+      }
+
       @include padding(20px 50px);
     }
     .padding-50 {
@@ -1121,6 +1156,7 @@
         background-color: $secondary;
         padding: 20px 0;
         border-top: 1px solid $primary;
+        border-bottom: 1px solid $primary;
         transition: background-color .3s ease-in-out;
         .send {
           text-align: center;
@@ -1135,6 +1171,11 @@
         &:hover {
           background-color: $primary;
         }
+      }
+    }
+    @include media ($md) {
+      .custom-upload__button {
+        font-size: 18px;
       }
     }
   }
@@ -1343,6 +1384,9 @@
 body.messages-body {
   .select2-container--open .select2-dropdown.select2-dropdown--below {
     top: 16px;
+    @include media ($lg) {
+      top: 0;
+    }
   }
   .select2-results__option,
   .select2-container--default .select2-search--dropdown .select2-search__field {
