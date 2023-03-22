@@ -49,19 +49,19 @@
         <!-- Start Header -->
         <header class="bg-white">
             <div class="container-fluid d-flex justify-content-between
-                                    align-items-center py-4 logo-button-container px-0 px-lg-5">
+                                            align-items-center py-4 logo-button-container px-0 px-lg-5">
                 <div class="logo">
                     <a href="/">
                         <img src="images/logo.svg" alt="Logo">
                     </a>
                 </div>
                 <div class="menu d-flex justify-content-end
-                                        align-items-center gap-3" style="gap: 30px !important">
+                                                align-items-center gap-3" style="gap: 30px !important">
                     <span class="text-capitalize
-                                            login-btn lang-btn">
+                                                    login-btn lang-btn">
                         <a href="about.html">English</a></span>
                     <span class="text-capitalize
-                                            login-btn d-none d-lg-block">
+                                                    login-btn d-none d-lg-block">
                         <a href="#">تسجيل الدخول</a></span>
                     <div class="icon">
                         <div>
@@ -101,11 +101,11 @@
                             </li>
                         </ul>
                         <ul class="col-lg d-flex flex-column contact-col
-                                                align-self-end mb-5 mb-lg-0">
+                                                        align-self-end mb-5 mb-lg-0">
                             <li>
                                 <h5 class="pb-3">دعونا نبدأ شيئا لطيفا!</h5>
                                 <a href="mailto:info@bynishan.com" class="nishan-mail text-lowercase
-                                                        fw-bold m-0">info@bynishan.com</a>
+                                                                fw-bold m-0">info@bynishan.com</a>
                                 <div class="lang d-block d-lg-none">
                                     <a href="about.html">English</a>
                                 </div>
@@ -120,62 +120,41 @@
 
 
         <!-- Start Login -->
-        <section class="otp-section" id="otp-section">
-            <!-- Page Top-->
+        <section class="login-section" id="login-section">
+            <!-- Page Top -->
             <div class="page-top">
                 <div class="container">
                     <h3 class="mb-4">منطقة العميل</h3>
-                    <p>مرحبا بعودتك إسم المستخدم. <br> لقد أرسلنا رمز OTP إلى بريدك الإلكتروني ABCxxx@gmail.com و
-                        xxxxxxx123</p>
+                    <p>لقد نجحت في تسجيل الخروج من حسابك ، وقد تم حذف بيانات الجلسة الخاصة بك بنجاح.
+                    </p>
+                    <p>يسعدنا مقابلتك في أي وقت.</p>
                 </div>
             </div>
             <div class="container page-content">
                 <div class="row">
-                    <div class="col-12 col-lg-4">
-                        <form id="otp-form" class="otp-form">
-                            <h4 class="fw-bold mb-4 wow animate animate__fadeInUp delay-1">الرجاء إدخال رمز OTP</h4>
-                            <div class="otp-container justify-content-end" dir="ltr">
-                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-2">
-                                    <input type="number" min="0" max="9" maxlength="1"
-                                        class="otp-input border-effect form-controls" placeholder="*" autofocus
-                                        required>
-                                    <span class="focus-border">
-                                        <i></i>
-                                    </span>
-                                </div>
-                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-3">
-                                    <input type="number" min="0" max="9" maxlength="1"
-                                        class="otp-input border-effect form-controls" placeholder="*" required>
-                                    <span class="focus-border">
-                                        <i></i>
-                                    </span>
-                                </div>
-                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-4">
-                                    <input type="number" min="0" max="9" maxlength="1"
-                                        class="otp-input border-effect form-controls" placeholder="*" required>
-                                    <span class="focus-border">
-                                        <i></i>
-                                    </span>
-                                </div>
-                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-5">
-                                    <input type="number" min="0" max="9" maxlength="1"
-                                        class="otp-input border-effect form-controls" placeholder="*" required>
-                                    <span class="focus-border">
-                                        <i></i>
-                                    </span>
-                                </div>
-                                <div class="amk-group position-relative wow animate animate__fadeInUp delay-6">
-                                    <input type="number" min="0" max="9" maxlength="1"
-                                        class="otp-input border-effect form-controls" placeholder="*" required>
-                                    <span class="focus-border">
-                                        <i></i>
-                                    </span>
+                    <div class="col-12">
+                        <form id="login-form" class="login-form">
+                            <h4 class="fw-bold mb-4 wow animate animate__fadeInUp delay-1">أدخل بريدك الإلكتروني أو رقم
+                                هاتفك أو هويتك</h4>
+                            <div class="row">
+                                <div class="col-12 col-lg-4">
+                                    <div class="amk-group position-relative">
+                                        <input autocomplete="off" type="text"
+                                            class="border-effect form-control wow animate animate__fadeInUp delay-2"
+                                            required placeholder="أدخل بريدك الإلكتروني أو هاتفك أو هويتك" id="login"
+                                            name="login">
+                                        <span class="focus-border">
+                                            <i></i>
+                                        </span>
+                                    </div>
+
                                 </div>
                             </div>
-                            <small class=" wow animate animate__fadeInUp delay-7">سينتهي صلاحية رمز OTP في 5
-                                دقائق.</small>
-                            <div class="wow animate animate__fadeInUp delay-8">
-                                <button class="button" type="submit">تسجيل الدخول</button>
+                            <small class="wow animate animate__fadeInUp delay-3">إذا كنت بحاجة مساعدة يرجى الإتصال
+                                بمشرفك</small>
+                            <div class="wow animate animate__fadeInUp delay-4">
+                                <button class="button" type="submit">إرسال طلب تسجيل دخول</button>
+                                <a href="/" class="button outline-btn ms-2">زيارة موقعنا</a>
                             </div>
                         </form>
                     </div>
